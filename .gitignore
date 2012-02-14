@@ -1,0 +1,9 @@
+obj
+bin
+*.user
+*.suo
+/TestResults
+artifacts/*
+packages/*
+msbuild.log
+*.csproj.user
