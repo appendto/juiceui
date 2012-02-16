@@ -35,13 +35,6 @@ namespace Juice {
 		#region Widget Options
 
 		/// <summary>
-		/// Disables (true) or enables (false) the dialog. Can be set when initialising (first creating) the dialog.
-		/// Reference: http://jqueryui.com/demos/dialog/#disabled
-		/// </summary>
-		[WidgetOption("disabled", false)]
-		public bool Disabled { get; set; }
-
-		/// <summary>
 		/// When autoOpen is true the dialog will open automatically when dialog is called. If false it will stay hidden until .dialog("open") is called on it.
 		/// Reference: http://jqueryui.com/demos/dialog/#autoOpen
 		/// </summary>

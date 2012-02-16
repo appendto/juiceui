@@ -26,13 +26,6 @@ namespace Juice {
 		#region Widget Options
 
 		/// <summary>
-		/// Disables (true) or enables (false) the button. Can be set when initialising (first creating) the button.
-		/// Reference: http://jqueryui.com/demos/button/#disabled
-		/// </summary>
-		[WidgetOption("disabled", false)]
-		public bool Disabled { get; set; }
-
-		/// <summary>
 		/// Whether to show any text - when set to false (display no text), icons (see icons option) must be enabled, otherwise it'll be ignored.
 		/// Reference: http://jqueryui.com/demos/button/#text
 		/// </summary>

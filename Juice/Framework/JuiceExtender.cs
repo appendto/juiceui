@@ -9,7 +9,7 @@ namespace Juice.Framework {
 
 	public abstract class JuiceExtender : ExtenderControl, IWidget, IPostBackDataHandler {
 
-		private WebControl _targetControl;
+		private Control _targetControl;
 		private JuiceWidgetState _widgetState;
 
 		private JuiceWidgetState WidgetState {
@@ -61,10 +61,17 @@ namespace Juice.Framework {
 		protected override void OnLoad(EventArgs e) {
 			base.OnLoad(e);
 
-			// TODO: Throw if the target can't be found or isn't a WebControl
-			_targetControl = FindControl(TargetControlID) as WebControl;
+			// TODO: Throw if the target can't be found
+			_targetControl = FindControl(TargetControlID);
 
-			WidgetState.SetWidgetNameOnTarget(_targetControl);
+			if(_targetControl == null) {
+				throw new ArgumentNullException("_targetControl is null");
+			}
+
+			//System.Web.UI.HtmlControls.HtmlControl c;
+			//c.Attributes
+
+			WidgetState.SetWidgetNameOnTarget(_targetControl as IAttributeAccessor);
 			WidgetState.AddPagePreRenderCompleteHandler();
 		}
 

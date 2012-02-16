@@ -64,8 +64,8 @@ namespace Juice.Framework {
 			};
 		}
 
-		public void SetWidgetNameOnTarget(WebControl targetControl) {
-			targetControl.Attributes["data-ui-widget"] = Widget.WidgetName;
+		public void SetWidgetNameOnTarget(IAttributeAccessor targetControl) {
+			targetControl.SetAttribute("data-ui-widget", Widget.WidgetName);
 		}
 
 		public void AddPagePreRenderCompleteHandler() {
@@ -111,7 +111,7 @@ namespace Juice.Framework {
 			}
 		}
 
-		public void ParseEverything(WebControl targetControl) {
+		public void ParseEverything(Control targetControl) {
 			//update by c1 in order to override the handle the custom the option
 			//ParseOptions();
 			Widget.SaveWidgetOptions();
@@ -214,7 +214,7 @@ namespace Juice.Framework {
 			);
 		}
 
-		private void AddWidgetHash(WebControl targetControl, WidgetHash hash) {
+		private void AddWidgetHash(Control targetControl, WidgetHash hash) {
 			if(Widget.Visible) {
 				PageHashes[targetControl] = hash;
 			}

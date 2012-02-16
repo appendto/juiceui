@@ -27,13 +27,6 @@ namespace Juice {
 		#region Widget Options
 
 		/// <summary>
-		/// Disables (true) or enables (false) the autocomplete. Can be set when initialising (first creating) the autocomplete.
-		/// Reference: http://jqueryui.com/demos/autocomplete/#disabled
-		/// </summary>
-		[WidgetOption("disabled", false)]
-		public bool Disabled { get; set; }
-
-		/// <summary>
 		/// Which element the menu should be appended to.
 		/// Reference: http://jqueryui.com/demos/autocomplete/#appendTo
 		/// </summary>
@@ -74,7 +67,8 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/autocomplete/#source
 		/// </summary>
 		[WidgetOption("source", null)]
-		public string Source { get; set; }
+		[TypeConverter(typeof(StringArrayConverter))]
+		public string[] Source { get; set; }
 
 		#endregion
 

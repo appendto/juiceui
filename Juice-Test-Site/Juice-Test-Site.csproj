@@ -116,6 +116,8 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Autocomplete.aspx" />
+    <Content Include="Button.aspx" />
     <Content Include="Datepicker.aspx" />
     <Content Include="css\reset.css" />
     <Content Include="css\screen.css" />
@@ -259,6 +261,20 @@
     </Compile>
     <Compile Include="Base.Master.designer.cs">
       <DependentUpon>Base.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Autocomplete.aspx.cs">
+      <DependentUpon>Autocomplete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Autocomplete.aspx.designer.cs">
+      <DependentUpon>Autocomplete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Button.aspx.cs">
+      <DependentUpon>Button.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Button.aspx.designer.cs">
+      <DependentUpon>Button.aspx</DependentUpon>
     </Compile>
     <Compile Include="Datepicker.aspx.cs">
       <DependentUpon>Datepicker.aspx</DependentUpon>
