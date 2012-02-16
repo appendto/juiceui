@@ -26,7 +26,10 @@ namespace Juice.Framework {
 				throw new ArgumentException("The parameter must not be empty", "widgetName");
 			}
 			WidgetName = widgetName;
-			WidgetState.SetDefaultOptions();
+			//update by c1
+			//WidgetState.SetDefaultOptions();
+			SetDefaultOptions();
+			//end by c1
 		}
 
 		[WidgetOption("disabled", false)] // every widget has a disabled option.
@@ -194,6 +197,14 @@ namespace Juice.Framework {
 				return Visible;
 			}
 		}
+
+		//Add by c1
+		void IWidget.SaveWidgetOptions() {
+			((IWidget)this).WidgetOptions = SaveOptionsAsDictionary();
+		}
+
+		IDictionary<string, object> IWidget.WidgetOptions { get; set; }
+		//end by c1
 		#endregion
 
 		#region IPostBackDataHandler implementation
@@ -205,5 +216,15 @@ namespace Juice.Framework {
 			RaisePostDataChangedEvent();
 		}
 		#endregion
+
+		//update by c1
+		protected virtual IDictionary<string, object> SaveOptionsAsDictionary() {
+			return WidgetState.ParseOptions();
+		}
+
+		protected virtual void SetDefaultOptions() {
+			WidgetState.SetDefaultOptions();
+		}
+		//end by c1
 	}
 }

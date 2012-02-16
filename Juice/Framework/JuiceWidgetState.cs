@@ -72,7 +72,7 @@ namespace Juice.Framework {
 			var added = Widget.Page.Items[_pagePreRenderCompleteHandlerKey];
 			if(added == null) {
 				Widget.Page.PreRenderComplete += Page_PreRenderComplete;
-				Widget.Page.Items[_pagePreRenderCompleteHandlerKey] = new object(); ;
+				Widget.Page.Items[_pagePreRenderCompleteHandlerKey] = new object();
 			}
 		}
 
@@ -112,10 +112,15 @@ namespace Juice.Framework {
 		}
 
 		public void ParseEverything(WebControl targetControl) {
-			ParseOptions();
+			//update by c1 in order to override the handle the custom the option
+			//ParseOptions();
+			Widget.SaveWidgetOptions();
 			ParseEvents();
 
-			AddWidgetHash(targetControl, new WidgetHash(Widget.UniqueID, _options, _events));
+			//add the widgethash to dictionary
+			//AddWidgetHash(targetControl, new WidgetHash(Widget.UniqueID, _options, _events));
+			AddWidgetHash(targetControl, new WidgetHash(Widget.UniqueID, Widget.WidgetOptions, _events));
+
 		}
 
 		public void EnsureCssLink() {
@@ -161,7 +166,7 @@ namespace Juice.Framework {
 			return widgetOptions;
 		}
 
-		private void ParseOptions() {
+		internal Dictionary<String, Object> ParseOptions() {
 			foreach(var widgetOption in GetWidgetOptions(Widget.GetType())) {
 				object currentValue = widgetOption.PropertyDescriptor.GetValue(Widget);
 
@@ -183,6 +188,7 @@ namespace Juice.Framework {
 					_options.Add(widgetOption.Name, currentValue);
 				}
 			}
+			return _options;
 		}
 
 		private void ParseEvents() {
