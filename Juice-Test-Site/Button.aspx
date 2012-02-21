@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Button.aspx.cs" Inherits="Juice_Sample_Site.Button" masterpagefile="~/Base.Master" %>
-<%@ Register Assembly="Juice" Namespace="Juice" TagPrefix="Juice" %>
 <asp:content contentplaceholderid="_Content" runat="server">
   <a runat="server" href="http://google.com" ID="_Button">Oh Hai</a>
   

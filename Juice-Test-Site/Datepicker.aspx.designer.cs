@@ -11,5 +11,14 @@ namespace Juice_Sample_Site {
     
     
     public partial class Datepicker {
+        
+        /// <summary>
+        /// DoB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DoB;
     }
 }

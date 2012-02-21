@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Datepicker.aspx.cs" Inherits="Juice_Sample_Site.Datepicker" masterpagefile="~/Base.Master" %>
-<%@ Register Assembly="Juice" Namespace="Juice" TagPrefix="Juice" %>
 <asp:content contentplaceholderid="_Content" runat="server">
 
   <Juice:Accordion runat="server">

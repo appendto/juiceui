@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Slider.aspx.cs" Inherits="Juice_Sample_Site.Slider" masterpagefile="~/Base.Master" %>
-<%@ Register Assembly="Juice" Namespace="Juice" TagPrefix="Juice" %>
 <asp:content contentplaceholderid="_Content" runat="server">
 	<Juice:Slider ID="slider1" runat="server" AutoPostBack="true" 
         OnValueChanged="slider_Change" />

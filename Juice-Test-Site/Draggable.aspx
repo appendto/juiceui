@@ -1,6 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="true" CodeBehind="Draggable.aspx.cs" Inherits="Juice_Sample_Site.Draggable" %>
-<%@ Register Assembly="Juice" Namespace="Juice" TagPrefix="Juice" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="_Head" runat="server">
   <style>
     .dragBox {
