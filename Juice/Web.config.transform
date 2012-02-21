@@ -3,7 +3,7 @@
   <system.web>
     <pages>
       <controls>
-        <add assembly="Juice" namespace="Juice" tagPrefix="juice" />
+        <add assembly="JuiceUI" namespace="Juice" tagPrefix="juice" />
       </controls>
     </pages>
   </system.web>
