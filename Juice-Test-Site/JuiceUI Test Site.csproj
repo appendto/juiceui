@@ -337,7 +337,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Juice\Juice.csproj">
+    <ProjectReference Include="..\Juice\JuiceUI.csproj">
       <Project>{03C37589-6BF0-4E3B-91D7-9140D0368DB6}</Project>
       <Name>Juice</Name>
     </ProjectReference>
