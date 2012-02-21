@@ -20,6 +20,8 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\juiceui\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -391,4 +393,5 @@
     <Copy SourceFiles="..\Juice\Scripts\juice.js" DestinationFiles="Scripts\juice.js" />
     <Copy SourceFiles="..\Juice\Scripts\juice.min.js" DestinationFiles="Scripts\juice.min.js" />
   </Target>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
 </Project>
