@@ -22,20 +22,20 @@ namespace Juice {
 
 			ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
 					new ScriptResourceDefinition {
-						Path = "~/Scripts/jquery-1.6.4.min.js",
-						DebugPath = "~/Scripts/jquery-1.6.4.js",
-						CdnPath = "http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js",
-						CdnDebugPath = "http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.js",
+						Path = "~/Scripts/jquery-1.7.1.min.js",
+						DebugPath = "~/Scripts/jquery-1.7.1.js",
+						CdnPath = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js",
+						CdnDebugPath = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js",
 						CdnSupportsSecureConnection = true
 					}
 			);
 
 			ScriptManager.ScriptResourceMapping.AddDefinition("jquery-ui",
 					new ScriptResourceDefinition {
-						Path = "~/Scripts/jquery-ui-1.8.16.min.js",
-						DebugPath = "~/Scripts/jquery-ui-1.8.16.js",
-						CdnPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js",
-						CdnDebugPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js",
+						Path = "~/Scripts/jquery-ui-1.8.17.min.js",
+						DebugPath = "~/Scripts/jquery-ui-1.8.17.js",
+						CdnPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js",
+						CdnDebugPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.js",
 						CdnSupportsSecureConnection = true
 					}
 			);
