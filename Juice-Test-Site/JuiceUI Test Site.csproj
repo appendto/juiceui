@@ -62,6 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Accordian.aspx" />
+    <Content Include="Autocomplete.aspx" />
+    <Content Include="Button.aspx" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -118,8 +120,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="Autocomplete.aspx" />
-    <Content Include="Button.aspx" />
     <Content Include="Datepicker.aspx" />
     <Content Include="css\reset.css" />
     <Content Include="css\screen.css" />
@@ -231,11 +231,11 @@
     <Content Include="Scripts\amplify.js" />
     <Content Include="Scripts\amplify.min.js" />
     <Content Include="Scripts\GPL-LICENSE.txt" />
-    <Content Include="Scripts\jquery-1.6.4-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.6.4.js" />
-    <Content Include="Scripts\jquery-1.6.4.min.js" />
-    <Content Include="Scripts\jquery-ui-1.8.16.js" />
-    <Content Include="Scripts\jquery-ui-1.8.16.min.js" />
+    <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.17.js" />
+    <Content Include="Scripts\jquery-ui-1.8.17.min.js" />
     <Content Include="Scripts\json2.js" />
     <Content Include="Scripts\json2.min.js" />
     <Content Include="Scripts\juice.js" />
@@ -337,12 +337,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Juice\JuiceUI.csproj">
-      <Project>{03C37589-6BF0-4E3B-91D7-9140D0368DB6}</Project>
-      <Name>Juice</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Base.Master" />
   </ItemGroup>
   <ItemGroup>
@@ -355,6 +349,12 @@
     <None Include="fonts\junction\Junction-webfont.ttf" />
     <None Include="fonts\junction\Junction-webfont.woff" />
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Juice\JuiceUI.csproj">
+      <Project>{03C37589-6BF0-4E3B-91D7-9140D0368DB6}</Project>
+      <Name>JuiceUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -382,6 +382,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -389,9 +390,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Target Name="BeforeBuild">
-    <Copy SourceFiles="..\Juice\Scripts\juice.js" DestinationFiles="Scripts\juice.js" />
-    <Copy SourceFiles="..\Juice\Scripts\juice.min.js" DestinationFiles="Scripts\juice.min.js" />
-  </Target>
-  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
 </Project>
