@@ -23,7 +23,7 @@
     </Target>
     
     <Target Name="Build" DependsOnTargets="CreateOutputDir">
-        <MSBuild Projects="$(ProjectRoot)\Juice.sln" Targets="Build" Properties="Version=$(Version);PackageOutputDir=$(ArtifactsDir);Configuration=$(Configuration)" />
+        <MSBuild Projects="$(ProjectRoot)\JuiceUI.sln" Targets="Build" Properties="Version=$(Version);PackageOutputDir=$(ArtifactsDir);Configuration=$(Configuration)" />
     </Target>
     
 </Project>
