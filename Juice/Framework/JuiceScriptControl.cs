@@ -32,6 +32,9 @@ namespace Juice.Framework {
 			//end by c1
 		}
 
+		/// <summary>
+		/// Disables (true) or enables (false) the widget.
+		/// </summary>
 		[WidgetOption("disabled", false)] // every widget has a disabled option.
 		[Browsable(false)]
 		[EditorBrowsable(EditorBrowsableState.Never)]
