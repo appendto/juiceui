@@ -32,6 +32,9 @@ namespace Juice.Framework {
 			//end by c1
 		}
 
+		/// <summary>
+		/// Disables (true) or enables (false) the widget.
+		/// </summary>
 		[WidgetOption("disabled", false)] // every widget has a disabled option.
 		[Browsable(false)]
 		[EditorBrowsable(EditorBrowsableState.Never)]
@@ -44,6 +47,9 @@ namespace Juice.Framework {
 			}
 		}
 
+		/// <summary>
+		/// Enables (true) or disables (false) the dialog.
+		/// </summary>
 		[DefaultValue(true)]
 		[Category("Behavior")]
 		public bool Enabled {
