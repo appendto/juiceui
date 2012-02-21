@@ -39,14 +39,19 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#autoOpen
 		/// </summary>
 		[WidgetOption("autoOpen", true)]
+		[Category("Behavior")]
+		[DefaultValue(true)]
+		[Description("When autoOpen is true the dialog will open automatically when dialog is called. If false it will stay hidden until .dialog(\"open\") is called on it.")]
 		public bool AutoOpen { get; set; }
 
 		/// <summary>
 		/// Specifies which buttons should be displayed on the dialog. The property key is the text of the button. The value is the callback function for when the button is clicked.  The context of the callback is the dialog element; if you need access to the button, it is available as the target of the event object.
-
 		/// Reference: http://jqueryui.com/demos/dialog/#buttons
 		/// </summary>
 		[WidgetOption("buttons", "{}", Eval = true)]
+		[Category("Appearance")]
+		[DefaultValue("{}")]
+		[Description("Specifies which buttons should be displayed on the dialog. The property key is the text of the button. The value is the callback function for when the button is clicked.  The context of the callback is the dialog element; if you need access to the button, it is available as the target of the event object.")]
 		public string Buttons { get; set; }
 
 		/// <summary>
@@ -54,6 +59,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#closeOnEscape
 		/// </summary>
 		[WidgetOption("closeOnEscape", true)]
+		[Category("Behavior")]
+		[DefaultValue(true)]
+		[Description("Specifies whether the dialog should close when it has focus and the user presses the esacpe (ESC) key.")]
 		public bool CloseOnEscape { get; set; }
 
 		/// <summary>
@@ -61,6 +69,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#closeText
 		/// </summary>
 		[WidgetOption("closeText", "close")]
+		[Category("Appearance")]
+		[DefaultValue("close")]
+		[Description("Specifies the text for the close button. Note that the close text is visibly hidden when using a standard theme.")]
 		public string CloseText { get; set; }
 
 		/// <summary>
@@ -68,6 +79,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#dialogClass
 		/// </summary>
 		[WidgetOption("dialogClass", "")]
+		[Category("Appearance")]
+		[DefaultValue("")]
+		[Description("The specified class name(s) will be added to the dialog, for additional theming.")]
 		public string DialogClass { get; set; }
 
 		/// <summary>
@@ -75,6 +89,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#draggable
 		/// </summary>
 		[WidgetOption("draggable", true)]
+		[Category("Behavior")]
+		[DefaultValue(true)]
+		[Description("If set to true, the dialog will be draggable will be draggable by the titlebar.")]
 		public bool Draggable { get; set; }
 
 		/// <summary>
@@ -82,6 +99,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#height
 		/// </summary>
 		[WidgetOption("height", "auto")]
+		[Category("Layout")]
+		[DefaultValue("auto")]
+		[Description("The height of the dialog, in pixels. Specifying 'auto' is also supported to make the dialog adjust based on its content.")]
 		public int Height { get; set; }
 
 		/// <summary>
@@ -89,6 +109,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#hide
 		/// </summary>
 		[WidgetOption("hide", null)]
+		[Category("Behavior")]
+		[DefaultValue(null)]
+		[Description("The effect to be used when the dialog is closed.")]
 		public string Hide { get; set; }
 
 		/// <summary>
@@ -96,6 +119,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#maxHeight
 		/// </summary>
 		[WidgetOption("maxHeight", false)]
+		[Category("Layout")]
+		[DefaultValue(false)]
+		[Description("The maximum height to which the dialog can be resized, in pixels.")]
 		public int MaxHeight { get; set; }
 
 		/// <summary>
@@ -103,6 +129,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#maxWidth
 		/// </summary>
 		[WidgetOption("maxWidth", false)]
+		[Category("Layout")]
+		[DefaultValue(false)]
+		[Description("The maximum width to which the dialog can be resized, in pixels.")]
 		public int MaxWidth { get; set; }
 
 		/// <summary>
@@ -110,6 +139,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#minHeight
 		/// </summary>
 		[WidgetOption("minHeight", 150)]
+		[Category("Layout")]
+		[DefaultValue(150)]
+		[Description("The minimum height to which the dialog can be resized, in pixels.")]
 		public int MinHeight { get; set; }
 
 		/// <summary>
@@ -117,6 +149,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#minWidth
 		/// </summary>
 		[WidgetOption("minWidth", 150)]
+		[Category("Layout")]
+		[DefaultValue(150)]
+		[Description("The minimum width to which the dialog can be resized, in pixels.")]
 		public int MinWidth { get; set; }
 
 		/// <summary>
@@ -124,6 +159,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#modal
 		/// </summary>
 		[WidgetOption("modal", false)]
+		[Category("Behavior")]
+		[DefaultValue(false)]
+		[Description("If set to true, the dialog will have modal behavior; other items on the page will be disabled (i.e. cannot be interacted with). Modal dialogs create an overlay below the dialog but above other page elements.")]
 		public bool Modal { get; set; }
 
 		/// <summary>
@@ -131,6 +169,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#position
 		/// </summary>
 		[WidgetOption("position", "center")]
+		[Category("Layout")]
+		[DefaultValue("center")]
+		[Description("Specifies where the dialog should be displayed. Possible values: 1) a single string representing position within viewport: 'center', 'left', 'right', 'top', 'bottom'. 2) an array containing an x,y coordinate pair in pixel offset from left, top corner of viewport (e.g. [350,100]) 3) an array containing x,y position string values (e.g. ['right','top'] for top right corner).")]
 		public string Position { get; set; }
 
 		/// <summary>
@@ -138,6 +179,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#resizable
 		/// </summary>
 		[WidgetOption("resizable", true)]
+		[Category("Behavior")]
+		[DefaultValue(true)]
+		[Description("If set to true, the dialog will be resizeable.")]
 		public bool Resizable { get; set; }
 
 		/// <summary>
@@ -145,6 +189,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#show
 		/// </summary>
 		[WidgetOption("show", null)]
+		[Category("Appearance")]
+		[DefaultValue(null)]
+		[Description("The effect to be used when the dialog is opened.")]
 		public string Show { get; set; }
 
 		/// <summary>
@@ -152,6 +199,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#stack
 		/// </summary>
 		[WidgetOption("stack", true)]
+		[Category("Behavior")]
+		[DefaultValue(true)]
+		[Description("Specifies whether the dialog will stack on top of other dialogs. This will cause the dialog to move to the front of other dialogs when it gains focus.")]
 		public bool Stack { get; set; }
 
 		/// <summary>
@@ -159,6 +209,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#title
 		/// </summary>
 		[WidgetOption("title", "")]
+		[Category("Appearance")]
+		[DefaultValue("")]
+		[Description("Specifies the title of the dialog. Any valid HTML may be set as the title. The title can also be specified by the title attribute on the dialog source element.")]
 		public string Title { get; set; }
 
 		/// <summary>
@@ -166,6 +219,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#width
 		/// </summary>
 		[WidgetOption("width", 300)]
+		[Category("Layout")]
+		[DefaultValue(300)]
+		[Description("The width of the dialog, in pixels.")]
 		public int Width { get; set; }
 
 		/// <summary>
@@ -173,6 +229,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#zIndex
 		/// </summary>
 		[WidgetOption("zIndex", 1000)]
+		[Category("Behavior")]
+		[DefaultValue(1000)]
+		[Description("The starting z-index for the dialog.")]
 		public int ZIndex { get; set; }
 
 		#endregion
@@ -184,6 +243,8 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#close
 		/// </summary>
 		[WidgetEvent("close")]
+		[Category("Action")]
+		[Description("This event is triggered when the dialog is closed.")]
 		public event EventHandler Close;
 
 		#endregion

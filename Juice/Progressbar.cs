@@ -1,4 +1,5 @@
-﻿using System.Web.UI;
+﻿using System.ComponentModel;
+using System.Web.UI;
 using Juice.Framework;
 
 namespace Juice {
@@ -11,6 +12,9 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/progressbar/#value
 		/// </summary>
 		[WidgetOption("value", 0)]
+		[Category("Data")]
+		[DefaultValue(0)]
+		[Description("The value of the progressbar.")]
 		public int Value { get; set; }
 
 		#endregion

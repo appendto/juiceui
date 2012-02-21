@@ -20,7 +20,8 @@ namespace Juice {
 		/// </summary>
 		[WidgetOption("active", "0")]
 		[Category("Layout")]
-		[Description("Selector for the active element. Set to false to display none at start. Needs collapsible: true.\nReference: http://jqueryui.com/demos/accordion/#active")]
+		[DefaultValue("0")]
+		[Description("Selector for the active element. Set to false to display none at start. Needs collapsible: true.")]
 		public string Active { get; set; }
 
 		/// <summary>
@@ -29,7 +30,8 @@ namespace Juice {
 		/// </summary>
 		[WidgetOption("animated", "slide")]
 		[Category("Behavior")]
-		[Description("Choose your favorite animation, or disable them (set to false). In addition to the default, 'bounceslide' and all defined easing methods are supported ('bounceslide' requires UI Effects Core).\nReference: http://jqueryui.com/demos/accordion/#animated")]
+		[DefaultValue("slide")]
+		[Description("Choose your favorite animation, or disable them (set to false). In addition to the default, 'bounceslide' and all defined easing methods are supported ('bounceslide' requires UI Effects Core).")]
 		public string Animated { get; set; }
 
 		/// <summary>
@@ -38,7 +40,8 @@ namespace Juice {
 		/// </summary>
 		[WidgetOption("autoHeight", true)]
 		[Category("Layout")]
-		[Description("If set, the highest content part is used as height reference for all other parts. Provides more consistent animations.\nReference: http://jqueryui.com/demos/accordion/#autoHeight")]
+		[DefaultValue(true)]
+		[Description("If set, the highest content part is used as height reference for all other parts. Provides more consistent animations.")]
 		public bool AutoHeight { get; set; }
 
 		/// <summary>
@@ -47,7 +50,8 @@ namespace Juice {
 		/// </summary>
 		[WidgetOption("clearStyle", false)]
 		[Category("Behavior")]
-		[Description("If set, clears height and overflow styles after finishing animations. This enables accordions to work with dynamic content. Won't work together with autoHeight.\nReference: http://jqueryui.com/demos/accordion/#clearStyle")]
+		[DefaultValue(false)]
+		[Description("If set, clears height and overflow styles after finishing animations. This enables accordions to work with dynamic content. Won't work together with autoHeight.")]
 		public bool ClearStyle { get; set; }
 
 		/// <summary>
@@ -56,7 +60,8 @@ namespace Juice {
 		/// </summary>
 		[WidgetOption("collapsible", false)]
 		[Category("Behavior")]
-		[Description("Whether all the sections can be closed at once. Allows collapsing the active section by the triggering event (click is the default).\nReference: http://jqueryui.com/demos/accordion/#collapsible")]
+		[DefaultValue(false)]
+		[Description("Whether all the sections can be closed at once. Allows collapsing the active section by the triggering event (click is the default).")]
 		public bool Collapsible { get; set; }
 
 		/// <summary>
@@ -65,7 +70,8 @@ namespace Juice {
 		/// </summary>
 		[WidgetOption("event", "click")]
 		[Category("Behavior")]
-		[Description("The event on which to trigger the accordion.\nReference: http://jqueryui.com/demos/accordion/#event")]
+		[DefaultValue("click")]
+		[Description("The event on which to trigger the accordion.")]
 		public string Event { get; set; }
 
 		/// <summary>
@@ -74,15 +80,17 @@ namespace Juice {
 		/// </summary>
 		[WidgetOption("fillSpace", false)]
 		[Category("Layout")]
-		[Description("If set, the accordion completely fills the height of the parent element. Overrides autoheight.\nReference: http://jqueryui.com/demos/accordion/#fillSpace")]
+		[DefaultValue(false)]
+		[Description("If set, the accordion completely fills the height of the parent element. Overrides autoheight.")]
 		public bool FillSpace { get; set; }
 
 		/// <summary>
 		/// Selector for the header element.
 		/// Reference: http://jqueryui.com/demos/accordion/#header
 		/// </summary>
-		[WidgetOption("header", "> li > :first-child,> :not(li):even\nReference: http://jqueryui.com/demos/accordion/#header")]
+		[WidgetOption("header", "> li > :first-child,> :not(li):even")]
 		[Category("Layout")]
+		[DefaultValue("> li > :first-child,> :not(li):even")]
 		[Description("Selector for the header element.")]
 		public string Header { get; set; }
 
@@ -92,7 +100,8 @@ namespace Juice {
 		/// </summary>
 		[WidgetOption("icons", "{}", Eval = true)]
 		[Category("Appearance")]
-		[Description("Icons to use for headers. Icons may be specified for 'header' and 'headerSelected', and we recommend using the icons native to the jQuery UI CSS Framework manipulated by jQuery UI ThemeRoller\nReference: http://jqueryui.com/demos/accordion/#icons")]
+		[DefaultValue("{}")]
+		[Description("Icons to use for headers. Icons may be specified for 'header' and 'headerSelected', and we recommend using the icons native to the jQuery UI CSS Framework manipulated by jQuery UI ThemeRoller")]
 		public string Icons { get; set; }
 
 		/// <summary>
@@ -101,7 +110,8 @@ namespace Juice {
 		/// </summary>
 		[WidgetOption("navigation", false)]
 		[Category("Behavior")]
-		[Description("If set, looks for the anchor that matches location.href and activates it. Great for href-based state-saving. Use navigationFilter to implement your own matcher.\nReference: http://jqueryui.com/demos/accordion/#navigation")]
+		[DefaultValue(false)]
+		[Description("If set, looks for the anchor that matches location.href and activates it. Great for href-based state-saving. Use navigationFilter to implement your own matcher.")]
 		public bool Navigation { get; set; }
 
 		/// <summary>
@@ -110,7 +120,8 @@ namespace Juice {
 		/// </summary>
 		[WidgetOption("navigationFilter", "{}", Eval = true)]
 		[Category("Behavior")]
-		[Description("Overwrite the default location.href-matching with your own matcher.\nReference: http://jqueryui.com/demos/accordion/#navigationFilter")]
+		[DefaultValue("{}")]
+		[Description("Overwrite the default location.href-matching with your own matcher.")]
 		public string NavigationFilter { get; set; }
 
 		#endregion

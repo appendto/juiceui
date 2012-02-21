@@ -32,7 +32,8 @@ namespace Juice {
 		/// </summary>
 		[WidgetOption("text", true)]
 		[Category("Appearance")]
-		[Description("Whether to show any text - when set to false (display no text), icons (see icons option) must be enabled, otherwise it'll be ignored.\nReference: http://jqueryui.com/demos/button/#text")]
+		[DefaultValue(true)]
+		[Description("Whether to show any text - when set to false (display no text), icons (see icons option) must be enabled, otherwise it'll be ignored.")]
 		public bool Text { get; set; }
 
 		/// <summary>
@@ -41,7 +42,8 @@ namespace Juice {
 		/// </summary>
 		[WidgetOption("icons", "{}", Eval = true)]
 		[Category("Appearance")]
-		[Description("Icons to display, with or without text (see text option). The primary icon is displayed by default on the left of the label text, the secondary by default is on the right. Value for the primary and secondary properties must be a classname (String), eg. \"ui-icon-gear\". For using only one icon: icons: {primary:'ui-icon-locked'}. For using two icons: icons: {primary:'ui-icon-gear',secondary:'ui-icon-triangle-1-s'}\nReference: http://jqueryui.com/demos/button/#icons")]
+		[DefaultValue("{}")]
+		[Description("Icons to display, with or without text (see text option). The primary icon is displayed by default on the left of the label text, the secondary by default is on the right. Value for the primary and secondary properties must be a classname (String), eg. \"ui-icon-gear\". For using only one icon: icons: {primary:'ui-icon-locked'}. For using two icons: icons: {primary:'ui-icon-gear',secondary:'ui-icon-triangle-1-s'}")]
 		public string Icons { get; set; }
 
 		/// <summary>
@@ -50,7 +52,8 @@ namespace Juice {
 		/// </summary>
 		[WidgetOption("label", null)]
 		[Category("Appearance")]
-		[Description("Text to show on the button. When not specified (null), the element's html content is used, or its value attribute when it's an input element of type submit or reset; or the html content of the associated label element if its an input of type radio or checkbox\nReference: http://jqueryui.com/demos/button/#label")]
+		[DefaultValue(null)]
+		[Description("Text to show on the button. When not specified (null), the element's html content is used, or its value attribute when it's an input element of type submit or reset; or the html content of the associated label element if its an input of type radio or checkbox")]
 		public string Label { get; set; }
 
 		#endregion
