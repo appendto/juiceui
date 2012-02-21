@@ -4,11 +4,11 @@
     <id>$id$</id>
     <version>$version$</version>
     <authors>$author$</authors>
-    <projectUrl>https://github.com/appendTo/juice</projectUrl>
+    <projectUrl>https://github.com/appendTo/juiceui</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>jUICE is the jQuery UI Control Environment for ASP.NET Web Forms, providing server script and extender controls for jQuery UI widgets.</description>
+    <description>JUICE – Supercharge ASP.NET Web Forms with jQuery UI</description>
     <dependencies>
-      <dependency id="jQuery" version="1.6" />
+      <dependency id="jQuery" version="1.7.1" />
       <dependency id="jQuery.UI.Combined" version="1.8.14" />
       <dependency id="json2" />
       <dependency id="AmplifyJS" />
