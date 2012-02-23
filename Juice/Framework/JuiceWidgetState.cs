@@ -124,6 +124,11 @@ namespace Juice.Framework {
 		}
 
 		public void EnsureCssLink() {
+
+			if(Widget.Page.Header == null) {
+				throw new InvalidOperationException("The Page or MasterPage must contain a HEAD tag with the 'runat=\"server\"' attribute.");
+			}
+
 			if(Widget.Page.Header.FindControl(_cssLinkId) == null) {
 				if(Widget.Page.Header == null) {
 					throw new InvalidOperationException("The Page or MasterPage must contain a HEAD tag with the 'runat=\"server\"' attribute.");
