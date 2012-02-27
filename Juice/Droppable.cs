@@ -44,7 +44,8 @@ namespace Juice {
 		[Category("Layout")]
 		[DefaultValue(false)]
 		[Description("If specified, the class will be added to the droppable while an acceptable draggable is being dragged.")]
-    public string ActiveClass { get; set; }
+		[TypeConverter(typeof(StringToObjectConverter))]
+    public dynamic ActiveClass { get; set; }
 
     /// <summary>
     /// If set to false, will prevent the ui-droppable class from being added. This may be desired as a performance optimization when calling .droppable() init on many hundreds of elements.
@@ -74,7 +75,8 @@ namespace Juice {
 		[Category("Layout")]
 		[DefaultValue(false)]
 		[Description("If specified, the class will be added to the droppable while an acceptable draggable is being hovered.")]
-    public string HoverClass { get; set; }
+		[TypeConverter(typeof(StringToObjectConverter))]
+    public dynamic HoverClass { get; set; }
 
     /// <summary>
     /// Used to group sets of draggable and droppable items, in addition to droppable's accept option. A draggable with the same scope value as a droppable will be accepted.

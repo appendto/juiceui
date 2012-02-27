@@ -120,6 +120,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Droppable.aspx" />
     <Content Include="Dialog.aspx" />
     <Content Include="Datepicker.aspx" />
     <Content Include="css\reset.css" />
@@ -278,6 +279,13 @@
     </Compile>
     <Compile Include="Button.aspx.designer.cs">
       <DependentUpon>Button.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Droppable.aspx.cs">
+      <DependentUpon>Droppable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Droppable.aspx.designer.cs">
+      <DependentUpon>Droppable.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dialog.aspx.cs">
       <DependentUpon>Dialog.aspx</DependentUpon>
