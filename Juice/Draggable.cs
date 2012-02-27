@@ -195,7 +195,8 @@ namespace Juice {
 		[Category("Behavior")]
 		[DefaultValue(null)]
 		[Description("If set to true, the element will return to its start position when dragging stops. Possible string values: 'valid', 'invalid'. If set to invalid, revert will only occur if the draggable has not been dropped on a droppable. For valid, it's the other way around.")]
-		public string Revert { get; set; }
+		[TypeConverter(typeof(StringToObjectConverter))]
+		public dynamic Revert { get; set; }
 
 		/// <summary>
 		/// The duration of the revert animation, in milliseconds. Ignored if revert is false.
