@@ -49,6 +49,7 @@ namespace Juice {
 		[Category("Behavior")]
 		[DefaultValue("slow")]
 		[Description("Duration time for animating, in milliseconds. Other possible values: 'slow', 'normal', 'fast'.")]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		public dynamic AnimateDuration { get; set; }
 
 		/// <summary>
@@ -69,6 +70,7 @@ namespace Juice {
 		[Category("Behavior")]
 		[DefaultValue(false)]
 		[Description("If set to true, resizing is constrained by the original aspect ratio. Otherwise a custom aspect ratio can be specified, such as 9 / 16, or 0.5.")]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		public dynamic AspectRatio { get; set; }
 
 		/// <summary>
