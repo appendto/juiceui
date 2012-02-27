@@ -98,7 +98,7 @@ namespace Juice {
 		/// The height of the dialog, in pixels. Specifying 'auto' is also supported to make the dialog adjust based on its content.
 		/// Reference: http://jqueryui.com/demos/dialog/#height
 		/// </summary>
-		[WidgetOption("height", "auto")]
+		[WidgetOption("height", 0)]
 		[Category("Layout")]
 		[DefaultValue("auto")]
 		[Description("The height of the dialog, in pixels. Specifying 'auto' is also supported to make the dialog adjust based on its content.")]
@@ -118,7 +118,7 @@ namespace Juice {
 		/// The maximum height to which the dialog can be resized, in pixels.
 		/// Reference: http://jqueryui.com/demos/dialog/#maxHeight
 		/// </summary>
-		[WidgetOption("maxHeight", false)]
+		[WidgetOption("maxHeight", 0)]
 		[Category("Layout")]
 		[DefaultValue(false)]
 		[Description("The maximum height to which the dialog can be resized, in pixels.")]
@@ -128,7 +128,7 @@ namespace Juice {
 		/// The maximum width to which the dialog can be resized, in pixels.
 		/// Reference: http://jqueryui.com/demos/dialog/#maxWidth
 		/// </summary>
-		[WidgetOption("maxWidth", false)]
+		[WidgetOption("maxWidth", 0)]
 		[Category("Layout")]
 		[DefaultValue(false)]
 		[Description("The maximum width to which the dialog can be resized, in pixels.")]
