@@ -28,4 +28,7 @@
 		});
 
 	</script>
+
+	<juice:slider ID="_Range" runat="server" Range="true" Min="0" Max="500" Values="75, 300" />
+
 </asp:content>

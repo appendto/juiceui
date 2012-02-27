@@ -38,5 +38,14 @@ namespace Juice_Sample_Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Juice.Slider slider2;
+        
+        /// <summary>
+        /// _Range control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Juice.Slider _Range;
     }
 }
