@@ -10,9 +10,10 @@ using Juice.Framework;
 
 namespace Juice {
 	/// <summary>
-	/// Extend a Panel with the jQuery UI Resizable behavior http://jqueryui.com/demos/resizable/
+	/// Extend a Control with the jQuery UI Resizable behavior http://jqueryui.com/demos/resizable/
 	/// </summary>
-	[TargetControlType(typeof(Panel))]
+	[TargetControlType(typeof(WebControl))]
+	[TargetControlType(typeof(System.Web.UI.HtmlControls.HtmlControl))]
 	[WidgetEvent("create")]
 	[WidgetEvent("start")]
 	[WidgetEvent("resize")]
