@@ -20,5 +20,14 @@ namespace Juice_Sample_Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Juice.ProgressBar progress;
+        
+        /// <summary>
+        /// _Resizable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Juice.ProgressBar _Resizable;
     }
 }
