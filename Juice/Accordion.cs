@@ -10,7 +10,11 @@ namespace Juice {
 	[ParseChildren(typeof(AccordionPanel), DefaultProperty = "AccordionPanels", ChildrenAsProperties = true)]
 	public class Accordion : JuiceScriptControl {
 
-		public Accordion() : base("accordion") { }
+		private List<AccordionPanel> _panels;
+
+		public Accordion() : base("accordion") {
+			this._panels = new List<AccordionPanel>();
+		}
 
 		#region Widget Options
 
@@ -128,7 +132,10 @@ namespace Juice {
 
 		[PersistenceMode(PersistenceMode.InnerProperty)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public List<AccordionPanel> AccordionPanels { get; set; }
+		public List<AccordionPanel> AccordionPanels { 
+			get { return this._panels;  }
+
+		}
 
 		protected override HtmlTextWriterTag TagKey {
 			get {

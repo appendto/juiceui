@@ -11,7 +11,11 @@ namespace Juice {
 	[WidgetEvent("select")]
 	public class Tabs : JuiceScriptControl {
 
-		public Tabs() : base("tabs") { }
+		private List<TabPage> _tabPages;
+
+		public Tabs() : base("tabs") {
+			_tabPages = new List<TabPage>();
+		}
 
 		#region Widget Options
 
@@ -141,7 +145,7 @@ namespace Juice {
 		[PersistenceMode(PersistenceMode.InnerProperty)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		[TemplateContainer(typeof(TabPage))]
-		public List<TabPage> TabPages { get; set; }
+		public List<TabPage> TabPages { get { return this._tabPages; } }
 
 		#region Widget Events
 
