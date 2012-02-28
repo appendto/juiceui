@@ -83,6 +83,7 @@
     <Compile Include="JuiceApp.cs" />
     <Compile Include="Framework\JuiceScriptControl.cs" />
     <Compile Include="Position.cs" />
+    <Compile Include="Selectable.cs" />
     <Compile Include="Slider.cs" />
     <Compile Include="Framework\Int32ArrayConverter.cs" />
     <Compile Include="Framework\JuiceExtender.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resizable.cs" />
     <Compile Include="Framework\WidgetHash.cs" />
+    <Compile Include="Sortable.cs" />
     <Compile Include="TabPage.cs" />
     <Compile Include="TabPageTemplateContainer.cs" />
     <Compile Include="Tabs.cs" />
