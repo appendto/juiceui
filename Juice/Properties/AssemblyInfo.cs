@@ -7,11 +7,11 @@ using System.Web.UI;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("JuiceUI")]
-[assembly: AssemblyDescription("JUICE – Supercharge ASP.NET Web Forms with jQuery UI")]
+[assembly: AssemblyTitle("Juice UI")]
+[assembly: AssemblyDescription("Juice UI – Supercharge ASP.NET Web Forms with jQuery UI")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("appendTo")]
-[assembly: AssemblyProduct("JuiceUI")]
+[assembly: AssemblyProduct("Juice UI")]
 [assembly: AssemblyCopyright("Copyright © appendTo 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -34,5 +34,5 @@ using System.Web.UI;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.2.0.0")]
-[assembly: AssemblyFileVersion("0.2.0.0")]
+[assembly: AssemblyVersion("0.9.0.0")]
+[assembly: AssemblyFileVersion("0.9.0.0")]
