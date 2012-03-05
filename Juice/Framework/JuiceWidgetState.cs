@@ -183,10 +183,9 @@ namespace Juice.Framework {
 						&& widgetOption.DefaultValue.GetType().IsArray
 						&& ((IEnumerable<object>)currentValue).ItemsAreEqual((IEnumerable<object>)widgetOption.DefaultValue);
 
-				if((currentValue == null && widgetOption.DefaultValue != null) ||
-						(currentValue != null && !currentValue.Equals(widgetOption.DefaultValue) && !arraysEqual)) {
+				if((currentValue == null && widgetOption.DefaultValue != null) || (currentValue != null && !currentValue.Equals(widgetOption.DefaultValue) && !arraysEqual)) {
 					if(widgetOption.RequiresEval) {
-						currentValue = "eval('(' +" + currentValue + "+ ')')";
+						currentValue = new { eval = true, on = currentValue }; //"eval('(' +" + currentValue + "+ ')')";
 					}
 
 					// Add it to the list of options to include in the rendered client state
@@ -265,9 +264,7 @@ namespace Juice.Framework {
 					events = (from widgetEvent in widgetHash.Value.Events
 										select new WidgetHashClientState {
 											Name = widgetEvent.Name,
-											PostBackEventReference = isAutoPostBack && widgetEvent.PostBackHandler != null
-												? widgetEvent.PostBackHandler.Value
-												: null
+											PostBackEventReference = isAutoPostBack && widgetEvent.PostBackHandler != null ? widgetEvent.PostBackHandler.Value : null
 										}).ToArray()
 				};
 
@@ -275,7 +272,9 @@ namespace Juice.Framework {
 			}
 
 			var serializer = new JavaScriptSerializer();
+			
 			serializer.RegisterConverters(new[] { new WidgetHashClientStateJavaScriptConverter() });
+
 			var json = serializer.Serialize(widgetState);
 			var script = String.Format(CultureInfo.InvariantCulture, _hashScript, json, GetCssUrl(page));
 

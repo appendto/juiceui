@@ -1,8 +1,4 @@
-﻿/// <reference name="MicrosoftAjax.js" />
-/*!
-* jUICE - jQuery UI Control Environment for ASP.NET Web Forms
-*/
-(function ( $ ) {
+﻿(function ( $ ) {
 	'use strict';
 	var stateFieldId = '_juiceWidgetOptions',
 
@@ -73,6 +69,21 @@
         	}
         };
       });
+
+			$.each( widget.options, function( prop ) {
+				if( this.eval ){
+					var on = this.on;
+
+					try {
+						widget.options[ prop ] = eval( '(' + this.on + ')' );
+					}
+					catch ( e ) { // if bad data/string is entered for the Eval property, an exception is thrown. Remove the bad data and prop.
+						delete widget.options[ prop ];
+						
+						window.console && console.log && console.log( 'Juice UI Error > elementId: ' + id + '. widget: "' + widgetName + '". Bad data in "' + prop + '" option.' );
+					}
+				}
+			});
 
       // merge events with options
       $.extend( widget.options, events );
