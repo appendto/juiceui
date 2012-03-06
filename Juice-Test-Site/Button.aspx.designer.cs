@@ -20,5 +20,14 @@ namespace Juice_Sample_Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor _Button;
+        
+        /// <summary>
+        /// _Buttonset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _Buttonset;
     }
 }

@@ -63,6 +63,7 @@
     <Compile Include="Accordion.cs" />
     <Compile Include="AccordionPanel.cs" />
     <Compile Include="AccordionPanelTemplateContainer.cs" />
+    <Compile Include="Buttonset.cs" />
     <Compile Include="Framework\StringToObjectConverter.cs" />
     <Compile Include="Framework\WidgetEventAttribute.cs" />
     <Compile Include="Autocomplete.cs" />

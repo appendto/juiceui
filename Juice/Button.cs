@@ -27,6 +27,8 @@ namespace Juice {
 
 		public Button() : base("button") { }
 
+		public Button(String widgetName) : base(widgetName) { } // adds support for Buttonset class.
+
 		#region Widget Options
 
 		/// <summary>
