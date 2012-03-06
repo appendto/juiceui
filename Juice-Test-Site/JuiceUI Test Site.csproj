@@ -282,6 +282,9 @@
     <Compile Include="Button.aspx.designer.cs">
       <DependentUpon>Button.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Datepicker.aspx.designer.cs">
+      <DependentUpon>Datepicker.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Selectable.aspx.cs">
       <DependentUpon>Selectable.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -313,9 +316,6 @@
     <Compile Include="Datepicker.aspx.cs">
       <DependentUpon>Datepicker.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Datepicker.aspx.designer.cs">
-      <DependentUpon>Datepicker.aspx</DependentUpon>
     </Compile>
     <Compile Include="Draggable.aspx.cs">
       <DependentUpon>Draggable.aspx</DependentUpon>

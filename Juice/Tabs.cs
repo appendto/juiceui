@@ -17,6 +17,11 @@ namespace Juice {
 			_tabPages = new List<TabPage>();
 		}
 
+		[PersistenceMode(PersistenceMode.InnerProperty)]
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+		[TemplateContainer(typeof(TabPage))]
+		public List<TabPage> TabPages { get { return this._tabPages; } }
+
 		#region Widget Options
 
 		/// <summary>
@@ -142,11 +147,6 @@ namespace Juice {
 
 		#endregion
 
-		[PersistenceMode(PersistenceMode.InnerProperty)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		[TemplateContainer(typeof(TabPage))]
-		public List<TabPage> TabPages { get { return this._tabPages; } }
-
 		#region Widget Events
 
 		/// <summary>
@@ -166,6 +166,26 @@ namespace Juice {
 			}
 		}
 
+		public override ControlCollection Controls {
+			get {
+				this.EnsureChildControls();
+				return base.Controls;
+			}
+		}
+
+		protected override void OnPreRender(EventArgs e) {
+
+			this.Controls.Clear();
+
+			if(TabPages != null) {
+				foreach(TabPage page in TabPages) {
+					this.Controls.Add(page);
+				}
+			}
+
+			base.OnPreRender(e);
+		}
+
 		protected override void Render(HtmlTextWriter writer) {
 
 			this.RenderBeginTag(writer);
@@ -179,13 +199,9 @@ namespace Juice {
 					writer.WriteFullBeginTag("li");
 
 					writer.WriteBeginTag("a");
-
 					writer.WriteAttribute("href", "#" + page.ClientID);
-
 					writer.Write(HtmlTextWriter.TagRightChar);
-
 					writer.Write(page.Title);
-
 					writer.WriteEndTag("a");
 
 					writer.WriteEndTag("li");
@@ -194,19 +210,7 @@ namespace Juice {
 
 			writer.WriteEndTag("ul");
 
-			if(TabPages != null) {
-				foreach(TabPage page in TabPages) {
-					writer.WriteBeginTag("div");
-
-					writer.WriteAttribute("id", page.ClientID);
-
-					writer.Write(HtmlTextWriter.TagRightChar);
-
-					page.TemplateContainer.RenderControl(writer);
-
-					writer.WriteEndTag("div");
-				}
-			}
+			this.RenderChildren(writer);
 
 			this.RenderEndTag(writer);
 		}

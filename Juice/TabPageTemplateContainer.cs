@@ -1,13 +1,11 @@
 ﻿using System.Web.UI;
+using System.ComponentModel;
 
 namespace Juice {
 
+	[ToolboxItem(false)]
 	public class TabPageTemplateContainer : Control, INamingContainer {
 
-		private TabPage _parentTab;
-
-		public TabPageTemplateContainer(TabPage ParentTab) {
-			this._parentTab = ParentTab;
-		}
+		public TabPageTemplateContainer() { }
 	}
 }
