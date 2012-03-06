@@ -9,6 +9,8 @@ using Juice.Framework;
 namespace Juice {
 	[PersistChildren(true)]
 	[ParseChildren(typeof(AccordionPanel), DefaultProperty = "AccordionPanels", ChildrenAsProperties = true)]
+	[WidgetEvent("create")]
+	[WidgetEvent("changestart")]
 	public class Accordion : JuiceScriptControl {
 
 		private List<AccordionPanel> _panels;
@@ -128,6 +130,20 @@ namespace Juice {
 		[DefaultValue("{}")]
 		[Description("Overwrite the default location.href-matching with your own matcher.")]
 		public string NavigationFilter { get; set; }
+
+		#endregion
+
+		#region Widget Events
+		
+		/// <summary>
+		/// This event is triggered every time the accordion changes. If the accordion is animated, the event will be triggered upon completion of the animation; otherwise, it is triggered immediately.
+		/// 
+		/// Reference: http://jqueryui.com/demos/accordion/#change
+		/// </summary>
+		[WidgetEvent("change")]
+		[Category("Action")]
+		[Description("This event is triggered when a tab is shown.")]
+		public event EventHandler SelectedPanelChanged;
 
 		#endregion
 
