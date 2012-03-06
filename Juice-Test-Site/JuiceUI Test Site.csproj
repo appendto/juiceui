@@ -61,7 +61,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Accordian.aspx" />
+    <Content Include="Accordion.aspx" />
     <Content Include="Autocomplete.aspx" />
     <Content Include="Button.aspx" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -254,12 +254,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accordian.aspx.cs">
-      <DependentUpon>Accordian.aspx</DependentUpon>
+    <Compile Include="Accordion.aspx.cs">
+      <DependentUpon>Accordion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Accordian.aspx.designer.cs">
-      <DependentUpon>Accordian.aspx</DependentUpon>
+    <Compile Include="Accordion.aspx.designer.cs">
+      <DependentUpon>Accordion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Base.Master.cs">
       <DependentUpon>Base.Master</DependentUpon>

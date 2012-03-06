@@ -3,6 +3,7 @@
 namespace Juice {
 
 	[ParseChildren(true)]
+	[PersistChildren(false)]
 	public class AccordionPanel : Control, INamingContainer {
 
 		private Control _templateContainer;
@@ -27,6 +28,26 @@ namespace Juice {
 				PanelContent.InstantiateIn(_templateContainer);
 				Controls.Add(_templateContainer);
 			}
+		}
+
+		protected override void Render(HtmlTextWriter writer) {
+
+			writer.WriteFullBeginTag("h3");
+
+			writer.WriteBeginTag("a");
+			writer.AddAttribute("href", "#");
+			writer.Write(HtmlTextWriter.TagRightChar);
+			writer.Write(Title);
+			writer.WriteEndTag("a");
+
+			writer.WriteEndTag("h3");
+
+			// Panel content wrapper div
+			writer.WriteFullBeginTag("div");
+
+			base.Render(writer);
+
+			writer.WriteEndTag("div");
 		}
 	}
 

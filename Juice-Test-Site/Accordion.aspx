@@ -1,29 +1,20 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Accordion.aspx.cs" Inherits="Juice_Sample_Site.Accordion" %>
-<%@ Register Assembly="Juice" Namespace="Juice" TagPrefix="Juice" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Accordion.aspx.cs" Inherits="Juice_Sample_Site.Accordion" masterpagefile="~/Base.Master" %>
+<asp:content contentplaceholderid="_Content" runat="server">
 
-<!DOCTYPE html>
+  <Juice:Accordion runat="server">
+    <Juice:AccordionPanel Title="Panel 1">
+      <PanelContent>
+        Panel 1's content.
+				<asp:TextBox runat="server" ID="dob1" ClientIDMode="Static" />
+				<juice:Datepicker runat="server" TargetControlID="dob1" />
+      </PanelContent>
+    </Juice:AccordionPanel>
 
-<html>
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <asp:ScriptManager runat="server" />
-    
-    <Juice:Accordion runat="server">
-      <Juice:AccordionPanel Title="Panel 1">
-        <PanelContent>
-          Panel 1's content.
-        </PanelContent>
-      </Juice:AccordionPanel>
+    <Juice:AccordionPanel Title="Panel 2">
+      <PanelContent>
+        Panel 2's content.
+      </PanelContent>
+    </Juice:AccordionPanel>
+  </Juice:Accordion>
 
-      <Juice:AccordionPanel Title="Panel 2">
-        <PanelContent>
-          Panel 2's content.
-        </PanelContent>
-      </Juice:AccordionPanel>
-    </Juice:Accordion>
-    </form>
-</body>
-</html>
+</asp:content>

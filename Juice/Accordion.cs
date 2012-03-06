@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Web.UI;
@@ -143,35 +144,55 @@ namespace Juice {
 			}
 		}
 
-		protected override void Render(HtmlTextWriter writer) {
-			
-			this.RenderBeginTag(writer);
+		public override ControlCollection Controls {
+			get {
+				this.EnsureChildControls();
+				return base.Controls;
+			}
+		}
 
-			foreach(AccordionPanel panel in AccordionPanels) {
-				// Write out the header <h3><a>Title</a></h3> structure.
-				writer.WriteFullBeginTag("h3");
+		protected override void OnPreRender(EventArgs e) {
 
-				writer.WriteBeginTag("a");
+			this.Controls.Clear();
 
-				writer.AddAttribute("href", "#");
-
-				writer.Write(HtmlTextWriter.TagRightChar);
-
-				writer.Write(panel.Title);
-
-				writer.WriteEndTag("a");
-
-				writer.WriteEndTag("h3");
-
-				// Write out the <div> that contains the panel's content.
-				writer.WriteFullBeginTag("div");
-
-				panel.TemplateContainer.RenderControl(writer);
-
-				writer.WriteEndTag("div");
+			if(AccordionPanels != null) {
+				foreach(AccordionPanel panel in AccordionPanels) {
+					this.Controls.Add(panel);
+				}
 			}
 
-			this.RenderEndTag(writer);
+			base.OnPreRender(e);
 		}
+
+		//protected override void Render(HtmlTextWriter writer) {
+			
+		//  this.RenderBeginTag(writer);
+
+		//  foreach(AccordionPanel panel in AccordionPanels) {
+		//    // Write out the header <h3><a>Title</a></h3> structure.
+		//    writer.WriteFullBeginTag("h3");
+
+		//    writer.WriteBeginTag("a");
+
+		//    writer.AddAttribute("href", "#");
+
+		//    writer.Write(HtmlTextWriter.TagRightChar);
+
+		//    writer.Write(panel.Title);
+
+		//    writer.WriteEndTag("a");
+
+		//    writer.WriteEndTag("h3");
+
+		//    // Write out the <div> that contains the panel's content.
+		//    writer.WriteFullBeginTag("div");
+
+		//    panel.TemplateContainer.RenderControl(writer);
+
+		//    writer.WriteEndTag("div");
+		//  }
+
+		//  this.RenderEndTag(writer);
+		//}
 	}
 }
