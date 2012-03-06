@@ -40,20 +40,20 @@
 			  .appendTo( window.theForm ); // theForm is defined by asp.net
     }
 
-    $.each( Juice.widgets, function ( id, widget ) {
-      var element = $( '#' + id ),
-        widgetName = element.attr( 'data-ui-widget' ),
+    $.each( Juice.widgets, function ( index, widget ) {
+      var element = $( '#' + widget.id ),
+        widgetName = widget.widgetName,
         events = {};
 
-      if ( !widgetName || !$.fn[widgetName] ) {
-        return;
-      }
+			if( !widgetName || !$.fn[widgetName] ) {
+				return;
+			}
 
       $.each( widget.events, function () {
         var event = this;
         events[event.name] = function ( jqEvent, ui ) {
         	var args = [].slice.call( arguments, 0 ),
-            topic = id + '.' + widgetName + '.' + event.name,
+            topic = widget.id + '.' + widgetName + '.' + event.name,
             uiWidget = element.data( widgetName );
 
         	args.splice( 0, 0, topic );
@@ -80,7 +80,7 @@
 					catch ( e ) { // if bad data/string is entered for the Eval property, an exception is thrown. Remove the bad data and prop.
 						delete widget.options[ prop ];
 						
-						window.console && console.log && console.log( 'Juice UI Error > elementId: ' + id + '. widget: "' + widgetName + '". Bad data in "' + prop + '" option.' );
+						window.console && console.log && console.log( 'Juice UI Error > elementId: ' + widget.id + '. widget: "' + widgetName + '". Bad data in "' + prop + '" option.' );
 					}
 				}
 			});
@@ -95,7 +95,7 @@
 
       // Wire up dispose method which update panels will call when element is destroyed
       element[0].dispose = function () {
-        delete Juice.widgets[id];
+        delete Juice.widgets[widget.id];
       };
     });
   },

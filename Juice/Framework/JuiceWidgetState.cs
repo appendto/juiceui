@@ -38,11 +38,11 @@ namespace Juice.Framework {
 		private Dictionary<String, Object> _options = new Dictionary<String, Object>();
 		private List<WidgetEvent> _events = new List<WidgetEvent>();
 
-		private Dictionary<Control, WidgetHash> PageHashes {
+		private List<WidgetHash> PageHashes {
 			get {
-				var hashes = Widget.Page.Items[_hashesKey] as Dictionary<Control, WidgetHash>;
+				List<WidgetHash> hashes = Widget.Page.Items[_hashesKey] as List<WidgetHash>;
 				if(hashes == null) {
-					hashes = new Dictionary<Control, WidgetHash>();
+					hashes = new List<WidgetHash>();
 					Widget.Page.Items[_hashesKey] = hashes;
 				}
 				return hashes;
@@ -64,8 +64,14 @@ namespace Juice.Framework {
 			};
 		}
 
+		// This has become pure decoration. I still think it's nice to have for developmental purposes/reference. 
 		public void SetWidgetNameOnTarget(IAttributeAccessor targetControl) {
-			targetControl.SetAttribute("data-ui-widget", Widget.WidgetName);
+			
+			String attr = targetControl.GetAttribute("data-ui-widget") ?? String.Empty;
+
+			attr = String.IsNullOrEmpty(attr) ? Widget.WidgetName : String.Join(",", attr, Widget.WidgetName);
+
+			targetControl.SetAttribute("data-ui-widget", attr);
 		}
 
 		public void AddPagePreRenderCompleteHandler() {
@@ -119,8 +125,7 @@ namespace Juice.Framework {
 
 			//add the widgethash to dictionary
 			//AddWidgetHash(targetControl, new WidgetHash(Widget.UniqueID, _options, _events));
-			AddWidgetHash(targetControl, new WidgetHash(Widget.UniqueID, Widget.WidgetOptions, _events));
-
+			AddWidgetHash(new WidgetHash(Widget, _events, targetControl));
 		}
 
 		public void EnsureCssLink() {
@@ -147,15 +152,11 @@ namespace Juice.Framework {
 		}
 
 		private static string GetCssUrl(Page page) {
-			var isDebug = HttpContext.Current.IsDebuggingEnabled;
-			var href = ScriptManager.GetCurrent(page).EnableCdn
-					? isDebug
-							? JuiceOptions.CssCdnDebugPath
-							: JuiceOptions.CssCdnPath
-					: page.ResolveUrl(
-							isDebug
-									? JuiceOptions.CssDebugPath
-									: JuiceOptions.CssPath);
+			Boolean isDebug = HttpContext.Current.IsDebuggingEnabled;
+			String href = ScriptManager.GetCurrent(page).EnableCdn ?
+				isDebug ? JuiceOptions.CssCdnDebugPath : JuiceOptions.CssCdnPath :
+				page.ResolveUrl(isDebug ? JuiceOptions.CssDebugPath : JuiceOptions.CssPath);
+
 			return href;
 		}
 
@@ -218,9 +219,9 @@ namespace Juice.Framework {
 			);
 		}
 
-		private void AddWidgetHash(Control targetControl, WidgetHash hash) {
+		private void AddWidgetHash(WidgetHash hash) {
 			if(Widget.Visible) {
-				PageHashes[targetControl] = hash;
+				PageHashes.Add(hash);
 			}
 		}
 
@@ -253,30 +254,32 @@ namespace Juice.Framework {
 				return;
 			}
 
-			var widgetState = new Dictionary<string, object>();
+			List<object> widgetState = new List<object>();
 
-			foreach(var widgetHash in PageHashes) {
-				var autoPostBackWidget = widgetHash.Key as IAutoPostBackWidget;
+			foreach(WidgetHash widgetHash in PageHashes) {
+				var autoPostBackWidget = widgetHash.TargetControl as IAutoPostBackWidget;
 				var isAutoPostBack = autoPostBackWidget != null && autoPostBackWidget.AutoPostBack;
 				var item = new {
-					uniqueId = widgetHash.Value.UniqueId,
-					options = widgetHash.Value.Options,
-					events = (from widgetEvent in widgetHash.Value.Events
+					widgetName = widgetHash.WidgetName,
+					id = widgetHash.TargetControl.ClientID,
+					uniqueId = widgetHash.TargetControl.UniqueID,
+					options = widgetHash.Options,
+					events = (from widgetEvent in widgetHash.Events
 										select new WidgetHashClientState {
 											Name = widgetEvent.Name,
 											PostBackEventReference = isAutoPostBack && widgetEvent.PostBackHandler != null ? widgetEvent.PostBackHandler.Value : null
 										}).ToArray()
 				};
 
-				widgetState.Add(widgetHash.Key.ClientID, item);
+				widgetState.Add(item);
 			}
 
-			var serializer = new JavaScriptSerializer();
-			
+			JavaScriptSerializer serializer = new JavaScriptSerializer();
+
 			serializer.RegisterConverters(new[] { new WidgetHashClientStateJavaScriptConverter() });
 
-			var json = serializer.Serialize(widgetState);
-			var script = String.Format(CultureInfo.InvariantCulture, _hashScript, json, GetCssUrl(page));
+			String json = serializer.Serialize(widgetState);
+			String script = String.Format(CultureInfo.InvariantCulture, _hashScript, json, GetCssUrl(page));
 
 			// Render the state JSON blob to the page and the onsubmit script
 			ScriptManager.RegisterClientScriptBlock(page, typeof(JuiceWidgetState), _smKey, script, addScriptTags: true);

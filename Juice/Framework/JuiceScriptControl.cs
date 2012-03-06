@@ -55,7 +55,7 @@ namespace Juice.Framework {
 			get;
 			private set;
 		}
-
+		
 		#region Hide inherited inline style properties
 
 		[Browsable(false)]

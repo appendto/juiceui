@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 
 namespace Juice.Framework {
+
 	public interface IWidget {
-		string WidgetName { get; }
+		
 		Page Page { get; }
+		IDictionary<string, object> WidgetOptions { get; set; }
+
 		string ClientID { get; }
 		string UniqueID { get; }
+		string WidgetName { get; }
+
 		bool Visible { get; }
+		
 		void SaveWidgetOptions();
-		IDictionary<string, object> WidgetOptions{get;set;}
+
 	}
 }
