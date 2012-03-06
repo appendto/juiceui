@@ -8,7 +8,13 @@ using Juice.Framework;
 namespace Juice {
 
 	[ParseChildren(typeof(TabPage), DefaultProperty = "TabPages", ChildrenAsProperties = true)]
+	[WidgetEvent("create")]
 	[WidgetEvent("select")]
+	[WidgetEvent("load")]
+	[WidgetEvent("add")]
+	[WidgetEvent("remove")]
+	[WidgetEvent("enable")]
+	[WidgetEvent("disable")]
 	public class Tabs : JuiceScriptControl {
 
 		private List<TabPage> _tabPages;
@@ -156,7 +162,12 @@ namespace Juice {
 		[WidgetEvent("show")]
 		[Category("Action")]
 		[Description("This event is triggered when a tab is shown.")]
-		public event EventHandler OnSelectedTabChanged;
+		public event EventHandler SelectedTabChanged;
+
+		/// <summary>
+		/// This event is triggered when a tab is added.
+		/// Reference: http://jqueryui.com/demos/tabs/#add
+		/// </summary>
 
 		#endregion
 
