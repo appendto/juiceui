@@ -11,12 +11,9 @@ namespace Juice.Framework {
 
 		public string Name { get; set; }
 
-		public bool CanCauseAutoPostBack { get; set; }
+		public Boolean AutoPostBack { get; set; }
+		public Boolean DataChangedHandler { get; set; }
 
-		public override object TypeId {
-			get {
-				return Name;
-			}
-		}
+		public override object TypeId { get { return Name; } }
 	}
 }
