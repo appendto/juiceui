@@ -13,16 +13,9 @@
       $.each( Juice.widgets, function ( index, widget ) {
         var element = $( '#' + widget.id ),
           widgetName = element.data( 'ui-widget' ),
-          uiWidget = element.data( widgetName ),
-					opts = $.extend({}, uiWidget.options);
+          uiWidget = element.data( widgetName );
 
-				$.each(opts, function( label ){
-					if( typeof( this ) == "string" ){
-						opts[label] = filter( this );
-					}
-				});
-
-        options[widget.id] = opts;
+        options[widget.id] = $.extend({}, uiWidget.options);
       });
 
       optionsInput.val( JSON.stringify( options ) );
@@ -122,14 +115,7 @@
   endRequest = function ( sender, args ) {
     ready();
     registerCss();
-  },
-
-	// filter < and > from strings so the asp.net validation doesn't freak out.
-	filter = function( what ){
-		return what.replace(/</gi, '\\u003c')
-							.replace(/>/gi, '\\u003e')
-							.replace(/&/gi, '\\u0026');
-	};
+  };
 
 	// The datepicker widget is "unique" in jQuery UI. It's internals aren't standardized like the other widgets.
 	// Hence, it does not store an options hash natively. This extension provides that hash.
