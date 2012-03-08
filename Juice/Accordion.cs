@@ -11,7 +11,7 @@ namespace Juice {
 	[ParseChildren(typeof(AccordionPanel), DefaultProperty = "AccordionPanels", ChildrenAsProperties = true)]
 	[WidgetEvent("create")]
 	[WidgetEvent("changestart")]
-	public class Accordion : JuiceScriptControl {
+	public class Accordion : JuiceScriptControl, IAutoPostBackWidget {
 
 		private List<AccordionPanel> _panels;
 
@@ -140,7 +140,7 @@ namespace Juice {
 		/// 
 		/// Reference: http://jqueryui.com/demos/accordion/#change
 		/// </summary>
-		[WidgetEvent("change")]
+		[WidgetEvent("change", AutoPostBack = true)]
 		[Category("Action")]
 		[Description("This event is triggered when a tab is shown.")]
 		public event EventHandler SelectedPanelChanged;
