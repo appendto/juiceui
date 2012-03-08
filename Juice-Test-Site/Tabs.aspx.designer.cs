@@ -13,13 +13,13 @@ namespace Juice_Sample_Site {
     public partial class Tabs {
         
         /// <summary>
-        /// TabsDemo control.
+        /// _Tabs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Juice.Tabs TabsDemo;
+        protected global::Juice.Tabs _Tabs;
         
         /// <summary>
         /// Tab1 control.

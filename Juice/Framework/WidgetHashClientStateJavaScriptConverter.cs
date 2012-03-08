@@ -4,6 +4,7 @@ using System.Web.Script.Serialization;
 
 namespace Juice.Framework {
 
+	[Obsolete("No longer being used", true)]
 	internal class WidgetHashClientStateJavaScriptConverter : JavaScriptConverter {
 	
 		public override object Deserialize(IDictionary<string, object> dictionary, Type type, JavaScriptSerializer serializer) {

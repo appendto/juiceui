@@ -10,12 +10,19 @@
       var optionsInput = $( '#' + stateFieldId ),
 				options = {};
 
-      $.each( Juice.widgets, function ( id, widgetData ) {
-        var element = $( '#' + id ),
+      $.each( Juice.widgets, function ( index, widget ) {
+        var element = $( '#' + widget.id ),
           widgetName = element.data( 'ui-widget' ),
-          widget = element.data( widgetName );
+          uiWidget = element.data( widgetName ),
+					opts = $.extend({}, uiWidget.options);
 
-        options[id] = widget.options;
+				$.each(opts, function( label ){
+					if( typeof( this ) == "string" ){
+						opts[label] = filter( this );
+					}
+				});
+
+        options[widget.id] = opts;
       });
 
       optionsInput.val( JSON.stringify( options ) );
@@ -49,6 +56,18 @@
 				return;
 			}
 
+			// map the event names to objects, merge with postBacks
+			widget.events = $.map( widget.events, function( name ){
+				return { name: name };
+			});
+
+			widget.postBacks = $.map( widget.postBacks, function( pb ){
+				pb.causesPostBack = true;
+				return pb;
+			});
+
+			widget.events = widget.events.concat( widget.postBacks );
+
       $.each( widget.events, function () {
         var event = this;
         events[event.name] = function ( jqEvent, ui ) {
@@ -60,12 +79,12 @@
         	args.push( uiWidget );
 
         	// this publishes an amplify event with the arguments that correspond to the jquery ui event handler function parameters.
-        	Juice.publish.apply( this, args );
+        	console.log( args );
+					Juice.publish.apply( this, args );
 
-        	// Submit a postback if handler emitted
-        	if ( event.handler ) {
-        		// TODO: EVIL eval, maybe we can clean this up later
-        		eval( event.handler );
+        	// Submit a postback if handler emitted - wee server side events!
+        	if ( event.causesPostBack ) {
+        		window.__doPostBack(widget.uniqueId, event.dataChangedEvent ? '' : event.name);
         	}
         };
       });
@@ -103,9 +122,43 @@
   endRequest = function ( sender, args ) {
     ready();
     registerCss();
-  };
+  },
+
+	// filter < and > from strings so the asp.net validation doesn't freak out.
+	filter = function( what ){
+		return what.replace(/</gi, '\\u003c')
+							.replace(/>/gi, '\\u003e')
+							.replace(/&/gi, '\\u0026');
+	};
+
+	// The datepicker widget is "unique" in jQuery UI. It's internals aren't standardized like the other widgets.
+	// Hence, it does not store an options hash natively. This extension provides that hash.
+	// Credit - Scott Gonzales
+	var _attachDatepicker = $.datepicker._attachDatepicker,
+		_optionDatepicker = $.datepicker._optionDatepicker;
+
+	$.datepicker._attachDatepicker = function( target ) {
+		var inst;
+		_attachDatepicker.apply( this, arguments );
+		inst = this._getInst( target );
+		inst.options = {};
+		this._refreshOptions( target );
+	};
+	
+	$.datepicker._refreshOptions = function( target ) {
+		var inst = this._getInst( target );
+		$.each(this._defaults, function( prop ) {
+			inst.options[ prop ] = $.datepicker._get( inst, prop );
+		});
+	};
+	
+	$.datepicker._optionDatepicker = function( target ) {
+		_optionDatepicker.apply( this, arguments );
+		this._refreshOptions( target );
+	};
 
 	$( ready );
 	Sys.WebForms.PageRequestManager.getInstance().add_endRequest( endRequest ); // handles adding the jquery ui css on partial postback, if it hasn't been already.
 	window.Juice = Juice;
+
 } )( jQuery );

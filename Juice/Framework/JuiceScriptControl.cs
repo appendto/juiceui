@@ -55,7 +55,19 @@ namespace Juice.Framework {
 			get;
 			private set;
 		}
-		
+
+		[DefaultValue(false)]
+		[Description("Automatically postback to the server after the selected value is changed.")]
+		[Category("Behavior")]
+		public bool AutoPostBack {
+			get {
+				return (bool)(ViewState["AutoPostBack"] ?? false);
+			}
+			set {
+				ViewState["AutoPostBack"] = value;
+			}
+		}
+
 		#region Hide inherited inline style properties
 
 		[Browsable(false)]
@@ -214,6 +226,7 @@ namespace Juice.Framework {
 		#endregion
 
 		#region IPostBackDataHandler implementation
+
 		bool IPostBackDataHandler.LoadPostData(string postDataKey, NameValueCollection postCollection) {
 			return LoadPostData(postDataKey, postCollection);
 		}
@@ -221,6 +234,7 @@ namespace Juice.Framework {
 		void IPostBackDataHandler.RaisePostDataChangedEvent() {
 			RaisePostDataChangedEvent();
 		}
+
 		#endregion
 
 		//update by c1

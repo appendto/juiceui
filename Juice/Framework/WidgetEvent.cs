@@ -7,12 +7,14 @@ namespace Juice.Framework {
 
 	internal class WidgetEvent {
 
-		public string Name { get; private set; }
-
-		public Lazy<string> PostBackHandler { get; set; }
-
 		public WidgetEvent(string name) {
 			Name = name;
 		}
+
+		public String Name { get; private set; }
+		public Boolean CausesPostBack { get; set; }
+		public Boolean DataChangedEvent { get; set; }
+
+		//public Lazy<string> PostBackHandler { get; set; }
 	}
 }

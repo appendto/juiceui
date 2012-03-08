@@ -9,13 +9,13 @@ namespace Juice {
 
 	[ParseChildren(typeof(TabPage), DefaultProperty = "TabPages", ChildrenAsProperties = true)]
 	[WidgetEvent("create")]
-	[WidgetEvent("select")]
+	[WidgetEvent("show")]
 	[WidgetEvent("load")]
 	[WidgetEvent("add")]
 	[WidgetEvent("remove")]
 	[WidgetEvent("enable")]
 	[WidgetEvent("disable")]
-	public class Tabs : JuiceScriptControl {
+	public class Tabs : JuiceScriptControl, IAutoPostBackWidget {
 
 		private List<TabPage> _tabPages;
 
@@ -156,18 +156,13 @@ namespace Juice {
 		#region Widget Events
 
 		/// <summary>
-		/// This event is triggered when a tab is shown.
-		/// Reference: http://jqueryui.com/demos/tabs/#show
+		/// This event is triggered when clicking a tab.
+		/// Reference: http://jqueryui.com/demos/tabs/#select
 		/// </summary>
-		[WidgetEvent("show")]
+		[WidgetEvent("select", AutoPostBack = true)]
 		[Category("Action")]
-		[Description("This event is triggered when a tab is shown.")]
+		[Description("This event is triggered when clicking a tab.")]
 		public event EventHandler SelectedTabChanged;
-
-		/// <summary>
-		/// This event is triggered when a tab is added.
-		/// Reference: http://jqueryui.com/demos/tabs/#add
-		/// </summary>
 
 		#endregion
 

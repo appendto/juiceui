@@ -38,6 +38,24 @@ namespace Juice.Framework {
 		private Dictionary<String, Object> _options = new Dictionary<String, Object>();
 		private List<WidgetEvent> _events = new List<WidgetEvent>();
 
+		private WidgetEvent _dataChangedEvent;
+
+		public IWidget Widget { get; private set; }
+
+		public JuiceWidgetState(IWidget widget) {
+			Widget = widget;
+
+			foreach(EventDescriptor widgetEvent in TypeDescriptor.GetEvents(Widget.GetType()).OfType<EventDescriptor>()) {
+
+				WidgetEventAttribute attribute = widgetEvent.Attributes.OfType<WidgetEventAttribute>().SingleOrDefault();
+
+				if(attribute != null && attribute.DataChangedHandler == true) {
+					_dataChangedEvent = new WidgetEvent(attribute.Name);
+					break;
+				}
+			}
+		}
+		
 		private List<WidgetHash> PageHashes {
 			get {
 				List<WidgetHash> hashes = Widget.Page.Items[_hashesKey] as List<WidgetHash>;
@@ -48,12 +66,6 @@ namespace Juice.Framework {
 				return hashes;
 			}
 		}
-
-		public JuiceWidgetState(IWidget widget) {
-			Widget = widget;
-		}
-
-		public IWidget Widget { get; private set; }
 
 		public IEnumerable<ScriptReference> GetJuiceReferences() {
 			return new List<ScriptReference> {
@@ -98,7 +110,8 @@ namespace Juice.Framework {
 		/// <remarks>
 		/// Takes into account the current option value (the default value) and any changes made by client-side JS (posted control state).
 		/// </remarks>
-		public void LoadPostData(string postDataKey, NameValueCollection postCollection) {
+		/// <returns>true, if any data has changed. false, if the data has remained the same.</returns>
+		public Boolean LoadPostData(string postDataKey, NameValueCollection postCollection) {
 			// TODO: Refactor to use the params here
 			foreach(var widgetOption in GetWidgetOptions(Widget.GetType())) {
 				var currentValue = widgetOption.PropertyDescriptor.GetValue(Widget);
@@ -110,21 +123,20 @@ namespace Juice.Framework {
 					// Changes were made on the client side for this widget, try to get the value for this option
 					postedControlState.TryGetValue(widgetOption.Name, out value);
 				}
+				
 				if(value != currentValue) {
 					// Only set the value if it's different from the original value
 					widgetOption.PropertyDescriptor.SetValue(Widget, value);
 				}
 			}
+
+			return false;
 		}
 
 		public void ParseEverything(Control targetControl) {
-			//update by c1 in order to override the handle the custom the option
-			//ParseOptions();
 			Widget.SaveWidgetOptions();
 			ParseEvents();
 
-			//add the widgethash to dictionary
-			//AddWidgetHash(targetControl, new WidgetHash(Widget.UniqueID, _options, _events));
 			AddWidgetHash(new WidgetHash(Widget, _events, targetControl));
 		}
 
@@ -204,19 +216,29 @@ namespace Juice.Framework {
 			);
 
 			// Add widget events from control events
-			_events.AddRange(
-					from widgetEvent in TypeDescriptor.GetEvents(Widget.GetType()).OfType<EventDescriptor>()
-					let attribute = widgetEvent.Attributes.OfType<WidgetEventAttribute>().SingleOrDefault()
-					where attribute != null
-					select new WidgetEvent(attribute.Name) {
-						PostBackHandler = new Lazy<string>(() =>
-								Widget.Page.ClientScript.GetPostBackEventReference(
-										new PostBackOptions((Control)Widget, string.Empty) {
-											AutoPostBack = true
-										})
-						)
-					}
-			);
+			foreach(EventDescriptor widgetEvent in TypeDescriptor.GetEvents(Widget.GetType()).OfType<EventDescriptor>()){
+				
+				WidgetEventAttribute attribute = widgetEvent.Attributes.OfType<WidgetEventAttribute>().SingleOrDefault();
+
+				if(attribute == null) {
+					continue;
+				}
+				
+				WidgetEvent @event = new WidgetEvent(attribute.Name);
+
+				@event.CausesPostBack = attribute.AutoPostBack;
+				@event.DataChangedEvent = _dataChangedEvent != null && _dataChangedEvent.Name == @event.Name;
+
+				//String postBackArgument = _dataChangedEvent == null ? @event.Name : (_dataChangedEvent.Name == @event.Name ? String.Empty : @event.Name);
+				
+				//PostBackOptions postOptions = new PostBackOptions((Control)Widget, postBackArgument) { AutoPostBack = true };
+				//var handler = new Lazy<string>(() => Widget.Page.ClientScript.GetPostBackEventReference(postOptions));
+
+				//@event.PostBackHandler = handler;
+			
+				_events.Add(@event);
+			}
+
 		}
 
 		private void AddWidgetHash(WidgetHash hash) {
@@ -264,11 +286,16 @@ namespace Juice.Framework {
 					id = widgetHash.TargetControl.ClientID,
 					uniqueId = widgetHash.TargetControl.UniqueID,
 					options = widgetHash.Options,
-					events = (from widgetEvent in widgetHash.Events
-										select new WidgetHashClientState {
-											Name = widgetEvent.Name,
-											PostBackEventReference = isAutoPostBack && widgetEvent.PostBackHandler != null ? widgetEvent.PostBackHandler.Value : null
-										}).ToArray()
+					events = (from @event in widgetHash.Events where @event.CausesPostBack == false select @event.Name),
+					postBacks = (from @event in widgetHash.Events where @event.CausesPostBack == true select new {
+												name = @event.Name,
+												//causePostBack = true, < moving this to the js
+												dataChangedEvent = @event.DataChangedEvent
+											}).ToArray()
+										//select new WidgetHashClientState {
+										//  Name = widgetEvent.Name,
+										//  PostBackEventReference = isAutoPostBack && widgetEvent.PostBackHandler != null ? widgetEvent.PostBackHandler.Value : null
+										//}).ToArray()
 				};
 
 				widgetState.Add(item);
@@ -276,7 +303,7 @@ namespace Juice.Framework {
 
 			JavaScriptSerializer serializer = new JavaScriptSerializer();
 
-			serializer.RegisterConverters(new[] { new WidgetHashClientStateJavaScriptConverter() });
+			//serializer.RegisterConverters(new[] { new WidgetHashClientStateJavaScriptConverter() });
 
 			String json = serializer.Serialize(widgetState);
 			String script = String.Format(CultureInfo.InvariantCulture, _hashScript, json, GetCssUrl(page));
