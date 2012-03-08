@@ -21,34 +21,6 @@ namespace Juice {
 
 		}
 
-		/// <summary>
-		/// This event is triggered on slide stop, or if the value is changed programmatically (by the value method). Takes arguments event and ui. Use event.orginalEvent to detect whether the value changed by mouse, keyboard, or programmatically. Use ui.value (single-handled sliders) to obtain the value of the current handle, $(this).slider('values', index) to get another handle's value.
-		/// Reference: http://jqueryui.com/demos/slider/#change
-		/// </summary>
-		[WidgetEvent("change", CanCauseAutoPostBack = true)]
-		[Description("This event is triggered on slide stop, or if the value is changed programmatically (by the value method). Takes arguments event and ui. Use event.orginalEvent to detect whether the value changed by mouse, keyboard, or programmatically. Use ui.value (single-handled sliders) to obtain the value of the current handle, $(this).slider('values', index) to get another handle's value.")]
-		[Category("Action")]
-		public event EventHandler ValueChanged {
-			add {
-				Events.AddHandler(_changeEvent, value);
-			}
-			remove {
-				Events.RemoveHandler(_changeEvent, value);
-			}
-		}
-
-		[DefaultValue(false)]
-		[Description("Automatically postback to the server after the selected value is changed.")]
-		[Category("Behavior")]
-		public bool AutoPostBack {
-			get {
-				return (bool)(ViewState["AutoPostBack"] ?? false);
-			}
-			set {
-				ViewState["AutoPostBack"] = value;
-			}
-		}
-
 		#region Widget Options
 
 		/// <summary>
@@ -186,6 +158,26 @@ namespace Juice {
 			}
 			set {
 				ViewState["Values"] = value;
+			}
+		}
+
+		#endregion
+
+		#region Widget Events
+
+		/// <summary>
+		/// This event is triggered on slide stop, or if the value is changed programmatically (by the value method). Takes arguments event and ui. Use event.orginalEvent to detect whether the value changed by mouse, keyboard, or programmatically. Use ui.value (single-handled sliders) to obtain the value of the current handle, $(this).slider('values', index) to get another handle's value.
+		/// Reference: http://jqueryui.com/demos/slider/#change
+		/// </summary>
+		[WidgetEvent("change", AutoPostBack = true, DataChangedHandler = true)]
+		[Description("This event is triggered on slide stop, or if the value is changed programmatically (by the value method). Takes arguments event and ui. Use event.orginalEvent to detect whether the value changed by mouse, keyboard, or programmatically. Use ui.value (single-handled sliders) to obtain the value of the current handle, $(this).slider('values', index) to get another handle's value.")]
+		[Category("Action")]
+		public event EventHandler ValueChanged {
+			add {
+				Events.AddHandler(_changeEvent, value);
+			}
+			remove {
+				Events.RemoveHandler(_changeEvent, value);
 			}
 		}
 
