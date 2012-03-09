@@ -15,7 +15,7 @@ namespace Juice_Sample_Site {
     }
 
 		protected void _Tabs_Change(object sender, EventArgs e) {
-
+			var j = 0;
 		}
   }
 }

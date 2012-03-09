@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.UI;
@@ -15,7 +16,7 @@ using System.Web.UI.WebControls;
 
 namespace Juice.Framework {
 
-	internal sealed class JuiceWidgetState {
+	public sealed class JuiceWidgetState {
 
 		private static readonly ConcurrentDictionary<Type, IEnumerable<WidgetOption>> _widgetOptionsCache = new ConcurrentDictionary<Type, IEnumerable<WidgetOption>>();
 		private const string _hashScript = "// Juice Initialization\n" +
@@ -114,7 +115,7 @@ namespace Juice.Framework {
 		/// Takes into account the current option value (the default value) and any changes made by client-side JS (posted control state).
 		/// </remarks>
 		/// <returns>true, if any data has changed. false, if the data has remained the same.</returns>
-		public Boolean LoadPostData(string postDataKey, NameValueCollection postCollection) {
+		public Boolean LoadPostData() {
 			// TODO: Refactor to use the params here
 			foreach(var widgetOption in GetWidgetOptions(Widget.GetType())) {
 				var currentValue = widgetOption.PropertyDescriptor.GetValue(Widget);
@@ -150,50 +151,6 @@ namespace Juice.Framework {
 			WidgetHash hash = new WidgetHash(Widget, _encodedOptions, _events, targetControl);
 
 			AddWidgetHash(hash);
-		}
-
-		public void EnsureCssLink() {
-
-			if(Widget.Page.Header == null) {
-				throw new InvalidOperationException("The Page or MasterPage must contain a HEAD tag with the 'runat=\"server\"' attribute.");
-			}
-
-			if(Widget.Page.Header.FindControl(_cssLinkId) == null) {
-				if(Widget.Page.Header == null) {
-					throw new InvalidOperationException("The Page or MasterPage must contain a HEAD tag with the 'runat=\"server\"' attribute.");
-				}
-
-				var jQueryUiCSS = new HtmlLink {
-					ClientIDMode = System.Web.UI.ClientIDMode.Static,
-					ID = _cssLinkId,
-					Href = GetCssUrl(Widget.Page)
-				};
-				jQueryUiCSS.Attributes.Add("type", "text/css");
-				jQueryUiCSS.Attributes.Add("rel", "stylesheet");
-
-				Widget.Page.Header.Controls.Add(jQueryUiCSS);
-			}
-		}
-
-		private static string GetCssUrl(Page page) {
-			Boolean isDebug = HttpContext.Current.IsDebuggingEnabled;
-			String href = ScriptManager.GetCurrent(page).EnableCdn ?
-				isDebug ? JuiceOptions.CssCdnDebugPath : JuiceOptions.CssCdnPath :
-				page.ResolveUrl(isDebug ? JuiceOptions.CssDebugPath : JuiceOptions.CssPath);
-
-			return href;
-		}
-
-		private static IEnumerable<WidgetOption> GetWidgetOptions(Type widgetType) {
-			IEnumerable<WidgetOption> widgetOptions;
-			if(!_widgetOptionsCache.TryGetValue(widgetType, out widgetOptions)) {
-				widgetOptions = (from property in TypeDescriptor.GetProperties(widgetType).OfType<PropertyDescriptor>()
-												 let attribute = property.Attributes.OfType<WidgetOptionAttribute>().SingleOrDefault()
-												 where attribute != null
-												 select attribute.GetWidgetOption(property)).ToList();
-				_widgetOptionsCache.TryAdd(widgetType, widgetOptions);
-			}
-			return widgetOptions;
 		}
 
 		internal Dictionary<String, Object> ParseOptions() {
@@ -259,6 +216,50 @@ namespace Juice.Framework {
 				_events.Add(@event);
 			}
 
+		}
+	
+		public void EnsureCssLink() {
+
+			if(Widget.Page.Header == null) {
+				throw new InvalidOperationException("The Page or MasterPage must contain a HEAD tag with the 'runat=\"server\"' attribute.");
+			}
+
+			if(Widget.Page.Header.FindControl(_cssLinkId) == null) {
+				if(Widget.Page.Header == null) {
+					throw new InvalidOperationException("The Page or MasterPage must contain a HEAD tag with the 'runat=\"server\"' attribute.");
+				}
+
+				var jQueryUiCSS = new HtmlLink {
+					ClientIDMode = System.Web.UI.ClientIDMode.Static,
+					ID = _cssLinkId,
+					Href = GetCssUrl(Widget.Page)
+				};
+				jQueryUiCSS.Attributes.Add("type", "text/css");
+				jQueryUiCSS.Attributes.Add("rel", "stylesheet");
+
+				Widget.Page.Header.Controls.Add(jQueryUiCSS);
+			}
+		}
+
+		private static string GetCssUrl(Page page) {
+			Boolean isDebug = HttpContext.Current.IsDebuggingEnabled;
+			String href = ScriptManager.GetCurrent(page).EnableCdn ?
+				isDebug ? JuiceOptions.CssCdnDebugPath : JuiceOptions.CssCdnPath :
+				page.ResolveUrl(isDebug ? JuiceOptions.CssDebugPath : JuiceOptions.CssPath);
+
+			return href;
+		}
+
+		private static IEnumerable<WidgetOption> GetWidgetOptions(Type widgetType) {
+			IEnumerable<WidgetOption> widgetOptions;
+			if(!_widgetOptionsCache.TryGetValue(widgetType, out widgetOptions)) {
+				widgetOptions = (from property in TypeDescriptor.GetProperties(widgetType).OfType<PropertyDescriptor>()
+												 let attribute = property.Attributes.OfType<WidgetOptionAttribute>().SingleOrDefault()
+												 where attribute != null
+												 select attribute.GetWidgetOption(property)).ToList();
+				_widgetOptionsCache.TryAdd(widgetType, widgetOptions);
+			}
+			return widgetOptions;
 		}
 
 		private void AddWidgetHash(WidgetHash hash) {
@@ -343,6 +344,30 @@ namespace Juice.Framework {
 			// Render the state JSON blob to the page and the onsubmit script
 			ScriptManager.RegisterClientScriptBlock(page, typeof(JuiceWidgetState), _smKey, script, addScriptTags: true);
 			ScriptManager.RegisterOnSubmitStatement(page, typeof(JuiceWidgetState), _smKey, _submitScript);
+		}
+
+		public void RaisePostBackEvent(String eventName) {
+
+			LoadPostData();
+
+			Type type = Widget.GetType();
+
+			foreach(EventDescriptor @event in TypeDescriptor.GetEvents(type).OfType<EventDescriptor>()) {
+
+				WidgetEventAttribute attribute = @event.Attributes.OfType<WidgetEventAttribute>().SingleOrDefault();
+
+				if(attribute == null || attribute.Name != eventName) {
+					continue;
+				}
+
+				FieldInfo delegateField = type.GetField(@event.Name, BindingFlags.Instance | BindingFlags.NonPublic);
+				MulticastDelegate @delegate = delegateField.GetValue(Widget) as MulticastDelegate;
+
+				if(@delegate != null && @delegate.GetInvocationList().Length > 0) {
+					@delegate.DynamicInvoke(new object[]{ Widget, EventArgs.Empty });
+				}
+
+			}
 		}
 	}
 }

@@ -8,63 +8,25 @@ using System.Web.UI.WebControls;
 
 namespace Juice.Framework {
 
-	public abstract class JuiceScriptControl : ScriptControl, IWidget, IPostBackDataHandler {
+	public abstract class JuiceScriptControl : ScriptControl, IWidget, IPostBackDataHandler, IPostBackEventHandler {
 
 		private JuiceWidgetState _widgetState;
+		private String _widgetName;
 
 		protected JuiceScriptControl(string widgetName) {
 			if(string.IsNullOrEmpty(widgetName)) {
 				throw new ArgumentException("The parameter must not be empty", "widgetName");
 			}
-			WidgetName = widgetName;
+			
+			_widgetName = widgetName;
+			_widgetState = new JuiceWidgetState(this);
+
 			SetDefaultOptions();
 		}
 
-		private JuiceWidgetState WidgetState {
-			get {
-				if(_widgetState == null) {
-					_widgetState = new JuiceWidgetState(this);
-				}
-				return _widgetState;
-			}
-		}
-
-		/// <summary>
-		/// Disables (true) or enables (false) the widget.
-		/// </summary>
-		[WidgetOption("disabled", false)] // every widget has a disabled option.
 		[Browsable(false)]
-		[Category("Behavior")]
-		[DefaultValue(false)]
-		[Description("Disables (true) or enables (false) the widget.")]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool Disabled {
-			get {
-				return !Enabled;
-			}
-			set {
-				Enabled = !value;
-			}
-		}
+		private JuiceWidgetState WidgetState { get { return this._widgetState; } }
 
-		[Browsable(false)]
-		public string WidgetName {
-			get;
-			private set;
-		}
-
-		[DefaultValue(false)]
-		[Description("Automatically postback to the server after the selected value is changed.")]
-		[Category("Behavior")]
-		public bool AutoPostBack {
-			get {
-				return (bool)(ViewState["AutoPostBack"] ?? false);
-			}
-			set {
-				ViewState["AutoPostBack"] = value;
-			}
-		}
-		
 		protected override void OnLoad(EventArgs e) {
 			base.OnLoad(e);
 
@@ -83,11 +45,11 @@ namespace Juice.Framework {
 		}
 
 		protected virtual bool LoadPostData(string postDataKey, NameValueCollection postCollection) {
-			WidgetState.LoadPostData(postDataKey, postCollection);
+			WidgetState.LoadPostData();
 			return false;
 		}
 
-		protected virtual void RaisePostDataChangedEvent() { 	}
+		protected virtual void RaisePostDataChangedEvent() { }
 
 		protected override IEnumerable<ScriptDescriptor> GetScriptDescriptors() {
 			return null;
@@ -107,29 +69,46 @@ namespace Juice.Framework {
 
 		#region IWidget Implementation
 
-		Page IWidget.Page {
+		/// <summary>
+		/// Disables (true) or enables (false) the widget.
+		/// </summary>
+		[WidgetOption("disabled", false)] // every widget has a disabled option.
+		[Browsable(false)]
+		[Category("Behavior")]
+		[DefaultValue(false)]
+		[Description("Disables (true) or enables (false) the widget.")]
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public bool Disabled {
 			get {
-				return Page;
+				return (bool)(ViewState["Disabled"] ?? false);
+			}
+			set {
+				ViewState["Disabled"] = value;
 			}
 		}
 
-		string IWidget.ClientID {
+		[DefaultValue(false)]
+		[Description("Automatically postback to the server after the selected value is changed.")]
+		[Category("Behavior")]
+		public bool AutoPostBack {
 			get {
-				return ClientID;
+				return (bool)(ViewState["AutoPostBack"] ?? false);
+			}
+			set {
+				ViewState["AutoPostBack"] = value;
 			}
 		}
 
-		string IWidget.UniqueID {
-			get {
-				return UniqueID;
-			}
-		}
+		[Browsable(false)]
+		public string WidgetName { get { return this._widgetName; } }
 
-		bool IWidget.Visible {
-			get {
-				return Visible;
-			}
-		}
+		Page IWidget.Page { get { return Page; } }
+
+		string IWidget.ClientID { get { return ClientID; } }
+
+		string IWidget.UniqueID { get { return UniqueID; } }
+
+		bool IWidget.Visible { get { return Visible; } }
 
 		void IWidget.SaveWidgetOptions() {
 			((IWidget)this).WidgetOptions = SaveOptionsAsDictionary();
@@ -147,6 +126,14 @@ namespace Juice.Framework {
 
 		void IPostBackDataHandler.RaisePostDataChangedEvent() {
 			RaisePostDataChangedEvent();
+		}
+
+		#endregion
+
+		#region IPostBackEventHandler Implementation
+
+		void IPostBackEventHandler.RaisePostBackEvent(string eventArgument) {
+			WidgetState.RaisePostBackEvent(eventArgument);
 		}
 
 		#endregion
@@ -239,5 +226,6 @@ namespace Juice.Framework {
 		}
 
 		#endregion
+
 	}
 }

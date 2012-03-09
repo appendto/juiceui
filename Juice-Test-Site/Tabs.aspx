@@ -3,7 +3,7 @@
 
 	<asp:button ID="_Post" runat="server" Text="Post" />
 
-  <Juice:Tabs ID="_Tabs" runat="server" PanelTemplate="<div>!&lt;/div&gt;">
+  <Juice:Tabs ID="_Tabs" runat="server" PanelTemplate="<div>!&lt;/div&gt;" AutoPostBack="true">
     <Juice:TabPage Title="Tab 1" ID="Tab1">
 			<TabContent>
 				<asp:TextBox runat="server" ID="dob1" ClientIDMode="Static" />
