@@ -18,12 +18,17 @@ namespace Juice.Framework {
 		public string Name { get; set; }
 		public object DefaultValue { get; set; }
 		public bool Eval { get; set; }
+		
+		// TODO: According to Scott, jQuery UI 2.0 will not use templates in the options. Remove this functionality when that arrives.
+		[Obsolete("According to Scott, jQuery UI 2.0 will not use templates in the options. Remove this functionality when that arrives.")]
+		public bool HtmlEncoding { get; set; }
 
 		public WidgetOption GetWidgetOption(PropertyDescriptor propertyDescriptor) {
 			return new WidgetOption(propertyDescriptor) {
 				Name = Name,
 				DefaultValue = DefaultValue,
-				RequiresEval = Eval
+				RequiresEval = Eval,
+				HtmlEncoding = HtmlEncoding
 			};
 		}
 	}

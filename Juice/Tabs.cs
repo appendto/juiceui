@@ -61,13 +61,13 @@ namespace Juice {
 		public bool Collapsible { get; set; }
 
 		/// <summary>
-		/// Store the latest selected tab in a cookie. The cookie is then used to determine the initially selected tab if the selected option is not defined. Requires cookie plugin, which can also be found in the development-bundle&gt;external folder from the download builder. The object needs to have key/value pairs of the form the cookie plugin expects as options. Available options (example): { expires: 7, path: '/', domain: 'jquery.com', secure: true }. Since jQuery UI 1.7 it is also possible to define the cookie name being used via name property.
+		/// Store the latest selected tab in a cookie. The cookie is then used to determine the initially selected tab if the selected option is not defined. Requires cookie plugin, which can also be found in the development-bundle>external folder from the download builder. The object needs to have key/value pairs of the form the cookie plugin expects as options. Available options (example): { expires: 7, path: '/', domain: 'jquery.com', secure: true }. Since jQuery UI 1.7 it is also possible to define the cookie name being used via name property.
 		/// Reference: http://jqueryui.com/demos/tabs/#cookie
 		/// </summary>
 		[WidgetOption("cookie", null)]
 		[Category("Data")]
 		[DefaultValue(null)]
-		[Description("Store the latest selected tab in a cookie. The cookie is then used to determine the initially selected tab if the selected option is not defined. Requires cookie plugin, which can also be found in the development-bundle&gt;external folder from the download builder. The object needs to have key/value pairs of the form the cookie plugin expects as options. Available options (example): { expires: 7, path: '/', domain: 'jquery.com', secure: true }. Since jQuery UI 1.7 it is also possible to define the cookie name being used via name property.")]
+		[Description("Store the latest selected tab in a cookie. The cookie is then used to determine the initially selected tab if the selected option is not defined. Requires cookie plugin, which can also be found in the development-bundle>external folder from the download builder. The object needs to have key/value pairs of the form the cookie plugin expects as options. Available options (example): { expires: 7, path: '/', domain: 'jquery.com', secure: true }. Since jQuery UI 1.7 it is also possible to define the cookie name being used via name property.")]
 		public string Cookie { get; set; }
 
 		/// <summary>
@@ -115,9 +115,9 @@ namespace Juice {
 		/// HTML template from which a new tab panel is created in case of adding a tab with the add method or when creating a panel for a remote tab on the fly.
 		/// Reference: http://jqueryui.com/demos/tabs/#panelTemplate
 		/// </summary>
-		[WidgetOption("panelTemplate", "&lt;div&gt;&lt;/div&gt;")]
+		[WidgetOption("panelTemplate", "<div></div>", HtmlEncoding = true)]
 		[Category("Layout")]
-		[DefaultValue("&lt;div&gt;&lt;/div&gt;")]
+		[DefaultValue("<div></div>")]
 		[Description("HTML template from which a new tab panel is created in case of adding a tab with the add method or when creating a panel for a remote tab on the fly.")]
 		public string PanelTemplate { get; set; }
 
@@ -135,9 +135,9 @@ namespace Juice {
 		/// The HTML content of this string is shown in a tab title while remote content is loading. Pass in empty string to deactivate that behavior. An span element must be present in the A tag of the title, for the spinner content to be visible.
 		/// Reference: http://jqueryui.com/demos/tabs/#spinner
 		/// </summary>
-		[WidgetOption("spinner", "&lt;em&gt;Loading&amp;#8230;&lt;/em&gt;")]
+		[WidgetOption("spinner", "<em>Loading&#8230;</em>", HtmlEncoding = true)]
 		[Category("Layout")]
-		[DefaultValue("&lt;em&gt;Loading&amp;#8230;&lt;/em&gt;")]
+		[DefaultValue("<em>Loading&#8230;</em>")]
 		[Description("The HTML content of this string is shown in a tab title while remote content is loading. Pass in empty string to deactivate that behavior. An span element must be present in the A tag of the title, for the spinner content to be visible.")]
 		public string Spinner { get; set; }
 
@@ -145,9 +145,9 @@ namespace Juice {
 		/// HTML template from which a new tab is created and added. The placeholders #{href} and #{label} are replaced with the url and tab label that are passed as arguments to the add method.
 		/// Reference: http://jqueryui.com/demos/tabs/#tabTemplate
 		/// </summary>
-		[WidgetOption("tabTemplate", "&lt;li&gt;&lt;a href=\"#{href}\"&gt;&lt;span&gt;#{label}&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;")]
+		[WidgetOption("tabTemplate", "<li><a href=\"#{href}\"><span>#{label}</span></a></li>", HtmlEncoding = true)]
 		[Category("Layout")]
-		[DefaultValue("&lt;li&gt;&lt;a href=\"#{href}\"&gt;&lt;span&gt;#{label}&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;")]
+		[DefaultValue("<li><a href=\"#{href}\"><span>#{label}</span></a></li>")]
 		[Description("HTML template from which a new tab is created and added. The placeholders #{href} and #{label} are replaced with the url and tab label that are passed as arguments to the add method.")]
 		public string TabTemplate { get; set; }
 

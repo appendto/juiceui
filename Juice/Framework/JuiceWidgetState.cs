@@ -37,6 +37,7 @@ namespace Juice.Framework {
 		private Dictionary<String, Dictionary<String, object>> _allWidgetPostbackOptions;
 		private Dictionary<String, Object> _options = new Dictionary<String, Object>();
 		private List<WidgetEvent> _events = new List<WidgetEvent>();
+		private List<String> _encodedOptions = new List<String>();
 
 		private WidgetEvent _dataChangedEvent;
 
@@ -119,11 +120,18 @@ namespace Juice.Framework {
 
 				// Set value to: Posted value OR leave as default value
 				var postedControlState = LoadPostDataForControl(Widget.Page, Widget.ClientID);
+
 				if(postedControlState != null) {
 					// Changes were made on the client side for this widget, try to get the value for this option
 					postedControlState.TryGetValue(widgetOption.Name, out value);
 				}
-				
+
+				// if the HtmlEncoding marker is present, this value will be encoded on the client before it's sent.
+				// this provides a means to get around ASP.NET WebForms validation.
+				if(widgetOption.HtmlEncoding && value is String && value != null) {
+					value = System.Web.HttpUtility.HtmlDecode(value as String);
+				}
+
 				if(value != currentValue) {
 					// Only set the value if it's different from the original value
 					widgetOption.PropertyDescriptor.SetValue(Widget, value);
@@ -137,7 +145,9 @@ namespace Juice.Framework {
 			Widget.SaveWidgetOptions();
 			ParseEvents();
 
-			AddWidgetHash(new WidgetHash(Widget, _events, targetControl));
+			WidgetHash hash = new WidgetHash(Widget, _encodedOptions, _events, targetControl);
+
+			AddWidgetHash(hash);
 		}
 
 		public void EnsureCssLink() {
@@ -185,6 +195,7 @@ namespace Juice.Framework {
 		}
 
 		internal Dictionary<String, Object> ParseOptions() {
+
 			foreach(var widgetOption in GetWidgetOptions(Widget.GetType())) {
 				object currentValue = widgetOption.PropertyDescriptor.GetValue(Widget);
 
@@ -203,6 +214,10 @@ namespace Juice.Framework {
 
 					// Add it to the list of options to include in the rendered client state
 					_options.Add(widgetOption.Name, currentValue);
+				}
+
+				if(widgetOption.HtmlEncoding) {
+					_encodedOptions.Add(widgetOption.Name);
 				}
 			}
 			return _options;
@@ -286,6 +301,7 @@ namespace Juice.Framework {
 					id = widgetHash.TargetControl.ClientID,
 					uniqueId = widgetHash.TargetControl.UniqueID,
 					options = widgetHash.Options,
+					encodedOptions = widgetHash.EncodedOptions,
 					events = (from @event in widgetHash.Events where @event.CausesPostBack == false select @event.Name),
 					postBacks = (from @event in widgetHash.Events where @event.CausesPostBack == true select new {
 												name = @event.Name,
