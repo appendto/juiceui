@@ -12,6 +12,14 @@ namespace Juice.Framework {
 
 		private JuiceWidgetState _widgetState;
 
+		protected JuiceScriptControl(string widgetName) {
+			if(string.IsNullOrEmpty(widgetName)) {
+				throw new ArgumentException("The parameter must not be empty", "widgetName");
+			}
+			WidgetName = widgetName;
+			SetDefaultOptions();
+		}
+
 		private JuiceWidgetState WidgetState {
 			get {
 				if(_widgetState == null) {
@@ -19,17 +27,6 @@ namespace Juice.Framework {
 				}
 				return _widgetState;
 			}
-		}
-
-		protected JuiceScriptControl(string widgetName) {
-			if(string.IsNullOrEmpty(widgetName)) {
-				throw new ArgumentException("The parameter must not be empty", "widgetName");
-			}
-			WidgetName = widgetName;
-			//update by c1
-			//WidgetState.SetDefaultOptions();
-			SetDefaultOptions();
-			//end by c1
 		}
 
 		/// <summary>
@@ -67,8 +64,94 @@ namespace Juice.Framework {
 				ViewState["AutoPostBack"] = value;
 			}
 		}
+		
+		protected override void OnLoad(EventArgs e) {
+			base.OnLoad(e);
 
-		#region Hide inherited inline style properties
+			WidgetState.SetWidgetNameOnTarget(this);
+			WidgetState.AddPagePreRenderCompleteHandler();
+		}
+
+		protected override void OnPreRender(EventArgs e) {
+			base.OnPreRender(e);
+
+			if(Visible) {
+				Page.RegisterRequiresPostBack(this);
+				WidgetState.ParseEverything(this);
+				WidgetState.EnsureCssLink();
+			}
+		}
+
+		protected virtual bool LoadPostData(string postDataKey, NameValueCollection postCollection) {
+			WidgetState.LoadPostData(postDataKey, postCollection);
+			return false;
+		}
+
+		protected virtual void RaisePostDataChangedEvent() { 	}
+
+		protected override IEnumerable<ScriptDescriptor> GetScriptDescriptors() {
+			return null;
+		}
+
+		protected override IEnumerable<ScriptReference> GetScriptReferences() {
+			return WidgetState.GetJuiceReferences();
+		}
+
+		protected virtual IDictionary<string, object> SaveOptionsAsDictionary() {
+			return WidgetState.ParseOptions();
+		}
+
+		protected virtual void SetDefaultOptions() {
+			WidgetState.SetDefaultOptions();
+		}
+
+		#region IWidget Implementation
+
+		Page IWidget.Page {
+			get {
+				return Page;
+			}
+		}
+
+		string IWidget.ClientID {
+			get {
+				return ClientID;
+			}
+		}
+
+		string IWidget.UniqueID {
+			get {
+				return UniqueID;
+			}
+		}
+
+		bool IWidget.Visible {
+			get {
+				return Visible;
+			}
+		}
+
+		void IWidget.SaveWidgetOptions() {
+			((IWidget)this).WidgetOptions = SaveOptionsAsDictionary();
+		}
+
+		IDictionary<string, object> IWidget.WidgetOptions { get; set; }
+
+		#endregion
+
+		#region IPostBackDataHandler Implementation
+
+		bool IPostBackDataHandler.LoadPostData(string postDataKey, NameValueCollection postCollection) {
+			return LoadPostData(postDataKey, postCollection);
+		}
+
+		void IPostBackDataHandler.RaisePostDataChangedEvent() {
+			RaisePostDataChangedEvent();
+		}
+
+		#endregion
+
+		#region Hide inherited inline style properties - keep this at the bottom, out of the way
 
 		[Browsable(false)]
 		[EditorBrowsable(EditorBrowsableState.Never)]
@@ -156,95 +239,5 @@ namespace Juice.Framework {
 		}
 
 		#endregion
-
-		protected override void OnLoad(EventArgs e) {
-			base.OnLoad(e);
-
-			WidgetState.SetWidgetNameOnTarget(this);
-			WidgetState.AddPagePreRenderCompleteHandler();
-		}
-
-		protected override void OnPreRender(EventArgs e) {
-			base.OnPreRender(e);
-
-			if(Visible) {
-				Page.RegisterRequiresPostBack(this);
-				WidgetState.ParseEverything(this);
-				WidgetState.EnsureCssLink();
-			}
-		}
-
-		protected virtual bool LoadPostData(string postDataKey, NameValueCollection postCollection) {
-			WidgetState.LoadPostData(postDataKey, postCollection);
-			return false;
-		}
-
-		protected virtual void RaisePostDataChangedEvent() {
-
-		}
-
-		protected override IEnumerable<ScriptDescriptor> GetScriptDescriptors() {
-			return null;
-		}
-
-		protected override IEnumerable<ScriptReference> GetScriptReferences() {
-			return WidgetState.GetJuiceReferences();
-		}
-
-		#region IWidget implementation
-		Page IWidget.Page {
-			get {
-				return Page;
-			}
-		}
-
-		string IWidget.ClientID {
-			get {
-				return ClientID;
-			}
-		}
-
-		string IWidget.UniqueID {
-			get {
-				return UniqueID;
-			}
-		}
-
-		bool IWidget.Visible {
-			get {
-				return Visible;
-			}
-		}
-
-		//Add by c1
-		void IWidget.SaveWidgetOptions() {
-			((IWidget)this).WidgetOptions = SaveOptionsAsDictionary();
-		}
-
-		IDictionary<string, object> IWidget.WidgetOptions { get; set; }
-		//end by c1
-		#endregion
-
-		#region IPostBackDataHandler implementation
-
-		bool IPostBackDataHandler.LoadPostData(string postDataKey, NameValueCollection postCollection) {
-			return LoadPostData(postDataKey, postCollection);
-		}
-
-		void IPostBackDataHandler.RaisePostDataChangedEvent() {
-			RaisePostDataChangedEvent();
-		}
-
-		#endregion
-
-		//update by c1
-		protected virtual IDictionary<string, object> SaveOptionsAsDictionary() {
-			return WidgetState.ParseOptions();
-		}
-
-		protected virtual void SetDefaultOptions() {
-			WidgetState.SetDefaultOptions();
-		}
-		//end by c1
 	}
 }

@@ -12,6 +12,14 @@ namespace Juice.Framework {
 		private Control _targetControl;
 		private JuiceWidgetState _widgetState;
 
+		protected JuiceExtender(String widgetName) {
+			if(string.IsNullOrEmpty(widgetName)) {
+				throw new ArgumentException("The parameter must not be empty", "widgetName");
+			}
+			WidgetName = widgetName;
+			SetDefaultOptions();
+		}
+
 		private JuiceWidgetState WidgetState {
 			get {
 				if(_widgetState == null) {
@@ -19,17 +27,6 @@ namespace Juice.Framework {
 				}
 				return _widgetState;
 			}
-		}
-
-		protected JuiceExtender(String widgetName) {
-			if(string.IsNullOrEmpty(widgetName)) {
-				throw new ArgumentException("The parameter must not be empty", "widgetName");
-			}
-			WidgetName = widgetName;
-			//update by c1
-			//WidgetState.SetDefaultOptions();
-			SetDefaultOptions();
-			//end by c1
 		}
 
 		/// <summary>
@@ -100,9 +97,7 @@ namespace Juice.Framework {
 			return false;
 		}
 
-		protected virtual void RaisePostDataChangedEvent() {
-
-		}
+		protected virtual void RaisePostDataChangedEvent() { 	}
 
 		protected override IEnumerable<ScriptDescriptor> GetScriptDescriptors(Control targetControl) {
 			return null;
@@ -112,7 +107,16 @@ namespace Juice.Framework {
 			return WidgetState.GetJuiceReferences();
 		}
 
-		#region IWidget implementation
+		protected virtual IDictionary<string, object> SaveOptionsAsDictionary() {
+			return WidgetState.ParseOptions();
+		}
+
+		protected virtual void SetDefaultOptions() {
+			WidgetState.SetDefaultOptions();
+		}
+
+		#region IWidget Implementation
+
 		Page IWidget.Page {
 			get {
 				return Page;
@@ -137,25 +141,16 @@ namespace Juice.Framework {
 			}
 		}
 
-		//add by c1
 		void IWidget.SaveWidgetOptions() {
 			((IWidget)this).WidgetOptions = SaveOptionsAsDictionary();
 		}
 
 		IDictionary<string, object> IWidget.WidgetOptions { get; set; }
-		#endregion
 
-		#region virtual
-		protected virtual IDictionary<string, object> SaveOptionsAsDictionary() {
-			return WidgetState.ParseOptions();
-		}
-
-		protected virtual void SetDefaultOptions() {
-			WidgetState.SetDefaultOptions();
-		}
 		#endregion
 
 		#region IPostBackDataHandler implementation
+
 		bool IPostBackDataHandler.LoadPostData(string postDataKey, NameValueCollection postCollection) {
 			return LoadPostData(postDataKey, postCollection);
 		}
@@ -163,6 +158,8 @@ namespace Juice.Framework {
 		void IPostBackDataHandler.RaisePostDataChangedEvent() {
 			RaisePostDataChangedEvent();
 		}
+
 		#endregion
+
 	}
 }
