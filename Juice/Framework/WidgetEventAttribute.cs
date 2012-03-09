@@ -13,7 +13,5 @@ namespace Juice.Framework {
 
 		public Boolean AutoPostBack { get; set; }
 		public Boolean DataChangedHandler { get; set; }
-
-		public override object TypeId { get { return Name; } }
 	}
 }
