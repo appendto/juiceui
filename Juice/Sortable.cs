@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 using Juice.Framework;
+using Juice.Framework.TypeConverters;
 
 namespace Juice {
 

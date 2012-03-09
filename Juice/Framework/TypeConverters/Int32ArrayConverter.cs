@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 
-namespace Juice.Framework {
+namespace Juice.Framework.TypeConverters {
 
 	public class Int32ArrayConverter : TypeConverter {
 

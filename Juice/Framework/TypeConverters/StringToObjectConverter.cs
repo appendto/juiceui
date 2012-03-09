@@ -7,7 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 
-namespace Juice.Framework {
+namespace Juice.Framework.TypeConverters {
 
 	public class StringToObjectConverter : TypeConverter {
 		public override bool IsValid(ITypeDescriptorContext context, object value) {

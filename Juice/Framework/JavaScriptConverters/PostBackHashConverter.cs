@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Script.Serialization;
 
-namespace Juice.Framework {
+namespace Juice.Framework.JavaScriptConverters {
 
 	internal class PostBackHashConverter : JavaScriptConverter {
 	

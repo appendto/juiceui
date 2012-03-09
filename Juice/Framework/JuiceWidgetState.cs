@@ -285,7 +285,7 @@ namespace Juice.Framework {
 					if(!String.IsNullOrEmpty(optionsJson)) {
 						var js = new JavaScriptSerializer();
 
-						js.RegisterConverters(new JavaScriptConverter[] { new PostBackHashConverter() });
+						js.RegisterConverters(new JavaScriptConverter[] { new JavaScriptConverters.PostBackHashConverter() });
 
 						_allWidgetPostbackOptions = js.Deserialize<List<PostBackHash>>(optionsJson);
 					}

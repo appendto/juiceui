@@ -4,7 +4,7 @@ using System.ComponentModel.Design.Serialization;
 using System.Globalization;
 using System.Linq;
 
-namespace Juice.Framework {
+namespace Juice.Framework.TypeConverters {
 
 	/// <summary>
 	/// Because the tabs widget allows disabled to be either boolean or an array of ints, this is necessary.

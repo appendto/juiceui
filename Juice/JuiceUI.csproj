@@ -65,10 +65,10 @@
     <Compile Include="AccordionPanel.cs" />
     <Compile Include="AccordionPanelTemplateContainer.cs" />
     <Compile Include="Buttonset.cs" />
-    <Compile Include="Framework\BooleanInt32ArrayConverter.cs" />
+    <Compile Include="Framework\TypeConverters\BooleanInt32ArrayConverter.cs" />
     <Compile Include="Framework\PostBackHash.cs" />
-    <Compile Include="Framework\PostBackHashConverter.cs" />
-    <Compile Include="Framework\StringToObjectConverter.cs" />
+    <Compile Include="Framework\JavaScriptConverters\PostBackHashConverter.cs" />
+    <Compile Include="Framework\TypeConverters\StringToObjectConverter.cs" />
     <Compile Include="Framework\WidgetEventAttribute.cs" />
     <Compile Include="Autocomplete.cs" />
     <Compile Include="Button.cs" />
@@ -90,7 +90,7 @@
     <Compile Include="Position.cs" />
     <Compile Include="Selectable.cs" />
     <Compile Include="Slider.cs" />
-    <Compile Include="Framework\Int32ArrayConverter.cs" />
+    <Compile Include="Framework\TypeConverters\Int32ArrayConverter.cs" />
     <Compile Include="Framework\JuiceExtender.cs" />
     <Compile Include="Framework\WidgetOptionAttribute.cs" />
     <Compile Include="ProgressBar.cs" />
@@ -136,6 +136,7 @@
     </None>
     <Content Include="Web.config.transform" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
