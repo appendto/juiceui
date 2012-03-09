@@ -32,10 +32,10 @@ namespace Juice {
 
 			ScriptManager.ScriptResourceMapping.AddDefinition("jquery-ui",
 					new ScriptResourceDefinition {
-						Path = "~/Scripts/jquery-ui-1.8.17.min.js",
-						DebugPath = "~/Scripts/jquery-ui-1.8.17.js",
-						CdnPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js",
-						CdnDebugPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.js",
+						Path = "~/Scripts/jquery-ui-1.8.18.min.js",
+						DebugPath = "~/Scripts/jquery-ui-1.8.18.js",
+						CdnPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js",
+						CdnDebugPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.js",
 						CdnSupportsSecureConnection = true
 					}
 			);
