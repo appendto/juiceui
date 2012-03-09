@@ -34,7 +34,7 @@ namespace Juice.Framework {
 		private static readonly object _hashesKey = new object();
 		private static readonly object _pagePreRenderCompleteHandlerKey = new object();
 
-		private Dictionary<String, Dictionary<String, object>> _allWidgetPostbackOptions;
+		private List<PostBackHash> _allWidgetPostbackOptions; // this is getting ridiculous
 		private Dictionary<String, Object> _options = new Dictionary<String, Object>();
 		private List<WidgetEvent> _events = new List<WidgetEvent>();
 		private List<String> _encodedOptions = new List<String>();
@@ -56,7 +56,7 @@ namespace Juice.Framework {
 				}
 			}
 		}
-		
+
 		private List<WidgetHash> PageHashes {
 			get {
 				List<WidgetHash> hashes = Widget.Page.Items[_hashesKey] as List<WidgetHash>;
@@ -79,12 +79,14 @@ namespace Juice.Framework {
 
 		// This has become pure decoration. I still think it's nice to have for developmental purposes/reference. 
 		public void SetWidgetNameOnTarget(IAttributeAccessor targetControl) {
-			
+
 			String attr = targetControl.GetAttribute("data-ui-widget") ?? String.Empty;
 
-			attr = String.IsNullOrEmpty(attr) ? Widget.WidgetName : String.Join(",", attr, Widget.WidgetName);
+			if(!attr.Contains(Widget.WidgetName)) {
+				attr = String.IsNullOrEmpty(attr) ? Widget.WidgetName : String.Join(",", attr, Widget.WidgetName);
 
-			targetControl.SetAttribute("data-ui-widget", attr);
+				targetControl.SetAttribute("data-ui-widget", attr);
+			}
 		}
 
 		public void AddPagePreRenderCompleteHandler() {
@@ -231,26 +233,26 @@ namespace Juice.Framework {
 			);
 
 			// Add widget events from control events
-			foreach(EventDescriptor widgetEvent in TypeDescriptor.GetEvents(Widget.GetType()).OfType<EventDescriptor>()){
-				
+			foreach(EventDescriptor widgetEvent in TypeDescriptor.GetEvents(Widget.GetType()).OfType<EventDescriptor>()) {
+
 				WidgetEventAttribute attribute = widgetEvent.Attributes.OfType<WidgetEventAttribute>().SingleOrDefault();
 
 				if(attribute == null) {
 					continue;
 				}
-				
+
 				WidgetEvent @event = new WidgetEvent(attribute.Name);
 
 				@event.CausesPostBack = attribute.AutoPostBack;
 				@event.DataChangedEvent = _dataChangedEvent != null && _dataChangedEvent.Name == @event.Name;
 
 				//String postBackArgument = _dataChangedEvent == null ? @event.Name : (_dataChangedEvent.Name == @event.Name ? String.Empty : @event.Name);
-				
+
 				//PostBackOptions postOptions = new PostBackOptions((Control)Widget, postBackArgument) { AutoPostBack = true };
 				//var handler = new Lazy<string>(() => Widget.Page.ClientScript.GetPostBackEventReference(postOptions));
 
 				//@event.PostBackHandler = handler;
-			
+
 				_events.Add(@event);
 			}
 
@@ -265,7 +267,13 @@ namespace Juice.Framework {
 		private IDictionary<string, object> LoadPostDataForControl(Page page, string widgetClientID) {
 			EnsureWidgetPostDataLoaded();
 			Dictionary<string, object> widgetState;
-			_allWidgetPostbackOptions.TryGetValue(widgetClientID, out widgetState);
+			
+			//_allWidgetPostbackOptions.TryGetValue(widgetClientID, out widgetState);
+
+			widgetState = (from hash in _allWidgetPostbackOptions
+										 where hash.ControlID == widgetClientID && hash.WidgetName == this.Widget.WidgetName
+										 select hash.Options).FirstOrDefault() ?? new Dictionary<string, object>();
+
 			return widgetState;
 		}
 
@@ -276,11 +284,14 @@ namespace Juice.Framework {
 					var optionsJson = page.Request.Form[_formKey];
 					if(!String.IsNullOrEmpty(optionsJson)) {
 						var js = new JavaScriptSerializer();
-						_allWidgetPostbackOptions = js.Deserialize<Dictionary<String, Dictionary<String, object>>>(optionsJson);
+
+						js.RegisterConverters(new JavaScriptConverter[] { new PostBackHashConverter() });
+
+						_allWidgetPostbackOptions = js.Deserialize<List<PostBackHash>>(optionsJson);
 					}
 				}
 				if(_allWidgetPostbackOptions == null) {
-					_allWidgetPostbackOptions = new Dictionary<string, Dictionary<string, object>>();
+					_allWidgetPostbackOptions = new List<PostBackHash>();
 				}
 			}
 		}
@@ -303,15 +314,17 @@ namespace Juice.Framework {
 					options = widgetHash.Options,
 					encodedOptions = widgetHash.EncodedOptions,
 					events = (from @event in widgetHash.Events where @event.CausesPostBack == false select @event.Name),
-					postBacks = (from @event in widgetHash.Events where @event.CausesPostBack == true select new {
-												name = @event.Name,
-												//causePostBack = true, < moving this to the js
-												dataChangedEvent = @event.DataChangedEvent
-											}).ToArray()
-										//select new WidgetHashClientState {
-										//  Name = widgetEvent.Name,
-										//  PostBackEventReference = isAutoPostBack && widgetEvent.PostBackHandler != null ? widgetEvent.PostBackHandler.Value : null
-										//}).ToArray()
+					postBacks = (from @event in widgetHash.Events
+											 where @event.CausesPostBack == true
+											 select new {
+												 name = @event.Name,
+												 //causePostBack = true, < moving this to the js
+												 dataChangedEvent = @event.DataChangedEvent
+											 }).ToArray()
+					//select new WidgetHashClientState {
+					//  Name = widgetEvent.Name,
+					//  PostBackEventReference = isAutoPostBack && widgetEvent.PostBackHandler != null ? widgetEvent.PostBackHandler.Value : null
+					//}).ToArray()
 				};
 
 				widgetState.Add(item);

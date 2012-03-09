@@ -71,15 +71,20 @@ namespace Juice {
 		public string Cookie { get; set; }
 
 		/// <summary>
+		/// Disables (true) or enables (false) the widget.
+		/// - OR -
 		/// An array containing the position of the tabs (zero-based index) that should be disabled on initialization.
 		/// Reference: http://jqueryui.com/demos/tabs/#disabled
 		/// </summary>
-		[WidgetOption("disabled", null)]
-		[TypeConverter(typeof(Int32ArrayConverter))]
+		/*
+		 * This is really a one-time case specifically for the tabs widget. No other jQuery UI widgets double up on the disabled option.
+		 */
+		[WidgetOption("disabled", false)]
+		[TypeConverter(typeof(BooleanInt32ArrayConverter))]
 		[Category("Appearance")]
 		[DefaultValue(null)]
-		[Description("An array containing the position of the tabs (zero-based index) that should be disabled on initialization.")]
-		public int[] DisabledTabs { get; set; }
+		[Description("Disables (true) or enables (false) the widget. - OR - An array containing the position of the tabs (zero-based index) that should be disabled on initialization.")]
+		public dynamic Disabled { get; set; }
 
 		/// <summary>
 		/// The type of event to be used for selecting a tab.

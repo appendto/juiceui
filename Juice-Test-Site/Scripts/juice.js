@@ -8,11 +8,11 @@
     publish: window.amplify.publish,
     onSubmit: function () {
       var optionsInput = $( '#' + stateFieldId ),
-				options = {};
+				options = [];
 
       $.each( Juice.widgets, function ( index, widget ) {
         var element = $( '#' + widget.id ),
-          widgetName = element.data( 'ui-widget' ),
+          widgetName = widget.widgetName, //element.data( 'ui-widget' ),
           uiWidget = element.data( widgetName ),
 					opts = $.extend({}, uiWidget.options);
 
@@ -22,7 +22,7 @@
 					}
 				});
 
-        options[widget.id] = opts;
+        options.push({ id: widget.id, widgetName: widgetName, options: opts });
       });
 
       optionsInput.val( JSON.stringify( options ) );
