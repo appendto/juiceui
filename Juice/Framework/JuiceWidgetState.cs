@@ -232,6 +232,9 @@ namespace Juice.Framework {
 					select new WidgetEvent(widgetEvent.Name)
 			);
 
+			IAutoPostBackWidget autoPostBackWidget = Widget as IAutoPostBackWidget;
+			Boolean autoPostBack = autoPostBackWidget == null ? false : autoPostBackWidget.AutoPostBack;
+
 			// Add widget events from control events
 			foreach(EventDescriptor widgetEvent in TypeDescriptor.GetEvents(Widget.GetType()).OfType<EventDescriptor>()) {
 
@@ -243,7 +246,7 @@ namespace Juice.Framework {
 
 				WidgetEvent @event = new WidgetEvent(attribute.Name);
 
-				@event.CausesPostBack = attribute.AutoPostBack;
+				@event.CausesPostBack = attribute.AutoPostBack && autoPostBack;
 				@event.DataChangedEvent = _dataChangedEvent != null && _dataChangedEvent.Name == @event.Name;
 
 				//String postBackArgument = _dataChangedEvent == null ? @event.Name : (_dataChangedEvent.Name == @event.Name ? String.Empty : @event.Name);
@@ -305,8 +308,8 @@ namespace Juice.Framework {
 			List<object> widgetState = new List<object>();
 
 			foreach(WidgetHash widgetHash in PageHashes) {
-				var autoPostBackWidget = widgetHash.TargetControl as IAutoPostBackWidget;
-				var isAutoPostBack = autoPostBackWidget != null && autoPostBackWidget.AutoPostBack;
+				//var autoPostBackWidget = widgetHash.TargetControl as IAutoPostBackWidget;
+				//var isAutoPostBack = autoPostBackWidget != null && autoPostBackWidget.AutoPostBack;
 				var item = new {
 					widgetName = widgetHash.WidgetName,
 					id = widgetHash.TargetControl.ClientID,
