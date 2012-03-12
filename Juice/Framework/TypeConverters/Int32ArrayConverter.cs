@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Juice.Framework.TypeConverters {
 		}
 
 		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType) {
-			if(sourceType == typeof(string)) {
+			if(sourceType == typeof(string) || sourceType == typeof(ArrayList)) {
 				return true;
 			}
 			return base.CanConvertFrom(context, sourceType);
@@ -36,7 +37,15 @@ namespace Juice.Framework.TypeConverters {
 				return stringValue
 										.Split(new[] { ',' })
 										.Select(s => int.Parse(s, CultureInfo.InvariantCulture))
-										.ToArray();
+										.ToArray<int>();
+			}
+			// handle data coming back from json, automatically converted into an arraylist rather than a string.
+			else {
+				ArrayList list = value as ArrayList;
+
+				if(list != null) {
+					return list.ToArray(typeof(int));
+				}
 			}
 
 			return base.ConvertFrom(context, culture, value);

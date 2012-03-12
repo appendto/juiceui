@@ -137,7 +137,20 @@ namespace Juice.Framework {
 
 				if(value != currentValue) {
 					// Only set the value if it's different from the original value
-					widgetOption.PropertyDescriptor.SetValue(Widget, value);
+
+					// Because we're using PropertyDescriptor.SetValue, we need to manually trigger the converters associated with the widget options Properties.
+					// Messy, until I find a better way.
+					object newValue = null;
+					TypeConverter converter = widgetOption.PropertyDescriptor.Converter;
+					
+					if(converter != null) {
+						newValue = converter.CanConvertFrom(value.GetType()) ? converter.ConvertFrom(value) : value;
+					}
+					else {
+						newValue = value;
+					}
+										
+					widgetOption.PropertyDescriptor.SetValue(Widget, newValue);
 				}
 			}
 

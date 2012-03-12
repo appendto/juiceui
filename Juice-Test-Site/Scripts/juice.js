@@ -154,6 +154,25 @@
 		this._refreshOptions( target );
 	};
 
+	// The tabs widget triggers 'show' on create. Scott has stated that this behavior is unusual and won't be a part of 1.9.
+	// Implementing a temporary workaround so that the tabs don't trigger a postback (if bound in codebehind) on page load.
+	$.ui.tabs.prototype._created = false;
+
+	var _tabify = $.ui.tabs.prototype._tabify,
+		_trigger = $.ui.tabs.prototype._trigger;
+
+	$.ui.tabs.prototype._tabify = function(){
+		_tabify.apply( this, arguments );
+		this._created = true;
+	};
+
+	$.ui.tabs.prototype._trigger = function( type ){
+		if( type === "show" && !this._created ){
+			return false;
+		}
+		return _trigger.apply( this, arguments );
+	};
+
 	$( ready );
 	Sys.WebForms.PageRequestManager.getInstance().add_endRequest( endRequest ); // handles adding the jquery ui css on partial postback, if it hasn't been already.
 	window.Juice = Juice;

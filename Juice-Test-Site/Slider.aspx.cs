@@ -8,14 +8,14 @@ using System.Web.UI.WebControls;
 namespace Juice_Sample_Site {
 	public partial class Slider : System.Web.UI.Page {
 
-        public void Page_Load() {
-            if (!IsPostBack) {
-                slider1.Value = 50;
-            }
-        }
+		public void Page_Load() {
+			if(!IsPostBack) {
+				slider1.Value = 50;
+			}
+		}
 
 		protected void slider_Change(object sender, EventArgs e) {
-            currentValue.Text = ((Juice.Slider)sender).Value.ToString();
+			currentValue.Text = ((Juice.Slider)sender).Value.ToString();
 		}
 	}
 }
