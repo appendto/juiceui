@@ -6,8 +6,7 @@
   <Juice:Tabs ID="_Tabs" runat="server" PanelTemplate="<div>!&lt;/div&gt;" AutoPostBack="true">
     <Juice:TabPage Title="Tab 1" ID="Tab1">
 			<TabContent>
-				<asp:TextBox runat="server" ID="dob1" ClientIDMode="Static" />
-				<juice:Datepicker runat="server" TargetControlID="dob1" />
+				<p>This should display on tab 1.</p>
       </TabContent>
     </Juice:TabPage>
 

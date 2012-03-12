@@ -87,8 +87,11 @@ namespace Juice.Framework {
 			}
 		}
 
+		/// <summary>
+		/// True, if the control should automatically postback to the server after the selected value is changed. False, otherwise.
+		/// </summary>
 		[DefaultValue(false)]
-		[Description("Automatically postback to the server after the selected value is changed.")]
+		[Description("True, if the control should automatically postback to the server after the selected value is changed. False, otherwise.")]
 		[Category("Behavior")]
 		public bool AutoPostBack {
 			get {
@@ -99,6 +102,9 @@ namespace Juice.Framework {
 			}
 		}
 
+		/// <summary>
+		/// The jQuery UI name of the widget.
+		/// </summary>
 		[Browsable(false)]
 		public string WidgetName { get { return this._widgetName; } }
 

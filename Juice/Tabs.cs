@@ -10,7 +10,7 @@ namespace Juice {
 
 	[ParseChildren(typeof(TabPage), DefaultProperty = "TabPages", ChildrenAsProperties = true)]
 	[WidgetEvent("create")]
-	[WidgetEvent("show")]
+	[WidgetEvent("select")]
 	[WidgetEvent("load")]
 	[WidgetEvent("add")]
 	[WidgetEvent("remove")]
@@ -165,7 +165,7 @@ namespace Juice {
 		/// This event is triggered when clicking a tab.
 		/// Reference: http://jqueryui.com/demos/tabs/#select
 		/// </summary>
-		[WidgetEvent("select", AutoPostBack = true)]
+		[WidgetEvent("show", AutoPostBack = true)]
 		[Category("Action")]
 		[Description("This event is triggered when clicking a tab.")]
 		public event EventHandler SelectedTabChanged;

@@ -15,11 +15,25 @@ namespace Juice.Framework {
 			DefaultValue = defaultValue;
 		}
 
+		/// <summary>
+		/// The jQuery UI name of the option.
+		/// </summary>
 		public string Name { get; set; }
+
+		/// <summary>
+		/// The default value of this option. This is used to determine if the option should be rendered to the page.
+		/// </summary>
 		public object DefaultValue { get; set; }
+
+		/// <summary>
+		/// True, if the option's value should be evaluated on the client when juice.js is initializing the widget options.
+		/// </summary>
 		public bool Eval { get; set; }
 		
 		// TODO: According to Scott, jQuery UI 2.0 will not use templates in the options. Remove this functionality when that arrives.
+		/// <summary>
+		/// Indicates that this option needs to be encoded on the client before the form request is sent, and decoded on the server.
+		/// </summary>
 		[Obsolete("According to Scott, jQuery UI 2.0 will not use templates in the options. Remove this functionality when that arrives.")]
 		public bool HtmlEncoding { get; set; }
 

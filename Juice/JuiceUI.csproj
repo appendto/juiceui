@@ -65,7 +65,6 @@
     <Compile Include="AccordionPanel.cs" />
     <Compile Include="AccordionPanelTemplateContainer.cs" />
     <Compile Include="Buttonset.cs" />
-    <Compile Include="Framework\JuiceControlBridge.cs" />
     <Compile Include="Framework\TypeConverters\BooleanInt32ArrayConverter.cs" />
     <Compile Include="Framework\PostBackHash.cs" />
     <Compile Include="Framework\JavaScriptConverters\PostBackHashConverter.cs" />
