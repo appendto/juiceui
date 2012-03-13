@@ -64,6 +64,15 @@
     <Content Include="Accordion.aspx" />
     <Content Include="Autocomplete.aspx" />
     <Content Include="Button.aspx" />
+    <Content Include="Content\images\ajax-loader.png" />
+    <Content Include="Content\images\icons-18-black.png" />
+    <Content Include="Content\images\icons-18-white.png" />
+    <Content Include="Content\images\icons-36-black.png" />
+    <Content Include="Content\images\icons-36-white.png" />
+    <Content Include="Content\jquery.mobile-1.0.1.css" />
+    <Content Include="Content\jquery.mobile-1.0.1.min.css" />
+    <Content Include="Content\jquery.mobile.structure-1.0.1.css" />
+    <Content Include="Content\jquery.mobile.structure-1.0.1.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -91,8 +100,11 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="RadioButton.aspx" />
     <Content Include="Scripts\jquery-ui-1.8.18.js" />
     <Content Include="Scripts\jquery-ui-1.8.18.min.js" />
+    <Content Include="Scripts\jquery.mobile-1.0.1.js" />
+    <Content Include="Scripts\jquery.mobile-1.0.1.min.js" />
     <Content Include="Selectable.aspx" />
     <Content Include="Sortable.aspx" />
     <Content Include="Droppable.aspx" />
@@ -253,6 +265,13 @@
     <Compile Include="Button.aspx.designer.cs">
       <DependentUpon>Button.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RadioButton.aspx.cs">
+      <DependentUpon>RadioButton.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RadioButton.aspx.designer.cs">
+      <DependentUpon>RadioButton.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Datepicker.aspx.designer.cs">
       <DependentUpon>Datepicker.aspx</DependentUpon>
     </Compile>
@@ -343,6 +362,7 @@
     <Content Include="Base.Master" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\images\Thumbs.db" />
     <None Include="fonts\bebas_neue\BebasNeue-webfont.eot" />
     <None Include="fonts\bebas_neue\BebasNeue-webfont.svg" />
     <None Include="fonts\bebas_neue\BebasNeue-webfont.ttf" />

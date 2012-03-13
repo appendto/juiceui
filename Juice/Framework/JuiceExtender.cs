@@ -46,7 +46,7 @@ namespace Juice.Framework {
 			if(_targetControl.Visible) {
 				Page.RegisterRequiresPostBack(this);
 				WidgetState.ParseEverything(_targetControl);
-				WidgetState.EnsureCssLink();
+				WidgetState.RenderCss();
 			}
 		}
 

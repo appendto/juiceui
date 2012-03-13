@@ -3,6 +3,8 @@ using System.ComponentModel;
 using System.Reflection;
 using System.Web.UI;
 
+using Juice.Framework;
+
 [assembly: System.Web.PreApplicationStartMethod(typeof(Juice.JuiceApp), "Start")]
 
 namespace Juice {
@@ -11,7 +13,7 @@ namespace Juice {
 	public static class JuiceApp {
 
 		public static void Start() {
-			var assembly = Assembly.GetExecutingAssembly();
+			//var assembly = Assembly.GetExecutingAssembly();
 
 			ScriptManager.ScriptResourceMapping.AddDefinition("amplify",
 					new ScriptResourceDefinition {
@@ -46,6 +48,15 @@ namespace Juice {
 						DebugPath = "~/Scripts/juice.js"
 					}
 			);
+
+			CssManager.CssResourceMapping.AddDefinition("jquery-ui", new CssResourceDefinition {
+				Path = "~/Content/themes/base/minified/jquery.ui.all.min.css",
+				DebugPath = "~/Content/themes/base/jquery.ui.all.css",
+				CdnPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css",
+				CdnDebugPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+			});
+
+			Juice.Mobile.JuiceMobileApp.Start();
 		}
 	}
 }

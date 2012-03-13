@@ -79,7 +79,6 @@
         	args.push( uiWidget );
 
         	// this publishes an amplify event with the arguments that correspond to the jquery ui event handler function parameters.
-        	console.log( args );
 					Juice.publish.apply( this, args );
 
         	// Submit a postback if handler emitted - wee server side events!

@@ -65,6 +65,10 @@
     <Compile Include="AccordionPanel.cs" />
     <Compile Include="AccordionPanelTemplateContainer.cs" />
     <Compile Include="Buttonset.cs" />
+    <Compile Include="CssPlaceholder.cs" />
+    <Compile Include="Framework\CssManager.cs" />
+    <Compile Include="Framework\CssResourceDefinition.cs" />
+    <Compile Include="Framework\CssResourceMapping.cs" />
     <Compile Include="Framework\TypeConverters\BooleanInt32ArrayConverter.cs" />
     <Compile Include="Framework\PostBackHash.cs" />
     <Compile Include="Framework\JavaScriptConverters\PostBackHashConverter.cs" />
@@ -87,6 +91,7 @@
     <Compile Include="Framework\EnumerableExtensions.cs" />
     <Compile Include="JuiceApp.cs" />
     <Compile Include="Framework\JuiceScriptControl.cs" />
+    <Compile Include="Mobile\JuiceMobileApp.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Selectable.cs" />
     <Compile Include="Slider.cs" />

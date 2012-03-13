@@ -19,6 +19,7 @@ namespace Juice.Framework {
 	public sealed class JuiceWidgetState {
 
 		private static readonly ConcurrentDictionary<Type, IEnumerable<WidgetOption>> _widgetOptionsCache = new ConcurrentDictionary<Type, IEnumerable<WidgetOption>>();
+
 		private const string _hashScript = "// Juice Initialization\n" +
 																			 "(function() {{\n" +
 																			 "    if(typeof(window.Juice) !== 'undefined' && window.Juice) {{\n" +
@@ -26,12 +27,15 @@ namespace Juice.Framework {
 																			 "        window.Juice.cssUrl = '{1}';\n" +
 																			 "    }}\n" +
 																			 "}})();";
+
 		private const string _submitScript = "if (typeof(window.Juice) !== 'undefined' && window.Juice) {\n" +
 																				 "    window.Juice.onSubmit();\n" +
 																				 "}";
+
 		private const string _smKey = "Juice.Script";
 		private const string _formKey = "_juiceWidgetOptions";
 		private const string _cssLinkId = "_jQueryUICss";
+
 		private static readonly object _hashesKey = new object();
 		private static readonly object _pagePreRenderCompleteHandlerKey = new object();
 
@@ -42,7 +46,7 @@ namespace Juice.Framework {
 
 		private WidgetEvent _dataChangedEvent;
 
-		public IWidget Widget { get; private set; }
+		private CssManager _cssManager;
 
 		public JuiceWidgetState(IWidget widget) {
 			Widget = widget;
@@ -56,7 +60,11 @@ namespace Juice.Framework {
 					break;
 				}
 			}
+
+			_cssManager = new CssManager(widget as Control);
 		}
+
+		public IWidget Widget { get; private set; }
 
 		private List<WidgetHash> PageHashes {
 			get {
@@ -230,38 +238,41 @@ namespace Juice.Framework {
 			}
 
 		}
-	
-		public void EnsureCssLink() {
 
-			if(Widget.Page.Header == null) {
-				throw new InvalidOperationException("The Page or MasterPage must contain a HEAD tag with the 'runat=\"server\"' attribute.");
-			}
-
-			if(Widget.Page.Header.FindControl(_cssLinkId) == null) {
-				if(Widget.Page.Header == null) {
-					throw new InvalidOperationException("The Page or MasterPage must contain a HEAD tag with the 'runat=\"server\"' attribute.");
-				}
-
-				var jQueryUiCSS = new HtmlLink {
-					ClientIDMode = System.Web.UI.ClientIDMode.Static,
-					ID = _cssLinkId,
-					Href = GetCssUrl(Widget.Page)
-				};
-				jQueryUiCSS.Attributes.Add("type", "text/css");
-				jQueryUiCSS.Attributes.Add("rel", "stylesheet");
-
-				Widget.Page.Header.Controls.Add(jQueryUiCSS);
-			}
+		public void RenderCss() {
+			_cssManager.Render(new List<String> {
+				"jquery-ui"
+			});
 		}
 
-		private static string GetCssUrl(Page page) {
-			Boolean isDebug = HttpContext.Current.IsDebuggingEnabled;
-			String href = ScriptManager.GetCurrent(page).EnableCdn ?
-				isDebug ? JuiceOptions.CssCdnDebugPath : JuiceOptions.CssCdnPath :
-				page.ResolveUrl(isDebug ? JuiceOptions.CssDebugPath : JuiceOptions.CssPath);
+		//public void EnsureCssLink() {
 
-			return href;
-		}
+		//  if(Widget.Page.Header == null) {
+		//    throw new InvalidOperationException("The Page or MasterPage must contain a HEAD tag with the 'runat=\"server\"' attribute.");
+		//  }
+
+		//  if(Widget.Page.Header.FindControl(_cssLinkId) == null) {
+
+		//    var jQueryUiCSS = new HtmlLink {
+		//      ClientIDMode = System.Web.UI.ClientIDMode.Static,
+		//      ID = _cssLinkId,
+		//      Href = GetCssUrl(Widget.Page)
+		//    };
+		//    jQueryUiCSS.Attributes.Add("type", "text/css");
+		//    jQueryUiCSS.Attributes.Add("rel", "stylesheet");
+
+		//    Widget.Page.Header.Controls.Add(jQueryUiCSS);
+		//  }
+		//}
+
+		//private static string GetCssUrl(Page page) {
+		//  Boolean isDebug = HttpContext.Current.IsDebuggingEnabled;
+		//  String href = ScriptManager.GetCurrent(page).EnableCdn ?
+		//    isDebug ? JuiceOptions.CssCdnDebugPath : JuiceOptions.CssCdnPath :
+		//    page.ResolveUrl(isDebug ? JuiceOptions.CssDebugPath : JuiceOptions.CssPath);
+
+		//  return href;
+		//}
 
 		private static IEnumerable<WidgetOption> GetWidgetOptions(Type widgetType) {
 			IEnumerable<WidgetOption> widgetOptions;
@@ -352,7 +363,8 @@ namespace Juice.Framework {
 			//serializer.RegisterConverters(new[] { new WidgetHashClientStateJavaScriptConverter() });
 
 			String json = serializer.Serialize(widgetState);
-			String script = String.Format(CultureInfo.InvariantCulture, _hashScript, json, GetCssUrl(page));
+			String cssUrl = _cssManager.GetUrl(CssManager.CssResourceMapping.GetDefinition("jquery-ui"));
+			String script = String.Format(CultureInfo.InvariantCulture, _hashScript, json, cssUrl);
 
 			// Render the state JSON blob to the page and the onsubmit script
 			ScriptManager.RegisterClientScriptBlock(page, typeof(JuiceWidgetState), _smKey, script, addScriptTags: true);
