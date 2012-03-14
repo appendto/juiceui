@@ -4,6 +4,7 @@
     <pages>
       <controls>
         <add assembly="JuiceUI" namespace="Juice" tagPrefix="juice" />
+				<add assembly="JuiceUI" namespace="Juice.Mobile" tagPrefix="mobile" />
       </controls>
     </pages>
   </system.web>
