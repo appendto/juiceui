@@ -6,7 +6,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace Juice.Mobile {
-	public class FlipToggleItem : HtmlSelect {
+	public class FlipToggleItem : WebControl {
 
 		protected override System.Web.UI.HtmlTextWriterTag TagKey { get { return System.Web.UI.HtmlTextWriterTag.Option; } }
 

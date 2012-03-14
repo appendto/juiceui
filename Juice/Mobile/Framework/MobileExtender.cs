@@ -51,5 +51,12 @@ namespace Juice.Mobile.Framework {
 			base.OnPreRender(e);
 		}
 
+		protected override IEnumerable<ScriptDescriptor> GetScriptDescriptors(Control targetControl) {
+			return null;
+		}
+
+		protected override IEnumerable<ScriptReference> GetScriptReferences() {
+			return null;
+		}
 	}
 }
