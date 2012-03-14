@@ -5,8 +5,11 @@ namespace Juice.Framework {
 	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Event, AllowMultiple = true)]
 	public class WidgetEventAttribute : Attribute {
 
+		private Guid _typeId;
+
 		public WidgetEventAttribute(String name) {
-			Name = name;
+			this.Name = name;
+			this._typeId = Guid.NewGuid();
 		}
 
 		/// <summary>
@@ -23,5 +26,7 @@ namespace Juice.Framework {
 		/// True, if the event is the handler for the IPostbackDataChanged Implementation.
 		/// </summary>
 		public Boolean DataChangedHandler { get; set; }
+
+		public override object TypeId { get { return (object)this._typeId; } }
 	}
 }
