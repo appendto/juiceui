@@ -56,7 +56,6 @@ namespace Juice {
 				CdnDebugPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
 			});
 
-			Juice.Mobile.JuiceMobileApp.Start();
 		}
 	}
 }

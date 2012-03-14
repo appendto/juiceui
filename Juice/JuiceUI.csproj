@@ -91,7 +91,6 @@
     <Compile Include="Framework\EnumerableExtensions.cs" />
     <Compile Include="JuiceApp.cs" />
     <Compile Include="Framework\JuiceScriptControl.cs" />
-    <Compile Include="Mobile\JuiceMobileApp.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Selectable.cs" />
     <Compile Include="Slider.cs" />
