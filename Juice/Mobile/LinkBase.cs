@@ -3,18 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Juice.Framework;
+
 namespace Juice.Mobile {
 	
-	public abstract class LinkBase {
+	public abstract class LinkBase : ThemeControlBase {
+
+		public LinkBase(String role) : base(role) {
+
+		}
 
 		//data-ajax	true | false
-		//data-direction	reverse (reverse page transition animation)
-		//data-dom-cache	true | false
-		//data-prefetch	true | false
-		//data-rel	back (to move one step back in history) | dialog
-		//dialog (to open link styled as dialog, not tracked in history)
-		//external (for linking to another domain)
-		//data-transition	slide | slideup | slidedown | pop | fade | flip
+		[WidgetOption("ajax", true)]
+		public Boolean Ajax { get; set; }
 
+		//data-direction	reverse (reverse page transition animation)
+		[WidgetOption("direction", null)]
+		public MobileDirection Direction { get; set; }
+
+		//data-dom-cache	true | false
+		[WidgetOption("dom-cache", false)]
+		public Boolean DomCache { get; set; }
+
+		//data-prefetch	true | false
+		[WidgetOption("prefetch", false)]
+		public Boolean Prefetch { get; set; }
+
+		//data-rel	back (to move one step back in history) | dialog
+		[WidgetOption("rel", null)]
+		public MobileRel Relationship { get; set; }
+
+		//data-transition	slide | slideup | slidedown | pop | fade | flip
+		[WidgetOption("transition", "slide")]
+		public MobileTransition Transition { get; set; }
 	}
 }

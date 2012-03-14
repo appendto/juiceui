@@ -3,13 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Juice.Framework;
+
 namespace Juice.Mobile {
-	class Collapsable {
-		//A heading and content wrapped in a container with the data-role="collapsible"
+
+	//A heading and content wrapped in a container with the data-role="collapsible"
+	public class Collapsable : ThemeControlBase {
+
+		public Collapsable() : base("collapsable") {
+
+		}
 
 		//data-collapsed	true | false
+		[WidgetOption("collapsed", true)]
+		public Boolean Collapsed { get; set; }
+
 		//data-content-theme	swatch letter (a-z)
+		[WidgetOption("content-theme", null)]
+		public String ContentTheme { get; set; }
+
 		//data-mini	true | false - Compact sized version
-		//data-theme	swatch letter (a-z)
+		[WidgetOption("mini", false)]
+		public Boolean Mini { get; set; }
 	}
 }

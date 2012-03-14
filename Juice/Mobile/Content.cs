@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 
 namespace Juice.Mobile {
-	class Content {
 
-		//Container with data-role="content"
+	//Container with data-role="content"
+	public class Content : ThemeControlBase {
 
-		//data-theme	swatch letter (a-z)
+		public Content() : base("content") { }
 
 	}
 }

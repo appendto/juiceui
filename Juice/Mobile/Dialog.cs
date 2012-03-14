@@ -3,17 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Juice.Mobile {
-	class Dialog {
+using Juice.Framework;
 
-		//Page with data-role="page" linked to with data-rel="dialog" on the anchor.
+namespace Juice.Mobile {
+
+	//Page with data-role="page" linked to with data-rel="dialog" on the anchor.
+	public class Dialog {
+
+		public Dialog() : base() { }
 
 		//data-close-btn-text	string (text for the close button, dialog only)
-		//data-dom-cache	true | false
-		//data-fullscreen	true | false (used in conjunction with fixed toolbars)
-		//data-overlay-theme	swatch letter (a-z) - overlay theme when the page is opened in a dialog
-		//data-theme	swatch letter (a-z)
-		//data-title	string (title used when page is shown)
+		[WidgetOption("close-btn-text", "Close")]
+		public String CloseButtonText { get; set; }
 
+		//data-dom-cache	true | false
+		[WidgetOption("dom-cache", false)]
+		public Boolean DomCache { get; set; }
+
+		//data-fullscreen	true | false (used in conjunction with fixed toolbars)
+		[WidgetOption("fullscreen", false)]
+		public Boolean Fullscreen { get; set; }
+
+		//data-overlay-theme	swatch letter (a-z) - overlay theme when the page is opened in a dialog
+		[WidgetOption("overlay-theme", null)]
+		public String OverlayTheme { get; set; }
+
+		//data-title	string (title used when page is shown)
+		[WidgetOption("title", "Juice UI Mobile Dialog")]
+		public String Title { get; set; }
 	}
 }

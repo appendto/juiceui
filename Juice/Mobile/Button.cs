@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
 
 using Juice.Framework;
 
@@ -10,8 +13,13 @@ namespace Juice.Mobile {
 	/// <summary>
 	/// Links with data-role="button". Input-based buttons and button elements are auto-enhanced, no data-role required
 	/// </summary>
-	public class Button : LinkBase {
-
+	[TargetControlType(typeof(HtmlAnchor))]
+	[TargetControlType(typeof(HtmlButton))]
+	[TargetControlType(typeof(HtmlInputButton))]
+	[TargetControlType(typeof(Button))]
+	[TargetControlType(typeof(LinkButton))]
+	public class Button : Juice.Mobile.Framework.MobileExtender {
+		
 		//data-corners	true | false
 		[WidgetOption("corners", true)]
 		public Boolean Corners { get; set; }
@@ -21,7 +29,7 @@ namespace Juice.Mobile {
 		public MobileIcon Icon { get; set; }
 
 		//data-iconpos	left | right | top | bottom | notext
-		[WidgetOption("iconpos", null)]
+		[WidgetOption("iconpos", "left")]
 		public MobileIconPosition IconPosition { get; set; }
 
 		//data-iconshadow	true | false
@@ -32,20 +40,9 @@ namespace Juice.Mobile {
 		[WidgetOption("inline", false)]
 		public Boolean Inline { get; set; }
 
-		//data-mini	true | false - Compact sized version
-		/// <summary>
-		/// Display the button in a compact size.
-		/// </summary>
-		[WidgetOption("mini", false)]
-		public Boolean Mini { get; set; }
-
 		//data-shadow	true | false
 		[WidgetOption("shadow", true)]
 		public Boolean Shadow { get; set; }
-
-		//data-theme	swatch letter (a-z)
-		[WidgetOption("theme", null)]
-		public String Theme { get; set; }
 
 	}
 }

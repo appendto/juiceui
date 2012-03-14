@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Juice.Mobile {
-	class Header {
+using Juice.Framework;
 
-		//Header
-		//Container with data-role="header"
+namespace Juice.Mobile {
+
+	//Container with data-role="header"
+	public class Header : ThemeControlBase {
+
+		public Header() : base("header") { }
 
 		//data-position	fixed
-		//data-theme	swatch letter (a-z)
+		[WidgetOption("position", null)]
+		public MobilePosition Position { get; set; }
 
 	}
 }

@@ -2,15 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+
+using Juice.Framework;
 
 namespace Juice.Mobile {
-	class Textbox {
-
-		//Input type="text|number|search|etc." or textarea elements are auto-enhanced, no data-role required
+	
+	//Input type="text|number|search|etc." or textarea elements are auto-enhanced, no data-role required
+	[TargetControlType(typeof(HtmlInputText))]
+	[TargetControlType(typeof(HtmlTextArea))]
+	[TargetControlType(typeof(TextBox))]
+	public class Textbox : Juice.Mobile.Framework.MobileExtender {
 
 		//data-mini	true | false - Compact sized version
-		//data-role	none (prevents auto-enhancement to use native control)
-		//data-theme	swatch letter (a-z) - Added to the form element
+		[WidgetOption("mini", false)]
+		public Boolean Mini { get; set; }
 
 	}
 }
