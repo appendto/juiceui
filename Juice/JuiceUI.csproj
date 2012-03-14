@@ -107,6 +107,8 @@
     <Compile Include="Mobile\FlipToggle.cs" />
     <Compile Include="Mobile\FlipToggleItem.cs" />
     <Compile Include="Mobile\Footer.cs" />
+    <Compile Include="Mobile\Framework\IMobileControl.cs" />
+    <Compile Include="Mobile\Framework\MobileBridge.cs" />
     <Compile Include="Mobile\Framework\MobileExtender.cs" />
     <Compile Include="Mobile\Header.cs" />
     <Compile Include="Mobile\Framework\JuiceMobileApp.cs" />

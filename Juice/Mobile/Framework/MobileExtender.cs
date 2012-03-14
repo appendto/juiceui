@@ -8,25 +8,27 @@ using System.Web.UI.WebControls;
 using Juice.Framework;
 
 namespace Juice.Mobile.Framework {
-	public class MobileExtender : ExtenderControl {
+	public class MobileExtender : ExtenderControl, IMobileControl {
 
 		private Control _targetControl;
+		private MobileBridge _bridge;
 
 		public MobileExtender() : this(null) { }
 
 		public MobileExtender(String role) {
 			this.Role = role;
 			this.ClientIDMode = ClientIDMode.Static;
+
+			_bridge = new MobileBridge(this);
 		}
 
-		internal Control TargetControl { get; private set; }
+		public Control TargetControl { get; private set; }
 
 		//data-mini	true | false - Compact sized version
 		[WidgetOption("mini", false)]
 		public Boolean Mini { get; set; }
 
-		[WidgetOption("role", null)]
-		public String Role { get; protected set; }
+		public String Role { get; set; }
 
 		//data-theme	swatch letter (a-z)
 		[WidgetOption("theme", null)]
@@ -44,19 +46,12 @@ namespace Juice.Mobile.Framework {
 			this.TargetControl = _targetControl;
 		}
 
-		protected override void OnPreRender(EventArgs e) {
-			
-			// TODO: parse the options, compare to the default, add attributes if necessary.
-			
-			base.OnPreRender(e);
-		}
-
 		protected override IEnumerable<ScriptDescriptor> GetScriptDescriptors(Control targetControl) {
 			return null;
 		}
 
 		protected override IEnumerable<ScriptReference> GetScriptReferences() {
-			return null;
+			return _bridge.GetScriptReferences();
 		}
 	}
 }

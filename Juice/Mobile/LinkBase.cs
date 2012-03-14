@@ -6,12 +6,8 @@ using System.Text;
 using Juice.Framework;
 
 namespace Juice.Mobile {
-	
-	public abstract class LinkBase : ThemeControlBase {
 
-		public LinkBase(String role) : base(role) {
-
-		}
+	public abstract class LinkBase : Juice.Mobile.Framework.MobileExtender {
 
 		//data-ajax	true | false
 		[WidgetOption("ajax", true)]

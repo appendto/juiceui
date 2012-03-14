@@ -13,7 +13,6 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
-
 namespace Juice.Framework {
 
 	public sealed class JuiceWidgetState {
