@@ -100,6 +100,7 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Mobile\Page.aspx" />
     <Content Include="RadioButton.aspx" />
     <Content Include="Scripts\jquery-ui-1.8.18.js" />
     <Content Include="Scripts\jquery-ui-1.8.18.min.js" />
@@ -264,6 +265,13 @@
     </Compile>
     <Compile Include="Button.aspx.designer.cs">
       <DependentUpon>Button.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\Page.aspx.cs">
+      <DependentUpon>Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\Page.aspx.designer.cs">
+      <DependentUpon>Page.aspx</DependentUpon>
     </Compile>
     <Compile Include="RadioButton.aspx.cs">
       <DependentUpon>RadioButton.aspx</DependentUpon>
