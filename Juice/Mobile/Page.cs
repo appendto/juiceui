@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.UI;
 
 using Juice.Framework;
 
 namespace Juice.Mobile {
 
 	//Container with data-role="page"
+	[ParseChildren(false)]
 	public class Page : ThemeControlBase {
 
 		public Page() : base("page") { }

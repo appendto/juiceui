@@ -28,17 +28,23 @@ namespace Juice.Mobile.Framework {
 			this.SetDefaults();
 		}
 
-		public static Boolean MetaViewPortExists { get; set; }
+		public Boolean MetaViewPortExists {
+			get { 
+				Boolean? value = _bridgeTo.Page.Items["MobileBridge.MetaViewPortExists"] as Boolean?;
+				return value == null ? false : value.Value;
+			}
+			set { _bridgeTo.Page.Items["MobileBridge.MetaViewPortExists"] = value; }
+		}
 
 		private void RenderCss() {
 			_cssManager.Render(new List<String> {
-				"jquery-ui"
+				"jquery-mobile"
 			});
 		}
 
 		private void RenderMeta() {
-
-			if(MobileBridge.MetaViewPortExists) {
+			
+			if(this.MetaViewPortExists) {
 				return;
 			}
 
@@ -47,7 +53,7 @@ namespace Juice.Mobile.Framework {
 			HtmlMeta viewport = controls.OfType<HtmlMeta>().Where(m => m.Name != null && m.Name.ToLower() == "viewport").FirstOrDefault();
 
 			if(viewport != null) {
-				MobileBridge.MetaViewPortExists = true;
+				this.MetaViewPortExists = true;
 				return;
 			}
 
@@ -57,6 +63,8 @@ namespace Juice.Mobile.Framework {
 			};
 
 			header.Controls.Add(viewport);
+
+			this.MetaViewPortExists = true;
 		}
 
 		private void SetDefaults() {
@@ -111,8 +119,8 @@ namespace Juice.Mobile.Framework {
 
 				object current = o.Property.GetValue(_bridgeTo);
 
-				if(current != null && o.Option.DefaultValue != current) {
-					attributes.SetAttribute("data-role", current.ToString().ToLower());
+				if((current == null && o.Option.DefaultValue != null) || (current != null && !current.Equals(o.Option.DefaultValue))) {
+					attributes.SetAttribute(String.Concat("data-", o.Option.Name), current.ToString().ToLower());
 				}
 			}
 

@@ -1,0 +1,18 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Mobile.master.cs" Inherits="Juice_Sample_Site.MobileMaster" %>
+<!DOCTYPE html> 
+<html> 
+	<head runat="server"> 
+	<title>Page Title</title> 
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+</head> 
+<body> 
+  <form runat="server">
+  <div>
+		<asp:ScriptManager id="_Script" runat="server" />
+		<asp:ContentPlaceHolder ID="_Content" runat="server" />
+  </div>
+  </form>
+</body>
+</html>
