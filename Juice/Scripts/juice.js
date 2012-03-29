@@ -172,6 +172,8 @@
 		return _trigger.apply( this, arguments );
 	};
 
+	// The autocomplete widget accepts a string and string array. This is problematic as we can't represent both 
+
 	$( ready );
 	Sys.WebForms.PageRequestManager.getInstance().add_endRequest( endRequest ); // handles adding the jquery ui css on partial postback, if it hasn't been already.
 	window.Juice = Juice;
