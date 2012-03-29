@@ -11,5 +11,6 @@
 </asp:content>
 <asp:content contentplaceholderid="_Content" runat="server">
   <asp:TextBox runat="server" ID="DoB" />
-  <Juice:Datepicker runat="server" TargetControlID="DoB" DayNames="Domingo,Lunes,Martes,Miercoles,Jueves,Viernes,Sabado" ButtonImage="/images/calendar-icon.png" ButtonImageOnly="true" ShowOn="both" ButtonText="Show date picker" />
+  <Juice:Datepicker id="_Datepicker" runat="server" TargetControlID="DoB" DayNames="Domingo,Lunes,Martes,Miercoles,Jueves,Viernes,Sabado" ButtonImage="/images/calendar-icon.png" ButtonImageOnly="true" ShowOn="both" ButtonText="Show date picker" />
+	<asp:button ID="_Button" runat="server" Text="Postback"/>
 </asp:content>
