@@ -27,25 +27,29 @@ namespace Juice.Framework {
 		[Browsable(false)]
 		private JuiceWidgetState WidgetState { get { return this._widgetState; } }
 
+		private Control TargetControl {
+			get {
+				if(_targetControl == null) {
+					FindTargetControl();
+				}
+
+				return _targetControl;
+			}
+		}
+
 		protected override void OnLoad(EventArgs e) {
 			base.OnLoad(e);
 
-			_targetControl = FindControl(TargetControlID);
-
-			if(_targetControl == null) {
-				throw new ArgumentNullException("TargetControl is null");
-			}
-
-			WidgetState.SetWidgetNameOnTarget(_targetControl as IAttributeAccessor);
+			WidgetState.SetWidgetNameOnTarget(this.TargetControl as IAttributeAccessor);
 			WidgetState.AddPagePreRenderCompleteHandler();
 		}
 
 		protected override void OnPreRender(EventArgs e) {
 			base.OnPreRender(e);
 
-			if(_targetControl.Visible) {
+			if(this.TargetControl.Visible) {
 				Page.RegisterRequiresPostBack(this);
-				WidgetState.ParseEverything(_targetControl);
+				WidgetState.ParseEverything(this.TargetControl);
 				WidgetState.RenderCss();
 			}
 		}
@@ -71,6 +75,14 @@ namespace Juice.Framework {
 
 		protected virtual void SetDefaultOptions() {
 			WidgetState.SetDefaultOptions();
+		}
+
+		private void FindTargetControl() {
+			_targetControl = FindControl(TargetControlID);
+
+			if(_targetControl == null) {
+				throw new ArgumentNullException("TargetControl is null");
+			}
 		}
 
 		#region IWidget Implementation
@@ -119,6 +131,8 @@ namespace Juice.Framework {
 		string IWidget.ClientID { get { return ClientID; } }
 
 		string IWidget.UniqueID { get { return UniqueID; } }
+
+		string IWidget.TargetClientID { get { return this.TargetControl.ClientID; } }
 
 		bool IWidget.Visible { get { return Visible; } }
 

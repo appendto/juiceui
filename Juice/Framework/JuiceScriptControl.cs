@@ -114,6 +114,8 @@ namespace Juice.Framework {
 
 		string IWidget.UniqueID { get { return UniqueID; } }
 
+		string IWidget.TargetClientID { get { return this.ClientID; } }
+
 		bool IWidget.Visible { get { return Visible; } }
 
 		void IWidget.SaveWidgetOptions() {

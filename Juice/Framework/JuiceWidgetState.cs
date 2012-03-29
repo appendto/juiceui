@@ -130,7 +130,7 @@ namespace Juice.Framework {
 				var value = currentValue; // default to the current value
 
 				// Set value to: Posted value OR leave as default value
-				var postedControlState = LoadPostDataForControl(Widget.Page, Widget.ClientID);
+				var postedControlState = LoadPostDataForControl();
 
 				if(postedControlState != null) {
 					// Changes were made on the client side for this widget, try to get the value for this option
@@ -292,14 +292,14 @@ namespace Juice.Framework {
 			}
 		}
 
-		private IDictionary<string, object> LoadPostDataForControl(Page page, string widgetClientID) {
+		private IDictionary<string, object> LoadPostDataForControl() {
 			EnsureWidgetPostDataLoaded();
 			Dictionary<string, object> widgetState;
 			
 			//_allWidgetPostbackOptions.TryGetValue(widgetClientID, out widgetState);
 
 			widgetState = (from hash in _allWidgetPostbackOptions
-										 where hash.ControlID == widgetClientID && hash.WidgetName == this.Widget.WidgetName
+										 where hash.ControlID == this.Widget.TargetClientID && hash.WidgetName == this.Widget.WidgetName
 										 select hash.Options).FirstOrDefault() ?? new Dictionary<string, object>();
 
 			return widgetState;

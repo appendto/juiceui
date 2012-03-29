@@ -11,6 +11,7 @@ namespace Juice.Framework {
 		string ClientID { get; }
 		string UniqueID { get; }
 		string WidgetName { get; }
+		string TargetClientID { get; }
 
 		bool AutoPostBack { get; set; }
 		bool Disabled { get; set; }
