@@ -152,7 +152,7 @@ namespace Juice.Framework {
 					TypeConverter converter = widgetOption.PropertyDescriptor.Converter;
 					
 					if(converter != null) {
-						newValue = converter.CanConvertFrom(value.GetType()) ? converter.ConvertFrom(value) : value;
+						newValue = converter.CanConvertFrom(value == null ? null : value.GetType()) ? converter.ConvertFrom(value) : value;
 					}
 					else {
 						newValue = value;

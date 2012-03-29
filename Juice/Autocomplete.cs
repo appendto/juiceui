@@ -76,16 +76,64 @@ namespace Juice {
 		[Description("Identifies the position of the Autocomplete widget in relation to the associated input element. The \"of\" option defaults to the input element, but you can specify another element to position against. You can refer to the jQuery UI Position utility for more details about the various options.")]
 		public string Position { get; set; }
 
+		private String _sourceUrl = null;
+		private String[] _source = null;
+
 		/// <summary>
-		/// Defines the data to use, must be specified. See Overview section for more details, and look at the various demos.
+		/// Defines a data source url for the data to use. Source or SourceUrl must be specified.
+		/// If both SourceUrl and Source are specified, Source will take priority.
 		/// Reference: http://jqueryui.com/demos/autocomplete/#source
 		/// </summary>
-		[WidgetOption("source", null)]
+		[Category("Data")]
+		[DefaultValue(null)]
+		[Description("Defines a data source url for the data to use. Source or SourceUrl must be specified. If both SourceUrl and Source are specified, Source will take priority.")]
+		public String SourceUrl {
+			get { return _sourceUrl; }
+			set { this._sourceUrl = value; }
+		}
+
+		/// <summary>
+		/// Defines the data to use. Source or SourceUrl must be specified.
+		/// Reference: http://jqueryui.com/demos/autocomplete/#source
+		/// </summary>
 		[TypeConverter(typeof(StringArrayConverter))]
 		[Category("Data")]
 		[DefaultValue(null)]
-		[Description("Defines the data to use, must be specified. See Overview section for more details, and look at the various demos.")]
-		public string[] Source { get; set; }
+		[Description("Defines the data to use. Source or SourceUrl must be specified.")]
+		public String[] Source {
+			get { return this._source; }
+			set { this._source = value; }
+		}
+
+		/// <summary>
+		/// Internal container for the source option.
+		/// </summary>
+		/// <remarks>
+		/// Yes, this is ugly. It's really ugly.
+		/// This is (so far) the only instance where we have to do something like this.
+		/// There's no way to differentiate between a string and an array of length(1) in control attributes.
+		/// If we run across this scenario again, we should write a TypeDescriptorProvider that will pull Internal/Private properties
+		/// or switch back to using PropertyInfo instead of PropertyDescriptors.
+		/// </remarks>
+		[WidgetOption("source", null)]
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		[Browsable(false)]
+		public object Widget_Source {
+			get {
+				if(this._source != null) {
+					return this._source;
+				}
+				return this._sourceUrl;
+			}
+			internal set {
+				if(value is String[]) {
+					this.Source = value as String[];
+				}
+				else if(value is String) {
+					this.SourceUrl = value as String;
+				}
+			}
+		}
 
 		#endregion
 
