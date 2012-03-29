@@ -143,7 +143,7 @@ namespace Juice.Framework {
 					value = System.Web.HttpUtility.HtmlDecode(value as String);
 				}
 
-				if(value != currentValue) {
+				if(value != currentValue && value != null) {
 					// Only set the value if it's different from the original value
 
 					// Because we're using PropertyDescriptor.SetValue, we need to manually trigger the converters associated with the widget options Properties.
