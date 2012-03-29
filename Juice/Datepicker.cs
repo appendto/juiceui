@@ -99,6 +99,7 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/datepicker/#calculateWeek
 		/// </summary>
 		[WidgetOption("calculateWeek", "$.datepicker.iso8601Week", Eval = true)]
+		[TypeConverter(typeof(Framework.TypeConverters.JsonObjectConverter))]
 		[Category("")]
 		[DefaultValue("$.datepicker.iso8601Week")]
 		[Description("A function to calculate the week of the year for a given date. The default implementation uses the ISO 8601 definition: weeks start on a Monday; the first week of the year contains the first Thursday of the year.")]
@@ -169,7 +170,7 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/datepicker/#dayNames
 		/// </summary>
 		[WidgetOption("dayNames", new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" })]
-		[TypeConverter(typeof(StringArrayConverter))]
+		[TypeConverter(typeof(Framework.TypeConverters.StringArrayConverter))]
 		[Category("Data")]
 		[DefaultValue("Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday")]
 		[Description("The list of long day names, starting from Sunday, for use as requested via the dateFormat setting. They also appear as popup hints when hovering over the corresponding column headings. This attribute is one of the regionalisation attributes.")]
@@ -180,7 +181,7 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/datepicker/#dayNamesMin
 		/// </summary>
 		[WidgetOption("dayNamesMin", new string[] { "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa" })]
-		[TypeConverter(typeof(StringArrayConverter))]
+		[TypeConverter(typeof(Framework.TypeConverters.StringArrayConverter))]
 		[Category("Data")]
 		[DefaultValue("Su, Mo, Tu, We, Th, Fr, Sa")]
 		[Description("The list of minimised day names, starting from Sunday, for use as column headers within the datepicker. This attribute is one of the regionalisation attributes.")]
@@ -191,7 +192,7 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/datepicker/#dayNamesShort
 		/// </summary>
 		[WidgetOption("dayNamesShort", new string[] { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" })]
-		[TypeConverter(typeof(StringArrayConverter))]
+		[TypeConverter(typeof(Framework.TypeConverters.StringArrayConverter))]
 		[Category("Data")]
 		[DefaultValue("Sun, Mon, Tue, Wed, Thu, Fri, Sat")]
 		[Description("The list of abbreviated day names, starting from Sunday, for use as requested via the dateFormat setting. This attribute is one of the regionalisation attributes.")]
@@ -282,7 +283,7 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/datepicker/#monthNames
 		/// </summary>
 		[WidgetOption("monthNames", new string[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" })]
-		[TypeConverter(typeof(StringArrayConverter))]
+		[TypeConverter(typeof(Framework.TypeConverters.StringArrayConverter))]
 		[Category("Data")]
 		[DefaultValue("January, February, March, April, May, June, July, August, September, October, November, December")]
 		[Description("The list of full month names, for use as requested via the dateFormat setting. This attribute is one of the regionalisation attributes.")]
@@ -293,7 +294,7 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/datepicker/#monthNamesShort
 		/// </summary>
 		[WidgetOption("monthNamesShort", new string[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" })]
-		[TypeConverter(typeof(StringArrayConverter))]
+		[TypeConverter(typeof(Framework.TypeConverters.StringArrayConverter))]
 		[Category("Data")]
 		[DefaultValue("Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec")]
 		[Description("The list of abbreviated month names, as used in the month header on each datepicker and as requested via the dateFormat setting. This attribute is one of the regionalisation attributes.")]
@@ -414,6 +415,7 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/datepicker/#showOptions
 		/// </summary>
 		[WidgetOption("showOptions", "{}", Eval = true)]
+		[TypeConverter(typeof(Framework.TypeConverters.JsonObjectConverter))]
 		[Category("Behavior")]
 		[DefaultValue("{}")]
 		[Description("If using one of the jQuery UI effects for showAnim, you can provide additional settings for that animation via this option.")]
