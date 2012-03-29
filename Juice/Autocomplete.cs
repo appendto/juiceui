@@ -71,6 +71,7 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/autocomplete/#position
 		/// </summary>
 		[WidgetOption("position", "{}", Eval = true)]
+		[TypeConverter(typeof(Framework.TypeConverters.JsonObjectConverter))]
 		[Category("Layout")]
 		[DefaultValue("{}")]
 		[Description("Identifies the position of the Autocomplete widget in relation to the associated input element. The \"of\" option defaults to the input element, but you can specify another element to position against. You can refer to the jQuery UI Position utility for more details about the various options.")]
@@ -96,7 +97,7 @@ namespace Juice {
 		/// Defines the data to use. Source or SourceUrl must be specified.
 		/// Reference: http://jqueryui.com/demos/autocomplete/#source
 		/// </summary>
-		[TypeConverter(typeof(StringArrayConverter))]
+		[TypeConverter(typeof(Framework.TypeConverters.StringArrayConverter))]
 		[Category("Data")]
 		[DefaultValue(null)]
 		[Description("Defines the data to use. Source or SourceUrl must be specified.")]
