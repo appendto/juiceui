@@ -265,6 +265,9 @@
     <Compile Include="Button.aspx.designer.cs">
       <DependentUpon>Button.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AutoCompleteData.ashx.cs">
+      <DependentUpon>AutoCompleteData.ashx</DependentUpon>
+    </Compile>
     <Compile Include="RadioButton.aspx.cs">
       <DependentUpon>RadioButton.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -372,6 +375,7 @@
     <None Include="fonts\junction\Junction-webfont.ttf" />
     <None Include="fonts\junction\Junction-webfont.woff" />
     <Content Include="packages.config" />
+    <Content Include="AutoCompleteData.ashx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Juice\JuiceUI.csproj">

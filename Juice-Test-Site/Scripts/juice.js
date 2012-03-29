@@ -79,7 +79,6 @@
         	args.push( uiWidget );
 
         	// this publishes an amplify event with the arguments that correspond to the jquery ui event handler function parameters.
-        	console.log( args );
 					Juice.publish.apply( this, args );
 
         	// Submit a postback if handler emitted - wee server side events!
@@ -172,6 +171,8 @@
 		}
 		return _trigger.apply( this, arguments );
 	};
+
+	// The autocomplete widget accepts a string and string array. This is problematic as we can't represent both 
 
 	$( ready );
 	Sys.WebForms.PageRequestManager.getInstance().add_endRequest( endRequest ); // handles adding the jquery ui css on partial postback, if it hasn't been already.
