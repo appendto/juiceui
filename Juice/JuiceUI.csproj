@@ -72,7 +72,8 @@
     <Compile Include="Framework\TypeConverters\BooleanInt32ArrayConverter.cs" />
     <Compile Include="Framework\PostBackHash.cs" />
     <Compile Include="Framework\JavaScriptConverters\PostBackHashConverter.cs" />
-    <Compile Include="Framework\TypeConverters\StringArrayObjectConverter.cs" />
+    <Compile Include="Framework\TypeConverters\JsonObjectConverter.cs" />
+    <Compile Include="Framework\TypeConverters\StringArrayConverter.cs" />
     <Compile Include="Framework\TypeConverters\StringToObjectConverter.cs" />
     <Compile Include="Framework\WidgetEventAttribute.cs" />
     <Compile Include="Autocomplete.cs" />
