@@ -6,9 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Juice_Sample_Site {
-  public partial class Draggable : System.Web.UI.Page {
-    protected void Page_Load(object sender, EventArgs e) {
+	public partial class Draggable : System.Web.UI.Page {
+		protected override void OnLoad(EventArgs e) {
+			base.OnLoad(e);
 
-    }
-  }
+			_Button.Click += delegate(object sender, EventArgs ea) {
+				object o = this._Draggable.AddClasses;
+			};
+		}
+
+	}
 }

@@ -16,6 +16,6 @@
 	<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
 	<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
 </ul>
-<juice:sortable TargetControlID="_Default" runat="server" />
-
+<juice:sortable id="_Sortable" TargetControlID="_Default" runat="server" />
+<asp:button ID="_Button" runat="server" Text="Postback"/>
 </asp:content>

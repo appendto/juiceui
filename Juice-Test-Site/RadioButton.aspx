@@ -3,6 +3,6 @@
 
 	<asp:checkbox ID="_Check" runat="server" Text="Llamas"/>
 	<asp:radiobutton ID="_Radio" runat="server" Text="Llamas"/>
-	<%--<juice:resizable TargetControlID="_Radio" runat="server" />--%>
+	<asp:button ID="_Button" runat="server" Text="Postback"/>
 
 </asp:content>

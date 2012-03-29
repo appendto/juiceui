@@ -9,8 +9,8 @@ namespace Juice_Sample_Site {
   public partial class Tabs : System.Web.UI.Page {
     protected void Page_Load(object sender, EventArgs e) {
 			_Tabs.SelectedTabChanged += _Tabs_Change;
-			_Post.Click += delegate(object s, EventArgs ea) {
-				var i = 0;
+			_Button.Click += delegate(object s, EventArgs ea) {
+				object o = _Tabs.AccessKey;
 			};
     }
 

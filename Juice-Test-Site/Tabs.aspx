@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Tabs.aspx.cs" Inherits="Juice_Sample_Site.Tabs" masterpagefile="~/Base.Master" %>
 <asp:content contentplaceholderid="_Content" runat="server">
 
-	<asp:button ID="_Post" runat="server" Text="Post" />
+	<asp:button ID="_Button" runat="server" Text="Postback"/>
 
   <Juice:Tabs ID="_Tabs" runat="server" PanelTemplate="<div>!&lt;/div&gt;" AutoPostBack="true">
     <Juice:TabPage Title="Tab 1" ID="Tab1">

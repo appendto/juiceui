@@ -5,6 +5,6 @@
   <Juice:Autocomplete id="_Autocomplete" runat="server" TargetControlID="_Textbox" Source="ActionScript, AppleScript, Asp, BASIC, C, C++, Clojure, COBOL, ColdFusion, Erlang, Fortran, Groovy, Haskell, Java, JavaScript, Lisp, Perl, PHP, Python, Ruby, Scala, Scheme" /> 
 	<%--<Juice:Autocomplete id="_Autocomplete" runat="server" TargetControlID="_Textbox" SourceUrl="AutoCompleteData.ashx" /> --%>
 	
-	<asp:button ID="_Button" runat="server"/>
+	<asp:button ID="_Button" runat="server" Text="Postback" />
 
 </asp:content>

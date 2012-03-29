@@ -3,5 +3,6 @@
 <div id="_Default" title="Basic dialog" runat="server">
 	<p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
 </div>
-<juice:dialog TargetControlID="_Default" runat="server" />
+<juice:dialog ID="_Dialog" TargetControlID="_Default" runat="server" />
+<asp:button ID="_Button" runat="server" Text="Postback" />
 </asp:content>

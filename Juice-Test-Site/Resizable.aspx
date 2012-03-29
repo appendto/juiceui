@@ -7,4 +7,5 @@
 <asp:content contentplaceholderid="_Content" runat="server">
   <asp:Panel runat="server" ID="ResizeMe" cssclass="demo" />
   <Juice:Resizable id="_Extender" runat="server" TargetControlID="ResizeMe" MaxHeight="300"  />
+	<asp:button ID="_Button" runat="server" Text="Postback"/>
 </asp:content>

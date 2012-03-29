@@ -18,6 +18,6 @@
 	<li class="ui-widget-content">Item 6</li>
 	<li class="ui-widget-content">Item 7</li>
 </ol>
-<juice:selectable TargetControlID="_Default" runat="server"/>
-
+<juice:selectable ID="_Selectable" TargetControlID="_Default" runat="server"/>
+<asp:button ID="_Button" runat="server" Text="Postback"/>
 </asp:content>

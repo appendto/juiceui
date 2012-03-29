@@ -26,5 +26,6 @@
 	<div><span id="slider2Value"></span></div>
 
 	<juice:slider ID="_Range" runat="server" Range="true" Min="0" Max="500" Values="75, 300" />
-
+	
+	<asp:button ID="_Button" runat="server" Text="Postback"/>
 </asp:content>

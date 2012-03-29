@@ -5,5 +5,6 @@
 			<juice:progressbar ID="_Resizable" runat="server" Value="37" style="height: 100%;" />
 		</div>
 		<juice:resizable TargetControlID="_Wrapper" runat="server" />
+		<asp:button ID="_Button" runat="server" Text="Postback"/>
 	</div>
 </asp:content>

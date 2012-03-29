@@ -26,6 +26,6 @@
 	<asp:panel ID="_Default" CssClass="droppable ui-widget-header" runat="server" ClientIDMode="Static">
 		<p>Drop here</p>
 	</asp:panel>
-	<juice:droppable TargetControlID="_Default" runat="server"/>
-
+	<juice:droppable id="_Droppable" TargetControlID="_Default" runat="server"/>
+	<asp:button ID="_Button" runat="server" Text="Postback"/>
 </asp:Content>

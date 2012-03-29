@@ -11,6 +11,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_Content" runat="server">
   <asp:Panel runat="server" ID="DragBox" CssClass="dragBox" />
-
-  <Juice:Draggable runat="server" TargetControlID="DragBox" />
+  <Juice:Draggable id="_Draggable" runat="server" TargetControlID="DragBox" />
+	<asp:button ID="_Button" runat="server" Text="Postback"/>
 </asp:Content>
