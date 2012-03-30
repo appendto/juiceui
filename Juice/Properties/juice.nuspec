@@ -12,9 +12,9 @@
     <dependencies>
       <dependency id="jQuery" version="[1.7.1]" />
       <dependency id="jQuery.UI.Combined" version="[1.8.18]" />
-			<dependency id="jquery.mobile" version="[1.0.1]" />
       <dependency id="json2" />
       <dependency id="AmplifyJS" />
     </dependencies>
+		<tags>ASP.NET WebForms jQuery jQueryUI Plugins Controls Ajax</tags>
   </metadata>
 </package>
