@@ -1,10 +1,12 @@
 ﻿
 namespace Juice {
+	
+	[System.Obsolete("JuiceOptions is no longer used. Please use the CssManager moving forward.", true)]
 	public static class JuiceOptions {
-		//public static string CssPath { get; set; }
-		//public static string CssDebugPath { get; set; }
-		//public static string CssCdnPath { get; set; }
-		//public static string CssCdnDebugPath { get; set; }
+		public static string CssPath { get; set; }
+		public static string CssDebugPath { get; set; }
+		public static string CssCdnPath { get; set; }
+		public static string CssCdnDebugPath { get; set; }
 
 		static JuiceOptions() {
 
