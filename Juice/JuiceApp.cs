@@ -50,10 +50,8 @@ namespace Juice {
 			);
 
 			CssManager.CssResourceMapping.AddDefinition("jquery-ui", new CssResourceDefinition {
-				Path = "~/Content/themes/base/minified/jquery.ui.all.min.css",
-				DebugPath = "~/Content/themes/base/jquery.ui.all.css",
-				CdnPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css",
-				CdnDebugPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+				Path = "~/Content/themes/Fresh-Squeezed/jquery-ui-1.8.18.custom.css",
+				DebugPath = "~/Content/themes/Fresh-Squeezed/jquery-ui-1.8.18.custom.css"
 			});
 
 		}
