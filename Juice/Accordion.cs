@@ -106,6 +106,7 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/accordion/#icons
 		/// </summary>
 		[WidgetOption("icons", "{}", Eval = true)]
+		[TypeConverter(typeof(Framework.TypeConverters.JsonObjectConverter))]
 		[Category("Appearance")]
 		[DefaultValue("{}")]
 		[Description("Icons to use for headers. Icons may be specified for 'header' and 'headerSelected', and we recommend using the icons native to the jQuery UI CSS Framework manipulated by jQuery UI ThemeRoller")]
@@ -126,6 +127,7 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/accordion/#navigationFilter
 		/// </summary>
 		[WidgetOption("navigationFilter", "{}", Eval = true)]
+		[TypeConverter(typeof(Framework.TypeConverters.JsonObjectConverter))]
 		[Category("Behavior")]
 		[DefaultValue("{}")]
 		[Description("Overwrite the default location.href-matching with your own matcher.")]
