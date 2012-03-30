@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Accordion.aspx.cs" Inherits="Juice_Sample_Site.Accordion" masterpagefile="~/Base.Master" %>
 <asp:content contentplaceholderid="_Content" runat="server">
 
-  <Juice:Accordion runat="server">
+  <Juice:Accordion ID="_Accordion" runat="server">
     <Juice:AccordionPanel Title="Panel 1">
       <PanelContent>
         Panel 1's content.
@@ -16,5 +16,7 @@
       </PanelContent>
     </Juice:AccordionPanel>
   </Juice:Accordion>
+
+	<asp:button ID="_Postback" runat="server" Text="Postback"/>
 
 </asp:content>

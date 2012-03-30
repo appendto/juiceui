@@ -11,5 +11,23 @@ namespace Juice_Sample_Site {
     
     
     public partial class Accordion {
+        
+        /// <summary>
+        /// _Accordion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Juice.Accordion _Accordion;
+        
+        /// <summary>
+        /// _Postback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button _Postback;
     }
 }
