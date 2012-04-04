@@ -157,8 +157,24 @@ namespace Juice.Framework {
 					else {
 						newValue = value;
 					}
-										
-					widgetOption.PropertyDescriptor.SetValue(Widget, newValue);
+
+					try {
+						// jquery ui's defaults for string properties (and such) are often set to false.
+						if(newValue != null && newValue.Equals(false) && widgetOption.PropertyDescriptor.PropertyType == typeof(string)) {
+							newValue = widgetOption.DefaultValue;
+						}
+
+						widgetOption.PropertyDescriptor.SetValue(Widget, newValue);
+					}
+					catch(ArgumentException) {
+						// catches edge cases where there is no type converter defined. eg. false -> int[].
+						
+						if(newValue.Equals(false) && widgetOption.DefaultValue == null) {
+							newValue = null;
+						}
+
+						widgetOption.PropertyDescriptor.SetValue(Widget, newValue);
+					}
 				}
 			}
 
@@ -241,7 +257,7 @@ namespace Juice.Framework {
 
 		public void RenderCss() {
 			_cssManager.Render(new List<String> {
-				"jquery-ui"
+				"juice-ui"
 			});
 		}
 
@@ -363,7 +379,7 @@ namespace Juice.Framework {
 			//serializer.RegisterConverters(new[] { new WidgetHashClientStateJavaScriptConverter() });
 
 			String json = serializer.Serialize(widgetState);
-			String cssUrl = _cssManager.GetUrl(CssManager.CssResourceMapping.GetDefinition("jquery-ui"));
+			String cssUrl = _cssManager.GetUrl(CssManager.CssResourceMapping.GetDefinition("juice-ui"));
 			String script = String.Format(CultureInfo.InvariantCulture, _hashScript, json, cssUrl);
 
 			// Render the state JSON blob to the page and the onsubmit script
