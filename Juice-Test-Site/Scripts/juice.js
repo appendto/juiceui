@@ -13,8 +13,13 @@
       $.each( Juice.widgets, function ( index, widget ) {
         var element = $( '#' + widget.id ),
           widgetName = widget.widgetName, //element.data( 'ui-widget' ),
-          uiWidget = element.data( widgetName ),
-					opts = $.extend({}, uiWidget.options);
+          uiWidget = element.data( widgetName );
+				
+				if( !uiWidget ){
+					return;
+				}
+
+				var opts = $.extend( {}, uiWidget.options );
 
 				$.each( opts, function( label ){
 					if( $.inArray( label, widget.encodedOptions ) >= 0 ){

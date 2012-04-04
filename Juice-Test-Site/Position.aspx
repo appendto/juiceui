@@ -5,5 +5,6 @@
   <asp:Label runat="server" id="ImportantInfo">Enter important information here.</asp:Label>
 
   <Juice:Position id="_Position" runat="server" TargetControlID="ImportantInfo" my="left" at="right" Of="TextBox1" />
+
 	<asp:button ID="_Button" runat="server" Text="Postback"/>
 </asp:Content>
