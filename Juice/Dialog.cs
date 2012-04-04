@@ -8,7 +8,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+
 using Juice.Framework;
+using Juice.Framework.TypeConverters;
 
 namespace Juice {
 
@@ -100,10 +102,11 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#height
 		/// </summary>
 		[WidgetOption("height", 0)]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Layout")]
 		[DefaultValue("auto")]
 		[Description("The height of the dialog, in pixels. Specifying 'auto' is also supported to make the dialog adjust based on its content.")]
-		public int Height { get; set; }
+		public dynamic Height { get; set; }
 
 		/// <summary>
 		/// The effect to be used when the dialog is closed.
@@ -120,40 +123,44 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#maxHeight
 		/// </summary>
 		[WidgetOption("maxHeight", 0)]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Layout")]
 		[DefaultValue(false)]
 		[Description("The maximum height to which the dialog can be resized, in pixels.")]
-		public int MaxHeight { get; set; }
+		public dynamic MaxHeight { get; set; }
 
 		/// <summary>
 		/// The maximum width to which the dialog can be resized, in pixels.
 		/// Reference: http://jqueryui.com/demos/dialog/#maxWidth
 		/// </summary>
 		[WidgetOption("maxWidth", 0)]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Layout")]
 		[DefaultValue(false)]
 		[Description("The maximum width to which the dialog can be resized, in pixels.")]
-		public int MaxWidth { get; set; }
+		public dynamic MaxWidth { get; set; }
 
 		/// <summary>
 		/// The minimum height to which the dialog can be resized, in pixels.
 		/// Reference: http://jqueryui.com/demos/dialog/#minHeight
 		/// </summary>
 		[WidgetOption("minHeight", 150)]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Layout")]
 		[DefaultValue(150)]
 		[Description("The minimum height to which the dialog can be resized, in pixels.")]
-		public int MinHeight { get; set; }
+		public dynamic MinHeight { get; set; }
 
 		/// <summary>
 		/// The minimum width to which the dialog can be resized, in pixels.
 		/// Reference: http://jqueryui.com/demos/dialog/#minWidth
 		/// </summary>
 		[WidgetOption("minWidth", 150)]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Layout")]
 		[DefaultValue(150)]
 		[Description("The minimum width to which the dialog can be resized, in pixels.")]
-		public int MinWidth { get; set; }
+		public dynamic MinWidth { get; set; }
 
 		/// <summary>
 		/// If set to true, the dialog will have modal behavior; other items on the page will be disabled (i.e. cannot be interacted with). Modal dialogs create an overlay below the dialog but above other page elements.
@@ -169,7 +176,8 @@ namespace Juice {
 		/// Specifies where the dialog should be displayed. Possible values: 1) a single string representing position within viewport: 'center', 'left', 'right', 'top', 'bottom'. 2) an array containing an x,y coordinate pair in pixel offset from left, top corner of viewport (e.g. [350,100]) 3) an array containing x,y position string values (e.g. ['right','top'] for top right corner).
 		/// Reference: http://jqueryui.com/demos/dialog/#position
 		/// </summary>
-		[WidgetOption("position", "center")]
+		[WidgetOption("position", "center", Eval = true)]
+		[TypeConverter(typeof(JsonObjectConverter))]
 		[Category("Layout")]
 		[DefaultValue("center")]
 		[Description("Specifies where the dialog should be displayed. Possible values: 1) a single string representing position within viewport: 'center', 'left', 'right', 'top', 'bottom'. 2) an array containing an x,y coordinate pair in pixel offset from left, top corner of viewport (e.g. [350,100]) 3) an array containing x,y position string values (e.g. ['right','top'] for top right corner).")]
@@ -220,10 +228,11 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/dialog/#width
 		/// </summary>
 		[WidgetOption("width", 300)]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Layout")]
 		[DefaultValue(300)]
 		[Description("The width of the dialog, in pixels.")]
-		public int Width { get; set; }
+		public dynamic Width { get; set; }
 
 		/// <summary>
 		/// The starting z-index for the dialog.

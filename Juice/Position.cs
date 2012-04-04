@@ -79,7 +79,7 @@ namespace Juice {
 		protected override void OnLoad(EventArgs e) {
 			base.OnLoad(e);
 
-			if(FindControl(Of) != null) {
+			if(Of != null && FindControl(Of) != null) {
 				Of = "#" + FindControl(Of).ClientID;
 			}
 		}

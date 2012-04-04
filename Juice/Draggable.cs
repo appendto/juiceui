@@ -51,10 +51,11 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/draggable/#axis
 		/// </summary>
 		[WidgetOption("axis", null)]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Behavior")]
 		[DefaultValue(null)]
 		[Description("Constrains dragging to either the horizontal (x) or vertical (y) axis. Possible values: 'x', 'y'.")]
-		public string Axis { get; set; }
+		public dynamic Axis { get; set; }
 
 		/// <summary>
 		/// Prevents dragging from starting on specified elements.
@@ -71,20 +72,22 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/draggable/#connectToSortable
 		/// </summary>
 		[WidgetOption("connectToSortable", null)]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Behavior")]
 		[DefaultValue(null)]
 		[Description("Allows the draggable to be dropped onto the specified sortables. If this option is used (helper must be set to 'clone' in order to work flawlessly), a draggable can be dropped onto a sortable list and then becomes part of it.")]
-		public string ConnectToSortable { get; set; }
+		public dynamic ConnectToSortable { get; set; }
 
 		/// <summary>
 		/// Constrains dragging to within the bounds of the specified element or region. Possible string values: 'parent', 'document', 'window', [x1, y1, x2, y2].
 		/// Reference: http://jqueryui.com/demos/draggable/#containment
 		/// </summary>
 		[WidgetOption("containment", null)]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Behavior")]
 		[DefaultValue(null)]
 		[Description("Constrains dragging to within the bounds of the specified element or region. Possible string values: 'parent', 'document', 'window', [x1, y1, x2, y2].")]
-		public string Containment { get; set; }
+		public dynamic Containment { get; set; }
 
 		/// <summary>
 		/// The css cursor during the drag operation.
@@ -101,10 +104,11 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/draggable/#cursorAt
 		/// </summary>
 		[WidgetOption("cursorAt", null)]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Behavior")]
 		[DefaultValue(null)]
 		[Description("Sets the offset of the dragging helper relative to the mouse cursor. Coordinates can be given as a hash using a combination of one or two keys: { top, left, right, bottom }.")]
-		public string CursorAt { get; set; }
+		public dynamic CursorAt { get; set; }
 
 		/// <summary>
 		/// Time in milliseconds after mousedown until dragging should start. This option can be used to prevent unwanted drags when clicking on an element.
@@ -162,10 +166,11 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/draggable/#iframeFix
 		/// </summary>
 		[WidgetOption("iframeFix", null)]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Behavior")]
 		[DefaultValue(null)]
 		[Description("Prevent iframes from capturing the mousemove events during a drag. Useful in combination with cursorAt, or in any case, if the mouse cursor is not over the helper. If set to true, transparent overlays will be placed over all iframes on the page. If a selector is supplied, the matched iframes will have an overlay placed over them.")]
-		public string IframeFix { get; set; }
+		public dynamic IframeFix { get; set; }
 
 		/// <summary>
 		/// Opacity for the helper while being dragged (e.g. 0.5 results in 50% opacity while dragging).
@@ -192,10 +197,10 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/draggable/#revert
 		/// </summary>
 		[WidgetOption("revert", null)]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Behavior")]
 		[DefaultValue(null)]
 		[Description("If set to true, the element will return to its start position when dragging stops. Possible string values: 'valid', 'invalid'. If set to invalid, revert will only occur if the draggable has not been dropped on a droppable. For valid, it's the other way around.")]
-		[TypeConverter(typeof(StringToObjectConverter))]
 		public dynamic Revert { get; set; }
 
 		/// <summary>
@@ -253,10 +258,11 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/draggable/#snap
 		/// </summary>
 		[WidgetOption("snap", null)]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Behavior")]
 		[DefaultValue(null)]
 		[Description("If set to a selector or to true (equivalent to '.ui-draggable'), the draggable will snap to the edges of the selected elements when near an edge of the element.")]
-		public string Snap { get; set; }
+		public dynamic Snap { get; set; }
 
 		/// <summary>
 		/// Determines which edges of snap elements the draggable will snap to. Ignored if snap is false. Possible values: 'inner', 'outer', 'both'

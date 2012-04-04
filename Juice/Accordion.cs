@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Web.UI;
 
 using Juice.Framework;
-
+using Juice.Framework.TypeConverters;
 
 namespace Juice {
 	[PersistChildren(true)]
@@ -26,10 +26,11 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/accordion/#active
 		/// </summary>
 		[WidgetOption("active", "0")]
+		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Layout")]
 		[DefaultValue("0")]
 		[Description("Selector for the active element. Set to false to display none at start. Needs collapsible: true.")]
-		public string Active { get; set; }
+		public dynamic Active { get; set; }
 
 		/// <summary>
 		/// Choose your favorite animation, or disable them (set to false). In addition to the default, 'bounceslide' and all defined easing methods are supported ('bounceslide' requires UI Effects Core).
