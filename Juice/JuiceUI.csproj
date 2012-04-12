@@ -49,6 +49,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>JuiceUI.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -170,6 +176,7 @@
     <Content Include="Scripts\juice.min.js" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="JuiceUI.pfx" />
     <None Include="Properties\juice.nuspec">
       <SubType>Designer</SubType>
     </None>
