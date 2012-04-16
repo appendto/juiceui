@@ -9,6 +9,16 @@
     <iconUrl>http://juiceui.com/images/nuget-juice-icon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Juice UI – Supercharge ASP.NET Web Forms with jQuery UI</description>
+		<releaseNotes><![CDATA[
+0.9.1.1
+	• JuiceUI assembly is now signed.
+			
+0.9.1
+	• Improved data/options conversion.
+	• Improved event handling and error correction.
+	• Support for buttongroup.
+	• Support for nested controls and extending Juice UI controls with Juice UI.
+		]]></releaseNotes>
     <dependencies>
       <dependency id="jQuery" version="[1.7.1]" />
       <dependency id="jQuery.UI.Combined" version="[1.8.18]" />
