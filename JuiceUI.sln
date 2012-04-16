@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuiceUI", "Juice\JuiceUI.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuiceUI Test Site", "Juice-Test-Site\JuiceUI Test Site.csproj", "{9B57D389-734D-4244-A1EB-28AC91DF685B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC Test Site", "MVC Test Site\MVC Test Site.csproj", "{C6B4FC7A-1CDD-4B5A-8C34-2B291C511ACB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{9B57D389-734D-4244-A1EB-28AC91DF685B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B57D389-734D-4244-A1EB-28AC91DF685B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B57D389-734D-4244-A1EB-28AC91DF685B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6B4FC7A-1CDD-4B5A-8C34-2B291C511ACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6B4FC7A-1CDD-4B5A-8C34-2B291C511ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6B4FC7A-1CDD-4B5A-8C34-2B291C511ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6B4FC7A-1CDD-4B5A-8C34-2B291C511ACB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
