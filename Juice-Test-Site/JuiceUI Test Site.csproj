@@ -43,9 +43,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="JuiceUI, Version=0.9.1.1, Culture=neutral, PublicKeyToken=2ba9b13151115713, processorArchitecture=MSIL">
-      <HintPath>..\packages\JuiceUI.0.9.1.1\lib\net40\JuiceUI.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -412,6 +409,12 @@
     <None Include="fonts\junction\Junction-webfont.woff" />
     <Content Include="packages.config" />
     <Content Include="AutoCompleteData.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Juice\JuiceUI.csproj">
+      <Project>{03C37589-6BF0-4E3B-91D7-9140D0368DB6}</Project>
+      <Name>JuiceUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -29,23 +29,5 @@ namespace Juice_Sample_Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Juice.Tabs _Tabs;
-        
-        /// <summary>
-        /// Tab1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Juice.TabPage Tab1;
-        
-        /// <summary>
-        /// Tab2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Juice.TabPage Tab2;
     }
 }
