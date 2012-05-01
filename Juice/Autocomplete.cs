@@ -7,7 +7,9 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 using Juice.Framework;
+using Juice.Framework.TypeConverters;
 
 namespace Juice {
 
@@ -71,7 +73,7 @@ namespace Juice {
 		/// Reference: http://jqueryui.com/demos/autocomplete/#position
 		/// </summary>
 		[WidgetOption("position", "{}", Eval = true)]
-		[TypeConverter(typeof(Framework.TypeConverters.JsonObjectConverter))]
+		[TypeConverter(typeof(JsonObjectConverter))]
 		[Category("Layout")]
 		[DefaultValue("{}")]
 		[Description("Identifies the position of the Autocomplete widget in relation to the associated input element. The \"of\" option defaults to the input element, but you can specify another element to position against. You can refer to the jQuery UI Position utility for more details about the various options.")]
@@ -79,31 +81,49 @@ namespace Juice {
 
 		private String _sourceUrl = null;
 		private String[] _source = null;
+		private List<AutocompleteItem> _sourceList = null;
 
 		/// <summary>
-		/// Defines a data source url for the data to use. Source or SourceUrl must be specified.
-		/// If both SourceUrl and Source are specified, Source will take priority.
+		/// Defines a data source url for the data to use. Source, Source List or SourceUrl must be specified. 
+		/// If SourceUrl, SourceList and Source are specified, Source or SourceList will take priority.
 		/// Reference: http://jqueryui.com/demos/autocomplete/#source
 		/// </summary>
+		[WidgetDocument("source", null)]
 		[Category("Data")]
 		[DefaultValue(null)]
-		[Description("Defines a data source url for the data to use. Source or SourceUrl must be specified. If both SourceUrl and Source are specified, Source will take priority.")]
+		[Description("Defines a data source url for the data to use. Source, Source List or SourceUrl must be specified. If SourceUrl, SourceList and Source are specified, Source or SourceList will take priority.")]
 		public String SourceUrl {
 			get { return _sourceUrl; }
 			set { this._sourceUrl = value; }
 		}
 
 		/// <summary>
-		/// Defines the data to use. Source or SourceUrl must be specified.
+		/// Defines the data to use. Source, Source List or SourceUrl must be specified. 
 		/// Reference: http://jqueryui.com/demos/autocomplete/#source
 		/// </summary>
+		[WidgetDocument("source", null)]
 		[TypeConverter(typeof(Framework.TypeConverters.StringArrayConverter))]
 		[Category("Data")]
 		[DefaultValue(null)]
-		[Description("Defines the data to use. Source or SourceUrl must be specified.")]
+		[Description("Defines the data to use. Source, Source List or SourceUrl must be specified.")]
 		public String[] Source {
 			get { return this._source; }
 			set { this._source = value; }
+		}
+
+		/// <summary>
+		/// Defines an array of label/value pairs to use as source data. Source, Source List or SourceUrl must be specified.
+		/// If both SourceList and Source are specified, Source will take priority.
+		/// Reference: http://jqueryui.com/demos/autocomplete/#source
+		/// </summary>
+		[WidgetDocument("source", null)]
+		[TypeConverter(typeof(AutocompleteListConverter))]
+		[Category("Data")]
+		[DefaultValue(null)]
+		[Description("Defines an array of label/value pairs to use as source data. If both SourceList and Source are specified, Source will take priority.")]
+		public List<AutocompleteItem> SourceList {
+			get { return this._sourceList; }
+			set { this._sourceList = value; }
 		}
 
 		/// <summary>
@@ -117,22 +137,46 @@ namespace Juice {
 		/// or switch back to using PropertyInfo instead of PropertyDescriptors.
 		/// </remarks>
 		[WidgetOption("source", null)]
+		[TypeConverter(typeof(AutocompleteSourceConverter))]
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[Browsable(false)]
+		[PropertyLink("SourceUrl", typeof(String))]
+		[PropertyLink("Source", typeof(String[]))]
+		[PropertyLink("Source", typeof(ArrayList))]
+		[PropertyLink("SourceList", typeof(List<AutocompleteItem>))]
 		public object Widget_Source {
 			get {
 				if(this._source != null) {
 					return this._source;
 				}
+				else if(this._sourceList != null) {
+
+					// we need to perform some hackery here so that this will render properly to the widget init/options script.
+					var result = new List<object>();
+					foreach(AutocompleteItem item in _sourceList) {
+						result.Add(new {
+							label = item.Label,
+							value = item.Value
+						});
+					}
+
+					return result;
+				}
+
 				return this._sourceUrl;
 			}
 			internal set {
-				if(value is String[]) {
-					this.Source = value as String[];
-				}
-				else if(value is String) {
-					this.SourceUrl = value as String;
-				}
+				//_sourceP = value;
+
+				//if(value is String[]) {
+				//  this.Source = value as String[];
+				//}
+				//else if(value is String) {
+				//  this.SourceUrl = value as String;
+				//}
+				//else if(value is List<AutocompleteItem>) {
+				//  this.SourceList = (List<AutocompleteItem>)value;
+				//}
 			}
 		}
 

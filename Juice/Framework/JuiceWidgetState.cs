@@ -124,8 +124,10 @@ namespace Juice.Framework {
 		/// </remarks>
 		/// <returns>true, if any data has changed. false, if the data has remained the same.</returns>
 		public Boolean LoadPostData() {
-			// TODO: Refactor to use the params here
-			foreach(var widgetOption in GetWidgetOptions(Widget.GetType())) {
+			
+			Type widgetType = Widget.GetType();
+
+			foreach(var widgetOption in GetWidgetOptions(widgetType)) {
 				var currentValue = widgetOption.PropertyDescriptor.GetValue(Widget);
 				var value = currentValue; // default to the current value
 
@@ -158,13 +160,23 @@ namespace Juice.Framework {
 						newValue = value;
 					}
 
+					PropertyDescriptor targetProperty = widgetOption.PropertyDescriptor;
+					PropertyLinkAttribute link = targetProperty.Attributes.OfType<PropertyLinkAttribute>().Where(p => p.TargetType == newValue.GetType()).SingleOrDefault();
+					
+					if(link != null) {
+						PropertyDescriptor property = TypeDescriptor.GetProperties(widgetType).OfType<PropertyDescriptor>().Where(p => p.Name == link.PropertyName).SingleOrDefault();
+						if(property != null) {
+							targetProperty = property;
+						}
+					}
+
 					try {
 						// jquery ui's defaults for string properties (and such) are often set to false.
 						if(newValue != null && newValue.Equals(false) && widgetOption.PropertyDescriptor.PropertyType == typeof(string)) {
 							newValue = widgetOption.DefaultValue;
 						}
 
-						widgetOption.PropertyDescriptor.SetValue(Widget, newValue);
+						targetProperty.SetValue(Widget, newValue);
 					}
 					catch(ArgumentException) {
 						// catches edge cases where there is no type converter defined. eg. false -> int[].
@@ -173,7 +185,7 @@ namespace Juice.Framework {
 							newValue = null;
 						}
 
-						widgetOption.PropertyDescriptor.SetValue(Widget, newValue);
+						targetProperty.SetValue(Widget, newValue);
 					}
 				}
 			}
@@ -243,13 +255,6 @@ namespace Juice.Framework {
 				@event.CausesPostBack = attribute.AutoPostBack && autoPostBack;
 				@event.DataChangedEvent = _dataChangedEvent != null && _dataChangedEvent.Name == @event.Name;
 
-				//String postBackArgument = _dataChangedEvent == null ? @event.Name : (_dataChangedEvent.Name == @event.Name ? String.Empty : @event.Name);
-
-				//PostBackOptions postOptions = new PostBackOptions((Control)Widget, postBackArgument) { AutoPostBack = true };
-				//var handler = new Lazy<string>(() => Widget.Page.ClientScript.GetPostBackEventReference(postOptions));
-
-				//@event.PostBackHandler = handler;
-
 				_events.Add(@event);
 			}
 
@@ -260,35 +265,6 @@ namespace Juice.Framework {
 				"juice-ui"
 			});
 		}
-
-		//public void EnsureCssLink() {
-
-		//  if(Widget.Page.Header == null) {
-		//    throw new InvalidOperationException("The Page or MasterPage must contain a HEAD tag with the 'runat=\"server\"' attribute.");
-		//  }
-
-		//  if(Widget.Page.Header.FindControl(_cssLinkId) == null) {
-
-		//    var jQueryUiCSS = new HtmlLink {
-		//      ClientIDMode = System.Web.UI.ClientIDMode.Static,
-		//      ID = _cssLinkId,
-		//      Href = GetCssUrl(Widget.Page)
-		//    };
-		//    jQueryUiCSS.Attributes.Add("type", "text/css");
-		//    jQueryUiCSS.Attributes.Add("rel", "stylesheet");
-
-		//    Widget.Page.Header.Controls.Add(jQueryUiCSS);
-		//  }
-		//}
-
-		//private static string GetCssUrl(Page page) {
-		//  Boolean isDebug = HttpContext.Current.IsDebuggingEnabled;
-		//  String href = ScriptManager.GetCurrent(page).EnableCdn ?
-		//    isDebug ? JuiceOptions.CssCdnDebugPath : JuiceOptions.CssCdnPath :
-		//    page.ResolveUrl(isDebug ? JuiceOptions.CssDebugPath : JuiceOptions.CssPath);
-
-		//  return href;
-		//}
 
 		private static IEnumerable<WidgetOption> GetWidgetOptions(Type widgetType) {
 			IEnumerable<WidgetOption> widgetOptions;
@@ -312,8 +288,6 @@ namespace Juice.Framework {
 			EnsureWidgetPostDataLoaded();
 			Dictionary<string, object> widgetState;
 			
-			//_allWidgetPostbackOptions.TryGetValue(widgetClientID, out widgetState);
-
 			widgetState = (from hash in _allWidgetPostbackOptions
 										 where hash.ControlID == this.Widget.TargetClientID && hash.WidgetName == this.Widget.WidgetName
 										 select hash.Options).FirstOrDefault() ?? new Dictionary<string, object>();
@@ -349,8 +323,7 @@ namespace Juice.Framework {
 			List<object> widgetState = new List<object>();
 
 			foreach(WidgetHash widgetHash in PageHashes) {
-				//var autoPostBackWidget = widgetHash.TargetControl as IAutoPostBackWidget;
-				//var isAutoPostBack = autoPostBackWidget != null && autoPostBackWidget.AutoPostBack;
+
 				var item = new {
 					widgetName = widgetHash.WidgetName,
 					id = widgetHash.TargetControl.ClientID,
@@ -362,21 +335,14 @@ namespace Juice.Framework {
 											 where @event.CausesPostBack == true
 											 select new {
 												 name = @event.Name,
-												 //causePostBack = true, < moving this to the js
 												 dataChangedEvent = @event.DataChangedEvent
 											 }).ToArray()
-					//select new WidgetHashClientState {
-					//  Name = widgetEvent.Name,
-					//  PostBackEventReference = isAutoPostBack && widgetEvent.PostBackHandler != null ? widgetEvent.PostBackHandler.Value : null
-					//}).ToArray()
 				};
 
 				widgetState.Add(item);
 			}
 
 			JavaScriptSerializer serializer = new JavaScriptSerializer();
-
-			//serializer.RegisterConverters(new[] { new WidgetHashClientStateJavaScriptConverter() });
 
 			String json = serializer.Serialize(widgetState);
 			String cssUrl = _cssManager.GetUrl(CssManager.CssResourceMapping.GetDefinition("juice-ui"));
