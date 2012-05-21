@@ -52,7 +52,7 @@ namespace Juice.Framework.TypeConverters {
 					return new InstanceDescriptor(typeof(bool).GetMethod("Parse"), new object[] { value });
 				}
 				else if(int.TryParse(value.ToString(), out intResult)) {
-					return new InstanceDescriptor(typeof(int).GetMethod("Parse"), new object[] { value });
+					return new InstanceDescriptor(typeof(int).GetMethod("Parse", new Type[]{ typeof(string) }), new object[] { value });
 				}
 				else if(value.GetType() == typeof(String)) {
 					return new InstanceDescriptor(typeof(String).GetMethod("Copy"), new object[] { value });
