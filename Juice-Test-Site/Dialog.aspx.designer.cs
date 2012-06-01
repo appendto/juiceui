@@ -22,6 +22,15 @@ namespace Juice_Sample_Site {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl _Default;
         
         /// <summary>
+        /// _Test control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox _Test;
+        
+        /// <summary>
         /// _Dialog control.
         /// </summary>
         /// <remarks>

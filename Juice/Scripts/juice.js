@@ -177,6 +177,21 @@
 		return _trigger.apply( this, arguments );
 	};
 
+	// We need to proxy the ui.dialog._create method to assert that dialogs are appended to the end of the server form. 
+	// Otherwise, any server controls within them will not retain their value during postback.
+
+	var _create = $.ui.dialog.prototype._create;
+
+	$.ui.dialog.prototype._create = function(){
+		var result = _create.apply( this, arguments );
+		var form = window.theForm || $('form:first');
+
+		this.uiDialog.appendTo(form);
+
+		return result;
+	};
+	
+
 	// The autocomplete widget accepts a string and string array. This is problematic as we can't represent both 
 
 	$( ready );
