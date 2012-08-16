@@ -1,5 +1,8 @@
-﻿using System.Web.UI;
+﻿using System.Linq;
+using System.Web.UI;
 using System.ComponentModel;
+
+using Juice.Framework;
 
 namespace Juice {
 
@@ -41,6 +44,15 @@ namespace Juice {
 			base.Render(writer);
 
 			writer.WriteEndTag("div");			
+		}
+
+		/// <summary>
+		/// Searches the current naming container for a server control with the specified id parameter.
+		/// </summary>
+		/// <param name="id">The identifier for the control to be found.</param>
+		/// <returns>The specified control, or null if the specified control does not exist.</returns>
+		public Control FindControl(string id) {
+			return this.TemplateContainer.Controls.All().Where(c => c.ID == id).FirstOrDefault();
 		}
 	}
 }

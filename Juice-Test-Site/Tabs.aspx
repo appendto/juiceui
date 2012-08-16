@@ -4,10 +4,7 @@
 	<asp:button ID="_Button" runat="server" Text="Postback"/>
 
   <Juice:Tabs ID="_Tabs" runat="server" PanelTemplate="<div>!&lt;/div&gt;" AutoPostBack="true">
-	<tabpages>
-		<juice:tabpage
-	</tabpages>
-<%--    <Juice:TabPage Title="Tab 1" ID="Tab1">
+		<Juice:TabPage Title="Tab 1" ID="Tab1">
 			<TabContent>
 				<p>This should display on tab 1.</p>
 				<asp:textbox ID="_Textbox" runat="server"/>
@@ -18,7 +15,7 @@
       <TabContent>
         <p>This should display on tab 2.</p>
       </TabContent>
-    </Juice:TabPage>--%>
+    </Juice:TabPage>
   </Juice:Tabs>
 
 </asp:content>

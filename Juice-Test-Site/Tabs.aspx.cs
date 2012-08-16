@@ -15,7 +15,8 @@ namespace Juice_Sample_Site {
 				object o = _Tabs.AccessKey;
 			};
 
-			var x = _Tabs.TabPages[0].Controls.All().Where(c => c.ID == "_Textbox");
+			var x = _Tabs.TabPages[0].TemplateContainer.Controls.All().Where(c => c.ID == "_Textbox").FirstOrDefault();
+			var y = _Tabs.TabPages[0].FindControl("_Textbox");
     }
 
 		protected void _Tabs_Change(object sender, EventArgs e) {
