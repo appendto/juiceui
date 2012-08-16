@@ -22,7 +22,7 @@ namespace Juice {
 	[WidgetEvent("deactivate")]
 	[WidgetEvent("over")]
 	[WidgetEvent("out")]
-  public class Droppable : JuiceExtender {
+	public class Droppable : JuiceExtender, IAutoPostBackWidget {
 
 		public Droppable() : base("droppable") { }
 
@@ -109,7 +109,7 @@ namespace Juice {
 		/// ui.draggable represents the draggable.
 		/// Reference: http://jqueryui.com/demos/droppable/#drop
 		/// </summary>
-		[WidgetEvent("drop")]
+		[WidgetEvent("drop", AutoPostBack = true)]
 		[Category("Action")]
 		[Description("This event is triggered when an accepted draggable is dropped 'over' (within the tolerance of) this droppable. In the callback, $(this) represents the droppable the draggable is dropped on.")]
 		public event EventHandler Drop;
