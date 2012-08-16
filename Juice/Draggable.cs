@@ -20,7 +20,7 @@ namespace Juice {
 	[WidgetEvent("create")]
 	[WidgetEvent("start")]
 	[WidgetEvent("drag")]
-	public class Draggable : JuiceExtender {
+	public class Draggable : JuiceExtender, IAutoPostBackWidget {
 
 		public Draggable() : base("draggable") { }
 
@@ -312,7 +312,7 @@ namespace Juice {
 		/// This event is triggered when dragging stops.
 		/// Reference: http://jqueryui.com/demos/draggable/#stop
 		/// </summary>
-		[WidgetEvent("stop")]
+		[WidgetEvent("stop", AutoPostBack = true)]
 		[Category("Action")]
 		[Description("This event is triggered when dragging stops.")]
 		public event EventHandler Stop;
