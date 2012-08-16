@@ -49,7 +49,11 @@ namespace Juice.Framework {
 			return false;
 		}
 
-		protected virtual void RaisePostDataChangedEvent() { }
+		protected virtual void RaisePostDataChangedEvent() {
+			if(AutoPostBack && !Page.IsPostBackEventControlRegistered) {
+				Page.AutoPostBackControl = this;
+			}		
+		}
 
 		protected override IEnumerable<ScriptDescriptor> GetScriptDescriptors() {
 			return null;
@@ -141,6 +145,10 @@ namespace Juice.Framework {
 		#region IPostBackEventHandler Implementation
 
 		void IPostBackEventHandler.RaisePostBackEvent(string eventArgument) {
+			if(AutoPostBack && !Page.IsPostBackEventControlRegistered) {
+				Page.AutoPostBackControl = this;
+			}			
+			
 			WidgetState.RaisePostBackEvent(eventArgument);
 		}
 

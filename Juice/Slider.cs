@@ -200,9 +200,7 @@ namespace Juice {
 		}
 
 		protected override void RaisePostDataChangedEvent() {
-			if(AutoPostBack && !Page.IsPostBackEventControlRegistered) {
-				Page.AutoPostBackControl = this;
-			}
+			base.RaisePostDataChangedEvent();
 			OnValueChanged(EventArgs.Empty);
 		}
 
