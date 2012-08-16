@@ -6,19 +6,19 @@ namespace Juice.Framework {
 
 	internal class WidgetHash {
 
-		public WidgetHash(IWidget widget, IList<String> encodedOptions, IList<WidgetEvent> events, Control targetControl) 
-			: this(targetControl, widget.WidgetName, widget.WidgetOptions, encodedOptions, events) { }
-
-		public WidgetHash(Control targetControl, String widgetName, IDictionary<String, Object> options, IList<String> encodedOptions, IList<WidgetEvent> events) {
-			WidgetName = widgetName;
+		public WidgetHash(IWidget widget, IList<String> encodedOptions, IList<WidgetEvent> events, Control targetControl) {
+			WidgetName = widget.WidgetName;
+			WidgetUniqueId = widget.UniqueID;
 			TargetControl = targetControl;
-			Options = options;
+			Options = widget.WidgetOptions;
 			EncodedOptions = encodedOptions;
 			Events = events;
 		}
-
+		
 		public Control TargetControl { get; private set; }
 
+		public String WidgetUniqueId { get; private set; }
+		
 		public String WidgetName { get; private set; }
 
 		public IDictionary<String, Object> Options { get; private set; }

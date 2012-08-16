@@ -327,7 +327,7 @@ namespace Juice.Framework {
 				var item = new {
 					widgetName = widgetHash.WidgetName,
 					id = widgetHash.TargetControl.ClientID,
-					uniqueId = widgetHash.TargetControl.UniqueID,
+					uniqueId = widgetHash.WidgetUniqueId,
 					options = widgetHash.Options,
 					encodedOptions = widgetHash.EncodedOptions,
 					events = (from @event in widgetHash.Events where @event.CausesPostBack == false select @event.Name),
