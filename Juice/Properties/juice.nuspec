@@ -1,41 +1,43 @@
 <?xml version="1.0"?>
 <package>
-  <metadata>
-    <id>$id$</id>
-    <title>Juice UI</title>
-    <version>$version$</version>
-    <authors>$author$</authors>
-    <projectUrl>http://juiceui.com</projectUrl>
-    <iconUrl>http://juiceui.com/images/nuget-juice-icon.png</iconUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Juice UI – Supercharge ASP.NET Web Forms with jQuery UI</description>
+	<metadata>
+		<id>$id$</id>
+		<title>Juice UI</title>
+		<version>$version$</version>
+		<authors>$author$</authors>
+		<projectUrl>http://juiceui.com</projectUrl>
+		<iconUrl>http://juiceui.com/images/nuget-juice-icon.png</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Juice UI – Supercharge ASP.NET Web Forms with jQuery UI</description>
 		<releaseNotes>
-	<![CDATA[
+			<![CDATA[
 0.9.2.1
 	• Fixes the initial path set by JuiceApp.cs.
 	• Updated the jQuery UI package reference to 1.8.23.
+
 0.9.2
 	• Added AutoPostBack option to the Droppable Drop event.
 	• Added AutoPostBack option to the Draggable Drag event.
 	• Added FindControl method to the TabPage control.
 	• Added FindControl method to the AccordionPanel control.
 	• Fixed AutoPostBack for JuiceExtender controls.
-	
+
 0.9.1.1
 	• JuiceUI assembly is now signed.
-			
+
 0.9.1
 	• Improved data/options conversion.
 	• Improved event handling and error correction.
 	• Support for buttongroup.
 	• Support for nested controls and extending Juice UI controls with Juice UI.
-		]]></releaseNotes>
-    <dependencies>
-      <dependency id="jQuery" version="1.8.0" />
-      <dependency id="jQuery.UI.Combined" version="1.8.22" />
-      <dependency id="json2" />
-      <dependency id="AmplifyJS" />
-    </dependencies>
+		]]>
+		</releaseNotes>
+		<dependencies>
+			<dependency id="jQuery" version="1.8.0" />
+			<dependency id="jQuery.UI.Combined" version="1.8.23" />
+			<dependency id="json2" />
+			<dependency id="AmplifyJS" />
+		</dependencies>
 		<tags>ASP.NET WebForms jQuery jQueryUI Plugins Controls Ajax</tags>
-  </metadata>
+	</metadata>
 </package>
