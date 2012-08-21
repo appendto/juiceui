@@ -11,6 +11,9 @@
     <description>Juice UI – Supercharge ASP.NET Web Forms with jQuery UI</description>
 		<releaseNotes>
 	<![CDATA[
+0.9.2.1
+	• Fixes the initial path set by JuiceApp.cs.
+	• Updated the jQuery UI package reference to 1.8.23.
 0.9.2
 	• Added AutoPostBack option to the Droppable Drop event.
 	• Added AutoPostBack option to the Draggable Drag event.
