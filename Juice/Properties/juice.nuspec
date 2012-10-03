@@ -11,7 +11,7 @@
 		<description>Juice UI – Supercharge ASP.NET Web Forms with jQuery UI</description>
 		<releaseNotes>
 			<![CDATA[
-1.1
+1.0.1
 	• Fixes the initial path set by JuiceApp.cs.
 	
 1.0
