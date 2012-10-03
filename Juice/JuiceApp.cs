@@ -24,10 +24,10 @@ namespace Juice {
 
 			ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
 					new ScriptResourceDefinition {
-						Path = "~/Scripts/jquery-1.8.0.min.js",
-						DebugPath = "~/Scripts/jquery-1.8.0.js",
-						CdnPath = "http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js",
-						CdnDebugPath = "http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.js",
+						Path = "~/Scripts/jquery-1.8.2.min.js",
+						DebugPath = "~/Scripts/jquery-1.8.2.js",
+						CdnPath = "http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js",
+						CdnDebugPath = "http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.js",
 						CdnSupportsSecureConnection = true
 					}
 			);
