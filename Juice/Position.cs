@@ -41,14 +41,7 @@ namespace Juice {
 		[Description("Element to position against. If you provide a selector, the first matching element will be used. If you provide a jQuery object, the first element will be used. If you provide an event object, the pageX and pageY properties will be used. Example: \"#top-menu\"")]
 		public string Of { get; set; }
 
-		/// <summary>
-		/// Add these left-top values to the calculated position, eg. "50 50" (left top) A single value such as "50" will apply to both.
-		/// Reference: http://jqueryui.com/demos/position/#offset
-		/// </summary>
-		[WidgetOption("offset", null)]
-		[Category("Behavior")]
-		[DefaultValue(null)]
-		[Description("Add these left-top values to the calculated position, eg. \"50 50\" (left top) A single value such as \"50\" will apply to both.")]
+		[Obsolete("The offset option has been deprecated in jQuery UI 1.9 and offsets have been merged into the my and at options. Use \"at\" and \"my\" options instead.", true)]
 		public string Offset { get; set; }
 
 		/// <summary>
