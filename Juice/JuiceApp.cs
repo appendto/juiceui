@@ -13,7 +13,6 @@ namespace Juice {
 	public static class JuiceApp {
 
 		public static void Start() {
-			//var assembly = Assembly.GetExecutingAssembly();
 
 			ScriptManager.ScriptResourceMapping.AddDefinition("amplify",
 					new ScriptResourceDefinition {
