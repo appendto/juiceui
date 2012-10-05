@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9B57D389-734D-4244-A1EB-28AC91DF685B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebForms</RootNamespace>
+    <AssemblyName>WebForms</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\juiceui\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JuiceUI, Version=0.9.2.0, Culture=neutral, PublicKeyToken=2ba9b13151115713, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\JuiceUI.0.9.2\lib\net40\JuiceUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Accordion.aspx" />
+    <Content Include="Autocomplete.aspx" />
+    <Content Include="Button.aspx" />
+    <Content Include="Content\images\ajax-loader.png" />
+    <Content Include="Content\images\icons-18-black.png" />
+    <Content Include="Content\images\icons-18-white.png" />
+    <Content Include="Content\images\icons-36-black.png" />
+    <Content Include="Content\images\icons-36-white.png" />
+    <Content Include="Content\jquery.mobile-1.0.1.css" />
+    <Content Include="Content\jquery.mobile-1.0.1.min.css" />
+    <Content Include="Content\jquery.mobile.structure-1.0.1.css" />
+    <Content Include="Content\jquery.mobile.structure-1.0.1.min.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-bg_diagonals-small_25_c9c9c9_40x40.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-bg_flat_0_313f3c_40x100.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-bg_flat_0_4d4d4d_40x100.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-bg_flat_100_f1eeee_40x100.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-bg_highlight-soft_50_f7e17d_1x100.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-bg_highlight-soft_65_e9f245_1x100.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-bg_highlight-soft_75_59c9c0_1x100.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-bg_highlight-soft_75_d8ff94_1x100.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-bg_inset-soft_95_f46f5d_1x100.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-icons_16837f_256x240.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-icons_186764_256x240.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-icons_834916_256x240.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\images\ui-icons_9f1d1d_256x240.png" />
+    <Content Include="Content\themes\Fresh-Squeezed\jquery-ui-1.8.18.custom.css" />
+    <Content Include="Content\themes\Supercharged\images\ui-bg_flat_0_303030_40x100.png" />
+    <Content Include="Content\themes\Supercharged\images\ui-bg_flat_100_383838_40x100.png" />
+    <Content Include="Content\themes\Supercharged\images\ui-bg_flat_75_f2f2f2_40x100.png" />
+    <Content Include="Content\themes\Supercharged\images\ui-bg_inset-hard_5_2b2b2b_1x100.png" />
+    <Content Include="Content\themes\Supercharged\images\ui-bg_inset-soft_15_5e5e5e_1x100.png" />
+    <Content Include="Content\themes\Supercharged\images\ui-bg_inset-soft_45_ffc905_1x100.png" />
+    <Content Include="Content\themes\Supercharged\images\ui-bg_inset-soft_75_ffec52_1x100.png" />
+    <Content Include="Content\themes\Supercharged\images\ui-bg_inset-soft_95_ff6124_1x100.png" />
+    <Content Include="Content\themes\Supercharged\images\ui-icons_1c1c1c_256x240.png" />
+    <Content Include="Content\themes\Supercharged\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\Supercharged\images\ui-icons_303030_256x240.png" />
+    <Content Include="Content\themes\Supercharged\images\ui-icons_774322_256x240.png" />
+    <Content Include="Content\themes\Supercharged\images\ui-icons_8a4e19_256x240.png" />
+    <Content Include="Content\themes\Supercharged\images\ui-icons_ffbc0f_256x240.png" />
+    <Content Include="Content\themes\Supercharged\images\ui-icons_ffc905_256x240.png" />
+    <Content Include="Content\themes\Supercharged\jquery-ui-1.8.18.custom.css" />
+    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="css\ui-lightness-1.8.23\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\ui-lightness-1.8.23\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="css\ui-lightness-1.8.23\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="css\ui-lightness-1.8.23\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="css\ui-lightness-1.8.23\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\ui-lightness-1.8.23\jquery-ui-1.8.13.custom.css" />
+    <Content Include="Scripts\jquery-ui-1.9.0pre.custom.js" />
+    <Content Include="Scripts\jquery-ui-1.9.0pre.custom.min.js" />
+    <Content Include="RadioButton.aspx" />
+    <Content Include="Scripts\amplify-vsdoc.js" />
+    <Content Include="Scripts\amplify.js" />
+    <Content Include="Scripts\amplify.min.js" />
+    <Content Include="Scripts\jquery-1.8.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.23.js" />
+    <Content Include="Scripts\jquery-ui-1.8.23.min.js" />
+    <Content Include="Scripts\jquery.mobile-1.0.1.js" />
+    <Content Include="Scripts\jquery.mobile-1.0.1.min.js" />
+    <Content Include="Selectable.aspx" />
+    <Content Include="Sortable.aspx" />
+    <Content Include="Droppable.aspx" />
+    <Content Include="Dialog.aspx" />
+    <Content Include="Datepicker.aspx" />
+    <Content Include="css\reset.css" />
+    <Content Include="css\screen.css" />
+    <Content Include="css\syntaxhighlighter\sh-custom.min.css" />
+    <Content Include="css\syntaxhighlighter\shCore.css" />
+    <Content Include="css\syntaxhighlighter\shCoreDefault.css" />
+    <Content Include="css\syntaxhighlighter\shCoreDjango.css" />
+    <Content Include="css\syntaxhighlighter\shCoreEclipse.css" />
+    <Content Include="css\syntaxhighlighter\shCoreEmacs.css" />
+    <Content Include="css\syntaxhighlighter\shCoreFadeToGrey.css" />
+    <Content Include="css\syntaxhighlighter\shCoreMDUltra.css" />
+    <Content Include="css\syntaxhighlighter\shCoreMidnight.css" />
+    <Content Include="css\syntaxhighlighter\shCoreRDark.css" />
+    <Content Include="css\syntaxhighlighter\shThemeDefault.css" />
+    <Content Include="css\syntaxhighlighter\shThemeDjango.css" />
+    <Content Include="css\syntaxhighlighter\shThemeEclipse.css" />
+    <Content Include="css\syntaxhighlighter\shThemeEmacs.css" />
+    <Content Include="css\syntaxhighlighter\shThemeFadeToGrey.css" />
+    <Content Include="css\syntaxhighlighter\shThemeMDUltra.css" />
+    <Content Include="css\syntaxhighlighter\shThemeMidnight.css" />
+    <Content Include="css\syntaxhighlighter\shThemeRDark.css" />
+    <Content Include="css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\ui-lightness\jquery-ui-1.8.13.custom.css" />
+    <Content Include="Draggable.aspx" />
+    <Content Include="fonts\bebas_neue\Dharma Type Font License.txt" />
+    <Content Include="fonts\bebas_neue\stylesheet.css" />
+    <Content Include="fonts\junction\Creative Commons Attribution Share Alike License.txt" />
+    <Content Include="fonts\junction\demo.html" />
+    <Content Include="fonts\junction\stylesheet.css" />
+    <Content Include="images\amplify-tagline.png" />
+    <Content Include="images\amplify.png" />
+    <Content Include="images\appendTo-logo.png" />
+    <Content Include="images\appendTo.png" />
+    <Content Include="images\background-glow.png" />
+    <Content Include="images\calendar-icon.png" />
+    <Content Include="images\glow.png" />
+    <Content Include="images\hr.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\main-background.png" />
+    <Content Include="images\menu-bg-alt.png" />
+    <Content Include="images\menu-bg.png" />
+    <Content Include="images\noise.png" />
+    <Content Include="images\red-button-normal.png" />
+    <Content Include="images\section-header.png" />
+    <Content Include="images\tabs.png" />
+    <Content Include="images\teaser-background.png" />
+    <Content Include="js\csstransitions.js" />
+    <Content Include="js\dd_belatedpng.js" />
+    <Content Include="js\jquery-1.4.2.min.js" />
+    <Content Include="js\jquery-1.6.1.min.js" />
+    <Content Include="js\jquery-ui-1.8.13.custom.min.js" />
+    <Content Include="js\jquery.color.js" />
+    <Content Include="js\modernizr-1.5.min.js" />
+    <Content Include="js\plugins.js" />
+    <Content Include="js\profiling\charts.swf" />
+    <Content Include="js\profiling\config.js" />
+    <Content Include="js\profiling\yahoo-profiling.css" />
+    <Content Include="js\profiling\yahoo-profiling.min.js" />
+    <Content Include="js\script.js" />
+    <Content Include="js\syntaxhighlighter\sh-custom.min.js" />
+    <Content Include="js\syntaxhighlighter\shAutoloader.js" />
+    <Content Include="js\syntaxhighlighter\shBrushAppleScript.js" />
+    <Content Include="js\syntaxhighlighter\shBrushAS3.js" />
+    <Content Include="js\syntaxhighlighter\shBrushBash.js" />
+    <Content Include="js\syntaxhighlighter\shBrushColdFusion.js" />
+    <Content Include="js\syntaxhighlighter\shBrushCpp.js" />
+    <Content Include="js\syntaxhighlighter\shBrushCSharp.js" />
+    <Content Include="js\syntaxhighlighter\shBrushCss.js" />
+    <Content Include="js\syntaxhighlighter\shBrushDelphi.js" />
+    <Content Include="js\syntaxhighlighter\shBrushDiff.js" />
+    <Content Include="js\syntaxhighlighter\shBrushErlang.js" />
+    <Content Include="js\syntaxhighlighter\shBrushGroovy.js" />
+    <Content Include="js\syntaxhighlighter\shBrushJava.js" />
+    <Content Include="js\syntaxhighlighter\shBrushJavaFX.js" />
+    <Content Include="js\syntaxhighlighter\shBrushJScript.js" />
+    <Content Include="js\syntaxhighlighter\shBrushPerl.js" />
+    <Content Include="js\syntaxhighlighter\shBrushPhp.js" />
+    <Content Include="js\syntaxhighlighter\shBrushPlain.js" />
+    <Content Include="js\syntaxhighlighter\shBrushPowerShell.js" />
+    <Content Include="js\syntaxhighlighter\shBrushPython.js" />
+    <Content Include="js\syntaxhighlighter\shBrushRuby.js" />
+    <Content Include="js\syntaxhighlighter\shBrushSass.js" />
+    <Content Include="js\syntaxhighlighter\shBrushScala.js" />
+    <Content Include="js\syntaxhighlighter\shBrushSql.js" />
+    <Content Include="js\syntaxhighlighter\shBrushVb.js" />
+    <Content Include="js\syntaxhighlighter\shBrushXml.js" />
+    <Content Include="js\syntaxhighlighter\shCore.js" />
+    <Content Include="js\syntaxhighlighter\shLegacy.js" />
+    <Content Include="js\syntaxhighlighter\src\shAutoloader.js" />
+    <Content Include="js\syntaxhighlighter\src\shCore.js" />
+    <Content Include="js\syntaxhighlighter\src\shLegacy.js" />
+    <Content Include="Position.aspx" />
+    <Content Include="Progressbar.aspx" />
+    <Content Include="Resizable.aspx" />
+    <Content Include="Scripts\GPL-LICENSE.txt" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\json2.min.js" />
+    <Content Include="Scripts\juice.js" />
+    <Content Include="Scripts\juice.min.js" />
+    <Content Include="Scripts\MIT-LICENSE.txt" />
+    <Content Include="Scripts\README.txt" />
+    <Content Include="Slider.aspx" />
+    <Content Include="Tabs.aspx" />
+    <Content Include="UpdatePanel.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accordion.aspx.cs">
+      <DependentUpon>Accordion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Accordion.aspx.designer.cs">
+      <DependentUpon>Accordion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Base.Master.cs">
+      <DependentUpon>Base.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Base.Master.designer.cs">
+      <DependentUpon>Base.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Autocomplete.aspx.cs">
+      <DependentUpon>Autocomplete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Autocomplete.aspx.designer.cs">
+      <DependentUpon>Autocomplete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Button.aspx.cs">
+      <DependentUpon>Button.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Button.aspx.designer.cs">
+      <DependentUpon>Button.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoCompleteData.ashx.cs">
+      <DependentUpon>AutoCompleteData.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="RadioButton.aspx.cs">
+      <DependentUpon>RadioButton.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RadioButton.aspx.designer.cs">
+      <DependentUpon>RadioButton.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Datepicker.aspx.designer.cs">
+      <DependentUpon>Datepicker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Selectable.aspx.cs">
+      <DependentUpon>Selectable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Selectable.aspx.designer.cs">
+      <DependentUpon>Selectable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sortable.aspx.cs">
+      <DependentUpon>Sortable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sortable.aspx.designer.cs">
+      <DependentUpon>Sortable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Droppable.aspx.cs">
+      <DependentUpon>Droppable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Droppable.aspx.designer.cs">
+      <DependentUpon>Droppable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog.aspx.cs">
+      <DependentUpon>Dialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dialog.aspx.designer.cs">
+      <DependentUpon>Dialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Datepicker.aspx.cs">
+      <DependentUpon>Datepicker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Draggable.aspx.cs">
+      <DependentUpon>Draggable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Draggable.aspx.designer.cs">
+      <DependentUpon>Draggable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Position.aspx.cs">
+      <DependentUpon>Position.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Position.aspx.designer.cs">
+      <DependentUpon>Position.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Progressbar.aspx.cs">
+      <DependentUpon>Progressbar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Progressbar.aspx.designer.cs">
+      <DependentUpon>Progressbar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resizable.aspx.cs">
+      <DependentUpon>Resizable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resizable.aspx.designer.cs">
+      <DependentUpon>Resizable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Slider.aspx.cs">
+      <DependentUpon>Slider.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Slider.aspx.designer.cs">
+      <DependentUpon>Slider.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tabs.aspx.cs">
+      <DependentUpon>Tabs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tabs.aspx.designer.cs">
+      <DependentUpon>Tabs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdatePanel.aspx.cs">
+      <DependentUpon>UpdatePanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdatePanel.aspx.designer.cs">
+      <DependentUpon>UpdatePanel.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Base.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\images\Thumbs.db" />
+    <None Include="fonts\bebas_neue\BebasNeue-webfont.eot" />
+    <None Include="fonts\bebas_neue\BebasNeue-webfont.svg" />
+    <None Include="fonts\bebas_neue\BebasNeue-webfont.ttf" />
+    <None Include="fonts\bebas_neue\BebasNeue-webfont.woff" />
+    <None Include="fonts\junction\Junction-webfont.eot" />
+    <None Include="fonts\junction\Junction-webfont.svg" />
+    <None Include="fonts\junction\Junction-webfont.ttf" />
+    <None Include="fonts\junction\Junction-webfont.woff" />
+    <Content Include="packages.config" />
+    <Content Include="AutoCompleteData.ashx" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>35407</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

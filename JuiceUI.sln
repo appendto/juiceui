@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuiceUI", "Juice\JuiceUI.csproj", "{03C37589-6BF0-4E3B-91D7-9140D0368DB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuiceUI Test Site", "Juice-Test-Site\JuiceUI Test Site.csproj", "{9B57D389-734D-4244-A1EB-28AC91DF685B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForms Test Site", "Tests\WebForms\WebForms.csproj", "{9B57D389-734D-4244-A1EB-28AC91DF685B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
