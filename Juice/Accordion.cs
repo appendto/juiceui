@@ -10,7 +10,7 @@ namespace Juice {
 	[PersistChildren(true)]
 	[ParseChildren(typeof(AccordionPanel), DefaultProperty = "AccordionPanels", ChildrenAsProperties = true)]
 	[WidgetEvent("create")]
-	[WidgetEvent("changestart")]
+	[WidgetEvent("beforeActivate")]
 	public class Accordion : JuiceScriptControl, IAutoPostBackWidget {
 
 		private List<AccordionPanel> _panels;
@@ -23,7 +23,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Selector for the active element. Set to false to display none at start. Needs collapsible: true.
-		/// Reference: http://jqueryui.com/demos/accordion/#active
+		/// Reference: http://api.jqueryui.com/accordion/#option-active
 		/// </summary>
 		[WidgetOption("active", "0")]
 		[TypeConverter(typeof(StringToObjectConverter))]
@@ -34,37 +34,18 @@ namespace Juice {
 
 		/// <summary>
 		/// Choose your favorite animation, or disable them (set to false). In addition to the default, 'bounceslide' and all defined easing methods are supported ('bounceslide' requires UI Effects Core).
-		/// Reference: http://jqueryui.com/demos/accordion/#animated
+		/// Reference: http://api.jqueryui.com/accordion/#option-animated
 		/// </summary>
-		[WidgetOption("animated", "slide")]
+		[WidgetOption("animate", "{}", Eval = true)]
+		[TypeConverter(typeof(Framework.TypeConverters.JsonObjectConverter))]
 		[Category("Behavior")]
-		[DefaultValue("slide")]
+		[DefaultValue("{}")]
 		[Description("Choose your favorite animation, or disable them (set to false). In addition to the default, 'bounceslide' and all defined easing methods are supported ('bounceslide' requires UI Effects Core).")]
-		public string Animated { get; set; }
-
-		/// <summary>
-		/// If set, the highest content part is used as height reference for all other parts. Provides more consistent animations.
-		/// Reference: http://jqueryui.com/demos/accordion/#autoHeight
-		/// </summary>
-		[WidgetOption("autoHeight", true)]
-		[Category("Layout")]
-		[DefaultValue(true)]
-		[Description("If set, the highest content part is used as height reference for all other parts. Provides more consistent animations.")]
-		public bool AutoHeight { get; set; }
-
-		/// <summary>
-		/// If set, clears height and overflow styles after finishing animations. This enables accordions to work with dynamic content. Won't work together with autoHeight.
-		/// Reference: http://jqueryui.com/demos/accordion/#clearStyle
-		/// </summary>
-		[WidgetOption("clearStyle", false)]
-		[Category("Behavior")]
-		[DefaultValue(false)]
-		[Description("If set, clears height and overflow styles after finishing animations. This enables accordions to work with dynamic content. Won't work together with autoHeight.")]
-		public bool ClearStyle { get; set; }
-
+		public string Animate { get; set; }
+		
 		/// <summary>
 		/// Whether all the sections can be closed at once. Allows collapsing the active section by the triggering event (click is the default).
-		/// Reference: http://jqueryui.com/demos/accordion/#collapsible
+		/// Reference: http://api.jqueryui.com/accordion/#option-collapsible
 		/// </summary>
 		[WidgetOption("collapsible", false)]
 		[Category("Behavior")]
@@ -74,7 +55,7 @@ namespace Juice {
 
 		/// <summary>
 		/// The event on which to trigger the accordion.
-		/// Reference: http://jqueryui.com/demos/accordion/#event
+		/// Reference: http://api.jqueryui.com/accordion/#option-event
 		/// </summary>
 		[WidgetOption("event", "click")]
 		[Category("Behavior")]
@@ -83,18 +64,8 @@ namespace Juice {
 		public string Event { get; set; }
 
 		/// <summary>
-		/// If set, the accordion completely fills the height of the parent element. Overrides autoheight.
-		/// Reference: http://jqueryui.com/demos/accordion/#fillSpace
-		/// </summary>
-		[WidgetOption("fillSpace", false)]
-		[Category("Layout")]
-		[DefaultValue(false)]
-		[Description("If set, the accordion completely fills the height of the parent element. Overrides autoheight.")]
-		public bool FillSpace { get; set; }
-
-		/// <summary>
 		/// Selector for the header element.
-		/// Reference: http://jqueryui.com/demos/accordion/#header
+		/// Reference: http://api.jqueryui.com/accordion/#option-header
 		/// </summary>
 		[WidgetOption("header", "> li > :first-child,> :not(li):even")]
 		[Category("Layout")]
@@ -103,8 +74,25 @@ namespace Juice {
 		public string Header { get; set; }
 
 		/// <summary>
+		/// Controls the height of the accordion and each panel. Possible values: 
+		/// "auto": All panels will be set to the height of the tallest panel. 
+		/// "fill": Expand to the available height based on the accordion's parent height. 
+		/// "content": Each panel will be only as tall as its content.
+		/// Reference: http://api.jqueryui.com/accordion/#option-heightstyle
+		/// </summary>
+		[WidgetOption("heightStyle", "{}", Eval = true)]
+		[TypeConverter(typeof(Framework.TypeConverters.JsonObjectConverter))]
+		[Category("Appearance")]
+		[DefaultValue("{}")]
+		[Description(@"Controls the height of the accordion and each panel. Possible values: 
+""auto"": All panels will be set to the height of the tallest panel. 
+""fill"": Expand to the available height based on the accordion's parent height. 
+""content"": Each panel will be only as tall as its content.")]
+		public string HeightStyle { get; set; }
+
+		/// <summary>
 		/// Icons to use for headers. Icons may be specified for 'header' and 'headerSelected', and we recommend using the icons native to the jQuery UI CSS Framework manipulated by jQuery UI ThemeRoller
-		/// Reference: http://jqueryui.com/demos/accordion/#icons
+		/// Reference: http://api.jqueryui.com/accordion/#option-icons
 		/// </summary>
 		[WidgetOption("icons", "{}", Eval = true)]
 		[TypeConverter(typeof(Framework.TypeConverters.JsonObjectConverter))]
@@ -115,37 +103,49 @@ namespace Juice {
 
 		/// <summary>
 		/// If set, looks for the anchor that matches location.href and activates it. Great for href-based state-saving. Use navigationFilter to implement your own matcher.
-		/// Reference: http://jqueryui.com/demos/accordion/#navigation
+		/// Reference: http://api.jqueryui.com/accordion/#option-navigation
 		/// </summary>
-		[WidgetOption("navigation", false)]
-		[Category("Behavior")]
-		[DefaultValue(false)]
-		[Description("If set, looks for the anchor that matches location.href and activates it. Great for href-based state-saving. Use navigationFilter to implement your own matcher.")]
+		[Obsolete("This option will be removed in jQuery UI 1.10.")]
 		public bool Navigation { get; set; }
 
 		/// <summary>
 		/// Overwrite the default location.href-matching with your own matcher.
-		/// Reference: http://jqueryui.com/demos/accordion/#navigationFilter
+		/// Reference: http://api.jqueryui.com/accordion/#option-navigationFilter
 		/// </summary>
-		[WidgetOption("navigationFilter", "{}", Eval = true)]
-		[TypeConverter(typeof(Framework.TypeConverters.JsonObjectConverter))]
-		[Category("Behavior")]
-		[DefaultValue("{}")]
-		[Description("Overwrite the default location.href-matching with your own matcher.")]
+		[Obsolete("This option will be removed in jQuery UI 1.10.")]
 		public string NavigationFilter { get; set; }
 
 		#endregion
 
+		#region Obsolete Widget Options
+
+		[Obsolete("This property has been deprecated in jQuery UI 1.9. Use Animate instead.", true)]
+		public string Animated { get; set; }
+
+		[Obsolete("This property has been deprecated in jQuery UI 1.9. Use HeightStyle instead.", true)]
+		public bool AutoHeight { get; set; }
+
+		[Obsolete("This property has been deprecated in jQuery UI 1.9. Use HeightStyle instead.", true)]
+		public bool ClearStyle { get; set; }
+
+		[Obsolete("This property has been deprecated in jQuery UI 1.9. Use HeightStyle instead.", true)]
+		public bool FillSpace { get; set; }
+
+		#endregion
+
 		#region Widget Events
-		
+
 		/// <summary>
 		/// This event is triggered every time the accordion changes. If the accordion is animated, the event will be triggered upon completion of the animation; otherwise, it is triggered immediately.
 		/// 
-		/// Reference: http://jqueryui.com/demos/accordion/#change
+		/// Reference: http://api.jqueryui.com/accordion/#event-activate
 		/// </summary>
-		[WidgetEvent("change", AutoPostBack = true)]
+		[WidgetEvent("activate", AutoPostBack = true)]
 		[Category("Action")]
-		[Description("This event is triggered when a tab is shown.")]
+		[Description("This event is triggered when an accordion panel is shown.")]
+		public event EventHandler PanelActivated;		
+		
+		[Obsolete("This event has been deprecated in jQuery UI 1.9. Use PanelActivated instead.", true)]
 		public event EventHandler SelectedPanelChanged;
 
 		#endregion
@@ -183,35 +183,5 @@ namespace Juice {
 			base.OnPreRender(e);
 		}
 
-		//protected override void Render(HtmlTextWriter writer) {
-			
-		//  this.RenderBeginTag(writer);
-
-		//  foreach(AccordionPanel panel in AccordionPanels) {
-		//    // Write out the header <h3><a>Title</a></h3> structure.
-		//    writer.WriteFullBeginTag("h3");
-
-		//    writer.WriteBeginTag("a");
-
-		//    writer.AddAttribute("href", "#");
-
-		//    writer.Write(HtmlTextWriter.TagRightChar);
-
-		//    writer.Write(panel.Title);
-
-		//    writer.WriteEndTag("a");
-
-		//    writer.WriteEndTag("h3");
-
-		//    // Write out the <div> that contains the panel's content.
-		//    writer.WriteFullBeginTag("div");
-
-		//    panel.TemplateContainer.RenderControl(writer);
-
-		//    writer.WriteEndTag("div");
-		//  }
-
-		//  this.RenderEndTag(writer);
-		//}
 	}
 }
