@@ -103,12 +103,12 @@ namespace Juice {
 		/// Specifies if and how to animate the showing of the panel.
 		/// Reference: http://api.jqueryui.com/tabs/#option-hide
 		/// </summary>
-		[WidgetOption("hide", null)]
+		[WidgetOption("show", null)]
 		[TypeConverter(typeof(StringToObjectConverter))]
 		[Category("Behavior")]
 		[DefaultValue(null)]
 		[Description("Specifies if and how to animate the showing of the panel.")]
-		public dynamic Hide { get; set; }
+		public dynamic Show { get; set; }
 
 		/// <summary>
 		/// OBSOLETE. If the remote tab, its anchor element that is, has no title attribute to generate an id from, an id/fragment identifier is created from this prefix and a unique id returned by $.data(el), for example "ui-tabs-54".
