@@ -16,11 +16,11 @@ namespace Juice.Framework {
 			base.AddDefinition(name, definition);
 		}
 
-		public new void AddDefinition(string name, Assembly assembly, CssResourceDefinition definition) {
+		public void AddDefinition(string name, Assembly assembly, CssResourceDefinition definition) {
 			throw new NotImplementedException();
 		}
 
-		public new CssResourceDefinition GetDefinition(string name) {
+		public CssResourceDefinition GetDefinition(string name) {
 			return base.GetDefinition(name, null) as CssResourceDefinition;
 		}
 

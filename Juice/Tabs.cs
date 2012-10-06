@@ -59,7 +59,7 @@ namespace Juice {
 		[Category("Appearance")]
 		[DefaultValue(null)]
 		[Description("Disables (true) or enables (false) the widget. - OR - An array containing the position of the tabs (zero-based index) that should be disabled on initialization.")]
-		public dynamic Disabled { get; set; }
+		public new dynamic Disabled { get; set; }
 
 		/// <summary>
 		/// The type of event to be used for selecting a tab.

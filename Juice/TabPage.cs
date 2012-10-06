@@ -51,7 +51,7 @@ namespace Juice {
 		/// </summary>
 		/// <param name="id">The identifier for the control to be found.</param>
 		/// <returns>The specified control, or null if the specified control does not exist.</returns>
-		public Control FindControl(string id) {
+		public new Control FindControl(string id) {
 			return this.TemplateContainer.Controls.All().Where(c => c.ID == id).FirstOrDefault();
 		}
 	}
