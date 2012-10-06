@@ -143,9 +143,9 @@ namespace Juice {
 		[WidgetEvent("activate", AutoPostBack = true)]
 		[Category("Action")]
 		[Description("This event is triggered when an accordion panel is shown.")]
-		public event EventHandler PanelActivated;		
-		
-		[Obsolete("This event has been deprecated in jQuery UI 1.9. Use PanelActivated instead.", true)]
+		public event EventHandler ActivePanelChanged;
+
+		[Obsolete("This event has been deprecated in jQuery UI 1.9. Use ActivePanelChanged instead.", true)]
 		public event EventHandler SelectedPanelChanged;
 
 		#endregion
