@@ -43,9 +43,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="JuiceUI, Version=0.9.2.0, Culture=neutral, PublicKeyToken=2ba9b13151115713, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\JuiceUI.0.9.2\lib\net40\JuiceUI.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -163,21 +160,38 @@
     <Content Include="Content\themes\Supercharged\images\ui-icons_ffbc0f_256x240.png" />
     <Content Include="Content\themes\Supercharged\images\ui-icons_ffc905_256x240.png" />
     <Content Include="Content\themes\Supercharged\jquery-ui-1.8.18.custom.css" />
-    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
-    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
-    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_flat_10_000000_40x100.png" />
-    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_glass_100_f6f6f6_1x400.png" />
-    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_glass_100_fdf5ce_1x400.png" />
-    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
-    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
-    <Content Include="css\ui-lightness-1.8.23\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
-    <Content Include="css\ui-lightness-1.8.23\images\ui-icons_222222_256x240.png" />
-    <Content Include="css\ui-lightness-1.8.23\images\ui-icons_228ef1_256x240.png" />
-    <Content Include="css\ui-lightness-1.8.23\images\ui-icons_ef8c08_256x240.png" />
-    <Content Include="css\ui-lightness-1.8.23\images\ui-icons_ffd27a_256x240.png" />
-    <Content Include="css\ui-lightness-1.8.23\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="css\ui-lightness-1.8.23\jquery-ui-1.8.13.custom.css" />
+    <Content Include="css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="css\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="css\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\ui-lightness\jquery-ui-1.9.0pre.custom.css" />
+    <Content Include="css\ui-lightness\jquery-ui-1.9.0pre.custom.min.css" />
+    <Content Include="Tooltip.aspx" />
+    <Content Include="css\ui-lightness-1.8.13\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="css\ui-lightness-1.8.13\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="css\ui-lightness-1.8.13\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="css\ui-lightness-1.8.13\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="css\ui-lightness-1.8.13\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="css\ui-lightness-1.8.13\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\ui-lightness-1.8.13\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="css\ui-lightness-1.8.13\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="css\ui-lightness-1.8.13\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="css\ui-lightness-1.8.13\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\ui-lightness-1.8.13\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="css\ui-lightness-1.8.13\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="css\ui-lightness-1.8.13\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="css\ui-lightness-1.8.13\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\ui-lightness-1.8.13\jquery-ui-1.8.13.custom.css" />
     <Content Include="Scripts\jquery-ui-1.9.0pre.custom.js" />
     <Content Include="Scripts\jquery-ui-1.9.0pre.custom.min.js" />
     <Content Include="RadioButton.aspx" />
@@ -216,21 +230,6 @@
     <Content Include="css\syntaxhighlighter\shThemeMDUltra.css" />
     <Content Include="css\syntaxhighlighter\shThemeMidnight.css" />
     <Content Include="css\syntaxhighlighter\shThemeRDark.css" />
-    <Content Include="css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
-    <Content Include="css\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
-    <Content Include="css\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
-    <Content Include="css\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
-    <Content Include="css\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
-    <Content Include="css\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="css\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
-    <Content Include="css\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
-    <Content Include="css\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
-    <Content Include="css\ui-lightness\images\ui-icons_222222_256x240.png" />
-    <Content Include="css\ui-lightness\images\ui-icons_228ef1_256x240.png" />
-    <Content Include="css\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
-    <Content Include="css\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
-    <Content Include="css\ui-lightness\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="css\ui-lightness\jquery-ui-1.8.13.custom.css" />
     <Content Include="Draggable.aspx" />
     <Content Include="fonts\bebas_neue\Dharma Type Font License.txt" />
     <Content Include="fonts\bebas_neue\stylesheet.css" />
@@ -348,6 +347,13 @@
     <Compile Include="AutoCompleteData.ashx.cs">
       <DependentUpon>AutoCompleteData.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Tooltip.aspx.cs">
+      <DependentUpon>Tooltip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tooltip.aspx.designer.cs">
+      <DependentUpon>Tooltip.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RadioButton.aspx.cs">
       <DependentUpon>RadioButton.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -456,6 +462,12 @@
     <None Include="fonts\junction\Junction-webfont.woff" />
     <Content Include="packages.config" />
     <Content Include="AutoCompleteData.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Juice\JuiceUI.csproj">
+      <Project>{03C37589-6BF0-4E3B-91D7-9140D0368DB6}</Project>
+      <Name>JuiceUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

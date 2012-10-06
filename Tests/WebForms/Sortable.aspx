@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sortable.aspx.cs" Inherits="Juice_Sample_Site.Sortable" masterpagefile="~/Base.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sortable.aspx.cs" Inherits="WebForms.Sortable" masterpagefile="~/Base.Master" %>
 <asp:content contentplaceholderid="_Content" runat="server">
 
 <style>

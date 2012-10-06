@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 using Juice.Framework;
 
-namespace Juice_Sample_Site {
+namespace WebForms {
   public partial class Tabs : System.Web.UI.Page {
     protected void Page_Load(object sender, EventArgs e) {
 			_Tabs.SelectedTabChanged += _Tabs_Change;

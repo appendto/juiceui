@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UpdatePanel.aspx.cs" Inherits="Juice_Sample_Site.UpdatePanel" MasterPageFile="~/Base.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UpdatePanel.aspx.cs" Inherits="WebForms.UpdatePanel" MasterPageFile="~/Base.Master" %>
 <asp:Content ContentPlaceHolderID="_Content" runat="server">
     <asp:UpdatePanel runat="server">
         <ContentTemplate>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Accordion.aspx.cs" Inherits="Juice_Sample_Site.Accordion" masterpagefile="~/Base.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Accordion.aspx.cs" Inherits="WebForms.Accordion" masterpagefile="~/Base.Master" %>
 <asp:content contentplaceholderid="_Content" runat="server">
 
   <Juice:Accordion ID="_Accordion" runat="server">

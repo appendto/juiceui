@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Selectable.aspx.cs" Inherits="Juice_Sample_Site.Selectable" masterpagefile="~/Base.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Selectable.aspx.cs" Inherits="WebForms.Selectable" masterpagefile="~/Base.Master" %>
 <asp:content contentplaceholderid="_Content" runat="server">
 
 <style>

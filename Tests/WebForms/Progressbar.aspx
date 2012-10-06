@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Progressbar.aspx.cs" Inherits="Juice_Sample_Site.Progressbar" masterpagefile="~/Base.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Progressbar.aspx.cs" Inherits="WebForms.Progressbar" masterpagefile="~/Base.Master" %>
 <asp:content contentplaceholderid="_Content" runat="server">
 	<div style="height: 400px">
 		<div id="_Wrapper" runat="server" style="height:30px;" class="ui-widget-default">

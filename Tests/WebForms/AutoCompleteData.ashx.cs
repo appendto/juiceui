@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Script.Serialization;
 
-namespace Juice_Sample_Site {
+namespace WebForms {
 	/// <summary>
 	/// Summary description for Handler1
 	/// </summary>

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 using Juice.Framework;
 
-namespace Juice_Sample_Site {
+namespace WebForms {
 	public partial class Accordion : System.Web.UI.Page {
 		protected void Page_Load(object sender, EventArgs e) {
 
@@ -15,7 +15,7 @@ namespace Juice_Sample_Site {
 			var y = _Accordion.AccordionPanels[0].FindControl("dob1");			
 			
 			_Postback.Click += delegate(object s, EventArgs ea) {
-				var o = _Accordion.Animated;
+				var o = _Accordion.Animate;
 			};
 		}
 	}

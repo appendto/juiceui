@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="true" CodeBehind="Droppable.aspx.cs" Inherits="Juice_Sample_Site.Droppable" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="true" CodeBehind="Droppable.aspx.cs" Inherits="WebForms.Droppable" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="_Content" runat="server">
 
 	<style>

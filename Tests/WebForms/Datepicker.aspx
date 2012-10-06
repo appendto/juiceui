@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Datepicker.aspx.cs" Inherits="Juice_Sample_Site.Datepicker" masterpagefile="~/Base.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Datepicker.aspx.cs" Inherits="WebForms.Datepicker" masterpagefile="~/Base.Master" %>
 <asp:content contentplaceholderid="_Head" runat="server">
   <style>
     .ui-datepicker-trigger {

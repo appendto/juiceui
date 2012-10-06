@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Juice_Sample_Site {
+namespace WebForms {
     public partial class UpdatePanel : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
             // Setting this in code-behind to test ViewState persistence across postbacks.

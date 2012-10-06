@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Juice_Sample_Site {
+namespace WebForms {
 	public partial class Slider : System.Web.UI.Page {
 
 		public void Page_Load() {

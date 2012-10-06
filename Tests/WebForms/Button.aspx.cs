@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 using Juice.Framework;
 
-namespace Juice_Sample_Site {
+namespace WebForms {
 	public partial class Button : System.Web.UI.Page {
 
 		protected override void OnLoad(EventArgs e) {

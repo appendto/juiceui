@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Juice_Sample_Site {
+namespace WebForms {
     
     
     public partial class Datepicker {

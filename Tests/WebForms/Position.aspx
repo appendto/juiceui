@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="true" CodeBehind="Position.aspx.cs" Inherits="Juice_Sample_Site.Position" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="true" CodeBehind="Position.aspx.cs" Inherits="WebForms.Position" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="_Content" runat="server">
   <asp:TextBox runat="server" ID="TextBox1" />
 
