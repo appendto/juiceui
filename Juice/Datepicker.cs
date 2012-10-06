@@ -2,13 +2,14 @@
 using System.ComponentModel;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 using Juice.Framework;
 
 namespace Juice {
 	/// <summary>
 	/// Extend a TextBox with the jQuery UI Datepicker http://jqueryui.com/demos/datepicker/
 	/// </summary>
-	[TargetControlType(typeof(TextBox))]
+	[TargetControlType(typeof(TextBox)), TargetControlType(typeof(HtmlInputText))]
 	[WidgetEvent("create")]
 	[WidgetEvent("beforeShow")]
 	// TODO: This event causes a failure when pushing through amplify pub/sub because
