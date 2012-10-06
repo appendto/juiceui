@@ -13,7 +13,7 @@ using Juice.Framework.TypeConverters;
 namespace Juice {
 
 	/// <summary>
-	/// Extend a WebControl or HtmlControl with jQuery UI Draggable http://jqueryui.com/demos/draggable/
+	/// Extend a WebControl or HtmlControl with jQuery UI Draggable http://api.jqueryui.com/draggable
 	/// </summary>
 	[TargetControlType(typeof(WebControl))]
 	[TargetControlType(typeof(HtmlControl))]
@@ -28,7 +28,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If set to false, will prevent the ui-draggable class from being added. This may be desired as a performance optimization when calling .draggable() init on many hundreds of elements.
-		/// Reference: http://jqueryui.com/demos/draggable/#addClasses
+		/// Reference: http://api.jqueryui.com/draggable/#option-addClasses
 		/// </summary>
 		[WidgetOption("addClasses", true)]
 		[Category("Behavior")]
@@ -38,7 +38,7 @@ namespace Juice {
 
 		/// <summary>
 		/// The element passed to or selected by the appendTo option will be used as the draggable helper's container during dragging. By default, the helper is appended to the same container as the draggable.
-		/// Reference: http://jqueryui.com/demos/draggable/#appendTo
+		/// Reference: http://api.jqueryui.com/draggable/#option-appendTo
 		/// </summary>
 		[WidgetOption("appendTo", "parent")]
 		[Category("Behavior")]
@@ -48,7 +48,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Constrains dragging to either the horizontal (x) or vertical (y) axis. Possible values: 'x', 'y'.
-		/// Reference: http://jqueryui.com/demos/draggable/#axis
+		/// Reference: http://api.jqueryui.com/draggable/#option-axis
 		/// </summary>
 		[WidgetOption("axis", null)]
 		[TypeConverter(typeof(StringToObjectConverter))]
@@ -59,7 +59,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Prevents dragging from starting on specified elements.
-		/// Reference: http://jqueryui.com/demos/draggable/#cancel
+		/// Reference: http://api.jqueryui.com/draggable/#option-cancel
 		/// </summary>
 		[WidgetOption("cancel", ":input,option")]
 		[Category("Behavior")]
@@ -69,7 +69,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Allows the draggable to be dropped onto the specified sortables. If this option is used (helper must be set to 'clone' in order to work flawlessly), a draggable can be dropped onto a sortable list and then becomes part of it.
-		/// Reference: http://jqueryui.com/demos/draggable/#connectToSortable
+		/// Reference: http://api.jqueryui.com/draggable/#option-connectToSortable
 		/// </summary>
 		[WidgetOption("connectToSortable", null)]
 		[TypeConverter(typeof(StringToObjectConverter))]
@@ -80,7 +80,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Constrains dragging to within the bounds of the specified element or region. Possible string values: 'parent', 'document', 'window', [x1, y1, x2, y2].
-		/// Reference: http://jqueryui.com/demos/draggable/#containment
+		/// Reference: http://api.jqueryui.com/draggable/#option-containment
 		/// </summary>
 		[WidgetOption("containment", null)]
 		[TypeConverter(typeof(StringToObjectConverter))]
@@ -91,7 +91,7 @@ namespace Juice {
 
 		/// <summary>
 		/// The css cursor during the drag operation.
-		/// Reference: http://jqueryui.com/demos/draggable/#cursor
+		/// Reference: http://api.jqueryui.com/draggable/#option-cursor
 		/// </summary>
 		[WidgetOption("cursor", "auto")]
 		[Category("Appearance")]
@@ -101,7 +101,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Sets the offset of the dragging helper relative to the mouse cursor. Coordinates can be given as a hash using a combination of one or two keys: { top, left, right, bottom }.
-		/// Reference: http://jqueryui.com/demos/draggable/#cursorAt
+		/// Reference: http://api.jqueryui.com/draggable/#option-cursorAt
 		/// </summary>
 		[WidgetOption("cursorAt", null)]
 		[TypeConverter(typeof(StringToObjectConverter))]
@@ -112,7 +112,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Time in milliseconds after mousedown until dragging should start. This option can be used to prevent unwanted drags when clicking on an element.
-		/// Reference: http://jqueryui.com/demos/draggable/#delay
+		/// Reference: http://api.jqueryui.com/draggable/#option-delay
 		/// </summary>
 		[WidgetOption("delay", 0)]
 		[Category("Behavior")]
@@ -122,7 +122,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Distance in pixels after mousedown the mouse must move before dragging should start. This option can be used to prevent unwanted drags when clicking on an element.
-		/// Reference: http://jqueryui.com/demos/draggable/#distance
+		/// Reference: http://api.jqueryui.com/draggable/#option-distance
 		/// </summary>
 		[WidgetOption("distance", 1)]
 		[Category("Behavior")]
@@ -132,7 +132,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Snaps the dragging helper to a grid, every x and y pixels. Array values: [x, y]
-		/// Reference: http://jqueryui.com/demos/draggable/#grid
+		/// Reference: http://api.jqueryui.com/draggable/#option-grid
 		/// </summary>
 		[WidgetOption("grid", null)]
 		[TypeConverter(typeof(Int32ArrayConverter))]
@@ -143,7 +143,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If specified, restricts drag start click to the specified element(s).
-		/// Reference: http://jqueryui.com/demos/draggable/#handle
+		/// Reference: http://api.jqueryui.com/draggable/#option-handle
 		/// </summary>
 		[WidgetOption("handle", null)]
 		[Category("Behavior")]
@@ -153,7 +153,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Allows for a helper element to be used for dragging display. Possible values: 'original', 'clone', Function. If a function is specified, it must return a DOMElement.
-		/// Reference: http://jqueryui.com/demos/draggable/#helper
+		/// Reference: http://api.jqueryui.com/draggable/#option-helper
 		/// </summary>
 		[WidgetOption("helper", "original")]
 		[Category("Behavior")]
@@ -163,7 +163,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Prevent iframes from capturing the mousemove events during a drag. Useful in combination with cursorAt, or in any case, if the mouse cursor is not over the helper. If set to true, transparent overlays will be placed over all iframes on the page. If a selector is supplied, the matched iframes will have an overlay placed over them.
-		/// Reference: http://jqueryui.com/demos/draggable/#iframeFix
+		/// Reference: http://api.jqueryui.com/draggable/#option-iframeFix
 		/// </summary>
 		[WidgetOption("iframeFix", null)]
 		[TypeConverter(typeof(StringToObjectConverter))]
@@ -174,7 +174,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Opacity for the helper while being dragged (e.g. 0.5 results in 50% opacity while dragging).
-		/// Reference: http://jqueryui.com/demos/draggable/#opacity
+		/// Reference: http://api.jqueryui.com/draggable/#option-opacity
 		/// </summary>
 		[WidgetOption("opacity", null)]
 		[Category("Appearance")]
@@ -184,7 +184,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If set to true, all droppable positions are calculated on every mousemove. Caution: This solves issues on highly dynamic pages, but dramatically decreases performance.
-		/// Reference: http://jqueryui.com/demos/draggable/#refreshPositions
+		/// Reference: http://api.jqueryui.com/draggable/#option-refreshPositions
 		/// </summary>
 		[WidgetOption("refreshPositions", false)]
 		[Category("Behavior")]
@@ -194,7 +194,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If set to true, the element will return to its start position when dragging stops. Possible string values: 'valid', 'invalid'. If set to invalid, revert will only occur if the draggable has not been dropped on a droppable. For valid, it's the other way around.
-		/// Reference: http://jqueryui.com/demos/draggable/#revert
+		/// Reference: http://api.jqueryui.com/draggable/#option-revert
 		/// </summary>
 		[WidgetOption("revert", null)]
 		[TypeConverter(typeof(StringToObjectConverter))]
@@ -205,7 +205,7 @@ namespace Juice {
 
 		/// <summary>
 		/// The duration of the revert animation, in milliseconds. Ignored if revert is false.
-		/// Reference: http://jqueryui.com/demos/draggable/#revertDuration
+		/// Reference: http://api.jqueryui.com/draggable/#option-revertDuration
 		/// </summary>
 		[WidgetOption("revertDuration", 500)]
 		[Category("Behavior")]
@@ -215,7 +215,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Used to group sets of draggable and droppable items, in addition to droppable's accept option. A draggable with the same scope value as a droppable will be accepted by the droppable.
-		/// Reference: http://jqueryui.com/demos/draggable/#scope
+		/// Reference: http://api.jqueryui.com/draggable/#option-scope
 		/// </summary>
 		[WidgetOption("scope", "default")]
 		[Category("Behavior")]
@@ -225,7 +225,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If set to true, container auto-scrolls while dragging.
-		/// Reference: http://jqueryui.com/demos/draggable/#scroll
+		/// Reference: http://api.jqueryui.com/draggable/#option-scroll
 		/// </summary>
 		[WidgetOption("scroll", true)]
 		[Category("Behavior")]
@@ -235,7 +235,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Distance in pixels from the edge of the viewport after which the viewport should scroll. Distance is relative to pointer, not the draggable.
-		/// Reference: http://jqueryui.com/demos/draggable/#scrollSensitivity
+		/// Reference: http://api.jqueryui.com/draggable/#option-scrollSensitivity
 		/// </summary>
 		[WidgetOption("scrollSensitivity", 20)]
 		[Category("Behavior")]
@@ -245,7 +245,7 @@ namespace Juice {
 
 		/// <summary>
 		/// The speed at which the window should scroll once the mouse pointer gets within the scrollSensitivity distance.
-		/// Reference: http://jqueryui.com/demos/draggable/#scrollSpeed
+		/// Reference: http://api.jqueryui.com/draggable/#option-scrollSpeed
 		/// </summary>
 		[WidgetOption("scrollSpeed", 20)]
 		[Category("Behavior")]
@@ -255,7 +255,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If set to a selector or to true (equivalent to '.ui-draggable'), the draggable will snap to the edges of the selected elements when near an edge of the element.
-		/// Reference: http://jqueryui.com/demos/draggable/#snap
+		/// Reference: http://api.jqueryui.com/draggable/#option-snap
 		/// </summary>
 		[WidgetOption("snap", null)]
 		[TypeConverter(typeof(StringToObjectConverter))]
@@ -266,7 +266,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Determines which edges of snap elements the draggable will snap to. Ignored if snap is false. Possible values: 'inner', 'outer', 'both'
-		/// Reference: http://jqueryui.com/demos/draggable/#snapMode
+		/// Reference: http://api.jqueryui.com/draggable/#option-snapMode
 		/// </summary>
 		[WidgetOption("snapMode", "both")]
 		[Category("Behavior")]
@@ -276,7 +276,7 @@ namespace Juice {
 
 		/// <summary>
 		/// The distance in pixels from the snap element edges at which snapping should occur. Ignored if snap is false.
-		/// Reference: http://jqueryui.com/demos/draggable/#snapTolerance
+		/// Reference: http://api.jqueryui.com/draggable/#option-snapTolerance
 		/// </summary>
 		[WidgetOption("snapTolerance", 20)]
 		[Category("Behavior")]
@@ -286,7 +286,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Controls the z-Index of the set of elements that match the selector, always brings to front the dragged item. Very useful in things like window managers.
-		/// Reference: http://jqueryui.com/demos/draggable/#stack
+		/// Reference: http://api.jqueryui.com/draggable/#option-stack
 		/// </summary>
 		[WidgetOption("stack", null)]
 		[Category("Appearance")]
@@ -296,7 +296,7 @@ namespace Juice {
 
 		/// <summary>
 		/// CSS z-index for the helper while being dragged.
-		/// Reference: http://jqueryui.com/demos/draggable/#zIndex
+		/// Reference: http://api.jqueryui.com/draggable/#option-zIndex
 		/// </summary>
 		[WidgetOption("zIndex", null)]
 		[Category("Appearance")]
@@ -310,7 +310,7 @@ namespace Juice {
 
 		/// <summary>
 		/// This event is triggered when dragging stops.
-		/// Reference: http://jqueryui.com/demos/draggable/#stop
+		/// Reference: http://api.jqueryui.com/draggable/#event-stop
 		/// </summary>
 		[WidgetEvent("stop", AutoPostBack = true)]
 		[Category("Action")]

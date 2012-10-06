@@ -13,7 +13,7 @@ using Juice.Framework.TypeConverters;
 namespace Juice {
 
 	/// <summary>
-	/// Extend a WebControl or HtmlControl with jQuery UI Droppable http://jqueryui.com/demos/droppable/
+	/// Extend a WebControl or HtmlControl with jQuery UI Droppable http://api.jqueryui.com/droppable
 	/// </summary>
 	[TargetControlType(typeof(WebControl))]
 	[TargetControlType(typeof(HtmlControl))]
@@ -30,7 +30,7 @@ namespace Juice {
 
     /// <summary>
     /// All draggables that match the selector will be accepted. If a function is specified, the function will be called for each draggable on the page (passed as the first argument to the function), to provide a custom filter. The function should return true if the draggable should be accepted.
-    /// Reference: http://jqueryui.com/demos/droppable/#accept
+    /// Reference: http://api.jqueryui.com/droppable/#option-accept
     /// </summary>
     [WidgetOption("accept", "*")]
 		[Category("Behavior")]
@@ -40,7 +40,7 @@ namespace Juice {
 
     /// <summary>
     /// If specified, the class will be added to the droppable while an acceptable draggable is being dragged.
-    /// Reference: http://jqueryui.com/demos/droppable/#activeClass
+    /// Reference: http://api.jqueryui.com/droppable/#option-activeClass
     /// </summary>
     [WidgetOption("activeClass", false)]
 		[Category("Layout")]
@@ -51,7 +51,7 @@ namespace Juice {
 
     /// <summary>
     /// If set to false, will prevent the ui-droppable class from being added. This may be desired as a performance optimization when calling .droppable() init on many hundreds of elements.
-    /// Reference: http://jqueryui.com/demos/droppable/#addClasses
+    /// Reference: http://api.jqueryui.com/droppable/#option-addClasses
     /// </summary>
     [WidgetOption("addClasses", true)]
 		[Category("Behavior")]
@@ -61,7 +61,7 @@ namespace Juice {
 
     /// <summary>
     /// If true, will prevent event propagation on nested droppables.
-    /// Reference: http://jqueryui.com/demos/droppable/#greedy
+    /// Reference: http://api.jqueryui.com/droppable/#option-greedy
     /// </summary>
     [WidgetOption("greedy", false)]
 		[Category("Behavior")]
@@ -71,7 +71,7 @@ namespace Juice {
 
     /// <summary>
     /// If specified, the class will be added to the droppable while an acceptable draggable is being hovered.
-    /// Reference: http://jqueryui.com/demos/droppable/#hoverClass
+    /// Reference: http://api.jqueryui.com/droppable/#option-hoverClass
     /// </summary>
     [WidgetOption("hoverClass", false)]
 		[Category("Layout")]
@@ -82,7 +82,7 @@ namespace Juice {
 
     /// <summary>
     /// Used to group sets of draggable and droppable items, in addition to droppable's accept option. A draggable with the same scope value as a droppable will be accepted.
-    /// Reference: http://jqueryui.com/demos/droppable/#scope
+    /// Reference: http://api.jqueryui.com/droppable/#option-scope
     /// </summary>
     [WidgetOption("scope", "default")]
 		[Category("Behavior")]
@@ -92,7 +92,7 @@ namespace Juice {
 
     /// <summary>
     /// Specifies which mode to use for testing whether a draggable is 'over' a droppable. Possible values: 'fit', 'intersect', 'pointer', 'touch'.
-    /// Reference: http://jqueryui.com/demos/droppable/#tolerance
+    /// Reference: http://api.jqueryui.com/droppable/#option-tolerance
     /// </summary>
     [WidgetOption("tolerance", "intersect")]
 		[Category("Behavior")]
@@ -107,7 +107,7 @@ namespace Juice {
 		/// <summary>
 		/// This event is triggered when an accepted draggable is dropped 'over' (within the tolerance of) this droppable. In the callback, $(this) represents the droppable the draggable is dropped on.
 		/// ui.draggable represents the draggable.
-		/// Reference: http://jqueryui.com/demos/droppable/#drop
+		/// Reference: http://api.jqueryui.com/droppable/#event-drop
 		/// </summary>
 		[WidgetEvent("drop", AutoPostBack = true)]
 		[Category("Action")]

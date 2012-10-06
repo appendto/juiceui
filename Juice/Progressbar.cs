@@ -9,7 +9,7 @@ namespace Juice {
 
 		/// <summary>
 		/// The value of the progressbar.
-		/// Reference: http://jqueryui.com/demos/progressbar/#value
+		/// Reference: http://api.jqueryui.com/progressbar/#option-value
 		/// </summary>
 		[WidgetOption("value", 0)]
 		[Category("Data")]

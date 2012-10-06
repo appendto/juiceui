@@ -9,11 +9,14 @@ namespace Juice {
 	[TargetControlType(typeof(WebControl))]
 	public class Position : JuiceExtender {
 
+		public Position() : base("position") {
+		}
+
 		#region Widget Options
 
 		/// <summary>
 		/// Defines which position on the element being positioned to align with the target element: "horizontal vertical" alignment. A single value such as "right" will default to "right center", "top" will default to "center top" (following CSS convention). Acceptable values: "top", "center", "bottom", "left", "right". Example: "left top" or "center center"
-		/// Reference: http://jqueryui.com/demos/position/#my
+		/// Reference: http://api.jqueryui.com/position/#option-my
 		/// </summary>
 		[WidgetOption("my", null)]
 		[Category("Behavior")]
@@ -23,7 +26,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Defines which position on the target element to align the positioned element against: "horizontal vertical" alignment. A single value such as "right" will default to "right center", "top" will default to "center top" (following CSS convention). Acceptable values: "top", "center", "bottom", "left", "right". Example: "left top" or "center center"
-		/// Reference: http://jqueryui.com/demos/position/#at
+		/// Reference: http://api.jqueryui.com/position/#option-at
 		/// </summary>
 		[WidgetOption("at", null)]
 		[Category("Behavior")]
@@ -33,7 +36,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Element to position against. If you provide a selector, the first matching element will be used. If you provide a jQuery object, the first element will be used. If you provide an event object, the pageX and pageY properties will be used. Example: "#top-menu"
-		/// Reference: http://jqueryui.com/demos/position/#of
+		/// Reference: http://api.jqueryui.com/position/#option-of
 		/// </summary>
 		[WidgetOption("of", null)]
 		[Category("Behavior")]
@@ -46,7 +49,7 @@ namespace Juice {
 
 		/// <summary>
 		/// When the positioned element overflows the window in some direction, move it to an alternative position. Similar to my and at, this accepts a single value or a pair for horizontal/vertical, eg. "flip", "fit", "fit flip", "fit none".
-		/// Reference: http://jqueryui.com/demos/position/#collision
+		/// Reference: http://api.jqueryui.com/position/#option-collision
 		/// </summary>
 		[WidgetOption("collision", null)]
 		[Category("Behavior")]
@@ -56,7 +59,7 @@ namespace Juice {
 
 		/// <summary>
 		/// When specified the actual property setting is delegated to this callback. Receives a single parameter which is a hash of top and left values for the position that should be set.
-		/// Reference: http://jqueryui.com/demos/position/#using
+		/// Reference: http://api.jqueryui.com/position/#option-using
 		/// </summary>
 		[WidgetOption("using", null)]
 		[Category("Behavior")]
@@ -65,9 +68,6 @@ namespace Juice {
 		public string Using { get; set; }
 
 		#endregion
-
-		public Position() : base("position") {
-		}
 
 		protected override void OnLoad(EventArgs e) {
 			base.OnLoad(e);

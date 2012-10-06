@@ -14,7 +14,7 @@ using Juice.Framework.TypeConverters;
 namespace Juice {
 
 	/// <summary>
-	/// Extend a Control with the jQuery UI Sortable behavior http://jqueryui.com/demos/sortable/
+	/// Extend a Control with the jQuery UI Sortable behavior http://api.jqueryui.com/sortable/
 	/// </summary>
 	[TargetControlType(typeof(WebControl))]
 	[TargetControlType(typeof(System.Web.UI.HtmlControls.HtmlControl))]
@@ -36,7 +36,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Defines where the helper that moves with the mouse is being appended to during the drag (for example, to resolve overlap/zIndex issues).
-		/// Reference: http://jqueryui.com/demos/sortable/#appendTo
+		/// Reference: http://api.jqueryui.com/sortable/#option-appendTo
 		/// </summary>
 		[WidgetOption("appendTo", "parent")]
 		[Category("Behavior")]
@@ -46,7 +46,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If defined, the items can be dragged only horizontally or vertically. Possible values:'x', 'y'.
-		/// Reference: http://jqueryui.com/demos/sortable/#axis
+		/// Reference: http://api.jqueryui.com/sortable/#option-axis
 		/// </summary>
 		[WidgetOption("axis", false)]
 		[Category("Behavior")]
@@ -57,7 +57,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Prevents sorting if you start on elements matching the selector.
-		/// Reference: http://jqueryui.com/demos/sortable/#cancel
+		/// Reference: http://api.jqueryui.com/sortable/#option-cancel
 		/// </summary>
 		[WidgetOption("cancel", ":input,button")]
 		[Category("Behavior")]
@@ -67,7 +67,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Takes a jQuery selector with items that also have sortables applied. If used, the sortable is now connected to the other one-way, so you can drag from this sortable to the other.
-		/// Reference: http://jqueryui.com/demos/sortable/#connectWith
+		/// Reference: http://api.jqueryui.com/sortable/#option-connectWith
 		/// </summary>
 		[WidgetOption("connectWith", false)]
 		[Category("Behavior")]
@@ -79,7 +79,7 @@ namespace Juice {
 		/// <summary>
 		/// Constrains dragging to within the bounds of the specified element - can be a DOM element, 'parent', 'document', 'window', or a jQuery selector.
 		/// Note: the element specified for containment must have a calculated width and height (though it need not be explicit), so for example, if you have float:left sortable children and specify containment:'parent' be sure to have float:left on the sortable/parent container as well or it will have height: 0, causing undefined behavior.
-		/// Reference: http://jqueryui.com/demos/sortable/#containment
+		/// Reference: http://api.jqueryui.com/sortable/#option-containment
 		/// </summary>
 		[WidgetOption("containment", false)]
 		[Category("Behavior")]
@@ -90,7 +90,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Defines the cursor that is being shown while sorting.
-		/// Reference: http://jqueryui.com/demos/sortable/#cursor
+		/// Reference: http://api.jqueryui.com/sortable/#option-cursor
 		/// </summary>
 		[WidgetOption("cursor", "auto")]
 		[Category("Appearance")]
@@ -100,7 +100,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Moves the sorting element or helper so the cursor always appears to drag from the same position. Coordinates can be given as a hash using a combination of one or two keys: { top, left, right, bottom }.
-		/// Reference: http://jqueryui.com/demos/sortable/#cursorAt
+		/// Reference: http://api.jqueryui.com/sortable/#option-cursorAt
 		/// </summary>
 		[WidgetOption("cursorAt", "{}", Eval=true)]
 		[Category("Behavior")]
@@ -110,7 +110,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Time in milliseconds to define when the sorting should start. It helps preventing unwanted drags when clicking on an element.
-		/// Reference: http://jqueryui.com/demos/sortable/#delay
+		/// Reference: http://api.jqueryui.com/sortable/#option-delay
 		/// </summary>
 		[WidgetOption("delay", 0)]
 		[Category("Behavior")]
@@ -120,7 +120,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Tolerance, in pixels, for when sorting should start. If specified, sorting will not start until after mouse is dragged beyond distance. Can be used to allow for clicks on elements within a handle.
-		/// Reference: http://jqueryui.com/demos/sortable/#distance
+		/// Reference: http://api.jqueryui.com/sortable/#option-distance
 		/// </summary>
 		[WidgetOption("distance", 1)]
 		[Category("Behavior")]
@@ -130,7 +130,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If false items from this sortable can't be dropped to an empty linked sortable.
-		/// Reference: http://jqueryui.com/demos/sortable/#dropOnEmpty
+		/// Reference: http://api.jqueryui.com/sortable/#option-dropOnEmpty
 		/// </summary>
 		[WidgetOption("dropOnEmpty", true)]
 		[Category("Behavior")]
@@ -140,7 +140,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If true, forces the helper to have a size.
-		/// Reference: http://jqueryui.com/demos/sortable/#forceHelperSize
+		/// Reference: http://api.jqueryui.com/sortable/#option-forceHelperSize
 		/// </summary>
 		[WidgetOption("forceHelperSize", false)]
 		[Category("Behavior")]
@@ -150,7 +150,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If true, forces the placeholder to have a size.
-		/// Reference: http://jqueryui.com/demos/sortable/#forcePlaceholderSize
+		/// Reference: http://api.jqueryui.com/sortable/#option-forcePlaceholderSize
 		/// </summary>
 		[WidgetOption("forcePlaceholderSize", false)]
 		[Category("Behavior")]
@@ -160,7 +160,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Snaps the sorting element or helper to a grid, every x and y pixels. Array values: [x, y]
-		/// Reference: http://jqueryui.com/demos/sortable/#grid
+		/// Reference: http://api.jqueryui.com/sortable/#option-grid
 		/// </summary>
 		[WidgetOption("grid", null)]
 		[TypeConverter(typeof(Int32ArrayConverter))]
@@ -171,7 +171,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Restricts sort start click to the specified element.
-		/// Reference: http://jqueryui.com/demos/sortable/#handle
+		/// Reference: http://api.jqueryui.com/sortable/#option-handle
 		/// </summary>
 		[WidgetOption("handle", false)]
 		[Category("Behavior")]
@@ -182,7 +182,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Allows for a helper element to be used for dragging display. Possible values: 'original', 'clone'
-		/// Reference: http://jqueryui.com/demos/sortable/#helper
+		/// Reference: http://api.jqueryui.com/sortable/#option-helper
 		/// </summary>
 		[WidgetOption("helper", "original")]
 		[Category("Behavior")]
@@ -192,7 +192,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Specifies which items inside the element should be sortable.
-		/// Reference: http://jqueryui.com/demos/sortable/#items
+		/// Reference: http://api.jqueryui.com/sortable/#option-items
 		/// </summary>
 		[WidgetOption("items", "> *")]
 		[Category("Behavior")]
@@ -202,7 +202,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Defines the opacity of the helper while sorting. From 0.01 to 1
-		/// Reference: http://jqueryui.com/demos/sortable/#opacity
+		/// Reference: http://api.jqueryui.com/sortable/#option-opacity
 		/// </summary>
 		[WidgetOption("opacity", 1)]
 		[Category("Appearance")]
@@ -212,7 +212,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Class that gets applied to the otherwise white space.
-		/// Reference: http://jqueryui.com/demos/sortable/#placeholder
+		/// Reference: http://api.jqueryui.com/sortable/#option-placeholder
 		/// </summary>
 		[WidgetOption("placeholder", false)]
 		[Category("Appearance")]
@@ -223,7 +223,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If set to true, the item will be reverted to its new DOM position with a smooth animation. Optionally, it can also be set to a number that controls the duration of the animation in ms.
-		/// Reference: http://jqueryui.com/demos/sortable/#revert
+		/// Reference: http://api.jqueryui.com/sortable/#option-revert
 		/// </summary>
 		[WidgetOption("revert", false)]
 		[Category("Behavior")]
@@ -234,7 +234,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If set to true, the page scrolls when coming to an edge.
-		/// Reference: http://jqueryui.com/demos/sortable/#scroll
+		/// Reference: http://api.jqueryui.com/sortable/#option-scroll
 		/// </summary>
 		[WidgetOption("scroll", true)]
 		[Category("Behavior")]
@@ -244,7 +244,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Defines how near the mouse must be to an edge to start scrolling.
-		/// Reference: http://jqueryui.com/demos/sortable/#scrollSensitivity
+		/// Reference: http://api.jqueryui.com/sortable/#option-scrollSensitivity
 		/// </summary>
 		[WidgetOption("scrollSensitivity", 20)]
 		[Category("Behavior")]
@@ -254,7 +254,7 @@ namespace Juice {
 
 		/// <summary>
 		/// The speed at which the window should scroll once the mouse pointer gets within the scrollSensitivity distance.
-		/// Reference: http://jqueryui.com/demos/sortable/#scrollSpeed
+		/// Reference: http://api.jqueryui.com/sortable/#option-scrollSpeed
 		/// </summary>
 		[WidgetOption("scrollSpeed", 20)]
 		[Category("Behavior")]
@@ -264,7 +264,7 @@ namespace Juice {
 
 		/// <summary>
 		/// This is the way the reordering behaves during drag. Possible values: 'intersect', 'pointer'. In some setups, 'pointer' is more natural.
-		/// Reference: http://jqueryui.com/demos/sortable/#tolerance
+		/// Reference: http://api.jqueryui.com/sortable/#option-tolerance
 		/// </summary>
 		[WidgetOption("tolerance", "intersect")]
 		[Category("Behavior")]
@@ -274,7 +274,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Z-index for element/helper while being sorted.
-		/// Reference: http://jqueryui.com/demos/sortable/#zIndex
+		/// Reference: http://api.jqueryui.com/sortable/#option-zIndex
 		/// </summary>
 		[WidgetOption("zIndex", 1000)]
 		[Category("Layout")]
@@ -288,7 +288,7 @@ namespace Juice {
 
 		/// <summary>
 		/// This event is triggered when sorting has stopped.
-		/// Reference: http://jqueryui.com/demos/sortable/#stop
+		/// Reference: http://api.jqueryui.com/sortable/#event-stop
 		/// </summary>
 		[WidgetEvent("stop")]
 		[Category("Action")]
@@ -297,7 +297,7 @@ namespace Juice {
 
 		/// <summary>
 		/// This event is triggered when a connected sortable list has received an item from another list.
-		/// Reference: http://jqueryui.com/demos/sortable/#receive
+		/// Reference: http://api.jqueryui.com/sortable/#event-receive
 		/// </summary>
 		[WidgetEvent("receive")]
 		[Category("Action")]
@@ -306,7 +306,7 @@ namespace Juice {
 
 		/// <summary>
 		/// This event is triggered when a sortable item has been dragged out from the list and into another.
-		/// Reference: http://jqueryui.com/demos/sortable/#remove
+		/// Reference: http://api.jqueryui.com/sortable/#event-remove
 		/// </summary>
 		[WidgetEvent("remove")]
 		[Category("Action")]

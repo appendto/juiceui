@@ -27,7 +27,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Whether to slide handle smoothly when user click outside handle on the bar. Will also accept a string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).
-		/// Reference: http://jqueryui.com/demos/slider/#animate
+		/// Reference: http://api.jqueryui.com/slider/#option-animate
 		/// </summary>
 		[WidgetOption("animate", false)]
 		[DefaultValue(false)]
@@ -44,7 +44,7 @@ namespace Juice {
 
 		/// <summary>
 		/// The maximum value of the slider.
-		/// Reference: http://jqueryui.com/demos/slider/#max
+		/// Reference: http://api.jqueryui.com/slider/#option-max
 		/// </summary>
 		[WidgetOption("max", 100)]
 		[DefaultValue(100)]
@@ -61,7 +61,7 @@ namespace Juice {
 
 		/// <summary>
 		/// The minimum value of the slider.
-		/// Reference: http://jqueryui.com/demos/slider/#min
+		/// Reference: http://api.jqueryui.com/slider/#option-min
 		/// </summary>
 		[WidgetOption("min", 0)]
 		[DefaultValue(0)]
@@ -78,7 +78,7 @@ namespace Juice {
 
 		/// <summary>
 		/// This option determines whether the slider has the min at the left, the max at the right or the min at the bottom, the max at the top. Possible values: 'horizontal', 'vertical'.
-		/// Reference: http://jqueryui.com/demos/slider/#orientation
+		/// Reference: http://api.jqueryui.com/slider/#option-orientation
 		/// </summary>
 		[WidgetOption("orientation", "horizontal")]
 		[DefaultValue("horizontal")]
@@ -95,7 +95,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If set to true, the slider will detect if you have two handles and create a stylable range element between these two. Two other possible values are 'min' and 'max'. A min range goes from the slider min to one handle. A max range goes from one handle to the slider max.
-		/// Reference: http://jqueryui.com/demos/slider/#range
+		/// Reference: http://api.jqueryui.com/slider/#option-range
 		/// </summary>
 		[WidgetOption("range", false)]
 		[DefaultValue(false)]
@@ -113,7 +113,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Determines the size or amount of each interval or step the slider takes between min and max. The full specified value range of the slider (max - min) needs to be evenly divisible by the step.
-		/// Reference: http://jqueryui.com/demos/slider/#step
+		/// Reference: http://api.jqueryui.com/slider/#option-step
 		/// </summary>
 		[WidgetOption("step", 1)]
 		[DefaultValue(1)]
@@ -130,7 +130,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Determines the value of the slider, if there's only one handle. If there is more than one handle, determines the value of the first handle.
-		/// Reference: http://jqueryui.com/demos/slider/#value
+		/// Reference: http://api.jqueryui.com/slider/#option-value
 		/// </summary>
 		[WidgetOption("value", 0)]
 		[Category("Data")]
@@ -147,7 +147,7 @@ namespace Juice {
 
 		/// <summary>
 		/// This option can be used to specify multiple handles. If range is set to true, the length of 'values' should be 2.
-		/// Reference: http://jqueryui.com/demos/slider/#values
+		/// Reference: http://api.jqueryui.com/slider/#option-values
 		/// </summary>
 		[WidgetOption("values", null)]
 		[Category("Data")]
@@ -169,7 +169,7 @@ namespace Juice {
 
 		/// <summary>
 		/// This event is triggered on slide stop, or if the value is changed programmatically (by the value method). Takes arguments event and ui. Use event.orginalEvent to detect whether the value changed by mouse, keyboard, or programmatically. Use ui.value (single-handled sliders) to obtain the value of the current handle, $(this).slider('values', index) to get another handle's value.
-		/// Reference: http://jqueryui.com/demos/slider/#change
+		/// Reference: http://api.jqueryui.com/slider/#event-change
 		/// </summary>
 		[WidgetEvent("change", AutoPostBack = true, DataChangedHandler = true)]
 		[Description("This event is triggered on slide stop, or if the value is changed programmatically (by the value method). Takes arguments event and ui. Use event.orginalEvent to detect whether the value changed by mouse, keyboard, or programmatically. Use ui.value (single-handled sliders) to obtain the value of the current handle, $(this).slider('values', index) to get another handle's value.")]

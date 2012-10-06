@@ -11,7 +11,7 @@ using Juice.Framework.TypeConverters;
 
 namespace Juice {
 	/// <summary>
-	/// Extend a Control with the jQuery UI Resizable behavior http://jqueryui.com/demos/resizable/
+	/// Extend a Control with the jQuery UI Resizable behavior http://api.jqueryui.com/resizable/
 	/// </summary>
 	[TargetControlType(typeof(WebControl))]
 	[TargetControlType(typeof(System.Web.UI.HtmlControls.HtmlControl))]
@@ -20,11 +20,13 @@ namespace Juice {
 	[WidgetEvent("resize")]
 	public class Resizable : JuiceExtender {
 
+		public Resizable() : base("resizable") { }
+
 		#region "Widget Options"
 
 		/// <summary>
 		/// Resize these elements synchronous when resizing.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-alsoResize
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-alsoResize
 		/// </summary>
 		[WidgetOption("alsoResize", null)] // Selector (String)
 		[Category("Behavior")]
@@ -34,7 +36,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Animates to the final size after resizing.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-animate
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-animate
 		/// </summary>
 		[WidgetOption("animate", false)]
 		[Category("Appearance")]
@@ -44,7 +46,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Duration time for animating, in milliseconds. Other possible values: 'slow', 'normal', 'fast'.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-animateDuration
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-animateDuration
 		/// </summary>
 		[WidgetOption("animateDuration", "slow")] // Integer, String
 		[Category("Behavior")]
@@ -55,7 +57,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Easing effect for animating.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-animateEasing
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-animateEasing
 		/// </summary>
 		[WidgetOption("animateEasing", "swing")]
 		[Category("Behavior")]
@@ -65,7 +67,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If set to true, resizing is constrained by the original aspect ratio. Otherwise a custom aspect ratio can be specified, such as 9 / 16, or 0.5.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-aspectRatio
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-aspectRatio
 		/// </summary>
 		[WidgetOption("aspectRatio", false)] //Boolean, Float
 		[Category("Behavior")]
@@ -76,7 +78,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If set to true, automatically hides the handles except when the mouse hovers over the element.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-autoHide
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-autoHide
 		/// </summary>
 		[WidgetOption("autoHide", false)]
 		[Category("Behavior")]
@@ -86,7 +88,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Prevents resizing if you start on elements matching the selector.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-cancel
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-cancel
 		/// </summary>
 		[WidgetOption("cancel", ":input,option")]
 		[Category("Behavior")]
@@ -96,7 +98,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Constrains resizing to within the bounds of the specified element. Possible values: 'parent', 'document', a DOMElement, or a Selector.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-containment
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-containment
 		/// </summary>
 		[WidgetOption("containment", null)] // Selector (String)
 		[Category("Behavior")]
@@ -106,7 +108,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Tolerance, in milliseconds, for when resizing should start. If specified, resizing will not start until after mouse is moved beyond duration. This can help prevent unintended resizing when clicking on an element.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-delay
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-delay
 		/// </summary>
 		[WidgetOption("delay", 0)]
 		[Category("Behavior")]
@@ -116,7 +118,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Tolerance, in pixels, for when resizing should start. If specified, resizing will not start until after mouse is moved beyond distance. This can help prevent unintended resizing when clicking on an element.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-distance
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-distance
 		/// </summary>
 		[WidgetOption("distance", 1)]
 		[Category("Behavior")]
@@ -126,7 +128,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If set to true, a semi-transparent helper element is shown for resizing.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-ghost
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-ghost
 		/// </summary>
 		[WidgetOption("ghost", false)]
 		[Category("Behavior")]
@@ -136,7 +138,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Snaps the resizing element to a grid, every x and y pixels. Array values: [x, y]
-		/// Reference: http://jqueryui.com/demos/resizable/#option-grid
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-grid
 		/// </summary>
 		[WidgetOption("grid", null)] // Array, eg. [50, 50]		
 		[TypeConverter(typeof(Int32ArrayConverter))]
@@ -147,7 +149,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If specified as a string, should be a comma-split list of any of the following: 'n, e, s, w, ne, se, sw, nw, all'. The necessary handles will be auto-generated by the plugin.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-handles
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-handles
 		/// </summary>
 		[WidgetOption("handles", "e, s, se")]
 		[Category("Appearance")]
@@ -157,7 +159,7 @@ namespace Juice {
 
 		/// <summary>
 		/// This is the css class that will be added to a proxy element to outline the resize during the drag of the resize handle. Once the resize is complete, the original element is sized.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-helper
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-helper
 		/// </summary>
 		[WidgetOption("helper", null)] // String
 		[Category("Appearance")]
@@ -167,7 +169,7 @@ namespace Juice {
 
 		/// <summary>
 		/// This is the maximum height the resizable should be allowed to resize to.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-maxHeight
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-maxHeight
 		/// </summary>
 		[WidgetOption("maxHeight", 0)]
 		[Category("Layout")]
@@ -177,7 +179,7 @@ namespace Juice {
 
 		/// <summary>
 		/// This is the maximum width the resizable should be allowed to resize to.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-maxWidth
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-maxWidth
 		/// </summary>	
 		[WidgetOption("maxWidth", 0)]
 		[Category("Layout")]
@@ -187,7 +189,7 @@ namespace Juice {
 
 		/// <summary>
 		/// This is the minimum height the resizable should be allowed to resize to.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-minHeight
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-minHeight
 		/// </summary>
 		[WidgetOption("minHeight", 10)]
 		[Category("Layout")]
@@ -197,7 +199,7 @@ namespace Juice {
 
 		/// <summary>
 		/// This is the minimum width the resizable should be allowed to resize to.
-		/// Reference: http://jqueryui.com/demos/resizable/#option-minWidth
+		/// Reference: http://api.jqueryui.com/resizable/#option-option-minWidth
 		/// </summary>
 		[WidgetOption("minWidth", 10)]
 		[Category("Layout")]
@@ -211,7 +213,7 @@ namespace Juice {
 
 		/// <summary>
 		/// This event is triggered at the end of a resize operation.
-		/// Reference: http://jqueryui.com/demos/resizable/#event-stop
+		/// Reference: http://api.jqueryui.com/resizable/#event-stop
 		/// </summary>
 		[WidgetEvent("stop")]
 		[Category("Action")]
@@ -219,8 +221,6 @@ namespace Juice {
 		public event EventHandler Drop;
 
 		#endregion
-
-		public Resizable() : base("resizable") { }
-
+		
 	}
 }

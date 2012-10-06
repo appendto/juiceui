@@ -14,7 +14,7 @@ using Juice.Framework.TypeConverters;
 namespace Juice {
 
 	/// <summary>
-	/// Extend a TextBox with jQuery UI Autocomplete http://jqueryui.com/demos/autocomplete/
+	/// Extend a TextBox with jQuery UI Autocomplete http://api.jqueryui.com/autocomplete/
 	/// </summary>
 	[TargetControlType(typeof(TextBox))]
 	[WidgetEvent("create")]
@@ -31,7 +31,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Which element the menu should be appended to.
-		/// Reference: http://jqueryui.com/demos/autocomplete/#appendTo
+		/// Reference: http://api.jqueryui.com/autocomplete/#option-appendTo
 		/// </summary>
 		[WidgetOption("appendTo", "body")]
 		[Category("Behavior")]
@@ -41,7 +41,7 @@ namespace Juice {
 
 		/// <summary>
 		/// If set to true the first item will be automatically focused.
-		/// Reference: http://jqueryui.com/demos/autocomplete/#autoFocus
+		/// Reference: http://api.jqueryui.com/autocomplete/#option-autoFocus
 		/// </summary>
 		[WidgetOption("autoFocus", false)]
 		[Category("Behavior")]
@@ -51,7 +51,7 @@ namespace Juice {
 
 		/// <summary>
 		/// The delay in milliseconds the Autocomplete waits after a keystroke to activate itself. A zero-delay makes sense for local data (more responsive), but can produce a lot of load for remote data, while being less responsive.
-		/// Reference: http://jqueryui.com/demos/autocomplete/#delay
+		/// Reference: http://api.jqueryui.com/autocomplete/#option-delay
 		/// </summary>
 		[WidgetOption("delay", 300)]
 		[Category("Behavior")]
@@ -61,7 +61,7 @@ namespace Juice {
 
 		/// <summary>
 		/// The minimum number of characters a user has to type before the Autocomplete activates. Zero is useful for local data with just a few items. Should be increased when there are a lot of items, where a single character would match a few thousand items.
-		/// Reference: http://jqueryui.com/demos/autocomplete/#minLength
+		/// Reference: http://api.jqueryui.com/autocomplete/#option-minLength
 		/// </summary>
 		[WidgetOption("minLength", 1)]
 		[Category("Key")]
@@ -71,7 +71,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Identifies the position of the Autocomplete widget in relation to the associated input element. The "of" option defaults to the input element, but you can specify another element to position against. You can refer to the jQuery UI Position utility for more details about the various options.
-		/// Reference: http://jqueryui.com/demos/autocomplete/#position
+		/// Reference: http://api.jqueryui.com/autocomplete/#option-position
 		/// </summary>
 		[WidgetOption("position", "{}", Eval = true)]
 		[TypeConverter(typeof(JsonObjectConverter))]
@@ -87,7 +87,7 @@ namespace Juice {
 		/// <summary>
 		/// Defines a data source url for the data to use. Source, Source List or SourceUrl must be specified. 
 		/// If SourceUrl, SourceList and Source are specified, Source or SourceList will take priority.
-		/// Reference: http://jqueryui.com/demos/autocomplete/#source
+		/// Reference: http://api.jqueryui.com/autocomplete/#option-source
 		/// </summary>
 		[WidgetDocument("source", null)]
 		[Category("Data")]
@@ -100,7 +100,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Defines the data to use. Source, Source List or SourceUrl must be specified. 
-		/// Reference: http://jqueryui.com/demos/autocomplete/#source
+		/// Reference: http://api.jqueryui.com/autocomplete/#option-source
 		/// </summary>
 		[WidgetDocument("source", null)]
 		[TypeConverter(typeof(Framework.TypeConverters.StringArrayConverter))]
@@ -115,7 +115,7 @@ namespace Juice {
 		/// <summary>
 		/// Defines an array of label/value pairs to use as source data. Source, Source List or SourceUrl must be specified.
 		/// If both SourceList and Source are specified, Source will take priority.
-		/// Reference: http://jqueryui.com/demos/autocomplete/#source
+		/// Reference: http://api.jqueryui.com/autocomplete/#option-source
 		/// </summary>
 		[WidgetDocument("source", null)]
 		[TypeConverter(typeof(AutocompleteListConverter))]
@@ -187,7 +187,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Triggered when an item is selected from the menu; ui.item refers to the selected item. The default action of select is to replace the text field's value with the value of the selected item. Canceling this event prevents the value from being updated, but does not prevent the menu from closing.
-		/// Reference: http://jqueryui.com/demos/autocomplete/#select
+		/// Reference: http://api.jqueryui.com/autocomplete/#event-select
 		/// </summary>
 		[WidgetEvent("select")]
 		[Category("Action")]
@@ -196,7 +196,7 @@ namespace Juice {
 
 		/// <summary>
 		/// Triggered when the field is blurred, if the value has changed; ui.item refers to the selected item.
-		/// Reference: http://jqueryui.com/demos/autocomplete/#change
+		/// Reference: http://api.jqueryui.com/autocomplete/#event-change
 		/// </summary>
 		[WidgetEvent("change")]
 		[Category("Action")]

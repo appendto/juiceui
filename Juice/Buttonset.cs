@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 namespace Juice {
 
 	/// <summary>
-	/// Extend a TextBox with the jQuery UI Buttonset http://jqueryui.com/demos/button/
+	/// Extend a TextBox with the jQuery UI Buttonset http://api.jqueryui.com/button/
 	/// </summary>
 	/// <remarks>Click Events should be handled on the extended control, natively.</remarks>
 	public class Buttonset : Button {
