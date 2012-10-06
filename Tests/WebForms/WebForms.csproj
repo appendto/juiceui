@@ -160,6 +160,7 @@
     <Content Include="Content\themes\Supercharged\images\ui-icons_ffbc0f_256x240.png" />
     <Content Include="Content\themes\Supercharged\images\ui-icons_ffc905_256x240.png" />
     <Content Include="Content\themes\Supercharged\jquery-ui-1.8.18.custom.css" />
+    <Content Include="Spinner.aspx" />
     <Content Include="css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="css\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
     <Content Include="css\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
@@ -346,6 +347,13 @@
     </Compile>
     <Compile Include="AutoCompleteData.ashx.cs">
       <DependentUpon>AutoCompleteData.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Spinner.aspx.cs">
+      <DependentUpon>Spinner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Spinner.aspx.designer.cs">
+      <DependentUpon>Spinner.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tooltip.aspx.cs">
       <DependentUpon>Tooltip.aspx</DependentUpon>
