@@ -9,13 +9,10 @@ using Juice.Framework.TypeConverters;
 namespace Juice {
 
 	[ParseChildren(typeof(TabPage), DefaultProperty = "TabPages", ChildrenAsProperties = true)]
+	[WidgetEvent("beforeLoad")]	
 	[WidgetEvent("create")]
-	[WidgetEvent("select")]
+	[WidgetEvent("beforeActivate")]
 	[WidgetEvent("load")]
-	[WidgetEvent("add")]
-	[WidgetEvent("remove")]
-	[WidgetEvent("enable")]
-	[WidgetEvent("disable")]
 	public class Tabs : JuiceScriptControl, IAutoPostBackWidget {
 
 		private List<TabPage> _tabPages;
@@ -32,28 +29,8 @@ namespace Juice {
 		#region Widget Options
 
 		/// <summary>
-		/// Additional Ajax options to consider when loading tab content (see $.ajax).
-		/// Reference: http://jqueryui.com/demos/tabs/#ajaxOptions
-		/// </summary>
-		[WidgetOption("ajaxOptions", null)]
-		[Category("Behavior")]
-		[DefaultValue(null)]
-		[Description("Additional Ajax options to consider when loading tab content (see $.ajax).")]
-		public string AjaxOptions { get; set; }
-
-		/// <summary>
-		/// Whether or not to cache remote tabs content, e.g. load only once or with every click. Cached content is being lazy loaded, e.g once and only once for the first click. Note that to prevent the actual Ajax requests from being cached by the browser you need to provide an extra cache: false flag to ajaxOptions.
-		/// Reference: http://jqueryui.com/demos/tabs/#cache
-		/// </summary>
-		[WidgetOption("cache", false)]
-		[Category("Behavior")]
-		[DefaultValue(false)]
-		[Description("Whether or not to cache remote tabs content, e.g. load only once or with every click. Cached content is being lazy loaded, e.g once and only once for the first click. Note that to prevent the actual Ajax requests from being cached by the browser you need to provide an extra cache: false flag to ajaxOptions.")]
-		public bool Cache { get; set; }
-
-		/// <summary>
 		/// Set to true to allow an already selected tab to become unselected again upon reselection.
-		/// Reference: http://jqueryui.com/demos/tabs/#collapsible
+		/// Reference: http://api.jqueryui.com/tabs/#option-collapsible
 		/// </summary>
 		[WidgetOption("collapsible", false)]
 		[Category("Behavior")]
@@ -62,20 +39,17 @@ namespace Juice {
 		public bool Collapsible { get; set; }
 
 		/// <summary>
-		/// Store the latest selected tab in a cookie. The cookie is then used to determine the initially selected tab if the selected option is not defined. Requires cookie plugin, which can also be found in the development-bundle>external folder from the download builder. The object needs to have key/value pairs of the form the cookie plugin expects as options. Available options (example): { expires: 7, path: '/', domain: 'jquery.com', secure: true }. Since jQuery UI 1.7 it is also possible to define the cookie name being used via name property.
-		/// Reference: http://jqueryui.com/demos/tabs/#cookie
+		/// OBSOLETE. Store the latest selected tab in a cookie. The cookie is then used to determine the initially selected tab if the selected option is not defined. Requires cookie plugin, which can also be found in the development-bundle>external folder from the download builder. The object needs to have key/value pairs of the form the cookie plugin expects as options. Available options (example): { expires: 7, path: '/', domain: 'jquery.com', secure: true }. Since jQuery UI 1.7 it is also possible to define the cookie name being used via name property.
+		/// Reference: http://api.jqueryui.com/tabs/#option-cookie
 		/// </summary>
-		[WidgetOption("cookie", null)]
-		[Category("Data")]
-		[DefaultValue(null)]
-		[Description("Store the latest selected tab in a cookie. The cookie is then used to determine the initially selected tab if the selected option is not defined. Requires cookie plugin, which can also be found in the development-bundle>external folder from the download builder. The object needs to have key/value pairs of the form the cookie plugin expects as options. Available options (example): { expires: 7, path: '/', domain: 'jquery.com', secure: true }. Since jQuery UI 1.7 it is also possible to define the cookie name being used via name property.")]
+		[Obsolete("This option will be removed in jQuery UI 1.10.")]
 		public string Cookie { get; set; }
 
 		/// <summary>
 		/// Disables (true) or enables (false) the widget.
 		/// - OR -
 		/// An array containing the position of the tabs (zero-based index) that should be disabled on initialization.
-		/// Reference: http://jqueryui.com/demos/tabs/#disabled
+		/// Reference: http://api.jqueryui.com/tabs/#option-disabled
 		/// </summary>
 		/*
 		 * This is really a one-time case specifically for the tabs widget. No other jQuery UI widgets double up on the disabled option.
@@ -89,7 +63,7 @@ namespace Juice {
 
 		/// <summary>
 		/// The type of event to be used for selecting a tab.
-		/// Reference: http://jqueryui.com/demos/tabs/#event
+		/// Reference: http://api.jqueryui.com/tabs/#option-event
 		/// </summary>
 		[WidgetOption("event", "click")]
 		[Category("Behavior")]
@@ -98,64 +72,97 @@ namespace Juice {
 		public string Event { get; set; }
 
 		/// <summary>
-		/// Enable animations for hiding and showing tab panels. The duration option can be a string representing one of the three predefined speeds ("slow", "normal", "fast") or the duration in milliseconds to run an animation (default is "normal").
-		/// Reference: http://jqueryui.com/demos/tabs/#fx
+		/// Controls the height of the accordion and each panel. Possible values: 
+		/// "auto": All panels will be set to the height of the tallest panel. 
+		/// "fill": Expand to the available height based on the accordion's parent height. 
+		/// "content": Each panel will be only as tall as its content.
+		/// Reference: http://api.jqueryui.com/tabs/#option-heightstyle
 		/// </summary>
-		[WidgetOption("fx", null)]
-		[Category("Behavior")]
-		[DefaultValue(null)]
-		[Description("Enable animations for hiding and showing tab panels. The duration option can be a string representing one of the three predefined speeds (\"slow\", \"normal\", \"fast\") or the duration in milliseconds to run an animation (default is \"normal\").")]
-		public string Fx { get; set; }
+		[WidgetOption("heightStyle", "{}", Eval = true)]
+		[TypeConverter(typeof(Framework.TypeConverters.JsonObjectConverter))]
+		[Category("Appearance")]
+		[DefaultValue("{}")]
+		[Description(@"Controls the height of the tabs and each panel. Possible values: 
+""auto"": All panels will be set to the height of the tallest panel. 
+""fill"": Expand to the available height based on the tabs' parent height. 
+""content"": Each panel will be only as tall as its content.")]
+		public string HeightStyle { get; set; }
 
 		/// <summary>
-		/// If the remote tab, its anchor element that is, has no title attribute to generate an id from, an id/fragment identifier is created from this prefix and a unique id returned by $.data(el), for example "ui-tabs-54".
-		/// Reference: http://jqueryui.com/demos/tabs/#idPrefix
+		/// Specifies if and how to animate the hiding of the panel.
+		/// Reference: http://api.jqueryui.com/tabs/#option-hide
 		/// </summary>
-		[WidgetOption("idPrefix", "ui-tabs-")]
-		[Category("Layout")]
-		[DefaultValue("ui-tabs-")]
-		[Description("If the remote tab, its anchor element that is, has no title attribute to generate an id from, an id/fragment identifier is created from this prefix and a unique id returned by $.data(el), for example \"ui-tabs-54\".")]
+		[WidgetOption("hide", null)]
+		[TypeConverter(typeof(StringToObjectConverter))]
+		[Category("Behavior")]
+		[DefaultValue(null)]
+		[Description("Specifies if and how to animate the hiding of the panel.")]
+		public dynamic Hide { get; set; }
+
+		/// <summary>
+		/// Specifies if and how to animate the showing of the panel.
+		/// Reference: http://api.jqueryui.com/tabs/#option-hide
+		/// </summary>
+		[WidgetOption("hide", null)]
+		[TypeConverter(typeof(StringToObjectConverter))]
+		[Category("Behavior")]
+		[DefaultValue(null)]
+		[Description("Specifies if and how to animate the showing of the panel.")]
+		public dynamic Hide { get; set; }
+
+		/// <summary>
+		/// OBSOLETE. If the remote tab, its anchor element that is, has no title attribute to generate an id from, an id/fragment identifier is created from this prefix and a unique id returned by $.data(el), for example "ui-tabs-54".
+		/// Reference: http://api.jqueryui.com/tabs/#option-idPrefix
+		/// </summary>
+		[Obsolete("This option will be removed in jQuery UI 1.10.")]
 		public string IdPrefix { get; set; }
 
 		/// <summary>
-		/// HTML template from which a new tab panel is created in case of adding a tab with the add method or when creating a panel for a remote tab on the fly.
-		/// Reference: http://jqueryui.com/demos/tabs/#panelTemplate
+		/// OBSOLETE. HTML template from which a new tab panel is created in case of adding a tab with the add method or when creating a panel for a remote tab on the fly.
+		/// Reference: http://api.jqueryui.com/tabs/#option-panelTemplate
 		/// </summary>
-		[WidgetOption("panelTemplate", "<div></div>", HtmlEncoding = true)]
-		[Category("Layout")]
-		[DefaultValue("<div></div>")]
-		[Description("HTML template from which a new tab panel is created in case of adding a tab with the add method or when creating a panel for a remote tab on the fly.")]
+		[Obsolete("This option will be removed in jQuery UI 1.10.")]
 		public string PanelTemplate { get; set; }
 
 		/// <summary>
 		/// Zero-based index of the tab to be selected on initialization. To set all tabs to unselected pass -1 as value.
-		/// Reference: http://jqueryui.com/demos/tabs/#selected
+		/// Reference: http://api.jqueryui.com/tabs/#option-selected
 		/// </summary>
-		[WidgetOption("selected", 0)]
+		[WidgetOption("active", 0)]
 		[Category("Behavior")]
 		[DefaultValue(0)]
 		[Description("Zero-based index of the tab to be selected on initialization. To set all tabs to unselected pass -1 as value.")]
-		public int Selected { get; set; }
-
+		public int Active { get; set; }
+		
 		/// <summary>
-		/// The HTML content of this string is shown in a tab title while remote content is loading. Pass in empty string to deactivate that behavior. An span element must be present in the A tag of the title, for the spinner content to be visible.
-		/// Reference: http://jqueryui.com/demos/tabs/#spinner
+		/// OBSOLETE. The HTML content of this string is shown in a tab title while remote content is loading. Pass in empty string to deactivate that behavior. An span element must be present in the A tag of the title, for the spinner content to be visible.
+		/// Reference: http://api.jqueryui.com/tabs/#option-spinner
 		/// </summary>
-		[WidgetOption("spinner", "<em>Loading&#8230;</em>", HtmlEncoding = true)]
-		[Category("Layout")]
-		[DefaultValue("<em>Loading&#8230;</em>")]
-		[Description("The HTML content of this string is shown in a tab title while remote content is loading. Pass in empty string to deactivate that behavior. An span element must be present in the A tag of the title, for the spinner content to be visible.")]
+		[Obsolete("This option will be removed in jQuery UI 1.10.")]
 		public string Spinner { get; set; }
 
 		/// <summary>
-		/// HTML template from which a new tab is created and added. The placeholders #{href} and #{label} are replaced with the url and tab label that are passed as arguments to the add method.
-		/// Reference: http://jqueryui.com/demos/tabs/#tabTemplate
+		/// OBSOLETE. HTML template from which a new tab is created and added. The placeholders #{href} and #{label} are replaced with the url and tab label that are passed as arguments to the add method.
+		/// Reference: http://api.jqueryui.com/tabs/#option-tabTemplate
 		/// </summary>
-		[WidgetOption("tabTemplate", "<li><a href=\"#{href}\"><span>#{label}</span></a></li>", HtmlEncoding = true)]
-		[Category("Layout")]
-		[DefaultValue("<li><a href=\"#{href}\"><span>#{label}</span></a></li>")]
-		[Description("HTML template from which a new tab is created and added. The placeholders #{href} and #{label} are replaced with the url and tab label that are passed as arguments to the add method.")]
+		[Obsolete("This option will be removed in jQuery UI 1.10.")]
 		public string TabTemplate { get; set; }
+
+		#endregion
+
+		#region Obsolete Widget Options
+
+		[Obsolete("This property has been deprecated in jQuery UI 1.9. Use Active instead.", true)]
+		public int Selected { get; set; }
+
+		[Obsolete("This property has been deprecated in jQuery UI 1.9. Use beforeLoad instead. See: http://stage.jqueryui.com/upgrade-guide/1.9/#deprecated-ajaxoptions-and-cache-options-added-beforeload-event", true)]
+		public string AjaxOptions { get; set; }
+
+		[Obsolete("This property has been deprecated in jQuery UI 1.9. Use beforeLoad instead. See: http://stage.jqueryui.com/upgrade-guide/1.9/#deprecated-ajaxoptions-and-cache-options-added-beforeload-event", true)]
+		public bool Cache { get; set; }
+
+		[Obsolete("This property has been deprecated in jQuery UI 1.9. Use Hide or Show instead.", true)]
+		public string Fx { get; set; }
 
 		#endregion
 
@@ -163,11 +170,14 @@ namespace Juice {
 
 		/// <summary>
 		/// This event is triggered when clicking a tab.
-		/// Reference: http://jqueryui.com/demos/tabs/#select
+		/// Reference: http://api.jqueryui.com/tabs/#event-select
 		/// </summary>
-		[WidgetEvent("show", AutoPostBack = true)]
+		[WidgetEvent("activate", AutoPostBack = true)]
 		[Category("Action")]
 		[Description("This event is triggered when clicking a tab.")]
+		public event EventHandler ActiveTabChanged;
+
+		[Obsolete("This event has been deprecated in jQuery UI 1.9. Use ActiveTabChanged instead.", true)]
 		public event EventHandler SelectedTabChanged;
 
 		#endregion
