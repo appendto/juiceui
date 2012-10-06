@@ -22,6 +22,7 @@ namespace Juice {
 	[WidgetEvent("open")]
 	[WidgetEvent("focus")]
 	[WidgetEvent("close")]
+	[WidgetEvent("response")]
 	public class Autocomplete : JuiceExtender {
 
 		public Autocomplete() : base("autocomplete") { }
