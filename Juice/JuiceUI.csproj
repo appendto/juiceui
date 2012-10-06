@@ -71,6 +71,7 @@
     <Compile Include="AccordionPanel.cs" />
     <Compile Include="AccordionPanelTemplateContainer.cs" />
     <Compile Include="Buttonset.cs" />
+    <Compile Include="Spinner.cs" />
     <Compile Include="CssPlaceholder.cs" />
     <Compile Include="AutocompleteItem.cs" />
     <Compile Include="Framework\CssManager.cs" />
