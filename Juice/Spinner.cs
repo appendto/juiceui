@@ -117,7 +117,7 @@ namespace Juice {
 		/// This event is triggered when the value of the spinner changes.
 		/// Reference: http://api.jqueryui.com/spinner/#event-change
 		/// </summary>
-		[WidgetEvent("change", AutoPostBack = true)]
+		[WidgetEvent("change", AutoPostBack = true, DataChangedHandler = true)]
 		[Category("Action")]
 		[Description("This event is triggered when the value of the spinner changes.")]
 		public event EventHandler ValueChanged;
