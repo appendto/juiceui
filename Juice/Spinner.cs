@@ -96,7 +96,7 @@ namespace Juice {
 		[DefaultValue(null)]
 		[Description("The number of steps to take when paging via the pageUp/pageDown methods.")]
 		// Can't name this "Page" without messing with the Control.Page property. Would be messy if anyone tried inheriting.
-		public int PageSteps { get; set; }
+		public int? PageSteps { get; set; }
 
 		/// <summary>
 		/// The size of the step to take when spinning via buttons or via the stepUp()/stepDown() methods.
