@@ -23,13 +23,13 @@ namespace Juice {
 		}
 
 		[PersistenceMode(PersistenceMode.InnerProperty)]
-		[TemplateContainer(typeof(TabPageTemplateContainer))]
+		[TemplateContainer(typeof(JuiceTemplateContainer))]
 		[DefaultValue((string) null)]
 		public ITemplate TabContent { get; set; }
 
 		protected override void CreateChildControls() {
 			if(TabContent != null) {
-				_templateContainer = new TabPageTemplateContainer();
+				_templateContainer = new JuiceTemplateContainer();
 				TabContent.InstantiateIn(_templateContainer);
 				Controls.Add(_templateContainer);
 			}

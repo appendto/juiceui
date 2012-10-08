@@ -69,8 +69,10 @@
   <ItemGroup>
     <Compile Include="Accordion.cs" />
     <Compile Include="AccordionPanel.cs" />
-    <Compile Include="AccordionPanelTemplateContainer.cs" />
+    <Compile Include="JuiceTemplateContainer.cs" />
     <Compile Include="Buttonset.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="MenuItem.cs" />
     <Compile Include="Tooltip.cs" />
     <Compile Include="Spinner.cs" />
     <Compile Include="CssPlaceholder.cs" />
@@ -118,7 +120,6 @@
     <Compile Include="Framework\WidgetHash.cs" />
     <Compile Include="Sortable.cs" />
     <Compile Include="TabPage.cs" />
-    <Compile Include="TabPageTemplateContainer.cs" />
     <Compile Include="Tabs.cs" />
   </ItemGroup>
   <ItemGroup>

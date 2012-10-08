@@ -21,13 +21,13 @@ namespace Juice {
 			}
 		}
 
-		[TemplateContainer(typeof(AccordionPanelTemplateContainer))]
+		[TemplateContainer(typeof(JuiceTemplateContainer))]
 		[PersistenceMode(PersistenceMode.InnerProperty)]
 		public ITemplate PanelContent { get; set; }
 
 		protected override void CreateChildControls() {
 			if(PanelContent != null) {
-				_templateContainer = new AccordionPanelTemplateContainer();
+				_templateContainer = new JuiceTemplateContainer();
 				PanelContent.InstantiateIn(_templateContainer);
 				Controls.Add(_templateContainer);
 			}
