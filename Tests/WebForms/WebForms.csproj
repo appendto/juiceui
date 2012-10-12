@@ -143,7 +143,7 @@
     <Content Include="Content\themes\Fresh-Squeezed\images\ui-icons_454545_256x240.png" />
     <Content Include="Content\themes\Fresh-Squeezed\images\ui-icons_834916_256x240.png" />
     <Content Include="Content\themes\Fresh-Squeezed\images\ui-icons_9f1d1d_256x240.png" />
-    <Content Include="Content\themes\Fresh-Squeezed\jquery-ui-1.8.18.custom.css" />
+    <Content Include="Content\themes\Fresh-Squeezed\jquery-ui-1.9.0.custom.css" />
     <Content Include="Content\themes\Supercharged\images\ui-bg_flat_0_303030_40x100.png" />
     <Content Include="Content\themes\Supercharged\images\ui-bg_flat_100_383838_40x100.png" />
     <Content Include="Content\themes\Supercharged\images\ui-bg_flat_75_f2f2f2_40x100.png" />
@@ -159,7 +159,7 @@
     <Content Include="Content\themes\Supercharged\images\ui-icons_8a4e19_256x240.png" />
     <Content Include="Content\themes\Supercharged\images\ui-icons_ffbc0f_256x240.png" />
     <Content Include="Content\themes\Supercharged\images\ui-icons_ffc905_256x240.png" />
-    <Content Include="Content\themes\Supercharged\jquery-ui-1.8.18.custom.css" />
+    <Content Include="Content\themes\Supercharged\jquery-ui-1.9.0.custom.css" />
     <Content Include="Menu.aspx" />
     <Content Include="Spinner.aspx" />
     <Content Include="css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />

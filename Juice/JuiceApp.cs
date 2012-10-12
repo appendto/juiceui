@@ -49,8 +49,8 @@ namespace Juice {
 			);
 
 			CssManager.CssResourceMapping.AddDefinition("juice-ui", new CssResourceDefinition {
-				Path = "~/Content/themes/Fresh-Squeezed/jquery-ui-1.8.18.custom.css",
-				DebugPath = "~/Content/themes/Fresh-Squeezed/jquery-ui-1.8.18.custom.css"
+				Path = "~/Content/themes/Fresh-Squeezed/jquery-ui-1.9.0.custom.css",
+				DebugPath = "~/Content/themes/Fresh-Squeezed/jquery-ui-1.9.0.custom.css"
 			});
 
 		}

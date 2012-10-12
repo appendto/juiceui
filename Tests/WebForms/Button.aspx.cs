@@ -14,8 +14,8 @@ namespace WebForms {
 			base.OnLoad(e);
 
 			CssManager.CssResourceMapping.AddDefinition("juice-ui", new CssResourceDefinition {
-				Path = "~/Content/themes/Supercharged/jquery-ui-1.8.18.custom.css",
-				DebugPath = "~/Content/themes/Supercharged/jquery-ui-1.8.18.custom.css"
+				Path = "~/Content/themes/Supercharged/jquery-ui-1.9.0.custom.css",
+				DebugPath = "~/Content/themes/Supercharged/jquery-ui-1.9.0.custom.css"
 			});
 
 			_Postback.Click += delegate(object s, EventArgs ea) {
