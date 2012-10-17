@@ -11,6 +11,8 @@
 		<description>Juice UI – Supercharge ASP.NET Web Forms with jQuery UI</description>
 		<releaseNotes>
 			<![CDATA[
+1.1.1
+	• This is a version marker purely because NuGet won't allow overwriting packages. All updates included in the 1.1 changeset are included in v1.1.1.
 1.1 
 	• Added support for jQuery UI 1.9.
 	• Added menu widget Control
