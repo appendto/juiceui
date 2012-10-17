@@ -13,11 +13,6 @@ namespace WebForms {
 		protected override void OnLoad(EventArgs e) {
 			base.OnLoad(e);
 
-			CssManager.CssResourceMapping.AddDefinition("juice-ui", new CssResourceDefinition {
-				Path = "~/Content/themes/Supercharged/jquery-ui-1.9.0.custom.css",
-				DebugPath = "~/Content/themes/Supercharged/jquery-ui-1.9.0.custom.css"
-			});
-
 			_Postback.Click += delegate(object s, EventArgs ea) {
 				var o = _JuiceButton.Disabled;
 			};

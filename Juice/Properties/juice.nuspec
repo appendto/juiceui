@@ -17,6 +17,8 @@
 	• Added spinner widget Control
 	• Added tooltip widget Control
 	• Updated control events and properties in accordance with the jQuery UI 1.9 Upgrade Guide (http://stage.jqueryui.com/upgrade-guide/1.9/)	
+	• Updated the Fresh-Squeezed theme
+	• Updated the Supercharged theme
 	
 1.0.1
 	• Fixes the initial path set by JuiceApp.cs.
@@ -47,7 +49,7 @@
 		</releaseNotes>
 		<dependencies>
 			<dependency id="jQuery" version="1.8.2" />
-			<dependency id="jQuery.UI.Combined" version="1.8.23" />
+			<dependency id="jQuery.UI.Combined" version="1.9.0" />
 			<dependency id="json2" />
 			<dependency id="AmplifyJS" />
 		</dependencies>
