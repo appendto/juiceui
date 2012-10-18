@@ -98,7 +98,7 @@
     <Compile Include="Mobile\Framework\MobileExtender.cs" />
     <Compile Include="Mobile\Framework\ThemeControlBase.cs" />
     <Compile Include="Mobile\Header.cs" />
-    <Compile Include="Mobile\Link.cs" />
+    <Compile Include="Mobile\Anchor.cs" />
     <Compile Include="Mobile\LinkBase.cs" />
     <Compile Include="Mobile\Listview.cs" />
     <Compile Include="Mobile\ListviewItem.cs" />

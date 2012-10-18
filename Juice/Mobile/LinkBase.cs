@@ -15,7 +15,7 @@ namespace Juice.Mobile {
 
 		//data-direction	reverse (reverse page transition animation)
 		[WidgetOption("direction", null)]
-		public MobileDirection Direction { get; set; }
+		public MobileDirection? Direction { get; set; }
 
 		//data-dom-cache	true | false
 		[WidgetOption("dom-cache", false)]
@@ -27,10 +27,10 @@ namespace Juice.Mobile {
 
 		//data-rel	back (to move one step back in history) | dialog
 		[WidgetOption("rel", null)]
-		public MobileRel Relationship { get; set; }
+		public MobileRel? Relationship { get; set; }
 
 		//data-transition	slide | slideup | slidedown | pop | fade | flip
-		[WidgetOption("transition", "slide")]
-		public MobileTransition Transition { get; set; }
+		[WidgetOption("transition", null)]
+		public MobileTransition? Transition { get; set; }
 	}
 }

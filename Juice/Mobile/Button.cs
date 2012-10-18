@@ -25,11 +25,11 @@ namespace Juice.Mobile {
 		public Boolean Corners { get; set; }
 
 		//data-icon	home | delete | plus | arrow-u | arrow-d | check | gear | grid | star | custom | arrow-r | arrow-l | minus | refresh | forward | back | alert | info | search
-		[WidgetOption("icon", DefaultValue = null)]
+		[WidgetOption("icon", null)]
 		public MobileIcon? Icon { get; set; }
 
 		//data-iconpos	left | right | top | bottom | notext
-		[WidgetOption("iconpos", "left")]
+		[WidgetOption("iconpos", null)]
 		public MobileIconPosition? IconPosition { get; set; }
 
 		//data-iconshadow	true | false

@@ -104,6 +104,14 @@ namespace Juice.Mobile.Framework {
 			IMobileControl control = _bridgeTo as IMobileControl;
 			IAttributeAccessor attributes = _bridgeTo as IAttributeAccessor;
 
+			if(attributes == null) { // we're dealing with an extender
+				attributes = control.TargetControl as IAttributeAccessor;
+			}
+
+			if(attributes == null) { // couldn't get the attributes accessor of the bridged control or it's target control. get the heck out.
+				return;
+			}
+
 			if(control.Role != null) {
 				attributes.SetAttribute("data-role", control.Role);
 			}

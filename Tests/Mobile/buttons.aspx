@@ -2,13 +2,21 @@
 <asp:Content ID="_Page" runat="server" ContentPlaceHolderID="_Content">
 
 	<mobile:page runat="server">
-		<mobile:header Text="Page Title" runat="server"/>
+		
+		<mobile:header Text="Buttons" runat="server">
+			<a href="/" id="_Home" runat="server">Home</a>
+			<mobile:anchor TargetControlID="_Home" runat="server" IconPosition="NoText" Icon="Home" Direction="Reverse" />
+		</mobile:header>
+		
 		<mobile:content runat="server">
 			<p>Page content goes here.</p>
 		</mobile:content>
-		<mobile:footer Text="Page Footer" runat="server"/>
+		
+		<mobile:footer runat="server"/>
+	
 	</mobile:page>
 
+<!--
 <a href="#" data-role="button">Link button</a>
 
 <div data-role="button" data-theme="c" data-icon="refresh" data-iconpos="notext">Button</div>
@@ -58,5 +66,6 @@
 
 <a href="#" data-role="button" data-inline="true">Cancel</a>
 <a href="#" data-role="button" data-inline="true" data-theme="b">Save</a>
+-->
 
 </asp:Content>
