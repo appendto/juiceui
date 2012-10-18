@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Base.master.cs" Inherits="Mobile.Base" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>appendTo Open Source Code</title>
+
+	<juice:cssplaceholder runat="server"/>
+		
+	<link rel="stylesheet"  href="css/style.css" />
+	
+	<script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
+	<asp:contentplaceholder id="_Head" runat="server" />
+</head>
+<body>
+	<form id="form1" runat="server">
+		<asp:ScriptManager id="_Script" runat="server" />
+		<asp:ContentPlaceHolder ID="_Content" runat="server" />
+	</form>
+</body>
+</html>
