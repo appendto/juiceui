@@ -125,6 +125,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="buttons.aspx" />
+    <Content Include="collapsibles.aspx" />
     <Content Include="popups.aspx" />
     <Content Include="css\style.css" />
     <Content Include="data\dialog-alt.html" />
@@ -181,6 +182,13 @@
     </Compile>
     <Compile Include="buttons.aspx.designer.cs">
       <DependentUpon>buttons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="collapsibles.aspx.cs">
+      <DependentUpon>collapsibles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="collapsibles.aspx.designer.cs">
+      <DependentUpon>collapsibles.aspx</DependentUpon>
     </Compile>
     <Compile Include="popups.aspx.cs">
       <DependentUpon>popups.aspx</DependentUpon>

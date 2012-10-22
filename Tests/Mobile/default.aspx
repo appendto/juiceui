@@ -9,7 +9,7 @@
 
 			<mobile:listview runat="server" Theme="c" DividerTheme="d">
         <mobile:listviewitem runat="server" Icon="Gear"><a href="buttons.aspx">Buttons</a></mobile:listviewitem>
-        <li><a href="collapsables.aspx">Collapsables</a></li>
+        <li><a href="collapsibles.aspx">Collapsables</a></li>
 				<li><a href="dialogs.aspx">Dialogs</a></li>
 				<li><a href="form.aspx">Form Elements</a></li>
         <li><a href="lists.aspx">Listviews</a></li>

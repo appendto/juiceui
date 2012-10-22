@@ -8,9 +8,9 @@ using Juice.Framework;
 namespace Juice.Mobile {
 
 	//A heading and content wrapped in a container with the data-role="collapsible"
-	public class Collapsable : ThemeControlBase {
+	public class Collapsible : ThemeControlBase {
 
-		public Collapsable() : base("collapsable") {
+		public Collapsible() : base("collapsable") {
 
 		}
 

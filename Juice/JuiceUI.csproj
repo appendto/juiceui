@@ -75,8 +75,8 @@
     <Compile Include="MenuItem.cs" />
     <Compile Include="Mobile\Button.cs" />
     <Compile Include="Mobile\Checkbox.cs" />
-    <Compile Include="Mobile\Collapsable.cs" />
-    <Compile Include="Mobile\CollapsableSet.cs" />
+    <Compile Include="Mobile\Collapsible.cs" />
+    <Compile Include="Mobile\CollapsibleSet.cs" />
     <Compile Include="Mobile\Content.cs" />
     <Compile Include="Mobile\ControlGroup.cs" />
     <Compile Include="Mobile\Dialog.cs" />

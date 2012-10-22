@@ -6,8 +6,9 @@
 	<title>appendTo Open Source Code</title>
 
 	<juice:cssplaceholder runat="server"/>
-		
-	<link rel="stylesheet"  href="css/style.css" />
+	
+	<link rel="stylesheet" href="Content/jquery.mobile.theme-1.2.0.css" />	
+	<link rel="stylesheet" href="css/style.css" />
 	
 	<script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
 	<asp:contentplaceholder id="_Head" runat="server" />
