@@ -2,13 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace Juice.Mobile {
-	public class FlipToggleItem : WebControl {
 
-		protected override System.Web.UI.HtmlTextWriterTag TagKey { get { return System.Web.UI.HtmlTextWriterTag.Option; } }
+	[PersistChildren(false)]
+	[ParseChildren(true, "Text")]
+	public class FlipToggleItem : HtmlGenericControl {
+
+		public FlipToggleItem() : base(System.Web.UI.HtmlTextWriterTag.Option.ToString()) { }
+
+		public FlipToggleItem(String tag) : base(System.Web.UI.HtmlTextWriterTag.Option.ToString()) { }
+
+		public String Text { get { return this.InnerHtml; } set { this.InnerHtml = value; } }
 
 		public String Value {
 			get { return this.Attributes["value"] as String ?? String.Empty; }

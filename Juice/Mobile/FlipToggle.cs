@@ -37,8 +37,8 @@ namespace Juice.Mobile {
 
 		protected override void OnPreRender(EventArgs e) {
 
-			if(this.Controls.Count > 2) {
-				throw new IndexOutOfRangeException("The FlipToggle widget may only have two items.");
+			if(this.Controls.All().Where(c => c is FlipToggleItem).Count() > 2) {
+				throw new IndexOutOfRangeException("The FlipToggle control may only have two FlipToggleItems.");
 			}
 
 			base.OnPreRender(e);

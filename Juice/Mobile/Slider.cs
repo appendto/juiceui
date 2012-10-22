@@ -12,6 +12,7 @@ namespace Juice.Mobile {
 
 	//Inputs with type="range" are auto-enhanced, no data-role required
 	[TargetControlType(typeof(HtmlInputControl))]
+	[TargetControlType(typeof(TextBox))]
 	public class Slider : Juice.Mobile.Framework.MobileExtender {
 
 		//data-highlight	true | false - Adds an active state fill on track to handle

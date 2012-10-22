@@ -20,7 +20,7 @@ namespace Juice.Mobile {
 		public MobileIcon? Icon { get; set; }
 
 		//data-iconpos	left | right | top | bottom | notext
-		[WidgetOption("iconpos", "left")]
+		[WidgetOption("iconpos", null)]
 		public MobileIconPosition? IconPosition { get; set; }
 		
 		//data-inline	true | false

@@ -1,115 +1,120 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Base.master" AutoEventWireup="true" CodeBehind="form.aspx.cs" Inherits="Mobile._Form" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Base.master" AutoEventWireup="true" CodeBehind="form.aspx.cs" Inherits="Mobile._Form" ClientIDMode="Static" %>
 <asp:Content ID="_Page" runat="server" ContentPlaceHolderID="_Content">
 
+	<mobile:page runat="server">
+		
+		<mobile:header Text="Forms" runat="server">
+			<a href="/" id="_Home" runat="server">Home</a>
+			<mobile:anchor TargetControlID="_Home" runat="server" IconPosition="NoText" Icon="Home" Direction="Reverse" />
+		</mobile:header>
+		
+		<mobile:content runat="server">
 
-	<div data-role="page" class="type-interior">
+			<mobile:fieldcontainer runat="server">
+	      <label for="name">Text Input:</label>
+	      <input type="text" name="name" id="name" value=""  />
+			</mobile:fieldcontainer>
 
-		<div data-role="header" data-theme="f">
-		<h1>Forms</h1>
-		<a href="../../" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
-		<a href="../nav.html" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">Search</a>
-	</div><!-- /header -->
+			<mobile:fieldcontainer runat="server">
+				<label for="textarea">Textarea:</label>
+				<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+			</mobile:fieldcontainer>
 
-	<div data-role="content">
-		<div class="content-primary">
+			<mobile:fieldcontainer runat="server">
+				<label for="search">Search Input:</label>
+				<input type="search" name="password" id="search" value=""  />
+			</mobile:fieldcontainer>
 
-		<form action="#" method="get">
-
-			<h2>Form elements</h2>
-
-			<p>This page contains various progressive-enhancement driven form controls. Native elements are sometimes hidden from view, but their values are maintained so the form can be submitted normally. Browsers that don't support the custom controls will still deliver a usable experience because all are based on native form elements.</p>
-			
-			<p>There is a complete set of <a href="forms-all-mini.html">mini-sized</a> form elements which are useful for toolbars or tighter spaces. <a href="forms-all-compare.html">Compare mini and normal</a> form elements side-by-side.</p>
-
-			<div data-role="fieldcontain">
-	         <label for="name">Text Input:</label>
-	         <input type="text" name="name" id="name" value=""  />
-			</div>
-
-			<div data-role="fieldcontain">
-			<label for="textarea">Textarea:</label>
-			<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
-			</div>
-
-			<div data-role="fieldcontain">
-	         <label for="search">Search Input:</label>
-	         <input type="search" name="password" id="search" value=""  />
-			</div>
-
-			<div data-role="fieldcontain">
+			<mobile:fieldcontainer runat="server">
 				<label for="slider2">Flip switch:</label>
-				<select name="slider2" id="slider2" data-role="slider">
-					<option value="off">Off</option>
-					<option value="on">On</option>
-				</select>
-			</div>
+				<mobile:fliptoggle id="slider2" runat="server">
+					<mobile:fliptoggleitem runat="server" value="off">Off</mobile:fliptoggleitem>
+					<mobile:fliptoggleitem runat="server" value="on">On</mobile:fliptoggleitem>
+				</mobile:fliptoggle>
+			</mobile:fieldcontainer>
 
-			<div data-role="fieldcontain">
+			<p>
+				HTML 5 input types require the following updates for .NET 4.0:<br/>
+				http://support.microsoft.com/kb/2468871<br/>
+				http://support.microsoft.com/kb/2533523<br/><br/>
+				This demo is using .NET 4.0.3.
+			</p>
+
+			<mobile:fieldcontainer runat="server">
 				<label for="slider">Slider:</label>
-			 	<input type="range" name="slider" id="slider" value="50" min="0" max="100" data-highlight="true"  />
-			</div>
+				<asp:textbox runat="server" type="range" ID="slider" value="50" min="0" max="100" />
+				<mobile:slider TargetControlID="slider" runat="server" Highlight="true" />
+			</mobile:fieldcontainer>
+			
+			<p>To theme a checkbox or set it's mini-state, use the &lt;mobile:checkbox&gt; control.<p>
 
-			<div data-role="fieldcontain">
-			<fieldset data-role="controlgroup">
-				<legend>Choose as many snacks as you'd like:</legend>
-				<input type="checkbox" name="checkbox-1a" id="checkbox-1a" class="custom" />
-				<label for="checkbox-1a">Cheetos</label>
+			<mobile:fieldcontainer runat="server">
+				<mobile:controlgroup runat="server">
+					<legend>Choose as many snacks as you'd like:</legend>
 
-				<input type="checkbox" name="checkbox-2a" id="checkbox-2a" class="custom" />
-				<label for="checkbox-2a">Doritos</label>
+					<input type="checkbox" name="checkbox-1a" id="checkbox-1a" />
+					<label for="checkbox-1a">Cheetos</label>
 
-				<input type="checkbox" name="checkbox-3a" id="checkbox-3a" class="custom" />
-				<label for="checkbox-3a">Fritos</label>
+					<input type="checkbox" name="checkbox-2a" id="checkbox-2a" />
+					<label for="checkbox-2a">Doritos</label>
 
-				<input type="checkbox" name="checkbox-4a" id="checkbox-4a" class="custom" />
-				<label for="checkbox-4a">Sun Chips</label>
-		    </fieldset>
-			</div>
+					<input type="checkbox" name="checkbox-3a" id="checkbox-3a" />
+					<label for="checkbox-3a">Fritos</label>
 
-			<div data-role="fieldcontain">
-			<fieldset data-role="controlgroup" data-type="horizontal">
-		    	<legend>Font styling:</legend>
-		    	<input type="checkbox" name="checkbox-6" id="checkbox-6" class="custom" />
-				<label for="checkbox-6">b</label>
+					<input type="checkbox" name="checkbox-4a" id="checkbox-4a" />
+					<label for="checkbox-4a">Sun Chips</label>
+				</mobile:controlgroup>
+			</mobile:fieldcontainer>
 
-				<input type="checkbox" name="checkbox-7" id="checkbox-7" class="custom" />
-				<label for="checkbox-7"><em>i</em></label>
+			<mobile:fieldcontainer runat="server">
+				<mobile:controlgroup runat="server" GroupType="Horizontal">
+					<legend>Font styling:</legend>
 
-				<input type="checkbox" name="checkbox-8" id="checkbox-8" class="custom" />
-				<label for="checkbox-8">u</label>
-		    </fieldset>
-			</div>
+					<input type="checkbox" name="checkbox-6" id="checkbox-6" />
+					<label for="checkbox-6">b</label>
 
-			<div data-role="fieldcontain">
-			    <fieldset data-role="controlgroup">
-			    	<legend>Choose a pet:</legend>
-			         	<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
-			         	<label for="radio-choice-1">Cat</label>
+					<input type="checkbox" name="checkbox-7" id="checkbox-7" />
+					<label for="checkbox-7"><em>i</em></label>
 
-			         	<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
-			         	<label for="radio-choice-2">Dog</label>
+					<input type="checkbox" name="checkbox-8" id="checkbox-8" />
+					<label for="checkbox-8">u</label>
+				</mobile:controlgroup>
+			</mobile:fieldcontainer>
+			
+			<mobile:fieldcontainer runat="server">
+				<mobile:controlgroup runat="server">
+					<legend>Choose a pet:</legend>
 
-			         	<input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3"  />
-			         	<label for="radio-choice-3">Hamster</label>
+					<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+					<label for="radio-choice-1">Cat</label>
 
-			         	<input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4"  />
-			         	<label for="radio-choice-4">Lizard</label>
-			    </fieldset>
-			</div>
+					<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
+					<label for="radio-choice-2">Dog</label>
 
-			<div data-role="fieldcontain">
-			    <fieldset data-role="controlgroup" data-type="horizontal">
-			     	<legend>Layout view:</legend>
-			         	<input type="radio" name="radio-choice-b" id="radio-choice-c" value="on" checked="checked" />
-			         	<label for="radio-choice-c">List</label>
-			         	<input type="radio" name="radio-choice-b" id="radio-choice-d" value="off" />
-			         	<label for="radio-choice-d">Grid</label>
-			         	<input type="radio" name="radio-choice-b" id="radio-choice-e" value="other" />
-			         	<label for="radio-choice-e">Gallery</label>
-			    </fieldset>
-			</div>
+					<input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3"  />
+					<label for="radio-choice-3">Hamster</label>
 
-			<div data-role="fieldcontain">
+					<input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4"  />
+					<label for="radio-choice-4">Lizard</label>
+				</mobile:controlgroup>
+			</mobile:fieldcontainer>
+
+			<mobile:fieldcontainer runat="server">
+				<mobile:controlgroup runat="server" GroupType="Horizontal">
+					<legend>Layout view:</legend>
+
+			    <input type="radio" name="radio-choice-b" id="radio-choice-c" value="on" checked="checked" />
+			    <label for="radio-choice-c">List</label>
+			    
+					<input type="radio" name="radio-choice-b" id="radio-choice-d" value="off" />
+			    <label for="radio-choice-d">Grid</label>
+			    
+					<input type="radio" name="radio-choice-b" id="radio-choice-e" value="other" />
+			    <label for="radio-choice-e">Gallery</label>
+				</mobile:controlgroup>
+			</mobile:fieldcontainer>
+
+			<mobile:fieldcontainer runat="server">
 				<label for="select-choice-1" class="select">Choose shipping method:</label>
 				<select name="select-choice-1" id="select-choice-1">
 					<option value="standard">Standard: 7 day</option>
@@ -117,9 +122,9 @@
 					<option value="express">Express: next day</option>
 					<option value="overnight">Overnight</option>
 				</select>
-			</div>
+			</mobile:fieldcontainer>
 
-			<div data-role="fieldcontain">
+			<mobile:fieldcontainer runat="server">
 				<label for="select-choice-3" class="select">Your state:</label>
 				<select name="select-choice-3" id="select-choice-3">
 					<option value="AL">Alabama</option>
@@ -173,64 +178,32 @@
 					<option value="WI">Wisconsin</option>
 					<option value="WY">Wyoming</option>
 				</select>
-			</div>
+			</mobile:fieldcontainer>
 
-			<div data-role="fieldcontain">
-				<label for="select-choice-a" class="select">Choose shipping method:</label>
-				<select name="select-choice-a" id="select-choice-a" data-native-menu="false">
+			<mobile:fieldcontainer runat="server">
+				<label for="select_choice_a" class="select">Choose shipping method:</label>
+				<select name="select-choice-a" id="select_choice_a" runat="server">
 					<option>Custom menu example</option>
 					<option value="standard">Standard: 7 day</option>
 					<option value="rush">Rush: 3 days</option>
 					<option value="express">Express: next day</option>
 					<option value="overnight">Overnight</option>
 				</select>
-			</div>
+				<mobile:select runat="server" TargetControlID="select_choice_a" UseNativeMenu="false"/>
+			</mobile:fieldcontainer>
 
-		<div class="ui-body ui-body-b">
-		<fieldset class="ui-grid-a">
+			<div class="ui-body ui-body-b">
+			<fieldset class="ui-grid-a">
 				<div class="ui-block-a"><button type="submit" data-theme="d">Cancel</button></div>
 				<div class="ui-block-b"><button type="submit" data-theme="a">Submit</button></div>
 	    </fieldset>
-		</div>
-	</form>
-	</div><!--/content-primary -->		
-	
-	<div class="content-secondary">
+			</div>
+
+
+		</mobile:content>
 		
-		<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="d">
-			
-				<h3>More in this section</h3>
-				
-				<ul data-role="listview" data-theme="c" data-dividertheme="d">
-				
-					<li data-role="list-divider">Form elements</li>
-					<li><a href="docs-forms.html">Form basics</a></li>
-					<li data-theme="a"><a href="forms-all.html">Form element gallery</a></li>
-					<li><a href="forms-all-mini.html">Mini form element gallery</a></li>
-					<li><a href="textinputs/">Text inputs</a></li>
-					<li><a href="search/">Search inputs</a></li>
-					<li><a href="slider/">Slider</a></li>
-					<li><a href="switch/">Flip toggle switch</a></li>
-					<li><a href="radiobuttons/">Radio buttons</a></li>
-					<li><a href="checkboxes/">Checkboxes</a></li>
-					<li><a href="selects/">Select menus</a></li>
-					<li><a href="forms-themes.html">Theming forms</a></li>
-					<li><a href="forms-all-native.html">Native form elements</a></li>
-					<li><a href="forms-sample.html">Submitting forms</a></li>
-					
+		<mobile:footer runat="server"/>
 	
-				</ul>
-		</div>
-	</div>		
-
-</div><!-- /content -->
-
-<div data-role="footer" class="footer-docs" data-theme="c">
-		<p class="jqm-version"></p>
-		<p>&copy; 2012 jQuery Foundation and other contributors</p>
-</div>
-	
-</div><!-- /page -->
-
+	</mobile:page>
 
 </asp:Content>
