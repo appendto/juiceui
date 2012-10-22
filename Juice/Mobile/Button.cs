@@ -13,6 +13,7 @@ namespace Juice.Mobile {
 	/// <summary>
 	/// Links with data-role="button". Input-based buttons and button elements are auto-enhanced, no data-role required
 	/// </summary>
+	[TargetControlType(typeof(HtmlGenericControl))]
 	[TargetControlType(typeof(HtmlAnchor))]
 	[TargetControlType(typeof(HtmlButton))]
 	[TargetControlType(typeof(HtmlInputButton))]
