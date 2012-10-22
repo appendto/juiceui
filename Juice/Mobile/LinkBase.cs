@@ -9,6 +9,8 @@ namespace Juice.Mobile {
 
 	public abstract class LinkBase : Juice.Mobile.Framework.MobileExtender {
 
+		public LinkBase() : base("button") { }
+
 		//data-ajax	true | false
 		[WidgetOption("ajax", true)]
 		public Boolean Ajax { get; set; }

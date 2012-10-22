@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 
 using Juice.Framework;
 
 namespace Juice.Mobile {
 
 	//Page with data-role="page" linked to with data-rel="dialog" on the anchor.
-	public class Dialog {
+	[TargetControlType(typeof(HtmlAnchor))]
+	[TargetControlType(typeof(LinkButton))]
+	public class Dialog : Juice.Mobile.Framework.MobileExtender {
 
 		public Dialog() : base() { }
 
@@ -31,5 +36,19 @@ namespace Juice.Mobile {
 		//data-title	string (title used when page is shown)
 		[WidgetOption("title", "Juice UI Mobile Dialog")]
 		public String Title { get; set; }
+
+		[WidgetOption("transition", null)]
+		public MobileTransition? Transition { get; set; }
+
+		protected override void OnPreRender(EventArgs e) {
+			base.OnPreRender(e);
+
+			if(TargetControl != null) {
+				var accessor = TargetControl as IAttributeAccessor;
+				if(accessor != null){
+					accessor.SetAttribute("data-rel", "dialog");
+				}
+			}
+		}
 	}
 }

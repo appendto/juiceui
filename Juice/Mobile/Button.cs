@@ -19,7 +19,7 @@ namespace Juice.Mobile {
 	[TargetControlType(typeof(Button))]
 	[TargetControlType(typeof(LinkButton))]
 	public class Button : LinkBase {
-		
+
 		//data-corners	true | false
 		[WidgetOption("corners", true)]
 		public Boolean Corners { get; set; }
