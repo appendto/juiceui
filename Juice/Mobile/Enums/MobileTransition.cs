@@ -9,8 +9,11 @@ namespace Juice.Mobile {
 		Slide,
 		SlideUp,
 		SlideDown,
+		SlideFade,
 		Pop,
 		Fade,
-		Flip
+		Flip,
+		Turn,
+		Flow
 	}
 }

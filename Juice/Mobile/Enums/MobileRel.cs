@@ -17,6 +17,10 @@ namespace Juice.Mobile {
 		/// <summary>
 		/// Link to another domain.
 		/// </summary>
-		External
+		External,
+		/// <summary>
+		/// Show the corresponding popup.
+		/// </summary>
+		Popup
 	}
 }

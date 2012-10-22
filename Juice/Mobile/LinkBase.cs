@@ -23,6 +23,10 @@ namespace Juice.Mobile {
 		[WidgetOption("dom-cache", false)]
 		public Boolean DomCache { get; set; }
 
+		//data-inline	true | false
+		[WidgetOption("inline", false)]
+		public Boolean Inline { get; set; }
+
 		//data-prefetch	true | false
 		[WidgetOption("prefetch", false)]
 		public Boolean Prefetch { get; set; }

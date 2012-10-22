@@ -37,10 +37,6 @@ namespace Juice.Mobile {
 		[WidgetOption("iconshadow", true)]
 		public Boolean IconShadow { get; set; }
 
-		//data-inline	true | false
-		[WidgetOption("inline", false)]
-		public Boolean Inline { get; set; }
-
 		//data-shadow	true | false
 		[WidgetOption("shadow", true)]
 		public Boolean Shadow { get; set; }

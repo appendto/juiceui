@@ -79,6 +79,10 @@
     <Compile Include="Mobile\CollapsibleSet.cs" />
     <Compile Include="Mobile\Content.cs" />
     <Compile Include="Mobile\ControlGroup.cs" />
+    <Compile Include="Mobile\Framework\MobileTolerance.cs" />
+    <Compile Include="Mobile\Framework\TypeConverters\MobileToleranceConverter.cs" />
+    <Compile Include="Mobile\Popup.cs" />
+    <Compile Include="Mobile\PopupAnchor.cs" />
     <Compile Include="Mobile\Dialog.cs" />
     <Compile Include="Mobile\Enums\MobileDirection.cs" />
     <Compile Include="Mobile\Enums\MobileGroupType.cs" />
