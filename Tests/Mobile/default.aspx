@@ -13,7 +13,7 @@
 				<li><a href="dialogs.aspx">Dialogs</a></li>
 				<li><a href="form.aspx">Form Elements</a></li>
         <li><a href="lists.aspx">Listviews</a></li>
-				<li><a href="lists.aspx">Popups</a></li>
+				<li><a href="popups.aspx">Popups</a></li>
         <li><a href="navbars.aspx">Navigation Bars</a></li>
 				<li><a href="toolbars.aspx">Toolbars</a></li>
 			</mobile:listview>

@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.UI;
 
 using Juice.Framework;
 
 namespace Juice.Mobile {
 
 	//LI within a navbar
+	[ParseChildren(false)]
 	public class NavbarItem : System.Web.UI.WebControls.WebControl {
 
 		public NavbarItem() : base(null) { }

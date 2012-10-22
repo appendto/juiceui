@@ -27,8 +27,9 @@ namespace Juice.Mobile {
 
 		protected override void OnPreRender(EventArgs e) {
 
-			this.Controls.Clear();
-			this.Controls.Add(new HtmlGenericControl("h1") { InnerHtml = this.Text });
+			if(!String.IsNullOrEmpty(this.Text)) {
+				this.Controls.AddAt(0, new HtmlGenericControl("h1") { InnerHtml = this.Text });
+			}
 			
 			base.OnPreRender(e);
 		}
