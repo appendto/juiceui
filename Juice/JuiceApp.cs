@@ -53,6 +53,8 @@ namespace Juice {
 				DebugPath = "~/Content/themes/Fresh-Squeezed/jquery-ui-1.9.0.custom.css"
 			});
 
+			Juice.Mobile.Framework.JuiceMobileApp.Start();
+
 		}
 	}
 }
