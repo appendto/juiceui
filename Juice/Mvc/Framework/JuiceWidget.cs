@@ -7,8 +7,9 @@ using System.Reflection;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Web;
-using System.Web.UI;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using System.Web.UI;
 using System.Web.WebPages;
 
 
@@ -26,7 +27,8 @@ namespace Juice.Mvc {
 
 		private Dictionary<String, Member> _options = new Dictionary<String, Member>();
 
-		private const string _script = "$(function(){{\n\t\t$(\"{0}\").{1}({2});\n}});";
+		protected const string _script = "$(function(){{\n\t\t{0}\n\t}});";
+		protected const string _initScript = "$(\"{0}\").{1}({2});";
 
 		public JuiceWidget(HtmlHelper helper, String widgetName) {
 			_helper = helper;
@@ -91,16 +93,25 @@ namespace Juice.Mvc {
 			}
 
 			var target = !String.IsNullOrEmpty(_elementId) ? "#" + _elementId : _target;
-			var json = new System.Web.Script.Serialization.JavaScriptSerializer();
-			var options = _options
+			var js = new JavaScriptSerializer();
+			var optionList = _options
 											.Where(o => o.Value.EqualsDefault == false)
 											.ToDictionary(k => k.Key, k => k.Value.Value);
-
+			var options = optionList.Keys.Count > 0 ? js.Serialize(optionList) : String.Empty;
+			
 			_writer.Write("\n");
 			_writer.RenderBeginTag(HtmlTextWriterTag.Script);
-			_writer.Write(String.Format(_script, target, _widgetName, options.Keys.Count > 0 ? json.Serialize(options) : String.Empty));
+			_writer.Write(String.Format(_script, RenderScript(target, options, js)));
 			_writer.RenderEndTag();
 			
+		}
+
+		public virtual String RenderScript(String target, String options, JavaScriptSerializer js) {
+			return String.Format(_initScript, target, _widgetName, RenderWidgetOptions(js, options));
+		}
+
+		public virtual String RenderWidgetOptions(JavaScriptSerializer js, String options) {
+			return options;
 		}
 
 		public virtual void RenderStart() {
