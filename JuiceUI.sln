@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{722CDADB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mobile", "Tests\Mobile\Mobile.csproj", "{E662A7C1-B0F9-4C3D-8E82-21AF60C84620}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc", "Tests\Mvc\Mvc.csproj", "{B7ED9EFE-25C3-49A7-B5F3-3E0F2E730658}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E662A7C1-B0F9-4C3D-8E82-21AF60C84620}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E662A7C1-B0F9-4C3D-8E82-21AF60C84620}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E662A7C1-B0F9-4C3D-8E82-21AF60C84620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7ED9EFE-25C3-49A7-B5F3-3E0F2E730658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7ED9EFE-25C3-49A7-B5F3-3E0F2E730658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7ED9EFE-25C3-49A7-B5F3-3E0F2E730658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7ED9EFE-25C3-49A7-B5F3-3E0F2E730658}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,5 +40,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9B57D389-734D-4244-A1EB-28AC91DF685B} = {722CDADB-4354-4444-8DC8-DD256B970DD2}
 		{E662A7C1-B0F9-4C3D-8E82-21AF60C84620} = {722CDADB-4354-4444-8DC8-DD256B970DD2}
+		{B7ED9EFE-25C3-49A7-B5F3-3E0F2E730658} = {722CDADB-4354-4444-8DC8-DD256B970DD2}
 	EndGlobalSection
 EndGlobal

@@ -62,6 +62,8 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
@@ -113,6 +115,34 @@
     <Compile Include="Mobile\Select.cs" />
     <Compile Include="Mobile\Slider.cs" />
     <Compile Include="Mobile\Textbox.cs" />
+    <Compile Include="Mvc\Button.cs" />
+    <Compile Include="Mvc\ButtonIcons.cs" />
+    <Compile Include="Mvc\Autocomplete.cs" />
+    <Compile Include="Mvc\ButtonList.cs" />
+    <Compile Include="Mvc\Accordion.cs" />
+    <Compile Include="Mvc\AccordionIcons.cs" />
+    <Compile Include="Mvc\AccordionPanel.cs" />
+    <Compile Include="Mvc\Tabs.cs" />
+    <Compile Include="Mvc\PositionOptions.cs" />
+    <Compile Include="Mvc\MenuIcons.cs" />
+    <Compile Include="Mvc\Menu.cs" />
+    <Compile Include="Mvc\ShowOptions.cs" />
+    <Compile Include="Mvc\Datepicker.cs" />
+    <Compile Include="Mvc\Dialog.cs" />
+    <Compile Include="Mvc\CursorAt.cs" />
+    <Compile Include="Mvc\SpinnerIcons.cs" />
+    <Compile Include="Mvc\Spinner.cs" />
+    <Compile Include="Mvc\Tooltip.cs" />
+    <Compile Include="Mvc\Slider.cs" />
+    <Compile Include="Mvc\Interactions\Droppable.cs" />
+    <Compile Include="Mvc\Interactions\Sortable.cs" />
+    <Compile Include="Mvc\Interactions\Selectable.cs" />
+    <Compile Include="Mvc\Interactions\Resizable.cs" />
+    <Compile Include="Mvc\Interactions\Draggable.cs" />
+    <Compile Include="Mvc\Position.cs" />
+    <Compile Include="Mvc\JuiceHelpers.cs" />
+    <Compile Include="Mvc\JuiceWidget.cs" />
+    <Compile Include="Mvc\Progressbar.cs" />
     <Compile Include="Tooltip.cs" />
     <Compile Include="Spinner.cs" />
     <Compile Include="CssPlaceholder.cs" />
