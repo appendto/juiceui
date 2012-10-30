@@ -116,7 +116,7 @@ namespace Juice.Mvc {
 
 		public virtual void RenderStart() {
 			_writer.AddAttribute("id", _elementId);
-			_writer.RenderBeginTag(HtmlTextWriterTag.Div);
+			_writer.RenderBeginTag(this.Tag);
 		}
 
 		public virtual void RenderEnd() {
