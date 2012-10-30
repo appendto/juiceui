@@ -123,6 +123,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccordionController.cs" />
+    <Compile Include="Controllers\AutocompleteController.cs" />
+    <Compile Include="Controllers\ButtonController.cs" />
+    <Compile Include="Controllers\DatepickerController.cs" />
+    <Compile Include="Controllers\DialogController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProgressbarController.cs" />
     <Compile Include="Controllers\TabsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -262,6 +268,12 @@
     <None Include="fonts\junction\Junction-webfont.woff" />
     <Content Include="Views\Progressbar\Index.cshtml" />
     <Content Include="Views\Tabs\Index.cshtml" />
+    <Content Include="Views\Button\Index.cshtml" />
+    <Content Include="Views\Autocomplete\Index.cshtml" />
+    <Content Include="Views\Accordion\Index.cshtml" />
+    <Content Include="Views\Datepicker\Index.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Dialog\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
