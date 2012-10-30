@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Juice.Mvc {
 
@@ -133,6 +134,15 @@ namespace Juice.Mvc {
 			);
 
 			return this;
+		}
+
+
+		public override String RenderScript(String target, String options, JavaScriptSerializer js) {
+			String guid = "o" + Guid.NewGuid().ToString().Replace("-", String.Empty);
+			String opts = String.Format("var {0}_options = {1};\n\t\t", guid, RenderWidgetOptions(js, options));
+			String fix = String.Format(@"$.each({0}_options.buttons, function(label, func){{ {0}_options.buttons[label] = window[func]; }});", guid);
+
+			return opts + fix + "\n\t\t" + String.Format(_initScript, target, _widgetName, guid + "_options");
 		}
 
 	}
