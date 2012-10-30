@@ -128,9 +128,14 @@
     <Compile Include="Controllers\ButtonController.cs" />
     <Compile Include="Controllers\DatepickerController.cs" />
     <Compile Include="Controllers\DialogController.cs" />
+    <Compile Include="Controllers\DroppableController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\PositionController.cs" />
     <Compile Include="Controllers\ProgressbarController.cs" />
+    <Compile Include="Controllers\ResizableController.cs" />
+    <Compile Include="Controllers\SelectableController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
+    <Compile Include="Controllers\SortableController.cs" />
     <Compile Include="Controllers\SpinnerController.cs" />
     <Compile Include="Controllers\TabsController.cs" />
     <Compile Include="Controllers\TooltipController.cs" />
@@ -280,6 +285,11 @@
     <Content Include="Views\Slider\Index.cshtml" />
     <Content Include="Views\Spinner\Index.cshtml" />
     <Content Include="Views\Tooltip\Index.cshtml" />
+    <Content Include="Views\Position\Index.cshtml" />
+    <Content Include="Views\Sortable\Index.cshtml" />
+    <Content Include="Views\Selectable\Index.cshtml" />
+    <Content Include="Views\Resizable\Index.cshtml" />
+    <Content Include="Views\Droppable\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

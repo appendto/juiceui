@@ -1,0 +1,18 @@
+﻿<h2>Position</h2>
+
+<style>
+	.positionDiv { position: absolute; width: 75px; height: 75px; background: green; }
+</style>
+
+<div id="targetElement">
+    <div class="positionDiv" id="position1"></div>
+    <div class="positionDiv" id="position2"></div>
+    <div class="positionDiv" id="position3"></div>
+    <div class="positionDiv" id="position4"></div>
+</div>
+
+@Html.Juice().Position("#position1", my: "center", at: "center", of: "#targetElement")
+ 
+@Html.Juice().Position("#position2", my: "left top", at: "left top", of: "#targetElement")
+ 
+@Html.Juice().Position("#position3", my: "right center", at: "right bottom", of: "#targetElement")
