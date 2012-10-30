@@ -32,6 +32,7 @@ namespace Juice.Mobile {
 
 		/// <summary>
 		/// Sets the color scheme (swatch) for list item count bubbles.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
 		/// </summary>
 		[WidgetOption("count-theme", "c")]
 		[Category("Appearance")]
@@ -41,6 +42,7 @@ namespace Juice.Mobile {
 
 		/// <summary>
 		/// Sets the color scheme (swatch) for list dividers.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
 		/// </summary>
 		[WidgetOption("dividertheme", "b")]
 		[Category("Appearance")]
@@ -50,6 +52,7 @@ namespace Juice.Mobile {
 
 		/// <summary>
 		/// Adds a search filter bar to listviews.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
 		/// </summary>
 		[WidgetOption("filter", false)]
 		[Category("Behavior")]
@@ -59,6 +62,7 @@ namespace Juice.Mobile {
 
 		/// <summary>
 		/// The placeholder text used in search filter bars.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
 		/// </summary>
 		[WidgetOption("filter-placeholder", null)]
 		[Category("Appearance")]
@@ -68,6 +72,7 @@ namespace Juice.Mobile {
 
 		/// <summary>
 		/// Sets the color scheme (swatch) for the search filter bar.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
 		/// </summary>
 		[WidgetOption("filter-theme", "c")]
 		[Category("Appearance")]
@@ -77,6 +82,7 @@ namespace Juice.Mobile {
 
 		/// <summary>
 		/// Adds inset list styles.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
 		/// </summary>
 		[WidgetOption("inset", false)]
 		[Category("Appearance")]
@@ -86,6 +92,7 @@ namespace Juice.Mobile {
 
 		/// <summary>
 		/// Applies an icon from the icon set to all split list buttons.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
 		/// </summary>
 		[WidgetOption("split-icon", null)]
 		[Category("Appearance")]
@@ -95,6 +102,7 @@ namespace Juice.Mobile {
 
 		/// <summary>
 		/// Sets the color scheme (swatch) for split list buttons.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
 		/// </summary>
 		[WidgetOption("split-theme", "b")]
 		[Category("Appearance")]
