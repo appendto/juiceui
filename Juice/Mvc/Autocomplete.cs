@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace Juice.Mvc {
 
@@ -19,11 +20,11 @@ namespace Juice.Mvc {
 		/// <param name="minLength">The minimum number of characters a user must type before a search is performed. Zero is useful for local data with just a few items, but a higher value should be used when a single character search could match a few thousand items.</param>
 		/// <param name="source">Defines the data to use, must be specified. Array or Dictionary is recommended.</param>
 		/// <returns>AutoCompleteWidget</returns>
-		public AutoCompleteWidget AutoComplete(String elementId = "", String target = "", Boolean disabled = false, String appendTo = "body", Boolean autoFocus = false, int delay = 300, int minLength = 1, dynamic source = null) {
+		public AutoCompleteWidget AutoComplete(String elementId = "", String target = "", String labelText = "Select:", Boolean disabled = false, String appendTo = "body", Boolean autoFocus = false, int delay = 300, int minLength = 1, dynamic source = null) {
 			var widget = new AutoCompleteWidget(_helper);
 
 			widget.SetCoreOptions(elementId, target);
-			widget.Options(disabled, appendTo, autoFocus, delay, minLength, source);
+			widget.Options(labelText, disabled, appendTo, autoFocus, delay, minLength, source);
 
 			return widget;
 		}
@@ -34,7 +35,18 @@ namespace Juice.Mvc {
 
 		public AutoCompleteWidget(HtmlHelper helper) : base(helper, "autocomplete") { }
 
-		public AutoCompleteWidget Options(Boolean disabled = false, String appendTo = "body", Boolean autoFocus = false, int delay = 300, int minLength = 1, dynamic source = null) {
+		internal override HtmlTextWriterTag Tag {
+			get {
+				return HtmlTextWriterTag.Input;
+			}
+		}
+
+		public String LabelText { get; set; }
+
+		public AutoCompleteWidget Options(String labelText = "Select:", Boolean disabled = false, String appendTo = "body", Boolean autoFocus = false, int delay = 300, int minLength = 1, dynamic source = null) {
+
+			LabelText = labelText;
+			
 			base.SetOptions(
 				JuiceHelpers.GetMemberInfo(() => disabled),
 				JuiceHelpers.GetMemberInfo(() => appendTo), 
@@ -47,5 +59,20 @@ namespace Juice.Mvc {
 			return this;
 		}
 
+		public override void RenderStart() {
+			//<label for="autocomplete">Select a programming language: </label>
+			//<input id="autocomplete">
+			_writer.AddAttribute("for", _elementId);
+			_writer.RenderBeginTag(HtmlTextWriterTag.Label);
+			_writer.Write(LabelText);
+			_writer.RenderEndTag();
+
+			_writer.Write("<" + this.Tag);
+			_writer.WriteAttribute("id", _elementId);
+			_writer.Write("/>");
+		}
+
+		public override void RenderEnd() {
+		}
 	}
 }
