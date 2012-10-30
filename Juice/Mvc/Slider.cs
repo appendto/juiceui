@@ -26,7 +26,7 @@ namespace Juice.Mvc {
 			var widget = new SliderWidget(_helper);
 
 			widget.SetCoreOptions(elementId, target);
-			widget.Options(disabled, animate, max, min, orientation, range, step, animate, values);
+			widget.Options(disabled, animate, max, min, orientation, range, step, value, values);
 
 			return widget;
 		}
@@ -46,7 +46,7 @@ namespace Juice.Mvc {
 				JuiceHelpers.GetMemberInfo(() => orientation),
 				JuiceHelpers.GetMemberInfo(() => range),
 				JuiceHelpers.GetMemberInfo(() => step),
-				JuiceHelpers.GetMemberInfo(() => animate),
+				JuiceHelpers.GetMemberInfo(() => value),
 				JuiceHelpers.GetMemberInfo(() => values)
 			);
 
