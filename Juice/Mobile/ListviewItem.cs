@@ -26,6 +26,7 @@ namespace Juice.Mobile {
 
 		/// <summary>
 		/// Filter by this value instead of inner text.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
 		/// </summary>
 		[WidgetOption("filtertext", null)]
 		[Category("Appearance")]
@@ -35,6 +36,7 @@ namespace Juice.Mobile {
 
 		/// <summary>
 		/// The icon for this item.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
 		/// </summary>
 		[WidgetOption("icon", null)]
 		[Category("Appearance")]
