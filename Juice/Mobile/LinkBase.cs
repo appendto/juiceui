@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -11,32 +12,73 @@ namespace Juice.Mobile {
 
 		public LinkBase() : base("button") { }
 
-		//data-ajax	true | false
+		/// <summary>
+		/// Use ajax to retrieve this link.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("ajax", true)]
+		[Category("Behavior")]
+		[DefaultValue(true)]
+		[Description("Use ajax to retrieve this link.")]
 		public Boolean Ajax { get; set; }
 
-		//data-direction	reverse (reverse page transition animation)
+		/// <summary>
+		/// Reverse page transition animation.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("direction", null)]
+		[Category("Behavior")]
+		[DefaultValue(null)]
+		[Description("Reverse page transition animation.")]
 		public MobileDirection? Direction { get; set; }
 
-		//data-dom-cache	true | false
+		/// <summary>
+		/// Apply dom-cache.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("dom-cache", false)]
+		[Category("Behavior")]
+		[DefaultValue(false)]
+		[Description("Apply dom-cache.")]
 		public Boolean DomCache { get; set; }
 
-		//data-inline	true | false
+		/// <summary>
+		/// Inline link.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("inline", false)]
+		[Category("Appearance")]
+		[DefaultValue(false)]
+		[Description("Inline link.")]
 		public Boolean Inline { get; set; }
-
-		//data-prefetch	true | false
+		
+		/// <summary>
+		/// When using single-page templates, you can prefetch pages into the DOM so that they're available instantly when the user visits them.
+		/// </summary>
 		[WidgetOption("prefetch", false)]
+		[Category("Behavior")]
+		[DefaultValue(false)]
+		[Description("When using single-page templates, you can prefetch pages into the DOM so that they're available instantly when the user visits them.")]
 		public Boolean Prefetch { get; set; }
 
-		//data-rel	back (to move one step back in history) | dialog
+		/// <summary>
+		/// How the link should behave, Back, Dialog, External, or Popup.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("rel", null)]
+		[Category("Behavior")]
+		[DefaultValue(null)]
+		[Description("How the link should behave, Back, Dialog, External, or Popup.")]
 		public MobileRel? Relationship { get; set; }
 
-		//data-transition	slide | slideup | slidedown | pop | fade | flip
+		/// <summary>
+		/// By default, the dialog will open with a 'pop' transition.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("transition", null)]
+		[Category("Behavior")]
+		[DefaultValue(null)]
+		[Description("By default, the dialog will open with a 'pop' transition.")]
 		public MobileTransition? Transition { get; set; }
 	}
 }

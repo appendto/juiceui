@@ -8,7 +8,9 @@ using Juice.Framework;
 
 namespace Juice.Mobile {
 
-	//LI within a navbar
+	/// <summary>
+	/// LI within a navbar.
+	/// </summary>
 	[ParseChildren(false)]
 	public class NavbarItem : System.Web.UI.WebControls.WebControl {
 

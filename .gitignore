@@ -7,3 +7,4 @@ artifacts/*
 packages/*
 msbuild.log
 *.csproj.user
+/_[Re][re]Sharper.*

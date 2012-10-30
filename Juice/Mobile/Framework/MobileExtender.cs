@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Web.UI;
@@ -25,13 +26,27 @@ namespace Juice.Mobile.Framework {
 		public Control TargetControl { get; private set; }
 
 		//data-mini	true | false - Compact sized version
+		/// <summary>
+		/// Compact sized version
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("mini", false)]
+		[Category("Appearance")]
+		[DefaultValue(false)]
+		[Description("Compact sized version")]
 		public Boolean Mini { get; set; }
 
 		public String Role { get; set; }
 
 		//data-theme	swatch letter (a-z)
+		/// <summary>
+		/// Defines the theme swatch letter (a-z)
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("theme", null)]
+		[Category("Appearance")]
+		[DefaultValue(null)]
+		[Description("Defines the theme swatch letter (a-z)")]
 		public String Theme { get; set; }
 
 		protected override void OnLoad(EventArgs e) {

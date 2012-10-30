@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Web.UI;
@@ -17,7 +18,14 @@ namespace Juice.Mobile {
 	public class Textbox : Juice.Mobile.Framework.MobileExtender {
 
 		//data-mini	true | false - Compact sized version
+		/// <summary>
+		/// Compact sized version
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("mini", false)]
+		[Category("Appearance")]
+		[DefaultValue(false)]
+		[Description("Compact sized version")]
 		public Boolean Mini { get; set; }
 
 	}

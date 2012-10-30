@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Web.UI;
@@ -16,11 +17,25 @@ namespace Juice.Mobile {
 	public class Slider : Juice.Mobile.Framework.MobileExtender {
 
 		//data-highlight	true | false - Adds an active state fill on track to handle
+		/// <summary>
+		/// Adds an active state fill on track to handle
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("highlight", false)]
+		[Category("Appearance")]
+		[DefaultValue(false)]
+		[Description("Adds an active state fill on track to handle")]
 		public Boolean Highlight { get; set; }
 
 		//data-track-theme	swatch letter (a-z) - Added to the form element
+		/// <summary>
+		/// Added to the form element
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("track-theme", null)]
+		[Category("Appearance")]
+		[DefaultValue(null)]
+		[Description("Added to the form element")]
 		public String TrackTheme { get; set; }
 
 		protected override void OnLoad(EventArgs e) {

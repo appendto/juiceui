@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Web.UI;
@@ -10,34 +11,73 @@ using Juice.Framework;
 
 namespace Juice.Mobile {
 
-	//Page with data-role="page" linked to with data-rel="dialog" on the anchor.
+	/// <summary>
+	/// Any page can be presented as a modal dialog by adding the data-rel="dialog" attribute to the page anchor link.
+	/// </summary>
 	[TargetControlType(typeof(HtmlAnchor))]
 	[TargetControlType(typeof(LinkButton))]
 	public class Dialog : Juice.Mobile.Framework.MobileExtender {
 
 		public Dialog() : base() { }
 
-		//data-close-btn-text	string (text for the close button, dialog only)
+		/// <summary>
+		/// Customizes the text of the close button which is helpful for translating this into different languages.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("close-btn-text", "Close")]
+		[Category("Data")]
+		[DefaultValue("Close")]
+		[Description("Customizes the text of the close button which is helpful for translating this into different languages.")]
 		public String CloseButtonText { get; set; }
 
-		//data-dom-cache	true | false
+		/// <summary>
+		/// Apply dom-cache.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("dom-cache", false)]
+		[Category("Behavior")]
+		[DefaultValue(false)]
+		[Description("Apply dom-cache.")]
 		public Boolean DomCache { get; set; }
 
-		//data-fullscreen	true | false (used in conjunction with fixed toolbars)
+		/// <summary>
+		/// Show dialog in fullscreen.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("fullscreen", false)]
+		[Category("Behavior")]
+		[DefaultValue(false)]
+		[Description("Show dialog in fullscreen.")]
 		public Boolean Fullscreen { get; set; }
 
-		//data-overlay-theme	swatch letter (a-z) - overlay theme when the page is opened in a dialog
+		/// <summary>
+		/// Overlay theme when the page is opened in a dialog.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("overlay-theme", null)]
+		[Category("Appearance")]
+		[DefaultValue(null)]
+		[Description("Overlay theme when the page is opened in a dialog.")]
 		public String OverlayTheme { get; set; }
 
-		//data-title	string (title used when page is shown)
-		[WidgetOption("title", "Juice UI Mobile Dialog")]
+		/// <summary>
+		/// Title used when page is shown.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
+		[WidgetOption("title", "")]
+		[Category("Appearance")]
+		[DefaultValue("")]
+		[Description("Title used when page is shown.")]
 		public String Title { get; set; }
 
+		/// <summary>
+		/// By default, the dialog will open with a 'pop' transition.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("transition", null)]
+		[Category("Behavior")]
+		[DefaultValue(null)]
+		[Description("By default, the dialog will open with a 'pop' transition.")]
 		public MobileTransition? Transition { get; set; }
 
 		protected override void OnPreRender(EventArgs e) {

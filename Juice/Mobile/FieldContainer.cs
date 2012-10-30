@@ -8,7 +8,9 @@ using Juice.Framework;
 
 namespace Juice.Mobile {
 
-	//Container with data-role="fieldcontain" wrapped around label/form element pair
+	/// <summary>
+	/// Container with data-role="fieldcontain" wrapped around label/form element pair
+	/// </summary>
 	[ParseChildren(false)]
 	public class FieldContainer : Juice.Mobile.Framework.MobileControlBase {
 
