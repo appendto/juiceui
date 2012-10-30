@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Web.UI;
@@ -8,7 +9,9 @@ using Juice.Framework;
 
 namespace Juice.Mobile {
 	
-	//OL or UL with data-role="listview"
+	/// <summary>
+	/// OL or UL with data-role="listview".
+	/// </summary>
 	[ParseChildren(false)]	
 	public class Listview : ThemeControlBase {
 
@@ -27,37 +30,76 @@ namespace Juice.Mobile {
 			}
 		}
 
-		//data-count-theme	swatch letter (a-z)
-		[WidgetOption("count-theme", null)]
+		/// <summary>
+		/// Sets the color scheme (swatch) for list item count bubbles.
+		/// </summary>
+		[WidgetOption("count-theme", "c")]
+		[Category("Appearance")]
+		[DefaultValue("c")]
+		[Description("Sets the color scheme (swatch) for list item count bubbles.")]
 		public String CountTheme { get; set; }
-		
-		//data-dividertheme	swatch letter (a-z)
-		[WidgetOption("dividertheme", null)]
+
+		/// <summary>
+		/// Sets the color scheme (swatch) for list dividers.
+		/// </summary>
+		[WidgetOption("dividertheme", "b")]
+		[Category("Appearance")]
+		[DefaultValue("b")]
+		[Description("Sets the color scheme (swatch) for list dividers.")]
 		public String DividerTheme { get; set; }
-		
-		//data-filter	true | false
+
+		/// <summary>
+		/// Adds a search filter bar to listviews.
+		/// </summary>
 		[WidgetOption("filter", false)]
+		[Category("Behavior")]
+		[DefaultValue(false)]
+		[Description("Adds a search filter bar to listviews.")]
 		public Boolean Filter { get; set; }
-		
-		//data-filter-placeholder	string
+
+		/// <summary>
+		/// The placeholder text used in search filter bars.
+		/// </summary>
 		[WidgetOption("filter-placeholder", null)]
+		[Category("Appearance")]
+		[DefaultValue(null)]
+		[Description("Adds a search filter bar to listviews.")]
 		public String FilterPlaceholder { get; set; }
-		
-		//data-filter-theme	swatch letter (a-z)
-		[WidgetOption("filter-theme", null)]
+
+		/// <summary>
+		/// Sets the color scheme (swatch) for the search filter bar.
+		/// </summary>
+		[WidgetOption("filter-theme", "c")]
+		[Category("Appearance")]
+		[DefaultValue("c")]
+		[Description("Sets the color scheme (swatch) for the search filter bar.")]
 		public String FilterTheme { get; set; }
 
-		//data-inset	true | false
+		/// <summary>
+		/// Adds inset list styles.
+		/// </summary>
 		[WidgetOption("inset", false)]
+		[Category("Appearance")]
+		[DefaultValue(false)]
+		[Description("Adds inset list styles.")]
 		public Boolean Inset { get; set; }
-		
-		//data-split-icon	home | delete | plus | arrow-u | arrow-d | check | gear | grid | star | custom | arrow-r | arrow-l | minus | refresh | forward | back | alert | info | search
+
+		/// <summary>
+		/// Applies an icon from the icon set to all split list buttons.
+		/// </summary>
 		[WidgetOption("split-icon", null)]
-		public MobileIcon SplitIcon { get; set; }
+		[Category("Appearance")]
+		[DefaultValue(null)]
+		[Description("Applies an icon from the icon set to all split list buttons.")]
+		public MobileIcon? SplitIcon { get; set; }
 
-		//data-split-theme	swatch letter (a-z)	
-		[WidgetOption("split-theme", null)]
+		/// <summary>
+		/// Sets the color scheme (swatch) for split list buttons.
+		/// </summary>
+		[WidgetOption("split-theme", "b")]
+		[Category("Appearance")]
+		[DefaultValue("b")]
+		[Description("Sets the color scheme (swatch) for split list buttons.")]
 		public String SplitTheme { get; set; }
-
 	}
 }

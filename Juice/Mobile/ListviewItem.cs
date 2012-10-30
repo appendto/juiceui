@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Web.UI;
@@ -8,7 +9,9 @@ using Juice.Framework;
 
 namespace Juice.Mobile {
 	
-	//LI within a listview
+	/// <summary>
+	/// LI within a listview.
+	/// </summary>
 	[ParseChildren(false)]
 	public class ListviewItem : ThemeControlBase {
 
@@ -21,12 +24,22 @@ namespace Juice.Mobile {
 			set { this.Role = value ? "list-divider" : null;  }
 		}
 
-		//data-filtertext	string (filter by this value instead of inner text)
+		/// <summary>
+		/// Filter by this value instead of inner text.
+		/// </summary>
 		[WidgetOption("filtertext", null)]
+		[Category("Appearance")]
+		[DefaultValue(null)]
+		[Description("Filter by this value instead of inner text.")]
 		public String FilterText { get; set; }
 
-		//data-icon	home | delete | plus | arrow-u | arrow-d | check | gear | grid | star | custom | arrow-r | arrow-l | minus | refresh | forward | back | alert | info | search
+		/// <summary>
+		/// The icon for this item.
+		/// </summary>
 		[WidgetOption("icon", null)]
+		[Category("Appearance")]
+		[DefaultValue(null)]
+		[Description("The icon for this item.")]
 		public MobileIcon? Icon { get; set; }
 	}
 }

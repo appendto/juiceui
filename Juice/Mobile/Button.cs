@@ -13,7 +13,7 @@ namespace Juice.Mobile
 {
 
 	/// <summary>
-	/// Links with data-role="button". Input-based buttons and button elements are auto-enhanced, no data-role required
+	/// Links with data-role="button". Input-based buttons and button elements are auto-enhanced, no data-role required.
 	/// </summary>
 	[TargetControlType(typeof(HtmlGenericControl))]
 	[TargetControlType(typeof(HtmlAnchor))]
@@ -24,53 +24,52 @@ namespace Juice.Mobile
 	public class Button : LinkBase
 	{
 		/// <summary>
-		/// Applies the theme button border-radius if set to true. This option is also exposed as a data attribute: data-corners="false".
+		/// Applies the theme button border-radius if set to true.
 		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
 		/// </summary>
-		[DefaultValue(true)]
-		[Category("Appearance")]
-		[Description("Whether to show corners or not.")]
 		[WidgetOption("corners", true)]
+		[Category("Appearance")]
+		[DefaultValue(true)]
+		[Description("Applies the theme button border-radius if set to true.")]
 		public Boolean Corners { get; set; }
 
 		/// <summary>
-		/// Applies an icon from the icon set. This option is also exposed as a data attribute: data-icon="star".
+		/// Applies an icon from the icon set.
 		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
 		/// </summary>
-		[DefaultValue(null)]
-		[Category("Appearance")]
-		[Description("What type of icon to show for this button.")]
 		[WidgetOption("icon", null)]
+		[Category("Appearance")]
+		[DefaultValue(null)]
+		[Description("Applies an icon from the icon set.")]
 		public MobileIcon? Icon { get; set; }
 
 		/// <summary>
-		/// Positions the icon in the button. Possible values: left, right, top, bottom, none, notext. The notext value will display an icon-only button with no text feedback. This option is also exposed as a data attribute: data-iconpos="left"
+		/// Positions the icon in the button. Possible values: left, right, top, bottom, none, notext. The notext value will display an icon-only button with no text feedback.
 		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
 		/// </summary>
-		[DefaultValue(null)]
-		[Category("Appearance")]
-		[Description("Where to position the icon on the button. ")]
 		[WidgetOption("iconpos", null)]
+		[Category("Appearance")]
+		[DefaultValue(null)]
+		[Description("Positions the icon in the button. Possible values: left, right, top, bottom, none, notext. The notext value will display an icon-only button with no text feedback.")]
 		public MobileIconPosition? IconPosition { get; set; }
 
 		/// <summary>
-		/// Whether or not to show an icon shadow.
+		/// Applies the theme shadow to the button's icon if set to true.
 		/// </summary>
-		[DefaultValue(true)]
-		[Category("Appearance")]
-		[Description("Whether or not to show an icon shadow.")]
 		[WidgetOption("iconshadow", true)]
+		[Category("Appearance")]
+		[DefaultValue(true)]
+		[Description("Applies the theme shadow to the button's icon if set to true.")]
 		public Boolean IconShadow { get; set; }
 
-		//data-shadow	true | false
 		/// <summary>
-		/// Whether or not to show a button shadow.
+		/// Applies the drop shadow style to the button if set to true.
 		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
 		/// </summary>
-		[DefaultValue(true)]
-		[Category("Appearance")]
-		[Description("Whether or not to show a button shadow.")]
 		[WidgetOption("shadow", true)]
+		[Category("Appearance")]
+		[DefaultValue(true)]
+		[Description("Applies the drop shadow style to the button if set to true.")]
 		public Boolean Shadow { get; set; }
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -13,17 +14,35 @@ namespace Juice.Mobile {
 		public Collapsible() : base("collapsable") {
 
 		}
-
-		//data-collapsed	true | false
+		
+		/// <summary>
+		/// When false, the container is initially expanded with a minus icon in the header.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("collapsed", true)]
+		[Category("Appearance")]
+		[DefaultValue(true)]
+		[Description("When false, the container is initially expanded with a minus icon in the header.")]
 		public Boolean Collapsed { get; set; }
 
-		//data-content-theme	swatch letter (a-z)
+		/// <summary>
+		/// Sets the color scheme (swatch) for the collapsible content block. It accepts a single letter from a-z that maps to one of the swatches included in your theme.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("content-theme", null)]
+		[Category("Appearance")]
+		[DefaultValue(null)]
+		[Description("Sets the color scheme (swatch) for the collapsible content block. It accepts a single letter from a-z that maps to one of the swatches included in your theme.")]
 		public String ContentTheme { get; set; }
 
-		//data-mini	true | false - Compact sized version
+		/// <summary>
+		/// Sets the size of the element to a more compact, mini version.
+		/// Reference: http://jquerymobile.com/demos/1.2.0/docs/api/data-attributes.html
+		/// </summary>
 		[WidgetOption("mini", false)]
+		[Category("Appearance")]
+		[DefaultValue(false)]
+		[Description("Sets the size of the element to a more compact, mini version.")]
 		public Boolean Mini { get; set; }
 	}
 }

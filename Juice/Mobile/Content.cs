@@ -6,7 +6,9 @@ using System.Web.UI;
 
 namespace Juice.Mobile {
 
-	//Container with data-role="content"
+	/// <summary>
+	/// Container with data-role="content"
+	/// </summary>
 	[ParseChildren(false)]
 	public class Content : ThemeControlBase {
 
