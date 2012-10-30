@@ -121,7 +121,6 @@
     <Compile Include="Mvc\DataTypes\ButtonList.cs" />
     <Compile Include="Mvc\Accordion.cs" />
     <Compile Include="Mvc\AccordionIcons.cs" />
-    <Compile Include="Mvc\Framework\ButtonListConverter.cs" />
     <Compile Include="Mvc\Tabs.cs" />
     <Compile Include="Mvc\DataTypes\PositionOptions.cs" />
     <Compile Include="Mvc\DataTypes\MenuIcons.cs" />
