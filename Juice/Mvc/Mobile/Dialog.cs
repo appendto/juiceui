@@ -68,6 +68,7 @@ namespace Juice.Mvc.Mobile {
 		/// <summary>
 		/// {summary}
 		/// </summary>
+		/// <param name="elementId">Sets the id attribute of the rendered element.</param>
 		/// <param name="closeBtnText">Customizes the text of the close button which is helpful for translating this into different languages.</param>,
 		/// <param name="domCache">Apply dom-cache.</param>,
 		/// <param name="fullscreen">Show dialog in fullscreen.</param>,

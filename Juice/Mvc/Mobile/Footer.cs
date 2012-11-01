@@ -13,6 +13,7 @@ namespace Juice.Mvc.Mobile {
 		/// <summary>
 		/// {summary}
 		/// </summary>
+		/// <param name="elementId">Sets the id attribute of the rendered element.</param>
 		/// <param name="position">Where to position the footer. Accepts fixed.</param>,
 		/// <param name="theme">Defines the theme swatch letter (a-z)</param>
 		/// <returns>FooterWidget</returns>

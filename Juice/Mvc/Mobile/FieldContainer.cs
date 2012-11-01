@@ -13,7 +13,7 @@ namespace Juice.Mvc.Mobile {
 		/// <summary>
 		/// {summary}
 		/// </summary>
-
+		/// <param name="elementId">Sets the id attribute of the rendered element.</param>
 		/// <returns>FieldContainerWidget</returns>
 		public FieldContainerWidget BeginFieldContainer(String elementId = "") {
 			var widget = new FieldContainerWidget(_helper);

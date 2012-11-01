@@ -13,6 +13,7 @@ namespace Juice.Mvc.Mobile {
 		/// <summary>
 		/// {summary}
 		/// </summary>
+		/// <param name="elementId">Sets the id attribute of the rendered element.</param>
 		/// <param name="highlight">Adds an active state fill on track to handle</param>,
 		/// <param name="trackTheme">Added to the form element</param>,
 		/// <param name="mini">Compact sized version</param>,

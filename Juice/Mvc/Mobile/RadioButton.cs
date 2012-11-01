@@ -13,6 +13,7 @@ namespace Juice.Mvc.Mobile {
 		/// <summary>
 		/// {summary}
 		/// </summary>
+		/// <param name="elementId">Sets the id attribute of the rendered element.</param>
 		/// <param name="mini">Compact sized version</param>,
 		/// <param name="theme">Defines the theme swatch letter (a-z)</param>
 		/// <returns>RadioButtonWidget</returns>

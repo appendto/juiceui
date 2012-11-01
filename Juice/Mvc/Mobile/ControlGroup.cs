@@ -13,6 +13,7 @@ namespace Juice.Mvc.Mobile {
 		/// <summary>
 		/// {summary}
 		/// </summary>
+		/// <param name="elementId">Sets the id attribute of the rendered element.</param>
 		/// <param name="type">Add the data-type="horizontal" attribute for the selects to sit side-by-side.</param>
 		/// <returns>ControlGroupWidget</returns>
 		public ControlGroupWidget BeginControlGroup(String elementId = "", MobileGroupType? type = null) {

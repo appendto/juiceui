@@ -13,6 +13,7 @@ namespace Juice.Mvc.Mobile {
 		/// <summary>
 		/// {summary}
 		/// </summary>
+		/// <param name="elementId">Sets the id attribute of the rendered element.</param>
 		/// <param name="addBackBtn">Add a back button to the page.</param>,
 		/// <param name="backBtnText">Text of the back button.</param>,
 		/// <param name="backBtnTheme">Sets the color scheme (swatch) for the back button.</param>,

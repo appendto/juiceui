@@ -13,6 +13,7 @@ namespace Juice.Mvc.Mobile {
 		/// <summary>
 		/// {summary}
 		/// </summary>
+		/// <param name="elementId">Sets the id attribute of the rendered element.</param>
 		/// <param name="positionTo">Centers the popup over the link that opens it, or the specific element.</param>,
 		/// <param name="rel">Defines the behavior of the Anchor.</param>,
 		/// <param name="icon">Applies an icon from the icon set.</param>,

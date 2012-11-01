@@ -13,6 +13,7 @@ namespace Juice.Mvc.Mobile {
 		/// <summary>
 		/// {summary}
 		/// </summary>
+		/// <param name="elementId">Sets the id attribute of the rendered element.</param>
 		/// <param name="corners">Sets whether to draw the popup with rounded corners.</param>,
 		/// <param name="dismissable">Allow popup to be closed.</param>,
 		/// <param name="overlayTheme">Sets the color scheme (swatch) for the popup background, which covers the entire window.</param>,

@@ -13,6 +13,7 @@ namespace Juice.Mvc.Mobile {
 		/// <summary>
 		/// {summary}
 		/// </summary>
+		/// <param name="elementId">Sets the id attribute of the rendered element.</param>
 		/// <param name="contentTheme">Sets the color scheme (swatch) for the collapsible content block. It accepts a single letter from a-z that maps to one of the swatches included in your theme.</param>,
 		/// <param name="mini">Sets the size of the element to a more compact, mini version.</param>,
 		/// <param name="inset">By setting this option to false the collapsibles will get a full width appearance without corners.</param>,
