@@ -13,6 +13,8 @@ namespace Juice.Mvc.Mobile {
 		/// <summary>
 		/// {summary}
 		/// </summary>
+		/// <param name="elementId">Sets the id attribute of the rendered element.</param>
+		/// <param name="ordered">If true, renders an ordered list (OL). Otherwise, renders an unordered list (UL).</param>,
 		/// <param name="countTheme">Sets the color scheme (swatch) for list item count bubbles.</param>,
 		/// <param name="dividertheme">Sets the color scheme (swatch) for list dividers.</param>,
 		/// <param name="filter">Adds a search filter bar to listviews.</param>,
@@ -23,7 +25,7 @@ namespace Juice.Mvc.Mobile {
 		/// <param name="splitTheme">Sets the color scheme (swatch) for split list buttons.</param>,
 		/// <param name="theme">Defines the theme swatch letter (a-z)</param>
 		/// <returns>ListviewWidget</returns>
-		public ListviewWidget BeginListview(String elementId = "", String countTheme = "c", String dividertheme = "b", Boolean filter = false, String filterPlaceholder = null, String filterTheme = "c", Boolean inset = false, MobileIcon? splitIcon = null, String splitTheme = "b", String theme = null) {
+		public ListviewWidget BeginListview(String elementId = "", Boolean ordered = false, String countTheme = "c", String dividertheme = "b", Boolean filter = false, String filterPlaceholder = null, String filterTheme = "c", Boolean inset = false, MobileIcon? splitIcon = null, String splitTheme = "b", String theme = null) {
 			var widget = new ListviewWidget(_helper);
 
 			widget.SetCoreOptions(elementId, null);
@@ -41,6 +43,13 @@ namespace Juice.Mvc.Mobile {
 	}
 
 	public class ListviewWidget : JuiceMobileWidget<ListviewWidget>, IDisposable {
+
+		public class ListviewItem {
+			public HelperResult Result { get; set; }
+			public Boolean Divider { get; set; }
+		}
+
+		private List<ListviewItem> _items = new List<ListviewItem>();
 
 		public ListviewWidget(HtmlHelper helper) : base(helper, "listview") {
 			_optionsMap = new Dictionary<String, String> {
@@ -72,5 +81,53 @@ namespace Juice.Mvc.Mobile {
 			return this;
 		}
 
+		internal override System.Web.UI.HtmlTextWriterTag Tag {
+			get {
+				return System.Web.UI.HtmlTextWriterTag.Ul;
+			}
+		}
+
+		public ListviewWidget AddItem(Func<ListviewWidget, HelperResult> content = null, Boolean divider = false) {
+
+			var item = new ListviewItem {
+				Result = content(this),
+				Divider = divider
+			};
+
+			_items.Add(item);
+
+			return this;
+		}
+
+		public void RenderItem(Func<ListviewWidget, HelperResult> content = null, Boolean divider = false) {
+
+			var item = new ListviewItem {
+				Result = content(this),
+				Divider = divider
+			};
+
+			RenderItem(item);
+		}
+
+		public void RenderItem(ListviewItem item) {
+			_writer.WriteBeginTag("li");
+			if(item.Divider == true) {
+				_writer.WriteAttribute("data-role", "list-divider");
+			}
+			_writer.Write(System.Web.UI.HtmlTextWriter.TagRightChar);
+
+			_writer.Write(item.Result.ToHtmlString());
+
+			_writer.WriteEndTag("li");
+		}
+
+		public override void RenderStart() {
+			base.RenderStart();
+
+			foreach(var item in _items) {
+				RenderItem(item);
+			}
+
+		}
 	}
 }
