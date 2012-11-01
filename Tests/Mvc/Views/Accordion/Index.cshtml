@@ -1,0 +1,27 @@
+﻿<h2>Accordion</h2>
+
+@{
+	Html.Juice().Accordion("accordion")
+		.AddPanel("Section 1", content:
+			@<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget.
+        Integer ut neque. Vivamus nisi metus, molestie vel, gravida in,
+        condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros.
+        Nam mi. Proin viverra leo ut odio.</p>
+		)
+		.AddPanel("Section 2", content: 
+			@<p>Sed non urna. Phasellus eu ligula. Vestibulum sit amet purus.
+        Vivamus hendrerit, dolor aliquet laoreet, mauris turpis velit,
+        faucibus interdum tellus libero ac justo.</p>
+		)
+		.AddPanel("Section 3", content: 
+			@<text>
+				<p>Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.Phasellus pellentesque purus in massa.</p>
+        <ul>
+					<li>List item one</li>
+					<li>List item two</li>
+					<li>List item three</li>
+        </ul>
+			</text>
+		)
+		.Render();	
+}

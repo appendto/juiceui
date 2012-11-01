@@ -1,0 +1,75 @@
+﻿@Html.Juice().Mobile.BeginPage()
+
+	@Html.Juice().Mobile.BeginHeader().Content(@<h1>Dialogs</h1>)
+		@{ 
+			Html.Juice().Mobile.Anchor("_Home", "/", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Home, direction: MobileDirection.Reverse)
+				.Content(@<text>Home</text>)
+				.Render();
+		}
+
+	@Html.Juice().Mobile.EndHeader()
+
+	@Html.Juice().Mobile.BeginContent()
+
+			<h2>Dialog</h2>
+
+		@{ 
+			Html.Juice().Mobile.Anchor("_Home", "/data/dialog.html", inline: true, rel: MobileRel.Dialog)
+				.Content(@<text>Open dialog</text>)
+				.DialogOptions(transition: MobileTransition.Pop)
+				.Render();
+		}
+	
+		<div>
+		@{ 
+			Html.Juice().Mobile.Anchor("_Home", "/data/dialog.html", inline: true, rel: MobileRel.Dialog)
+				.Content(@<text>data-transition="pop"</text>)
+				.DialogOptions(transition: MobileTransition.Pop)
+				.Render();
+		}
+
+		@{ 
+			Html.Juice().Mobile.Anchor("_Home", "/data/dialog.html", inline: true, rel: MobileRel.Dialog)
+				.Content(@<text>data-transition="slidedown"</text>)
+				.DialogOptions(transition: MobileTransition.SlideDown)
+				.Render();
+		}
+
+		@{ 
+			Html.Juice().Mobile.Anchor("_Home", "/data/dialog.html", inline: true, rel: MobileRel.Dialog)
+				.Content(@<text>data-transition="flip"</text>)
+				.DialogOptions(transition: MobileTransition.Flip)
+				.Render();
+		}
+		</div>
+
+		@{ 
+			Html.Juice().Mobile.Anchor("_Home", "/data/dialog-alt.html", inline: true, rel: MobileRel.Dialog)
+				.Content(@<text>data-transition="flip"</text>)
+				.DialogOptions(transition: MobileTransition.Flip)
+				.Render();
+		}
+
+		@{ 
+			Html.Juice().Mobile.Anchor("_Home", "/data/dialog-overlay.html", inline: true, rel: MobileRel.Dialog)
+				.Content(@<text>Custom overlay swatch</text>)
+				.DialogOptions(transition: MobileTransition.Pop)
+				.Render();
+		}
+
+		@{ 
+			Html.Juice().Mobile.Anchor("_Home", "/data/dialog-buttons.html", inline: true, rel: MobileRel.Dialog)
+				.Content(@<text>Share photos...</text>)
+				.DialogOptions(transition: MobileTransition.SlideDown)
+				.Render();
+		}
+
+
+	@Html.Juice().Mobile.EndContent()
+
+
+	@Html.Juice().Mobile.BeginFooter()
+
+	@Html.Juice().Mobile.EndFooter()
+
+@Html.Juice().Mobile.EndPage()

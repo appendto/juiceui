@@ -1,0 +1,27 @@
+﻿<h2>Tabs</h2>
+
+@{
+	
+	Html.Juice().Tabs("tabs")
+		.AddTab("One", "fragment-1", content:
+			@<text>
+				<p>First tab is active by default:</p>
+				<pre><code>$( "#tabs" ).tabs(); </code></pre>	
+			</text>
+		)
+		.AddTab("Two", "fragment-2", content: 
+			@<text>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+			</text>
+		)
+		.AddTab("Three", "fragment-3", content: 
+			@<text>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+			</text>
+		)
+		.Render();
+		
+}

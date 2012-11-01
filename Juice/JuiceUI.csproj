@@ -40,6 +40,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\JuiceUI.XML</DocumentationFile>
+    <NoWarn>1591,1592,1573,1571,1570,1572</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -62,6 +64,8 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
@@ -113,6 +117,56 @@
     <Compile Include="Mobile\Select.cs" />
     <Compile Include="Mobile\Slider.cs" />
     <Compile Include="Mobile\Textbox.cs" />
+    <Compile Include="Mvc\Button.cs" />
+    <Compile Include="Mvc\DataTypes\ButtonIcons.cs" />
+    <Compile Include="Mvc\Autocomplete.cs" />
+    <Compile Include="Mvc\DataTypes\ButtonList.cs" />
+    <Compile Include="Mvc\Accordion.cs" />
+    <Compile Include="Mvc\AccordionIcons.cs" />
+    <Compile Include="Mvc\Mobile\Anchor.cs" />
+    <Compile Include="Mvc\Mobile\Button.cs" />
+    <Compile Include="Mvc\Mobile\Checkbox.cs" />
+    <Compile Include="Mvc\Mobile\Collapsible.cs" />
+    <Compile Include="Mvc\Mobile\CollapsibleSet.cs" />
+    <Compile Include="Mvc\Mobile\Content.cs" />
+    <Compile Include="Mvc\Mobile\ControlGroup.cs" />
+    <Compile Include="Mvc\Mobile\Dialog.cs" />
+    <Compile Include="Mvc\Mobile\FieldContainer.cs" />
+    <Compile Include="Mvc\Mobile\FlipToggle.cs" />
+    <Compile Include="Mvc\Mobile\Footer.cs" />
+    <Compile Include="Mvc\Mobile\Framework\JuiceMobileWidget.cs" />
+    <Compile Include="Mvc\Mobile\Framework\MobileHelpers.cs" />
+    <Compile Include="Mvc\Mobile\Header.cs" />
+    <Compile Include="Mvc\Mobile\Listview.cs" />
+    <Compile Include="Mvc\Mobile\Navbar.cs" />
+    <Compile Include="Mvc\Mobile\Page.cs" />
+    <Compile Include="Mvc\Mobile\Popup.cs" />
+    <Compile Include="Mvc\Mobile\PopupAnchor.cs" />
+    <Compile Include="Mvc\Mobile\RadioButton.cs" />
+    <Compile Include="Mvc\Mobile\Select.cs" />
+    <Compile Include="Mvc\Mobile\Slider.cs" />
+    <Compile Include="Mvc\Mobile\Textbox.cs" />
+    <Compile Include="Mvc\Tabs.cs" />
+    <Compile Include="Mvc\DataTypes\PositionOptions.cs" />
+    <Compile Include="Mvc\DataTypes\MenuIcons.cs" />
+    <Compile Include="Mvc\Menu.cs" />
+    <Compile Include="Mvc\DataTypes\ShowOptions.cs" />
+    <Compile Include="Mvc\Datepicker.cs" />
+    <Compile Include="Mvc\Dialog.cs" />
+    <Compile Include="Mvc\DataTypes\CursorAt.cs" />
+    <Compile Include="Mvc\DataTypes\SpinnerIcons.cs" />
+    <Compile Include="Mvc\Spinner.cs" />
+    <Compile Include="Mvc\Tooltip.cs" />
+    <Compile Include="Mvc\Slider.cs" />
+    <Compile Include="Mvc\Interactions\Droppable.cs" />
+    <Compile Include="Mvc\Interactions\Sortable.cs" />
+    <Compile Include="Mvc\Interactions\Selectable.cs" />
+    <Compile Include="Mvc\Interactions\Resizable.cs" />
+    <Compile Include="Mvc\Interactions\Draggable.cs" />
+    <Compile Include="Mvc\Position.cs" />
+    <Compile Include="Mvc\Framework\JuiceHelpers.cs" />
+    <Compile Include="Mvc\Framework\JuiceWidget.cs" />
+    <Compile Include="Mvc\Progressbar.cs" />
     <Compile Include="Tooltip.cs" />
     <Compile Include="Spinner.cs" />
     <Compile Include="CssPlaceholder.cs" />
