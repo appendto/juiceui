@@ -1,0 +1,104 @@
+﻿@Html.Juice().Mobile.BeginPage()
+
+	@Html.Juice().Mobile.BeginHeader().Content(@<h1>Toolbars</h1>)
+		@{ 
+			Html.Juice().Mobile.Anchor(iconpos: MobileIconPosition.NoText, icon: MobileIcon.Home, direction: MobileDirection.Reverse)
+				.AddAttribute("href", "/")
+				.AddAttribute("id", "_Home")
+				.Content(@<text>Home</text>)
+				.Render();
+		}
+
+	@Html.Juice().Mobile.EndHeader()
+
+	@Html.Juice().Mobile.BeginContent()
+
+
+		<h2>Headers</h2>
+			
+		@Html.Juice().Mobile.BeginHeader().Content(@<h1>Page Title</h1>)
+		@Html.Juice().Mobile.EndHeader()
+
+	
+		<h2>Adding buttons</h2>
+	
+		@Html.Juice().Mobile.BeginHeader().Content(@<h1>Edit Contact</h1>)
+			@Html.Juice().Mobile.Anchor(href: "#", icon: MobileIcon.Delete).Content(@<text>Cancel</text>)
+			@Html.Juice().Mobile.Anchor(href: "#", icon: MobileIcon.Check).Content(@<text>Save</text>)
+		@Html.Juice().Mobile.EndHeader()
+
+		<h3>Making buttons visually stand out</h3>
+			
+		@Html.Juice().Mobile.BeginHeader().Content(@<h1>Edit Contact</h1>)
+			@Html.Juice().Mobile.Anchor(href: "#", icon: MobileIcon.Delete).Content(@<text>Cancel</text>)
+			@Html.Juice().Mobile.Anchor(href: "#", icon: MobileIcon.Check, theme: "b").Content(@<text>Save</text>)
+		@Html.Juice().Mobile.EndHeader()
+
+		<h3>Controlling button position with classes</h3>
+	
+		@Html.Juice().Mobile.BeginHeader().Content(@<h1>Page Title</h1>)
+			@Html.Juice().Mobile.Anchor(href: "#", icon: MobileIcon.Gear).AddAttribute("class", "ui-btn-right").Content(@<text>Options</text>)
+		@Html.Juice().Mobile.EndHeader()
+			
+		<h3>Adding buttons to toolbars without heading</h3>
+	
+		@Html.Juice().Mobile.BeginHeader().Content(@<span class="ui-title" />)
+			@Html.Juice().Mobile.Anchor(href: "#", icon: MobileIcon.Gear).AddAttribute("class", "ui-btn-right").Content(@<text>Options</text>)
+		@Html.Juice().Mobile.EndHeader()
+
+		<div class="ui-bar ui-bar-b">
+			<h3>I'm just a div with bar classes and a mini inline <a href="#" data-role="button" data-inline="true" data-mini="true">Button</a></h3>
+		</div>
+				
+		<div class="ui-bar ui-bar-e">
+			<h3 style="display:inline-block; width:92%; margin-top:5px;">This is an alert message. </h3><div style="display:inline-block; width:8%; margin-top:0px; text-align:right;"><a href="#" data-role="button" data-icon="delete" data-inline="true" data-iconpos="notext">Dismiss</a></div><p style="font-size:85%; margin:-.3em 0 1em;">And here's some additional text in a paragraph.</p>
+		</div>
+
+		<!---- Footers ---->
+
+		<h2>Footers</h2>
+
+		@Html.Juice().Mobile.BeginFooter().Content(@<h1>Footer Content</h1>)
+		@Html.Juice().Mobile.EndFooter()
+
+
+		<p>This creates this toolbar with buttons sitting in a row</p>
+
+		@Html.Juice().Mobile.BeginFooter().AddAttribute("class", "ui-bar")
+			@Html.Juice().Mobile.Anchor(href: "#", icon: MobileIcon.Plus).Content(@<text>Add</text>)
+			@Html.Juice().Mobile.Anchor(href: "#", icon: MobileIcon.ArrowUp).Content(@<text>Up</text>)
+			@Html.Juice().Mobile.Anchor(href: "#", icon: MobileIcon.ArrowDown).Content(@<text>Down</text>)
+		@Html.Juice().Mobile.EndFooter()
+	
+		<p>This creates a grouped set of buttons:</p>
+
+		@Html.Juice().Mobile.BeginFooter().AddAttribute("class", "ui-bar")
+			@Html.Juice().Mobile.BeginControlGroup(type: MobileGroupType.Horizontal)
+				@Html.Juice().Mobile.Anchor(href: "#", icon: MobileIcon.Plus).Content(@<text>Add</text>)
+				@Html.Juice().Mobile.Anchor(href: "#", icon: MobileIcon.ArrowUp).Content(@<text>Up</text>)
+				@Html.Juice().Mobile.Anchor(href: "#", icon: MobileIcon.ArrowDown).Content(@<text>Down</text>)
+			@Html.Juice().Mobile.EndControlGroup()
+		@Html.Juice().Mobile.EndFooter()
+	
+		<h2>Adding form elements</h2>
+
+		@Html.Juice().Mobile.BeginFooter().AddAttribute("class", "ui-bar")
+			<label for="s1">Shipping:</label>
+			@{ Html.Juice().Mobile.Select("s1", theme: "a", mini: true).Content(
+			@<text>
+				<option value="standard">Standard: 7 day</option>
+				<option value="rush">Rush: 3 days</option>
+				<option value="express">Express: next day</option>
+				<option value="overnight">Overnight</option>			
+			</text>
+			).Render(); }
+		@Html.Juice().Mobile.EndFooter()
+
+	@Html.Juice().Mobile.EndContent()
+
+
+	@Html.Juice().Mobile.BeginFooter()
+
+	@Html.Juice().Mobile.EndFooter()
+
+@Html.Juice().Mobile.EndPage()

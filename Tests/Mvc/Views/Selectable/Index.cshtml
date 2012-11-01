@@ -1,0 +1,16 @@
+﻿<h2>Selectable</h2>
+
+<style>
+	#selectable .ui-selecting { background: #ccc; }
+	#selectable .ui-selected { background: #999; }
+</style>
+
+<ul id="selectable">
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+	<li>Item 4</li>
+	<li>Item 5</li>
+</ul>
+
+@Html.Juice().Selectable("#selectable")

@@ -1,0 +1,132 @@
+﻿@Html.Juice().Mobile.BeginPage()
+
+	@Html.Juice().Mobile.BeginHeader().Content(@<h1>Navbars</h1>)
+		@{ 
+			Html.Juice().Mobile.Anchor("_Home", "/", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Home, direction: MobileDirection.Reverse)
+				.Content(@<text>Home</text>)
+				.Render();
+		}
+
+	@Html.Juice().Mobile.EndHeader()
+
+	@Html.Juice().Mobile.BeginContent()
+
+		@{ 
+			Html.Juice().Mobile.BeginNavbar()
+				.AddItem(@<a href="#" class="ui-btn-active">One</a>)
+				.AddItem(@<a href="#">Two</a>)
+				.Render();
+		}
+		@Html.Juice().Mobile.EndNavbar()
+				
+		@{ Html.Juice().Mobile.BeginNavbar()
+			.AddItem(@<a href="#" class="ui-btn-active">One</a>)
+			.AddItem(@<a href="#">Two</a>)
+			.AddItem(@<a href="#">Three</a>)
+			.AddItem(@<a href="#">Four</a>)
+			.Render(); }
+		@Html.Juice().Mobile.EndNavbar()
+
+		@{ Html.Juice().Mobile.BeginNavbar()
+			.AddItem(@<a href="#" class="ui-btn-active">One</a>)
+			.AddItem(@<a href="#">Two</a>)
+			.AddItem(@<a href="#">Three</a>)
+			.AddItem(@<a href="#">Four</a>)
+			.AddItem(@<a href="#">Five</a>)
+			.Render(); }
+		@Html.Juice().Mobile.EndNavbar()
+
+		@{ Html.Juice().Mobile.BeginNavbar()
+			.AddItem(@<a href="#" class="ui-btn-active">One</a>)
+			.AddItem(@<a href="#">Two</a>)
+			.AddItem(@<a href="#">Three</a>)
+			.AddItem(@<a href="#">Four</a>)
+			.AddItem(@<a href="#">Five</a>)
+			.AddItem(@<a href="#">Six</a>)
+			.AddItem(@<a href="#">Seven</a>)
+			.AddItem(@<a href="#">Eight</a>)
+			.AddItem(@<a href="#">Nine</a>)
+			.AddItem(@<a href="#">Ten</a>)
+			.Render(); }
+		@Html.Juice().Mobile.EndNavbar()
+	
+		@Html.Juice().Mobile.BeginNavbar().AddItem(@<a href="#" class="ui-btn-active">One</a>)
+		@Html.Juice().Mobile.EndNavbar()
+	
+		@Html.Juice().Mobile.BeginHeader().Content(@<h1>I'm a header</h1>)
+			<a href="index.html" data-icon="gear" class="ui-btn-right">Options</a>
+				
+			@{ Html.Juice().Mobile.BeginNavbar()
+				.AddItem(@<a href="#">One</a>)
+				.AddItem(@<a href="#">Two</a>)
+				.AddItem(@<a href="#">Three</a>)
+				.Render(); }
+			@Html.Juice().Mobile.EndNavbar()
+		@Html.Juice().Mobile.EndHeader()
+	
+		@Html.Juice().Mobile.BeginFooter()
+			@{ Html.Juice().Mobile.BeginNavbar()
+				.AddItem(@<a href="#">One</a>)
+				.AddItem(@<a href="#">Two</a>)
+				.AddItem(@<a href="#">Three</a>)
+				.Render(); }
+			@Html.Juice().Mobile.EndNavbar()
+		@Html.Juice().Mobile.BeginFooter()
+	
+		@Html.Juice().Mobile.BeginFooter()
+			@{ Html.Juice().Mobile.BeginNavbar()
+				.AddItem(@<a href="#" data-icon="grid">Summary</a>)
+				.AddItem(@<a href="#" data-icon="star" class="ui-btn-active">Favs</a>)
+				.AddItem(@<a href="#" data-icon="gear">Setup</a>)
+				.Render(); }
+			@Html.Juice().Mobile.EndNavbar()
+		@Html.Juice().Mobile.EndFooter()
+	
+		@Html.Juice().Mobile.BeginFooter()
+			@{ Html.Juice().Mobile.BeginNavbar(iconpos: MobileIconPosition.Bottom)
+				.AddItem(@<a href="#" data-icon="grid">Summary</a>)
+				.AddItem(@<a href="#" data-icon="star" class="ui-btn-active">Favs</a>)
+				.AddItem(@<a href="#" data-icon="gear">Setup</a>)
+				.Render(); }
+			@Html.Juice().Mobile.EndNavbar()
+		@Html.Juice().Mobile.EndFooter()
+	
+		@Html.Juice().Mobile.BeginFooter()
+			@{ Html.Juice().Mobile.BeginNavbar(iconpos: MobileIconPosition.Left)
+				.AddItem(@<a href="#" data-icon="grid">Summary</a>)
+				.AddItem(@<a href="#" data-icon="star" class="ui-btn-active">Favs</a>)
+				.AddItem(@<a href="#" data-icon="gear">Setup</a>)
+				.Render(); }
+			@Html.Juice().Mobile.EndNavbar()
+		@Html.Juice().Mobile.EndFooter()
+	
+				
+		@Html.Juice().Mobile.BeginFooter()
+			@{ Html.Juice().Mobile.BeginNavbar(iconpos: MobileIconPosition.Right)
+				.AddItem(@<a href="#" data-icon="grid">Summary</a>)
+				.AddItem(@<a href="#" data-icon="star" class="ui-btn-active">Favs</a>)
+				.AddItem(@<a href="#" data-icon="gear">Setup</a>)
+				.Render(); }
+			@Html.Juice().Mobile.EndNavbar()
+		@Html.Juice().Mobile.EndFooter()
+	
+		@Html.Juice().Mobile.BeginFooter()
+			@{ Html.Juice().Mobile.BeginNavbar()
+					.AddItem(@<a href="#" data-icon="grid"data-theme="a">A</a>)
+					.AddItem(@<a href="#" data-icon="star" data-theme="b">B</a>)
+					.AddItem(@<a href="#" data-icon="gear" data-theme="c">C</a>)
+					.AddItem(@<a href="#" data-icon="arrow-l" data-theme="d">D</a>)
+					.AddItem(@<a href="#" data-icon="arrow-r" data-theme="e">E</a>)
+					.Render(); }
+			@Html.Juice().Mobile.EndNavbar()
+		@Html.Juice().Mobile.EndFooter()
+
+
+	@Html.Juice().Mobile.EndContent()
+
+
+	@Html.Juice().Mobile.BeginFooter()
+
+	@Html.Juice().Mobile.EndFooter()
+
+@Html.Juice().Mobile.EndPage()

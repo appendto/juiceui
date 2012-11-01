@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>appendTo Open Source Code</title>
+	<link rel="stylesheet" href="/Content/jquery.mobile-1.2.0.css" />	
+	<link rel="stylesheet" href="/Content/jquery.mobile.theme-1.2.0.css" />
+	<link rel="stylesheet" href="/css/mobile.css" />
+
+	@Scripts.Render("~/bundles/modernizr")
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/jqueryui")
+	<script src="/Scripts/jquery.mobile-1.2.0.js"></script>
+
+</head>
+<body>
+	@RenderBody()
+		
+	@RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+

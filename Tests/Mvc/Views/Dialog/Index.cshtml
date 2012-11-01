@@ -1,0 +1,15 @@
+﻿<h2>Dialog</h2>
+
+<button id="opener">open the dialog</button>
+
+<script>
+$( "#opener" ).click(function() {
+    $( "#dialog" ).dialog( "open" );
+});
+
+function closeDialog(){
+	$( "#dialog" ).dialog( "close" );
+}
+</script>
+
+@Html.Juice().Dialog("dialog", title: "Dialog Title", autoOpen: false, buttons: new ButtonList{ { "OK", "closeDialog"} }).Content(@<text>I'm a dialog</text>)

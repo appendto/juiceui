@@ -1,0 +1,11 @@
+﻿<h2>Buttons</h2>
+
+@Html.Juice().Button("button", label: "Button")
+
+@Html.Juice().ButtonSet("buttonset").Content(
+@<text>
+	<input type="radio" id="radio1" name="radio"><label for="radio1">Choice 1</label>
+	<input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">Choice 2</label>
+	<input type="radio" id="radio3" name="radio"><label for="radio3">Choice 3</label>
+</text>
+)

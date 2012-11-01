@@ -1,0 +1,24 @@
+﻿@using Juice.Mvc;
+
+<div style="height: 400px">
+	<div id="_Wrapper" style="height:30px;" class="ui-widget-default">
+		@Html.Juice().Progressbar("test", value: 40).Content(
+				@<text>
+				@if(true){
+					
+				}		
+				</text>
+			)
+
+		@{
+			Html.Juice().Progressbar("test", value: 40).Content(
+			@<text>
+			@if(true) {
+
+			}		
+			</text>
+			).Render();
+		}
+	</div>
+	@Html.Juice().Resizable("#_Wrapper")
+</div>

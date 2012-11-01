@@ -1,0 +1,72 @@
+﻿@Html.Juice().Mobile.BeginPage()
+
+	@Html.Juice().Mobile.BeginHeader().Content(@<h1>Buttons</h1>)
+		@{ 
+			Html.Juice().Mobile.Anchor(iconpos: MobileIconPosition.NoText, icon: MobileIcon.Home, direction: MobileDirection.Reverse)
+				.AddAttribute("href", "/")
+				.AddAttribute("id", "_Home")
+				.Content(@<text>Home</text>)
+				.Render();
+		}
+
+	@Html.Juice().Mobile.EndHeader()
+
+	@Html.Juice().Mobile.BeginContent()
+
+
+		@Html.Juice().Mobile.Anchor().Content(@<text>Link button</text>).AddAttribute("href", "#")
+		@Html.Juice().Mobile.Button(theme: "c", icon: MobileIcon.Refresh, iconpos: MobileIconPosition.NoText).Content(@<text>Button</text>)
+
+		<h2>Grouped</h2>
+
+		@Html.Juice().Mobile.BeginControlGroup(type: MobileGroupType.Horizontal)
+			@Html.Juice().Mobile.Button().Content(@<text>Yes</text>)
+			@Html.Juice().Mobile.Button().Content(@<text>No</text>)
+			@Html.Juice().Mobile.Button().Content(@<text>Maybe</text>)
+		@Html.Juice().Mobile.EndControlGroup()
+
+		@Html.Juice().Mobile.BeginControlGroup()
+			@Html.Juice().Mobile.Button().Content(@<text>Yes</text>)
+			@Html.Juice().Mobile.Button().Content(@<text>No</text>)
+			@Html.Juice().Mobile.Button().Content(@<text>Maybe</text>)
+		@Html.Juice().Mobile.EndControlGroup()
+
+		<h2>Icons</h2>
+
+		@Html.Juice().Mobile.BeginControlGroup(type: MobileGroupType.Horizontal)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Refresh)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Forward)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Back)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Grid)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Star)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Alert)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Info)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Home)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Search)
+		@Html.Juice().Mobile.EndControlGroup()
+
+		@Html.Juice().Mobile.BeginControlGroup(type: MobileGroupType.Horizontal)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.ArrowLeft)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.ArrowRight)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.ArrowUp)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.ArrowDown)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Delete)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Plus)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Minus)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Check)
+			@Html.Juice().Mobile.Button(inline: true, theme: "a", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Gear)
+		@Html.Juice().Mobile.EndControlGroup()
+
+		<h2>Inline</h2>
+
+		@Html.Juice().Mobile.Button(inline: true).Content(@<text>Cancel</text>)
+		@Html.Juice().Mobile.Button(inline: true, theme: "b").Content(@<text>Save</text>)
+
+	@Html.Juice().Mobile.EndContent()
+
+
+	@Html.Juice().Mobile.BeginFooter()
+
+	@Html.Juice().Mobile.EndFooter()
+
+@Html.Juice().Mobile.EndPage()

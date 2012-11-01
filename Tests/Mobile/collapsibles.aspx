@@ -12,7 +12,7 @@
 
 			<h2>Inset, individual collapsible</h2>
 
-			<div data-role="collapsible" data-theme="b" data-content-theme="c">
+			<mobile:collapsible runat="server" Theme="b" ContentTheme="c">
 				<h2>Choose a car model...</h2>
 				<ul data-role="listview">
 					<li><a href="index.html">Acura</a></li>
@@ -38,13 +38,13 @@
 					<li><a href="index.html">Volkswagon</a></li>
 					<li><a href="index.html">Volvo</a></li>
 				</ul>
-			</div>
+			</mobile:collapsible>
 			
 			<h2>Inset, collapsible set</h2>
 
 			<mobile:collapsibleset runat="server" theme="b" contenttheme="d">
 
-				<div data-role="collapsible">
+				<mobile:collapsible runat="server">
 					<h2>Filtered list</h2>
 					<ul data-role="listview" data-filter="true" data-filter-theme="c" data-divider-theme="d">
 						<li><a href="index.html">Adam Kinkaid</a></li>
@@ -53,9 +53,9 @@
 						<li><a href="index.html">Bob Cabot</a></li>
 						<li><a href="index.html">Caleb Booth</a></li>
 					</ul>
-				</div>
+				</mobile:collapsible>
 
-				<div data-role="collapsible">
+				<mobile:collapsible runat="server">
 					<h2>Formatted text</h2>
 					<ul data-role="listview" data-theme="d" data-divider-theme="d">
 						<li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
@@ -72,9 +72,9 @@
 							<p class="ui-li-aside"><strong>9:18</strong>AM</p>
 						</a></li>
 					</ul>
-				</div>
+				</mobile:collapsible>
 
-				<div data-role="collapsible">
+				<mobile:collapsible runat="server">
 					<h2>Thumbnails and split button</h2>
 					<ul data-role="listview" data-split-icon="gear" data-split-theme="d">
 						<li><a href="index.html">
@@ -96,7 +96,7 @@
 							</a><a href="lists-split-purchase.html" data-rel="dialog" data-transition="slideup">Purchase album
 						</a></li>	
 					</ul>
-				</div>
+				</mobile:collapsible>
 
 			</mobile:collapsibleset>
 			
@@ -104,7 +104,7 @@
 
 			<mobile:collapsibleset runat="server" theme="b" contenttheme="d" inset="false">
 				
-				<div data-role="collapsible">
+				<mobile:collapsible runat="server">
 					<h2>Mailbox</h2>
 					<ul data-role="listview">
 						<li><a href="index.html">Inbox <span class="ui-li-count">12</span></a></li>
@@ -113,9 +113,9 @@
 						<li><a href="index.html">Sent <span class="ui-li-count">328</span></a></li>
 						<li><a href="index.html">Trash <span class="ui-li-count">62</span></a></li>
 					</ul>
-				</div>
+				</mobile:collapsible>
 
-				<div data-role="collapsible">
+				<mobile:collapsible runat="server">
 					<h2>Calendar</h2>
 					<ul data-role="listview" data-theme="d" data-divider-theme="d">
 						<li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
@@ -146,9 +146,9 @@
 							<p class="ui-li-aside"><strong>12:47</strong>PM</p>
 						</a></li>
 					</ul>
-				</div>
+				</mobile:collapsible>
 
-				<div data-role="collapsible">
+				<mobile:collapsible runat="server">
 					<h2>Contacts</h2>
 					<ul data-role="listview" data-autodividers="true" data-theme="d" data-divider-theme="d">
 						<li><a href="index.html">Adam Kinkaid</a></li>
@@ -159,13 +159,13 @@
 						<li><a href="index.html">Christopher Adams</a></li>
 						<li><a href="index.html">Culver James</a></li>	
 					</ul>
-				</div>
+				</mobile:collapsible>
 
 			</mobile:collapsibleset>
 					
 			<h2>Non-inset, individual collapsibles</h2>
 
-			<div data-role="collapsible" data-theme="b" data-content-theme="d" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-inset="false">
+			<mobile:collapsible runat="server" Theme="b" ContentTheme="d" CollapsedIcon="Gear" ExpandedIcon="Check" Inset="false">
 				<h2>Pets</h2>
 				<ul data-role="listview">
 					<li><a href="index.html">Canary</a></li>
@@ -175,9 +175,9 @@
 					<li><a href="index.html">Iguana</a></li>
 					<li><a href="index.html">Mouse</a></li>
 				</ul>
-			</div><!-- /collapsible -->
+			</mobile:collapsible><!-- /collapsible -->
 
-			<div data-role="collapsible" data-theme="b" data-content-theme="d" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-inset="false">
+			<mobile:collapsible runat="server" Theme="b" ContentTheme="d" CollapsedIcon="Gear" ExpandedIcon="Check" Inset="false">
 				<h2>Farm animals</h2>
 				<ul data-role="listview">
 					<li><a href="index.html">Chicken</a></li>
@@ -187,9 +187,9 @@
 					<li><a href="index.html">Pig</a></li>
 					<li><a href="index.html">Sheep</a></li>
 				</ul>
-			</div><!-- /collapsible -->
+			</mobile:collapsible><!-- /collapsible -->
 
-			<div data-role="collapsible" data-theme="b" data-content-theme="d" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-inset="false">
+			<mobile:collapsible runat="server" Theme="b" ContentTheme="d" CollapsedIcon="Gear" ExpandedIcon="Check" Inset="false">
 				<h2>Wild Animals</h2>
 				<ul data-role="listview">
 					<li><a href="index.html">Aardvark</a></li>
@@ -200,9 +200,7 @@
 					<li><a href="index.html">Cougar</a></li>
 					<li><a href="index.html">Dingo</a></li>
 				</ul>
-			</div><!-- /collapsible -->
-
-		</div>
+			</mobile:collapsible><!-- /collapsible -->
 
 		</mobile:content>
 		

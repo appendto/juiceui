@@ -52,6 +52,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -172,6 +173,9 @@
     <Content Include="Content\themes\Supercharged\images\ui-icons_ffbc0f_256x240.png" />
     <Content Include="Content\themes\Supercharged\images\ui-icons_ffc905_256x240.png" />
     <Content Include="Content\themes\Supercharged\jquery-ui-1.9.0.custom.css" />
+    <Content Include="MobileGen.aspx" />
+    <Content Include="MobileMvcTemplate.txt" />
+    <Content Include="Xml.aspx" />
     <Content Include="Menu.aspx" />
     <Content Include="Scripts\jquery-ui-1.9.0.js" />
     <Content Include="Scripts\jquery-ui-1.9.0.min.js" />
@@ -358,6 +362,20 @@
     </Compile>
     <Compile Include="AutoCompleteData.ashx.cs">
       <DependentUpon>AutoCompleteData.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="MobileGen.aspx.cs">
+      <DependentUpon>MobileGen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MobileGen.aspx.designer.cs">
+      <DependentUpon>MobileGen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Xml.aspx.cs">
+      <DependentUpon>Xml.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Xml.aspx.designer.cs">
+      <DependentUpon>Xml.aspx</DependentUpon>
     </Compile>
     <Compile Include="Menu.aspx.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
