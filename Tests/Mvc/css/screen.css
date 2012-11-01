@@ -509,3 +509,9 @@ body.company #contact-us-now em { background-position: right -275px; }
 .fontface a.button:active       { line-height: 28px; }
 .fontface a.button.small        { line-height: 20px !important; }
 .fontface a.button.small:active { line-height: 22px !important; }
+
+
+
+.ui-mobile [data-role="page"], .ui-mobile [data-role="dialog"], .ui-page { top: 10px; left: 25%; width: 50%; border: 10px solid #333; }
+
+.ui-content h2 { margin: 1.2em 0 1.4em 0; }

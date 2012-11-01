@@ -1,0 +1,24 @@
+﻿@Html.Juice().Mobile.BeginPage()
+
+	@Html.Juice().Mobile.BeginHeader().Content(@<h1>Dialogs</h1>)
+		@{ 
+			Html.Juice().Mobile.Anchor(iconpos: MobileIconPosition.NoText, icon: MobileIcon.Home, direction: MobileDirection.Reverse)
+				.AddAttribute("href", "/")
+				.AddAttribute("id", "_Home")
+				.Content(@<text>Home</text>)
+				.Render();
+		}
+
+	@Html.Juice().Mobile.EndHeader()
+
+	@Html.Juice().Mobile.BeginContent()
+
+
+	@Html.Juice().Mobile.EndContent()
+
+
+	@Html.Juice().Mobile.BeginFooter()
+
+	@Html.Juice().Mobile.EndFooter()
+
+@Html.Juice().Mobile.EndPage()

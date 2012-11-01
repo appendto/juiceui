@@ -123,6 +123,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ButtonsController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\CollapsiblesController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\DialogsController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\FormController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ListsController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\NavbarsController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\PopupsController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ToolbarsController.cs" />
+    <Compile Include="Areas\Mobile\MobileAreaRegistration.cs" />
     <Compile Include="Controllers\AccordionController.cs" />
     <Compile Include="Controllers\AutocompleteController.cs" />
     <Compile Include="Controllers\ButtonController.cs" />
@@ -145,6 +154,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\icons-18-black.png" />
+    <Content Include="Content\images\icons-18-white.png" />
+    <Content Include="Content\images\icons-36-black.png" />
+    <Content Include="Content\images\icons-36-white.png" />
+    <Content Include="Content\jquery.mobile-1.2.0.css" />
+    <Content Include="Content\jquery.mobile-1.2.0.min.css" />
+    <Content Include="Content\jquery.mobile.structure-1.2.0.css" />
+    <Content Include="Content\jquery.mobile.structure-1.2.0.min.css" />
+    <Content Include="Content\jquery.mobile.theme-1.2.0.css" />
+    <Content Include="Content\jquery.mobile.theme-1.2.0.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -207,6 +227,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="css\reset.css" />
     <Content Include="css\screen.css" />
+    <Content Include="css\mobile.css" />
     <Content Include="css\syntaxhighlighter\sh-custom.min.css" />
     <Content Include="css\syntaxhighlighter\shCore.css" />
     <Content Include="css\syntaxhighlighter\shCoreDefault.css" />
@@ -225,6 +246,16 @@
     <Content Include="css\syntaxhighlighter\shThemeMDUltra.css" />
     <Content Include="css\syntaxhighlighter\shThemeMidnight.css" />
     <Content Include="css\syntaxhighlighter\shThemeRDark.css" />
+    <Content Include="Areas\Mobile\Views\Web.config" />
+    <Content Include="Areas\Mobile\Views\Buttons\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Collapsibles\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Toolbars\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Popups\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Navbars\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Lists\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Form\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Dialogs\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\_ViewStart.cshtml" />
     <None Include="fonts\bebas_neue\BebasNeue-webfont.svg" />
     <Content Include="fonts\bebas_neue\Dharma Type Font License.txt" />
     <Content Include="fonts\bebas_neue\stylesheet.css" />
@@ -256,6 +287,8 @@
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.9.0.js" />
     <Content Include="Scripts\jquery-ui-1.9.0.min.js" />
+    <Content Include="Scripts\jquery.mobile-1.2.0.js" />
+    <Content Include="Scripts\jquery.mobile-1.2.0.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -290,9 +323,12 @@
     <Content Include="Views\Selectable\Index.cshtml" />
     <Content Include="Views\Resizable\Index.cshtml" />
     <Content Include="Views\Droppable\Index.cshtml" />
+    <Content Include="Views\Shared\_Mobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Mobile\Models\" />
+    <Folder Include="Areas\Mobile\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

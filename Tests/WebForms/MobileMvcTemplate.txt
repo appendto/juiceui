@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using System.Web.WebPages;
+
+using Juice.Mobile;
+
+namespace Juice.Mvc.Mobile {
+
+	public partial class MobileHelpers {
+
+		/// <summary>
+		/// {summary}
+		/// </summary>
+{paramdocs}
+		/// <returns>{typeName}Widget</returns>
+		public {typeName}Widget Begin{typeName}(String elementId = "", {parameters}) {
+			var widget = new {typeName}Widget(_helper);
+
+			widget.SetCoreOptions(elementId, null);
+			widget.Options({paramsShort});
+
+			return widget;
+		}
+
+		public HelperResult End{typeName}() {
+			return new HelperResult(writer => {
+				(new {typeName}Widget(_helper)).RenderEnd(writer);
+			});
+		}
+
+	}
+
+	public class {typeName}Widget : JuiceMobileWidget<{typeName}Widget>, IDisposable {
+
+		public {typeName}Widget(HtmlHelper helper) : base(helper) {
+			_optionsMap = new Dictionary<String, String> {
+{optionMap}
+			};
+		}
+
+		public {typeName}Widget Options({parameters}) {
+			base.SetOptions(
+{setOptions}
+			);
+
+			return this;
+		}
+
+	}
+}
