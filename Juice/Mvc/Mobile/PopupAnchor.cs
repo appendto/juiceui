@@ -26,19 +26,13 @@ namespace Juice.Mvc.Mobile {
 		/// <param name="mini">Compact sized version</param>,
 		/// <param name="theme">Defines the theme swatch letter (a-z)</param>
 		/// <returns>PopupAnchorWidget</returns>
-		public PopupAnchorWidget BeginPopupAnchor(String elementId = "", String positionTo = "origin", MobileRel? rel = null, MobileIcon? icon = null, MobileIconPosition? iconpos = null, Boolean ajax = true, MobileDirection? direction = null, Boolean domCache = false, Boolean inline = false, Boolean prefetch = false, MobileTransition? transition = null, Boolean mini = false, String theme = null) {
+		public PopupAnchorWidget PopupAnchor(String elementId = "", String href = "", String positionTo = "origin", MobileIcon? icon = null, MobileIconPosition? iconpos = null, Boolean ajax = true, MobileDirection? direction = null, Boolean domCache = false, Boolean inline = false, Boolean prefetch = false, MobileTransition? transition = null, Boolean mini = false, String theme = null) {
 			var widget = new PopupAnchorWidget(_helper);
 
 			widget.SetCoreOptions(elementId, null);
-			widget.Options(positionTo, rel, icon, iconpos, ajax, direction, domCache, inline, prefetch, transition, mini, theme);
+			widget.Options(href, positionTo, MobileRel.Popup, icon, iconpos, ajax, direction, domCache, inline, prefetch, transition, mini, theme);
 
 			return widget;
-		}
-
-		public HelperResult EndPopupAnchor() {
-			return new HelperResult(writer => {
-				(new PopupAnchorWidget(_helper)).RenderEnd(writer);
-			});
 		}
 
 	}
@@ -62,7 +56,10 @@ namespace Juice.Mvc.Mobile {
 			};
 		}
 
-		public PopupAnchorWidget Options(String positionTo = "origin", MobileRel? rel = null, MobileIcon? icon = null, MobileIconPosition? iconpos = null, Boolean ajax = true, MobileDirection? direction = null, Boolean domCache = false, Boolean inline = false, Boolean prefetch = false, MobileTransition? transition = null, Boolean mini = false, String theme = null) {
+		public PopupAnchorWidget Options(String href = "", String positionTo = "origin", MobileRel? rel = null, MobileIcon? icon = null, MobileIconPosition? iconpos = null, Boolean ajax = true, MobileDirection? direction = null, Boolean domCache = false, Boolean inline = false, Boolean prefetch = false, MobileTransition? transition = null, Boolean mini = false, String theme = null) {
+
+			this.AddAttribute("href", href);
+			
 			base.SetOptions(
 				JuiceHelpers.GetMemberInfo(() => positionTo),
 				JuiceHelpers.GetMemberInfo(() => rel),
@@ -81,5 +78,15 @@ namespace Juice.Mvc.Mobile {
 			return this;
 		}
 
+		internal override System.Web.UI.HtmlTextWriterTag Tag {
+			get {
+				return System.Web.UI.HtmlTextWriterTag.A;
+			}
+		}
+
+		public override void Render() {
+			base.Render();
+			base.RenderEnd();
+		}
 	}
 }

@@ -2,9 +2,7 @@
 
 	@Html.Juice().Mobile.BeginHeader().Content(@<h1>Popups</h1>)
 		@{ 
-			Html.Juice().Mobile.Anchor(iconpos: MobileIconPosition.NoText, icon: MobileIcon.Home, direction: MobileDirection.Reverse)
-				.AddAttribute("href", "/")
-				.AddAttribute("id", "_Home")
+			Html.Juice().Mobile.Anchor("_Home", "/", iconpos: MobileIconPosition.NoText, icon: MobileIcon.Home, direction: MobileDirection.Reverse)
 				.Content(@<text>Home</text>)
 				.Render();
 		}
@@ -13,6 +11,35 @@
 
 	@Html.Juice().Mobile.BeginContent()
 
+		@{ 
+			Html.Juice().Mobile.PopupAnchor("_Home", "#popupBasic", inline: true)
+				.Content(@<text>Open Popup</text>)
+				.Render();
+		}
+
+		@{ 
+			Html.Juice().Mobile.PopupAnchor("_Home", "#popupTolerance", inline: true)
+				.Content(@<text>Open Popup w/ Tolerance</text>)
+				.Render();
+		}
+
+		@{ 
+			Html.Juice().Mobile.PopupAnchor("_Home", "#popupInfo", inline: true)
+				.Content(@<text>Tooltip</text>)
+				.Render();
+		}
+
+		@Html.Juice().Mobile.BeginPopup("popupBasic")
+			<p>This is a completely basic popup, no options set.</p>
+		@Html.Juice().Mobile.EndPopup()
+
+		@Html.Juice().Mobile.BeginPopup("popupTolerance", tolerance: new MobileTolerance(60, 30, 60, 30))
+			<p>This is a completely basic popup, with tolerance set.</p>
+		@Html.Juice().Mobile.EndPopup()
+
+		@Html.Juice().Mobile.BeginPopup("popupInfo", theme: "e").AddAttribute("class", "ui-content").AddAttribute("style", "max-width:350px;")
+			<p>Here is a <strong>tiny popup</strong> being used like a tooltip. The text will wrap to multiple lines as needed.</p>
+		@Html.Juice().Mobile.EndPopup()
 
 	@Html.Juice().Mobile.EndContent()
 
