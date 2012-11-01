@@ -165,7 +165,7 @@
 					
 			<h2>Non-inset, individual collapsibles</h2>
 
-			<mobile:collapsible runat="server" Theme="b" ContentTheme="d" CollapsedIcon="ArrowRight" ExpandedIcon="ArrowDown" Inset="false">
+			<mobile:collapsible runat="server" Theme="b" ContentTheme="d" CollapsedIcon="Gear" ExpandedIcon="Check" Inset="false">
 				<h2>Pets</h2>
 				<ul data-role="listview">
 					<li><a href="index.html">Canary</a></li>
@@ -177,7 +177,7 @@
 				</ul>
 			</mobile:collapsible><!-- /collapsible -->
 
-			<mobile:collapsible runat="server" Theme="b" ContentTheme="d" CollapsedIcon="ArrowRight" ExpandedIcon="ArrowDown" Inset="false">
+			<mobile:collapsible runat="server" Theme="b" ContentTheme="d" CollapsedIcon="Gear" ExpandedIcon="Check" Inset="false">
 				<h2>Farm animals</h2>
 				<ul data-role="listview">
 					<li><a href="index.html">Chicken</a></li>
@@ -189,7 +189,7 @@
 				</ul>
 			</mobile:collapsible><!-- /collapsible -->
 
-			<mobile:collapsible runat="server" Theme="b" ContentTheme="d" CollapsedIcon="ArrowRight" ExpandedIcon="ArrowDown" Inset="false">
+			<mobile:collapsible runat="server" Theme="b" ContentTheme="d" CollapsedIcon="Gear" ExpandedIcon="Check" Inset="false">
 				<h2>Wild Animals</h2>
 				<ul data-role="listview">
 					<li><a href="index.html">Aardvark</a></li>
@@ -201,8 +201,6 @@
 					<li><a href="index.html">Dingo</a></li>
 				</ul>
 			</mobile:collapsible><!-- /collapsible -->
-
-		</div>
 
 		</mobile:content>
 		
