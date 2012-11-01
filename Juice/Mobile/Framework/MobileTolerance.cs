@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace Juice.Mobile.Framework {
+using Juice.Mobile.Framework;
 
-	[TypeConverter(typeof(TypeConverters.MobileToleranceConverter))]
+namespace Juice.Mobile {
+
+	[TypeConverter(typeof(Juice.Mobile.Framework.TypeConverters.MobileToleranceConverter))]
 	public class MobileTolerance {
 
 		public MobileTolerance() { }

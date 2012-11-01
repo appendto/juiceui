@@ -41,6 +41,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\JuiceUI.XML</DocumentationFile>
+    <NoWarn>1591,1592,1573,1571,1570,1572</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -122,6 +123,29 @@
     <Compile Include="Mvc\DataTypes\ButtonList.cs" />
     <Compile Include="Mvc\Accordion.cs" />
     <Compile Include="Mvc\AccordionIcons.cs" />
+    <Compile Include="Mvc\Mobile\Anchor.cs" />
+    <Compile Include="Mvc\Mobile\Button.cs" />
+    <Compile Include="Mvc\Mobile\Checkbox.cs" />
+    <Compile Include="Mvc\Mobile\Collapsible.cs" />
+    <Compile Include="Mvc\Mobile\CollapsibleSet.cs" />
+    <Compile Include="Mvc\Mobile\Content.cs" />
+    <Compile Include="Mvc\Mobile\ControlGroup.cs" />
+    <Compile Include="Mvc\Mobile\Dialog.cs" />
+    <Compile Include="Mvc\Mobile\FieldContainer.cs" />
+    <Compile Include="Mvc\Mobile\FlipToggle.cs" />
+    <Compile Include="Mvc\Mobile\Footer.cs" />
+    <Compile Include="Mvc\Mobile\Framework\JuiceMobileWidget.cs" />
+    <Compile Include="Mvc\Mobile\Framework\MobileHelpers.cs" />
+    <Compile Include="Mvc\Mobile\Header.cs" />
+    <Compile Include="Mvc\Mobile\Listview.cs" />
+    <Compile Include="Mvc\Mobile\Navbar.cs" />
+    <Compile Include="Mvc\Mobile\Page.cs" />
+    <Compile Include="Mvc\Mobile\Popup.cs" />
+    <Compile Include="Mvc\Mobile\PopupAnchor.cs" />
+    <Compile Include="Mvc\Mobile\RadioButton.cs" />
+    <Compile Include="Mvc\Mobile\Select.cs" />
+    <Compile Include="Mvc\Mobile\Slider.cs" />
+    <Compile Include="Mvc\Mobile\Textbox.cs" />
     <Compile Include="Mvc\Tabs.cs" />
     <Compile Include="Mvc\DataTypes\PositionOptions.cs" />
     <Compile Include="Mvc\DataTypes\MenuIcons.cs" />

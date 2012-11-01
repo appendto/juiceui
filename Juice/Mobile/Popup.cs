@@ -69,6 +69,6 @@ namespace Juice.Mobile {
 		[DefaultValue(null)]
 		[Description("Sets the minimum distance from the edge of the window for the corresponding edge of the popup. By default, the values above will be used for the distance from the top, right, bottom, and left edge of the window, respectively.")]
 		[TypeConverter(typeof(Juice.Mobile.Framework.TypeConverters.MobileToleranceConverter))]
-		public Juice.Mobile.Framework.MobileTolerance Tolerance { get; set; }
+		public Juice.Mobile.MobileTolerance Tolerance { get; set; }
 	}
 }

@@ -25,7 +25,7 @@ namespace Juice.Mvc {
 		protected String _widgetName = String.Empty;
 		private Boolean _disposing = false;
 
-		private Dictionary<String, Member> _options = new Dictionary<String, Member>();
+		protected Dictionary<String, Member> _options = new Dictionary<String, Member>();
 
 		protected const string _script = "$(function(){{\n\t\t{0}\n\t}});";
 		protected const string _initScript = "$(\"{0}\").{1}({2});";
@@ -56,7 +56,7 @@ namespace Juice.Mvc {
 			}
 		}
 
-		internal void SetCoreOptions(String elementId, String target) {
+		internal virtual void SetCoreOptions(String elementId, String target) {
 			
 			// didn't specify an id or target selector? you'll take a silly id and like it, mister!
 			if(String.IsNullOrEmpty(elementId) && String.IsNullOrEmpty(target)) {

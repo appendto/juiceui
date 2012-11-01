@@ -45,11 +45,13 @@ namespace Juice.Mvc {
 
 	public partial class JuiceHelpers {
 
-		private static HtmlHelper _helper;
+		protected HtmlHelper _helper;
 
 		public JuiceHelpers(HtmlHelper helper) {
 			_helper = helper;
 		}
+
+		public HtmlHelper Helper { get { return _helper; } }
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		internal static MethodBase GetCallingMethod() {
