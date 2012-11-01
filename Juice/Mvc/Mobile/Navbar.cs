@@ -36,7 +36,10 @@ namespace Juice.Mvc.Mobile {
 
 	public class NavbarWidget : JuiceMobileWidget<NavbarWidget>, IDisposable {
 
+		private List<HelperResult> _items = new List<HelperResult>();
+
 		public NavbarWidget(HtmlHelper helper) : base(helper, "navbar") {
+			
 			_optionsMap = new Dictionary<String, String> {
 				{ "icon", "icon" },
 				{ "iconpos", "iconpos" },
@@ -52,6 +55,34 @@ namespace Juice.Mvc.Mobile {
 			);
 
 			return this;
+		}
+
+		public NavbarWidget AddItem(Func<NavbarWidget, HelperResult> content) {
+
+			HelperResult res = content(this);
+
+			_items.Add(res);
+
+			return this;
+		}
+
+		public override void RenderStart() {
+			base.RenderStart();
+
+			_writer.WriteFullBeginTag("ul");
+
+			foreach(var item in _items) {
+
+				_writer.WriteBeginTag("li");
+				_writer.Write(System.Web.UI.HtmlTextWriter.TagRightChar);
+
+				_writer.Write(item.ToHtmlString());
+
+				_writer.WriteEndTag("li");
+			}
+
+			_writer.WriteEndTag("ul");
+			
 		}
 
 	}
