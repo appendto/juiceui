@@ -58,5 +58,12 @@ namespace Juice.Mvc.Mobile {
 			_writer.WriteAttribute("type", "checkbox");
 		}
 
+		public override void Render() {
+			base.Render();
+
+			if(_content != null) {
+				base.RenderEnd();
+			}
+		}
 	}
 }

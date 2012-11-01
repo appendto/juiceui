@@ -18,7 +18,7 @@ namespace Juice.Mvc.Mobile {
 		/// <param name="trackTheme">Sets the color scheme (swatch) for the slider's track, specifically. It accepts a single letter from a-z that maps to one of the swatches included in your theme.</param>,
 		/// <param name="theme">Defines the theme swatch letter (a-z)</param>
 		/// <returns>FlipToggleWidget</returns>
-		public FlipToggleWidget BeginFlipToggle(String elementId = "", Boolean mini = false, String trackTheme = null, String theme = null) {
+		public FlipToggleWidget FlipToggle(String elementId = "", Boolean mini = false, String trackTheme = null, String theme = null) {
 			var widget = new FlipToggleWidget(_helper);
 
 			widget.SetCoreOptions(elementId, null);
@@ -26,13 +26,6 @@ namespace Juice.Mvc.Mobile {
 
 			return widget;
 		}
-
-		public HelperResult EndFlipToggle() {
-			return new HelperResult(writer => {
-				(new FlipToggleWidget(_helper)).RenderEnd(writer);
-			});
-		}
-
 	}
 
 	public class FlipToggleWidget : JuiceMobileWidget<FlipToggleWidget>, IDisposable {
@@ -53,6 +46,17 @@ namespace Juice.Mvc.Mobile {
 			);
 
 			return this;
+		}
+
+		internal override System.Web.UI.HtmlTextWriterTag Tag {
+			get {
+				return System.Web.UI.HtmlTextWriterTag.Select;
+			}
+		}
+
+		public override void Render() {
+			base.Render();
+			base.RenderEnd();
 		}
 
 	}

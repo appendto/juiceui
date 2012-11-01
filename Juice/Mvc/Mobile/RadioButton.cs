@@ -57,5 +57,13 @@ namespace Juice.Mvc.Mobile {
 			_writer.WriteAttribute("type", "radio");
 		}
 
+		public override void Render() {
+			base.Render();
+
+			if(_content != null) {
+				base.RenderEnd();
+			}
+		}
+
 	}
 }
