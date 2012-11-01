@@ -257,6 +257,12 @@
     <Content Include="Areas\Mobile\Views\Dialogs\Index.cshtml" />
     <Content Include="Areas\Mobile\Views\_ViewStart.cshtml" />
     <None Include="fonts\bebas_neue\BebasNeue-webfont.svg" />
+    <Content Include="data\dialog-alt.html" />
+    <Content Include="data\dialog-buttons.html" />
+    <Content Include="data\dialog-overlay.html" />
+    <Content Include="data\dialog-success.html" />
+    <Content Include="data\dialog-with-select.html" />
+    <Content Include="data\dialog.html" />
     <Content Include="fonts\bebas_neue\Dharma Type Font License.txt" />
     <Content Include="fonts\bebas_neue\stylesheet.css" />
     <Content Include="fonts\junction\Creative Commons Attribution Share Alike License.txt" />
