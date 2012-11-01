@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.ComponentModel;
 using System.Text;
+using System.Web;
+using System.Web.UI;
 
 using Juice.Framework;
 
 namespace Juice.Mobile {
 
 	//A heading and content wrapped in a container with the data-role="collapsible"
+	[ParseChildren(false)]
 	public class Collapsible : ThemeControlBase {
 
-		public Collapsible() : base("collapsable") {
+		public Collapsible() : base("collapsible") {
 
 		}
 		
