@@ -19,7 +19,7 @@ namespace Juice.Mobile
 	[TargetControlType(typeof(HtmlAnchor))]
 	[TargetControlType(typeof(HtmlButton))]
 	[TargetControlType(typeof(HtmlInputButton))]
-	[TargetControlType(typeof(Button))]
+	[TargetControlType(typeof(System.Web.UI.WebControls.Button))]
 	[TargetControlType(typeof(LinkButton))]
 	public class Button : LinkBase
 	{
