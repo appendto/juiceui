@@ -20,7 +20,7 @@ namespace Juice {
 	[TargetControlType(typeof(HtmlGenericControl))] // supporting HtmlGenericControl to allow people to use on <div runat="server"/>
 	[TargetControlType(typeof(HtmlButton))]
 	[TargetControlType(typeof(HtmlInputButton))]
-	[TargetControlType(typeof(Button))]
+	[TargetControlType(typeof(System.Web.UI.WebControls.Button))]
 	[TargetControlType(typeof(LinkButton))]
 	[WidgetEvent("create")]
 	public class Button : JuiceExtender {
